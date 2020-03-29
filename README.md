@@ -72,7 +72,7 @@ WebInterface Yes
 Then go to `https://$cups_ip:631/admin`, login and setup your printer(s).
 
 #### Automated through files
-This can be combined with the webinterface:
+This is easiest combined with the webinterface:
 1. setup your printer through the webinterface or `lpadmin` and test it
 2. take the `printers.conf` and `.ppd` files from the container and automate it
  
@@ -114,6 +114,12 @@ https://github.com/DrPsychick/docker-cups-airprint/issues
   * ssl config
   * per printer: name, location, description, device URI, URL for PPD or model
     * `lpadmin` command (without `.ppd`)
+* [ ] make it configurable through ENV incl. `.ppd` support (binary file) - how?
+  * background: it would be great if I did not have to create my own image just to configure my printer...
+  * Options:
+    * mount directory -> requires users to setup persistent storage...
+    * install printer on every startup with `lpadmin` -> nice idea!
+    * through ENV (one line, BASE64 encoded?) -> veeery ugly
 * [ ] fix SSL: #1
 * [ ] cleanup and create proper documentation
 * [ ] How to get `.ppd` directly for your printer?
