@@ -1,0 +1,5129 @@
+*PPD-Adobe: "4.3"
+*% PPD file for CUPS/Gutenprint.
+*% Copyright 1993-2008 by Mike Sweet and Robert Krawitz.
+*% This program is free software; you can redistribute it and/or
+*% modify it under the terms of the GNU General Public License,
+*% either version 2, or (at your option) any later version,
+*% as published by the Free Software Foundation.
+*%
+*% This program is distributed in the hope that it will be useful, but
+*% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+*% or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+*% for more details.
+*%
+*% You should have received a copy of the GNU General Public License
+*% along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*%
+*FormatVersion:	"4.3"
+*FileVersion:	"5.3.1"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName:	"STP01545.PPD"
+*Manufacturer:	"Epson"
+*Product:	"(Epson Stylus Photo RX620)"
+*ModelName:     "Epson Stylus Photo RX620"
+*ShortNickName: "Epson Stylus Photo RX620"
+*NickName:      "Epson Stylus Photo RX620 - CUPS+Gutenprint v5.3.1"
+*PSVersion:	"(3010.000) 0"
+*LanguageLevel:	"3"
+*ColorDevice:	True
+*DefaultColorSpace:	RGB
+*cupsManualCopies: True
+*FileSystem:	False
+*LandscapeOrientation: Plus90
+*TTRasterizer:	Type42
+*cupsVersion:	1.2
+*cupsFilter:	"application/vnd.cups-raster 100 rastertogutenprint.5.3"
+*cupsFilter:	"application/vnd.cups-command 33 commandtoepson"
+*1284DeviceID: "MFG:EPSON;MDL:Stylus Photo RX620;DES:EPSON Stylus Photo RX620;CMD:ESCPL2,BDC,D4;"
+*cupsLanguages: "ca cs da de el en_GB es fi fr gl hu it ja nb nl pl pt ru sk sl sv tr uk vi zh_CN zh_TW"
+
+*StpDriverName:	"escp2-rx620"
+*StpDriverModelFamily:	"84_escp2"
+*StpPPDLocation: "/usr/share/cups/model/gutenprint/5.3/C/ppd/stp-escp2-rx620.5.3.ppd"
+*StpLocale:	"C"
+*VariablePaperSize: true
+
+*OpenUI *PageSize/Media Size: PickOne
+*OPOptionHints PageSize: "dropdown"
+*OrderDependency: 10 AnySetup *PageSize
+*StpStpPageSize: 0 1 2 0 255 0.000 0.000 0.000
+*DefaultPageSize: A4
+*StpDefaultPageSize: Letter
+*PageSize Letter/Letter:	"<</PageSize[612.000 792.000]/ImagingBBox null>>setpagedevice"
+*PageSize Legal/Legal:	"<</PageSize[612.000 1008.000]/ImagingBBox null>>setpagedevice"
+*PageSize Executive/Executive:	"<</PageSize[522.000 756.000]/ImagingBBox null>>setpagedevice"
+*PageSize Postcard/Postcard:	"<</PageSize[283.000 416.000]/ImagingBBox null>>setpagedevice"
+*PageSize CD5Inch/CD - 5 inch:	"<</PageSize[329.000 329.000]/ImagingBBox null>>setpagedevice"
+*PageSize CD3Inch/CD - 3 inch:	"<</PageSize[184.000 184.000]/ImagingBBox null>>setpagedevice"
+*PageSize CDCustom/CD - Custom:	"<</PageSize[340.000 340.000]/ImagingBBox null>>setpagedevice"
+*PageSize w216h360/3x5:	"<</PageSize[216.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageSize w252h360/3 1/2 x5:	"<</PageSize[252.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageSize w252h360J/L:	"<</PageSize[252.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageSize w144h432/2x6:	"<</PageSize[144.000 432.000]/ImagingBBox null>>setpagedevice"
+*PageSize w288h432/4x6:	"<</PageSize[288.000 432.000]/ImagingBBox null>>setpagedevice"
+*PageSize w288h432J/KG:	"<</PageSize[288.000 432.000]/ImagingBBox null>>setpagedevice"
+*PageSize w324h495/Epson 4x6 Photo Paper (tear-off borders):	"<</PageSize[324.000 495.000]/ImagingBBox null>>setpagedevice"
+*PageSize w297h421/Epson L Photo Paper (tear-off borders):	"<</PageSize[297.000 421.000]/ImagingBBox null>>setpagedevice"
+*PageSize w288h576/4x8:	"<</PageSize[288.000 576.000]/ImagingBBox null>>setpagedevice"
+*PageSize w360h504/5x7:	"<</PageSize[360.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageSize w360h504J/2L:	"<</PageSize[360.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageSize w360h576/5x8:	"<</PageSize[360.000 576.000]/ImagingBBox null>>setpagedevice"
+*PageSize w432h576/6x8:	"<</PageSize[432.000 576.000]/ImagingBBox null>>setpagedevice"
+*PageSize w432h648/6x9:	"<</PageSize[432.000 648.000]/ImagingBBox null>>setpagedevice"
+*PageSize c8x10/8x10:	"<</PageSize[576.000 720.000]/ImagingBBox null>>setpagedevice"
+*PageSize c8x10J/Rokukire:	"<</PageSize[576.000 720.000]/ImagingBBox null>>setpagedevice"
+*PageSize Statement/Manual:	"<</PageSize[396.000 612.000]/ImagingBBox null>>setpagedevice"
+*PageSize w360h360/5x5:	"<</PageSize[360.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageSize w576h864/8x12:	"<</PageSize[576.000 864.000]/ImagingBBox null>>setpagedevice"
+*PageSize A4/A4:	"<</PageSize[595.000 842.000]/ImagingBBox null>>setpagedevice"
+*PageSize A5/A5:	"<</PageSize[420.000 595.000]/ImagingBBox null>>setpagedevice"
+*PageSize A6/A6:	"<</PageSize[297.000 420.000]/ImagingBBox null>>setpagedevice"
+*PageSize A7/A7:	"<</PageSize[210.000 297.000]/ImagingBBox null>>setpagedevice"
+*PageSize A8/A8:	"<</PageSize[148.000 210.000]/ImagingBBox null>>setpagedevice"
+*PageSize w609h864/RA4:	"<</PageSize[609.000 864.000]/ImagingBBox null>>setpagedevice"
+*PageSize ISOB5/B5 ISO:	"<</PageSize[498.000 708.000]/ImagingBBox null>>setpagedevice"
+*PageSize ISOB6/B6 ISO:	"<</PageSize[354.000 498.000]/ImagingBBox null>>setpagedevice"
+*PageSize ISOB7/B7 ISO:	"<</PageSize[249.000 354.000]/ImagingBBox null>>setpagedevice"
+*PageSize ISOB8/B8 ISO:	"<</PageSize[175.000 249.000]/ImagingBBox null>>setpagedevice"
+*PageSize B5/B5 JIS:	"<</PageSize[518.000 727.000]/ImagingBBox null>>setpagedevice"
+*PageSize B6/B6 JIS:	"<</PageSize[362.000 518.000]/ImagingBBox null>>setpagedevice"
+*PageSize B7/B7 JIS:	"<</PageSize[257.000 362.000]/ImagingBBox null>>setpagedevice"
+*PageSize B8/B8 JIS:	"<</PageSize[180.000 257.000]/ImagingBBox null>>setpagedevice"
+*PageSize C5/C5:	"<</PageSize[459.000 649.000]/ImagingBBox null>>setpagedevice"
+*PageSize w354h918/B6-C4:	"<</PageSize[354.000 918.000]/ImagingBBox null>>setpagedevice"
+*PageSize C6/C6:	"<</PageSize[323.000 459.000]/ImagingBBox null>>setpagedevice"
+*PageSize DL/DL:	"<</PageSize[311.000 623.000]/ImagingBBox null>>setpagedevice"
+*PageSize w229h459/C7-6:	"<</PageSize[229.000 459.000]/ImagingBBox null>>setpagedevice"
+*PageSize C7/C7:	"<</PageSize[229.000 323.000]/ImagingBBox null>>setpagedevice"
+*PageSize C8/C8:	"<</PageSize[161.000 229.000]/ImagingBBox null>>setpagedevice"
+*PageSize EA5/EA5:	"<</PageSize[442.000 649.000]/ImagingBBox null>>setpagedevice"
+*PageSize w612h936/American foolscap:	"<</PageSize[612.000 936.000]/ImagingBBox null>>setpagedevice"
+*PageSize w535h697/Crown Quarto:	"<</PageSize[535.000 697.000]/ImagingBBox null>>setpagedevice"
+*PageSize w569h731/Large Crown Quarto:	"<</PageSize[569.000 731.000]/ImagingBBox null>>setpagedevice"
+*PageSize w348h527/Crown Octavo:	"<</PageSize[348.000 527.000]/ImagingBBox null>>setpagedevice"
+*PageSize w365h561/Large Crown Octavo:	"<</PageSize[365.000 561.000]/ImagingBBox null>>setpagedevice"
+*PageSize w391h612/Demy Octavo:	"<</PageSize[391.000 612.000]/ImagingBBox null>>setpagedevice"
+*PageSize w442h663/Royal Octavo:	"<</PageSize[442.000 663.000]/ImagingBBox null>>setpagedevice"
+*PageSize w314h504/Small paperback:	"<</PageSize[314.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageSize w314h513/Penguin small paperback:	"<</PageSize[314.000 513.000]/ImagingBBox null>>setpagedevice"
+*PageSize cw365h561/Penguin large paperback:	"<</PageSize[365.000 561.000]/ImagingBBox null>>setpagedevice"
+*PageSize w283h425/10cm x 15cm:	"<</PageSize[283.000 425.000]/ImagingBBox null>>setpagedevice"
+*PageSize w283h420/Hagaki Card:	"<</PageSize[283.000 420.000]/ImagingBBox null>>setpagedevice"
+*PageSize w420h567/Oufuku Card:	"<</PageSize[420.000 567.000]/ImagingBBox null>>setpagedevice"
+*PageSize w340h666/Japanese long envelope #3:	"<</PageSize[340.000 666.000]/ImagingBBox null>>setpagedevice"
+*PageSize w255h581/Japanese long envelope #4:	"<</PageSize[255.000 581.000]/ImagingBBox null>>setpagedevice"
+*PageSize w297h666/Japanese Western-style envelope #4:	"<</PageSize[297.000 666.000]/ImagingBBox null>>setpagedevice"
+*PageSize w277h538/Japanese Western-style envelope #6:	"<</PageSize[277.000 538.000]/ImagingBBox null>>setpagedevice"
+*PageSize COM10/Commercial 10:	"<</PageSize[297.000 684.000]/ImagingBBox null>>setpagedevice"
+*PageSize w315h414/A2 Invitation:	"<</PageSize[315.000 414.000]/ImagingBBox null>>setpagedevice"
+*PageSize Monarch/Monarch Envelope:	"<</PageSize[279.000 540.000]/ImagingBBox null>>setpagedevice"
+*PageSize w288h387/4x5 3/8:	"<</PageSize[288.000 387.000]/ImagingBBox null>>setpagedevice"
+*PageSize w288h504/4x7:	"<</PageSize[288.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageSize w288h512/Wide 101.6x180.6:	"<</PageSize[288.000 512.000]/ImagingBBox null>>setpagedevice"
+*PageSize w253h337/CP_L:	"<</PageSize[253.000 337.000]/ImagingBBox null>>setpagedevice"
+*PageSize w155h244/Credit Card:	"<</PageSize[155.000 244.000]/ImagingBBox null>>setpagedevice"
+*PageSize w155h257/Japanese Business Card:	"<</PageSize[155.000 257.000]/ImagingBBox null>>setpagedevice"
+*PageSize w283h566/Wide Postcard:	"<</PageSize[283.000 566.000]/ImagingBBox null>>setpagedevice"
+*PageSize w612h935/Chilean Office:	"<</PageSize[612.000 935.000]/ImagingBBox null>>setpagedevice"
+*PageSize LegalIndia/Legal (India):	"<</PageSize[609.000 978.000]/ImagingBBox null>>setpagedevice"
+*PageSize Oficio/Oficio:	"<</PageSize[612.000 900.000]/ImagingBBox null>>setpagedevice"
+*PageSize B-Oficio/ Brazil Oficio:	"<</PageSize[612.000 1006.000]/ImagingBBox null>>setpagedevice"
+*PageSize M-Oficio/Mexico Oficio:	"<</PageSize[612.000 966.000]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion/Media Size: PickOne
+*OPOptionHints PageRegion: "dropdown"
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: A4
+*StpDefaultPageRegion: Letter
+*PageRegion Letter/Letter:	"<</PageSize[612.000 792.000]/ImagingBBox null>>setpagedevice"
+*PageRegion Legal/Legal:	"<</PageSize[612.000 1008.000]/ImagingBBox null>>setpagedevice"
+*PageRegion Executive/Executive:	"<</PageSize[522.000 756.000]/ImagingBBox null>>setpagedevice"
+*PageRegion Postcard/Postcard:	"<</PageSize[283.000 416.000]/ImagingBBox null>>setpagedevice"
+*PageRegion CD5Inch/CD - 5 inch:	"<</PageSize[329.000 329.000]/ImagingBBox null>>setpagedevice"
+*PageRegion CD3Inch/CD - 3 inch:	"<</PageSize[184.000 184.000]/ImagingBBox null>>setpagedevice"
+*PageRegion CDCustom/CD - Custom:	"<</PageSize[340.000 340.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w216h360/3x5:	"<</PageSize[216.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w252h360/3 1/2 x5:	"<</PageSize[252.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w252h360J/L:	"<</PageSize[252.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w144h432/2x6:	"<</PageSize[144.000 432.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w288h432/4x6:	"<</PageSize[288.000 432.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w288h432J/KG:	"<</PageSize[288.000 432.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w324h495/Epson 4x6 Photo Paper (tear-off borders):	"<</PageSize[324.000 495.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w297h421/Epson L Photo Paper (tear-off borders):	"<</PageSize[297.000 421.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w288h576/4x8:	"<</PageSize[288.000 576.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w360h504/5x7:	"<</PageSize[360.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w360h504J/2L:	"<</PageSize[360.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w360h576/5x8:	"<</PageSize[360.000 576.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w432h576/6x8:	"<</PageSize[432.000 576.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w432h648/6x9:	"<</PageSize[432.000 648.000]/ImagingBBox null>>setpagedevice"
+*PageRegion c8x10/8x10:	"<</PageSize[576.000 720.000]/ImagingBBox null>>setpagedevice"
+*PageRegion c8x10J/Rokukire:	"<</PageSize[576.000 720.000]/ImagingBBox null>>setpagedevice"
+*PageRegion Statement/Manual:	"<</PageSize[396.000 612.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w360h360/5x5:	"<</PageSize[360.000 360.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w576h864/8x12:	"<</PageSize[576.000 864.000]/ImagingBBox null>>setpagedevice"
+*PageRegion A4/A4:	"<</PageSize[595.000 842.000]/ImagingBBox null>>setpagedevice"
+*PageRegion A5/A5:	"<</PageSize[420.000 595.000]/ImagingBBox null>>setpagedevice"
+*PageRegion A6/A6:	"<</PageSize[297.000 420.000]/ImagingBBox null>>setpagedevice"
+*PageRegion A7/A7:	"<</PageSize[210.000 297.000]/ImagingBBox null>>setpagedevice"
+*PageRegion A8/A8:	"<</PageSize[148.000 210.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w609h864/RA4:	"<</PageSize[609.000 864.000]/ImagingBBox null>>setpagedevice"
+*PageRegion ISOB5/B5 ISO:	"<</PageSize[498.000 708.000]/ImagingBBox null>>setpagedevice"
+*PageRegion ISOB6/B6 ISO:	"<</PageSize[354.000 498.000]/ImagingBBox null>>setpagedevice"
+*PageRegion ISOB7/B7 ISO:	"<</PageSize[249.000 354.000]/ImagingBBox null>>setpagedevice"
+*PageRegion ISOB8/B8 ISO:	"<</PageSize[175.000 249.000]/ImagingBBox null>>setpagedevice"
+*PageRegion B5/B5 JIS:	"<</PageSize[518.000 727.000]/ImagingBBox null>>setpagedevice"
+*PageRegion B6/B6 JIS:	"<</PageSize[362.000 518.000]/ImagingBBox null>>setpagedevice"
+*PageRegion B7/B7 JIS:	"<</PageSize[257.000 362.000]/ImagingBBox null>>setpagedevice"
+*PageRegion B8/B8 JIS:	"<</PageSize[180.000 257.000]/ImagingBBox null>>setpagedevice"
+*PageRegion C5/C5:	"<</PageSize[459.000 649.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w354h918/B6-C4:	"<</PageSize[354.000 918.000]/ImagingBBox null>>setpagedevice"
+*PageRegion C6/C6:	"<</PageSize[323.000 459.000]/ImagingBBox null>>setpagedevice"
+*PageRegion DL/DL:	"<</PageSize[311.000 623.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w229h459/C7-6:	"<</PageSize[229.000 459.000]/ImagingBBox null>>setpagedevice"
+*PageRegion C7/C7:	"<</PageSize[229.000 323.000]/ImagingBBox null>>setpagedevice"
+*PageRegion C8/C8:	"<</PageSize[161.000 229.000]/ImagingBBox null>>setpagedevice"
+*PageRegion EA5/EA5:	"<</PageSize[442.000 649.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w612h936/American foolscap:	"<</PageSize[612.000 936.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w535h697/Crown Quarto:	"<</PageSize[535.000 697.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w569h731/Large Crown Quarto:	"<</PageSize[569.000 731.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w348h527/Crown Octavo:	"<</PageSize[348.000 527.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w365h561/Large Crown Octavo:	"<</PageSize[365.000 561.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w391h612/Demy Octavo:	"<</PageSize[391.000 612.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w442h663/Royal Octavo:	"<</PageSize[442.000 663.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w314h504/Small paperback:	"<</PageSize[314.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w314h513/Penguin small paperback:	"<</PageSize[314.000 513.000]/ImagingBBox null>>setpagedevice"
+*PageRegion cw365h561/Penguin large paperback:	"<</PageSize[365.000 561.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w283h425/10cm x 15cm:	"<</PageSize[283.000 425.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w283h420/Hagaki Card:	"<</PageSize[283.000 420.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w420h567/Oufuku Card:	"<</PageSize[420.000 567.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w340h666/Japanese long envelope #3:	"<</PageSize[340.000 666.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w255h581/Japanese long envelope #4:	"<</PageSize[255.000 581.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w297h666/Japanese Western-style envelope #4:	"<</PageSize[297.000 666.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w277h538/Japanese Western-style envelope #6:	"<</PageSize[277.000 538.000]/ImagingBBox null>>setpagedevice"
+*PageRegion COM10/Commercial 10:	"<</PageSize[297.000 684.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w315h414/A2 Invitation:	"<</PageSize[315.000 414.000]/ImagingBBox null>>setpagedevice"
+*PageRegion Monarch/Monarch Envelope:	"<</PageSize[279.000 540.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w288h387/4x5 3/8:	"<</PageSize[288.000 387.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w288h504/4x7:	"<</PageSize[288.000 504.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w288h512/Wide 101.6x180.6:	"<</PageSize[288.000 512.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w253h337/CP_L:	"<</PageSize[253.000 337.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w155h244/Credit Card:	"<</PageSize[155.000 244.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w155h257/Japanese Business Card:	"<</PageSize[155.000 257.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w283h566/Wide Postcard:	"<</PageSize[283.000 566.000]/ImagingBBox null>>setpagedevice"
+*PageRegion w612h935/Chilean Office:	"<</PageSize[612.000 935.000]/ImagingBBox null>>setpagedevice"
+*PageRegion LegalIndia/Legal (India):	"<</PageSize[609.000 978.000]/ImagingBBox null>>setpagedevice"
+*PageRegion Oficio/Oficio:	"<</PageSize[612.000 900.000]/ImagingBBox null>>setpagedevice"
+*PageRegion B-Oficio/ Brazil Oficio:	"<</PageSize[612.000 1006.000]/ImagingBBox null>>setpagedevice"
+*PageRegion M-Oficio/Mexico Oficio:	"<</PageSize[612.000 966.000]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+
+*DefaultImageableArea: A4
+*StpDefaultImageableArea: Letter
+*ImageableArea Letter/Letter:	"0.000 0.000 612.000 792.000"
+*ImageableArea Legal/Legal:	"0.000 0.000 612.000 1008.000"
+*ImageableArea Executive/Executive:	"0.000 0.000 522.000 756.000"
+*ImageableArea Postcard/Postcard:	"0.000 0.000 283.000 416.000"
+*ImageableArea CD5Inch/CD - 5 inch:	"0.000 0.000 329.000 329.000"
+*ImageableArea CD3Inch/CD - 3 inch:	"0.000 0.000 184.000 184.000"
+*ImageableArea CDCustom/CD - Custom:	"0.000 0.000 340.000 340.000"
+*ImageableArea w216h360/3x5:	"0.000 0.000 216.000 360.000"
+*ImageableArea w252h360/3 1/2 x5:	"0.000 0.000 252.000 360.000"
+*ImageableArea w252h360J/L:	"0.000 0.000 252.000 360.000"
+*ImageableArea w144h432/2x6:	"0.000 0.000 144.000 432.000"
+*ImageableArea w288h432/4x6:	"0.000 0.000 288.000 432.000"
+*ImageableArea w288h432J/KG:	"0.000 0.000 288.000 432.000"
+*ImageableArea w324h495/Epson 4x6 Photo Paper (tear-off borders):	"18.000 45.000 306.000 477.000"
+*ImageableArea w297h421/Epson L Photo Paper (tear-off borders):	"22.000 43.000 275.000 404.000"
+*ImageableArea w288h576/4x8:	"0.000 0.000 288.000 576.000"
+*ImageableArea w360h504/5x7:	"0.000 0.000 360.000 504.000"
+*ImageableArea w360h504J/2L:	"0.000 0.000 360.000 504.000"
+*ImageableArea w360h576/5x8:	"0.000 0.000 360.000 576.000"
+*ImageableArea w432h576/6x8:	"0.000 0.000 432.000 576.000"
+*ImageableArea w432h648/6x9:	"0.000 0.000 432.000 648.000"
+*ImageableArea c8x10/8x10:	"0.000 0.000 576.000 720.000"
+*ImageableArea c8x10J/Rokukire:	"0.000 0.000 576.000 720.000"
+*ImageableArea Statement/Manual:	"0.000 0.000 396.000 612.000"
+*ImageableArea w360h360/5x5:	"0.000 0.000 360.000 360.000"
+*ImageableArea w576h864/8x12:	"0.000 0.000 576.000 864.000"
+*ImageableArea A4/A4:	"0.000 0.000 595.000 842.000"
+*ImageableArea A5/A5:	"0.000 0.000 420.000 595.000"
+*ImageableArea A6/A6:	"0.000 0.000 297.000 420.000"
+*ImageableArea A7/A7:	"0.000 0.000 210.000 297.000"
+*ImageableArea A8/A8:	"0.000 0.000 148.000 210.000"
+*ImageableArea w609h864/RA4:	"0.000 0.000 609.000 864.000"
+*ImageableArea ISOB5/B5 ISO:	"0.000 0.000 498.000 708.000"
+*ImageableArea ISOB6/B6 ISO:	"0.000 0.000 354.000 498.000"
+*ImageableArea ISOB7/B7 ISO:	"0.000 0.000 249.000 354.000"
+*ImageableArea ISOB8/B8 ISO:	"0.000 0.000 175.000 249.000"
+*ImageableArea B5/B5 JIS:	"0.000 0.000 518.000 727.000"
+*ImageableArea B6/B6 JIS:	"0.000 0.000 362.000 518.000"
+*ImageableArea B7/B7 JIS:	"0.000 0.000 257.000 362.000"
+*ImageableArea B8/B8 JIS:	"0.000 0.000 180.000 257.000"
+*ImageableArea C5/C5:	"0.000 0.000 459.000 649.000"
+*ImageableArea w354h918/B6-C4:	"0.000 0.000 354.000 918.000"
+*ImageableArea C6/C6:	"0.000 0.000 323.000 459.000"
+*ImageableArea DL/DL:	"0.000 0.000 311.000 623.000"
+*ImageableArea w229h459/C7-6:	"0.000 0.000 229.000 459.000"
+*ImageableArea C7/C7:	"0.000 0.000 229.000 323.000"
+*ImageableArea C8/C8:	"0.000 0.000 161.000 229.000"
+*ImageableArea EA5/EA5:	"0.000 0.000 442.000 649.000"
+*ImageableArea w612h936/American foolscap:	"0.000 0.000 612.000 936.000"
+*ImageableArea w535h697/Crown Quarto:	"0.000 0.000 535.000 697.000"
+*ImageableArea w569h731/Large Crown Quarto:	"0.000 0.000 569.000 731.000"
+*ImageableArea w348h527/Crown Octavo:	"0.000 0.000 348.000 527.000"
+*ImageableArea w365h561/Large Crown Octavo:	"0.000 0.000 365.000 561.000"
+*ImageableArea w391h612/Demy Octavo:	"0.000 0.000 391.000 612.000"
+*ImageableArea w442h663/Royal Octavo:	"0.000 0.000 442.000 663.000"
+*ImageableArea w314h504/Small paperback:	"0.000 0.000 314.000 504.000"
+*ImageableArea w314h513/Penguin small paperback:	"0.000 0.000 314.000 513.000"
+*ImageableArea cw365h561/Penguin large paperback:	"0.000 0.000 365.000 561.000"
+*ImageableArea w283h425/10cm x 15cm:	"0.000 0.000 283.000 425.000"
+*ImageableArea w283h420/Hagaki Card:	"0.000 0.000 283.000 420.000"
+*ImageableArea w420h567/Oufuku Card:	"0.000 0.000 420.000 567.000"
+*ImageableArea w340h666/Japanese long envelope #3:	"0.000 0.000 340.000 666.000"
+*ImageableArea w255h581/Japanese long envelope #4:	"0.000 0.000 255.000 581.000"
+*ImageableArea w297h666/Japanese Western-style envelope #4:	"0.000 0.000 297.000 666.000"
+*ImageableArea w277h538/Japanese Western-style envelope #6:	"0.000 0.000 277.000 538.000"
+*ImageableArea COM10/Commercial 10:	"0.000 0.000 297.000 684.000"
+*ImageableArea w315h414/A2 Invitation:	"0.000 0.000 315.000 414.000"
+*ImageableArea Monarch/Monarch Envelope:	"0.000 0.000 279.000 540.000"
+*ImageableArea w288h387/4x5 3/8:	"0.000 0.000 288.000 387.000"
+*ImageableArea w288h504/4x7:	"0.000 0.000 288.000 504.000"
+*ImageableArea w288h512/Wide 101.6x180.6:	"0.000 0.000 288.000 512.000"
+*ImageableArea w253h337/CP_L:	"0.000 0.000 253.000 337.000"
+*ImageableArea w155h244/Credit Card:	"0.000 0.000 155.000 244.000"
+*ImageableArea w155h257/Japanese Business Card:	"0.000 0.000 155.000 257.000"
+*ImageableArea w283h566/Wide Postcard:	"0.000 0.000 283.000 566.000"
+*ImageableArea w612h935/Chilean Office:	"0.000 0.000 612.000 935.000"
+*ImageableArea LegalIndia/Legal (India):	"0.000 0.000 609.000 978.000"
+*ImageableArea Oficio/Oficio:	"0.000 0.000 612.000 900.000"
+*ImageableArea B-Oficio/ Brazil Oficio:	"0.000 0.000 612.000 1006.000"
+*ImageableArea M-Oficio/Mexico Oficio:	"0.000 0.000 612.000 966.000"
+
+*DefaultPaperDimension: A4
+*StpDefaultPaperDimension: Letter
+*PaperDimension Letter/Letter:	"612.000 792.000"
+*PaperDimension Legal/Legal:	"612.000 1008.000"
+*PaperDimension Executive/Executive:	"522.000 756.000"
+*PaperDimension Postcard/Postcard:	"283.000 416.000"
+*PaperDimension CD5Inch/CD - 5 inch:	"329.000 329.000"
+*PaperDimension CD3Inch/CD - 3 inch:	"184.000 184.000"
+*PaperDimension CDCustom/CD - Custom:	"340.000 340.000"
+*PaperDimension w216h360/3x5:	"216.000 360.000"
+*PaperDimension w252h360/3 1/2 x5:	"252.000 360.000"
+*PaperDimension w252h360J/L:	"252.000 360.000"
+*PaperDimension w144h432/2x6:	"144.000 432.000"
+*PaperDimension w288h432/4x6:	"288.000 432.000"
+*PaperDimension w288h432J/KG:	"288.000 432.000"
+*PaperDimension w324h495/Epson 4x6 Photo Paper (tear-off borders):	"324.000 495.000"
+*PaperDimension w297h421/Epson L Photo Paper (tear-off borders):	"297.000 421.000"
+*PaperDimension w288h576/4x8:	"288.000 576.000"
+*PaperDimension w360h504/5x7:	"360.000 504.000"
+*PaperDimension w360h504J/2L:	"360.000 504.000"
+*PaperDimension w360h576/5x8:	"360.000 576.000"
+*PaperDimension w432h576/6x8:	"432.000 576.000"
+*PaperDimension w432h648/6x9:	"432.000 648.000"
+*PaperDimension c8x10/8x10:	"576.000 720.000"
+*PaperDimension c8x10J/Rokukire:	"576.000 720.000"
+*PaperDimension Statement/Manual:	"396.000 612.000"
+*PaperDimension w360h360/5x5:	"360.000 360.000"
+*PaperDimension w576h864/8x12:	"576.000 864.000"
+*PaperDimension A4/A4:	"595.000 842.000"
+*PaperDimension A5/A5:	"420.000 595.000"
+*PaperDimension A6/A6:	"297.000 420.000"
+*PaperDimension A7/A7:	"210.000 297.000"
+*PaperDimension A8/A8:	"148.000 210.000"
+*PaperDimension w609h864/RA4:	"609.000 864.000"
+*PaperDimension ISOB5/B5 ISO:	"498.000 708.000"
+*PaperDimension ISOB6/B6 ISO:	"354.000 498.000"
+*PaperDimension ISOB7/B7 ISO:	"249.000 354.000"
+*PaperDimension ISOB8/B8 ISO:	"175.000 249.000"
+*PaperDimension B5/B5 JIS:	"518.000 727.000"
+*PaperDimension B6/B6 JIS:	"362.000 518.000"
+*PaperDimension B7/B7 JIS:	"257.000 362.000"
+*PaperDimension B8/B8 JIS:	"180.000 257.000"
+*PaperDimension C5/C5:	"459.000 649.000"
+*PaperDimension w354h918/B6-C4:	"354.000 918.000"
+*PaperDimension C6/C6:	"323.000 459.000"
+*PaperDimension DL/DL:	"311.000 623.000"
+*PaperDimension w229h459/C7-6:	"229.000 459.000"
+*PaperDimension C7/C7:	"229.000 323.000"
+*PaperDimension C8/C8:	"161.000 229.000"
+*PaperDimension EA5/EA5:	"442.000 649.000"
+*PaperDimension w612h936/American foolscap:	"612.000 936.000"
+*PaperDimension w535h697/Crown Quarto:	"535.000 697.000"
+*PaperDimension w569h731/Large Crown Quarto:	"569.000 731.000"
+*PaperDimension w348h527/Crown Octavo:	"348.000 527.000"
+*PaperDimension w365h561/Large Crown Octavo:	"365.000 561.000"
+*PaperDimension w391h612/Demy Octavo:	"391.000 612.000"
+*PaperDimension w442h663/Royal Octavo:	"442.000 663.000"
+*PaperDimension w314h504/Small paperback:	"314.000 504.000"
+*PaperDimension w314h513/Penguin small paperback:	"314.000 513.000"
+*PaperDimension cw365h561/Penguin large paperback:	"365.000 561.000"
+*PaperDimension w283h425/10cm x 15cm:	"283.000 425.000"
+*PaperDimension w283h420/Hagaki Card:	"283.000 420.000"
+*PaperDimension w420h567/Oufuku Card:	"420.000 567.000"
+*PaperDimension w340h666/Japanese long envelope #3:	"340.000 666.000"
+*PaperDimension w255h581/Japanese long envelope #4:	"255.000 581.000"
+*PaperDimension w297h666/Japanese Western-style envelope #4:	"297.000 666.000"
+*PaperDimension w277h538/Japanese Western-style envelope #6:	"277.000 538.000"
+*PaperDimension COM10/Commercial 10:	"297.000 684.000"
+*PaperDimension w315h414/A2 Invitation:	"315.000 414.000"
+*PaperDimension Monarch/Monarch Envelope:	"279.000 540.000"
+*PaperDimension w288h387/4x5 3/8:	"288.000 387.000"
+*PaperDimension w288h504/4x7:	"288.000 504.000"
+*PaperDimension w288h512/Wide 101.6x180.6:	"288.000 512.000"
+*PaperDimension w253h337/CP_L:	"253.000 337.000"
+*PaperDimension w155h244/Credit Card:	"155.000 244.000"
+*PaperDimension w155h257/Japanese Business Card:	"155.000 257.000"
+*PaperDimension w283h566/Wide Postcard:	"283.000 566.000"
+*PaperDimension w612h935/Chilean Office:	"612.000 935.000"
+*PaperDimension LegalIndia/Legal (India):	"609.000 978.000"
+*PaperDimension Oficio/Oficio:	"612.000 900.000"
+*PaperDimension B-Oficio/ Brazil Oficio:	"612.000 1006.000"
+*PaperDimension M-Oficio/Mexico Oficio:	"612.000 966.000"
+
+*MaxMediaWidth:  "612.000"
+*MaxMediaHeight: "86400.000"
+*HWMargins:      0.000 0.000 0.000 0.000
+*CustomPageSize True: "pop pop pop <</PageSize[5 -2 roll]/ImagingBBox null>>setpagedevice"
+*ParamCustomPageSize Width:        1 points 144.000 612.000
+*ParamCustomPageSize Height:       2 points 144.000 86400.000
+*ParamCustomPageSize WidthOffset:  3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation:  5 int 0 0
+
+*ColorKeyWords: "ColorModel"
+*OpenUI *ColorModel/Color Model: PickOne
+*OPOptionHints ColorModel: "radiobuttons"
+*OrderDependency: 2 AnySetup *ColorModel
+*DefaultColorModel: RGB
+*StpDefaultColorModel: RGB
+*ColorModel Gray/Grayscale:	"<</cupsColorSpace 0/cupsColorOrder 0>>setpagedevice"
+*ColorModel Black/Inverted Grayscale:	"<</cupsColorSpace 3/cupsColorOrder 0>>setpagedevice"
+*ColorModel RGB/RGB Color:	"<</cupsColorSpace 1/cupsColorOrder 0>>setpagedevice"
+*ColorModel CMY/CMY Color:	"<</cupsColorSpace 4/cupsColorOrder 0>>setpagedevice"
+*ColorModel CMYK/CMYK:	"<</cupsColorSpace 6/cupsColorOrder 0>>setpagedevice"
+*ColorModel KCMY/KCMY:	"<</cupsColorSpace 8/cupsColorOrder 0>>setpagedevice"
+*CloseUI: *ColorModel
+
+*ColorKeyWords: "StpColorPrecision"
+*OpenUI *StpColorPrecision/Color Precision: PickOne
+*OPOptionHints StpColorPrecision: "radiobuttons"
+*OrderDependency: 1 AnySetup *StpColorPrecision
+*DefaultStpColorPrecision: Normal
+*StpDefaultStpColorPrecision: Normal
+*StpColorPrecision Normal/Normal:	"<</cupsBitsPerColor 8>>setpagedevice"
+*StpColorPrecision Best/Best:	"<</cupsBitsPerColor 8/cupsPreferredBitsPerColor 16>>setpagedevice"
+*CloseUI: *StpColorPrecision
+
+*ColorKeyWords: "MediaType"
+*OpenUI *MediaType/Media Type: PickOne
+*OPOptionHints MediaType: "dropdown"
+*OrderDependency: 10 AnySetup *MediaType
+*StpStpMediaType: 0 1 0 0 255 0.000 0.000 0.000
+*DefaultMediaType: Plain
+*StpDefaultMediaType: Plain
+*MediaType Plain/Plain Paper:	"<</MediaType(Plain)>>setpagedevice"
+*MediaType PlainFast/Plain Paper Fast Load:	"<</MediaType(PlainFast)>>setpagedevice"
+*MediaType Postcard/Postcard:	"<</MediaType(Postcard)>>setpagedevice"
+*MediaType GlossyFilm/Glossy Film:	"<</MediaType(GlossyFilm)>>setpagedevice"
+*MediaType Transparency/Transparencies:	"<</MediaType(Transparency)>>setpagedevice"
+*MediaType Envelope/Envelopes:	"<</MediaType(Envelope)>>setpagedevice"
+*MediaType BackFilm/Back Light Film:	"<</MediaType(BackFilm)>>setpagedevice"
+*MediaType Matte/Matte Paper:	"<</MediaType(Matte)>>setpagedevice"
+*MediaType MatteHeavy/Matte Paper Heavyweight:	"<</MediaType(MatteHeavy)>>setpagedevice"
+*MediaType Inkjet/Inkjet Paper:	"<</MediaType(Inkjet)>>setpagedevice"
+*MediaType Coated/Photo Quality Inkjet Paper:	"<</MediaType(Coated)>>setpagedevice"
+*MediaType Photo/Photo Paper:	"<</MediaType(Photo)>>setpagedevice"
+*MediaType GlossyPhoto/Premium Glossy Photo Paper:	"<</MediaType(GlossyPhoto)>>setpagedevice"
+*MediaType Semigloss/Premium Semigloss Photo Paper:	"<</MediaType(Semigloss)>>setpagedevice"
+*MediaType Luster/Premium Luster Photo Paper:	"<</MediaType(Luster)>>setpagedevice"
+*MediaType GlossyPaper/Photo Quality Glossy Paper:	"<</MediaType(GlossyPaper)>>setpagedevice"
+*MediaType Ilford/Ilford Heavy Paper:	"<</MediaType(Ilford)>>setpagedevice"
+*MediaType ColorLife/ColorLife Paper:	"<</MediaType(ColorLife)>>setpagedevice"
+*MediaType Other/Other:	"<</MediaType(Other)>>setpagedevice"
+*CloseUI: *MediaType
+
+*OpenUI *InputSlot/Media Source: PickOne
+*OPOptionHints InputSlot: "dropdown"
+*OrderDependency: 10 AnySetup *InputSlot
+*StpStpInputSlot: 0 1 0 0 255 0.000 0.000 0.000
+*DefaultInputSlot: Standard
+*StpDefaultInputSlot: Standard
+*InputSlot Standard/Standard:	"<</MediaClass(Standard)>>setpagedevice"
+*InputSlot Manual/Manual Feed:	"<</MediaClass(Manual)>>setpagedevice"
+*InputSlot CD/Print to CD:	"<</MediaClass(CD)>>setpagedevice"
+*InputSlot Roll/Roll Feed:	"<</MediaClass(Roll)>>setpagedevice"
+*CloseUI: *InputSlot
+
+*ColorKeyWords: "Quality"
+*OpenUI *StpQuality/Print Quality: PickOne
+*OPOptionHints Quality: "radiobuttons"
+*OrderDependency: 10 AnySetup *StpQuality
+*StpStpQuality: 0 1 0 0 255 0.000 0.000 0.000
+*DefaultStpQuality: Standard
+*StpDefaultStpQuality: Standard
+*StpQuality None/Manual Control:	"<</HWResolution[720 360]/cupsRowFeed 1>>setpagedevice"
+*StpQuality FastEconomy/Fast Economy:	"<</HWResolution[360 120]/cupsRowFeed 2>>setpagedevice"
+*StpQuality Economy/Economy:	"<</HWResolution[360 240]/cupsRowFeed 3>>setpagedevice"
+*StpQuality Draft/Draft:	"<</HWResolution[360 360]/cupsRowFeed 4>>setpagedevice"
+*StpQuality Standard/Standard:	"<</HWResolution[720 360]/cupsRowFeed 5>>setpagedevice"
+*StpQuality High/High:	"<</HWResolution[720 720]/cupsRowFeed 6>>setpagedevice"
+*StpQuality Photo/Photo:	"<</HWResolution[1440 720]/cupsRowFeed 7>>setpagedevice"
+*StpQuality HighPhoto/Super Photo:	"<</HWResolution[1440 1440]/cupsRowFeed 8>>setpagedevice"
+*StpQuality UltraPhoto/Ultra Photo:	"<</HWResolution[2880 1440]/cupsRowFeed 9>>setpagedevice"
+*StpQuality Best/Best:	"<</HWResolution[2880 1440]/cupsRowFeed 10>>setpagedevice"
+*CloseUI: *StpQuality
+
+*ColorKeyWords: "Resolution"
+*OpenUI *Resolution/Resolution: PickOne
+*OPOptionHints Resolution: "resolution radiobuttons"
+*OrderDependency: 10 AnySetup *Resolution
+*StpStpResolution: 0 1 0 1 255 0.000 0.000 0.000
+*DefaultResolution: 361x360dpi
+*StpDefaultResolution: 361x360dpi
+*Resolution 361x360dpi/Automatic:	"<</HWResolution[720 360]>>setpagedevice"
+*StpResolutionMap: 361x360dpi None
+*Resolution 360x120dpi/360 x 120 DPI Economy:	"<</HWResolution[360 120]/cupsCompression 2>>setpagedevice"
+*StpResolutionMap: 360x120dpi 360x120sw
+*Resolution 360x240dpi/360 x 240 DPI Draft:	"<</HWResolution[360 240]/cupsCompression 3>>setpagedevice"
+*StpResolutionMap: 360x240dpi 360x240sw
+*Resolution 360dpi/360 DPI:	"<</HWResolution[360 360]/cupsCompression 4>>setpagedevice"
+*StpResolutionMap: 360dpi 360sw
+*Resolution 720x360dpi/720 x 360 DPI:	"<</HWResolution[720 360]/cupsCompression 5>>setpagedevice"
+*StpResolutionMap: 720x360dpi 720x360sw
+*Resolution 720dpi/720 DPI:	"<</HWResolution[720 720]/cupsCompression 6>>setpagedevice"
+*StpResolutionMap: 720dpi 720sw
+*Resolution 1440x720dpi/1440 x 720 DPI:	"<</HWResolution[1440 720]/cupsCompression 7>>setpagedevice"
+*StpResolutionMap: 1440x720dpi 1440x720sw
+*Resolution 1441x720dpi/1440 x 1440 DPI:	"<</HWResolution[1440 1440]/cupsCompression 8>>setpagedevice"
+*StpResolutionMap: 1441x720dpi 1440x1440ov
+*Resolution 1442x720dpi/2880 x 1440 DPI:	"<</HWResolution[2880 1440]/cupsCompression 9>>setpagedevice"
+*StpResolutionMap: 1442x720dpi 2880x1440sw
+*CloseUI: *Resolution
+
+*OpenUI *OutputOrder/Output Order: PickOne
+*OPOptionHints OutputOrder: "radiobuttons"
+*OrderDependency: 10 AnySetup *OutputOrder
+*DefaultOutputOrder: Reverse
+*StpDefaultOutputOrder: Reverse
+*OutputOrder Normal/Normal: ""
+*OutputOrder Reverse/Reverse: ""
+*CloseUI: *OutputOrder
+
+*OpenUI *StpiShrinkOutput/Shrink Page If Necessary to Fit Borders: PickOne
+*OPOptionHints StpiShrinkOutput: "radiobuttons"
+*OrderDependency: 10 AnySetup *StpiShrinkOutput
+*DefaultStpiShrinkOutput: Shrink
+*StpDefaultStpiShrinkOutput: Shrink
+*StpiShrinkOutput Shrink/Shrink (print the whole page): ""
+*StpiShrinkOutput Crop/Crop (preserve dimensions): ""
+*StpiShrinkOutput Expand/Expand (use maximum page area): ""
+*CloseUI: *StpiShrinkOutput
+
+*OpenGroup: C0L0/Printer Features Common
+
+*OpenUI *StpCDInnerRadius/CD Hub Size: PickOne
+*OrderDependency: 10 AnySetup *StpCDInnerRadius
+*OPOptionHints StpCDInnerRadius: "radiobuttons"
+*StpStpCDInnerRadius: 0 1 0 0 255 0.000 0.000 0.000
+*DefaultStpCDInnerRadius: None
+*StpDefaultStpCDInnerRadius: None
+*StpCDInnerRadius None/Normal: ""
+*StpCDInnerRadius Small/Print To Hub: ""
+*CloseUI: *StpCDInnerRadius
+
+*ColorKeyWords: "StpInkSet"
+*OpenUI *StpInkSet/Ink Set: PickOne
+*OrderDependency: 10 AnySetup *StpInkSet
+*OPOptionHints StpInkSet: "dropdown"
+*StpStpInkSet: 0 1 0 0 255 0.000 0.000 0.000
+*DefaultStpInkSet: None
+*StpDefaultStpInkSet: None
+*StpInkSet None/EPSON Standard Inks: ""
+*StpInkSet quadtone/Quadtone: ""
+*StpInkSet MISQuadtone/MIS Quadtone: ""
+*StpInkSet MISHextone/MIS Six Tone: ""
+*CloseUI: *StpInkSet
+
+*OpenUI *StpFullBleed/Borderless: PickOne
+*OrderDependency: 10 AnySetup *StpFullBleed
+*OPOptionHints StpFullBleed: "checkbox"
+*StpStpFullBleed: 2 1 0 0 255 0.000 0.000 0.000
+*DefaultStpFullBleed: False
+*StpDefaultStpFullBleed: False
+*StpFullBleed False/No: ""
+*StpFullBleed True/Yes: ""
+*CloseUI: *StpFullBleed
+
+*CloseGroup: C0L0/Printer Features Common
+
+*OpenGroup: C0L1/Printer Features Extra 1
+
+*OpenUI *StpCDOuterDiameter/CD Size (Custom): PickOne
+*OrderDependency: 10 AnySetup *StpCDOuterDiameter
+*OPOptionHints StpCDOuterDiameter: "length slider input spinbox"
+*StpStpCDOuterDiameter: 8 1 0 1 255 184.000 340.000 329.000
+*DefaultStpCDOuterDiameter: 329
+*StpDefaultStpCDOuterDiameter: 329
+*StpCDOuterDiameter 184/64.9 mm: ""
+*StpCDOuterDiameter 185/65.3 mm: ""
+*StpCDOuterDiameter 186/65.6 mm: ""
+*StpCDOuterDiameter 187/66.0 mm: ""
+*StpCDOuterDiameter 188/66.3 mm: ""
+*StpCDOuterDiameter 189/66.7 mm: ""
+*StpCDOuterDiameter 190/67.0 mm: ""
+*StpCDOuterDiameter 191/67.4 mm: ""
+*StpCDOuterDiameter 192/67.7 mm: ""
+*StpCDOuterDiameter 193/68.1 mm: ""
+*StpCDOuterDiameter 194/68.4 mm: ""
+*StpCDOuterDiameter 195/68.8 mm: ""
+*StpCDOuterDiameter 196/69.1 mm: ""
+*StpCDOuterDiameter 197/69.5 mm: ""
+*StpCDOuterDiameter 198/69.8 mm: ""
+*StpCDOuterDiameter 199/70.2 mm: ""
+*StpCDOuterDiameter 200/70.6 mm: ""
+*StpCDOuterDiameter 201/70.9 mm: ""
+*StpCDOuterDiameter 202/71.3 mm: ""
+*StpCDOuterDiameter 203/71.6 mm: ""
+*StpCDOuterDiameter 204/72.0 mm: ""
+*StpCDOuterDiameter 205/72.3 mm: ""
+*StpCDOuterDiameter 206/72.7 mm: ""
+*StpCDOuterDiameter 207/73.0 mm: ""
+*StpCDOuterDiameter 208/73.4 mm: ""
+*StpCDOuterDiameter 209/73.7 mm: ""
+*StpCDOuterDiameter 210/74.1 mm: ""
+*StpCDOuterDiameter 211/74.4 mm: ""
+*StpCDOuterDiameter 212/74.8 mm: ""
+*StpCDOuterDiameter 213/75.1 mm: ""
+*StpCDOuterDiameter 214/75.5 mm: ""
+*StpCDOuterDiameter 215/75.8 mm: ""
+*StpCDOuterDiameter 216/76.2 mm: ""
+*StpCDOuterDiameter 217/76.6 mm: ""
+*StpCDOuterDiameter 218/76.9 mm: ""
+*StpCDOuterDiameter 219/77.3 mm: ""
+*StpCDOuterDiameter 220/77.6 mm: ""
+*StpCDOuterDiameter 221/78.0 mm: ""
+*StpCDOuterDiameter 222/78.3 mm: ""
+*StpCDOuterDiameter 223/78.7 mm: ""
+*StpCDOuterDiameter 224/79.0 mm: ""
+*StpCDOuterDiameter 225/79.4 mm: ""
+*StpCDOuterDiameter 226/79.7 mm: ""
+*StpCDOuterDiameter 227/80.1 mm: ""
+*StpCDOuterDiameter 228/80.4 mm: ""
+*StpCDOuterDiameter 229/80.8 mm: ""
+*StpCDOuterDiameter 230/81.1 mm: ""
+*StpCDOuterDiameter 231/81.5 mm: ""
+*StpCDOuterDiameter 232/81.8 mm: ""
+*StpCDOuterDiameter 233/82.2 mm: ""
+*StpCDOuterDiameter 234/82.5 mm: ""
+*StpCDOuterDiameter 235/82.9 mm: ""
+*StpCDOuterDiameter 236/83.3 mm: ""
+*StpCDOuterDiameter 237/83.6 mm: ""
+*StpCDOuterDiameter 238/84.0 mm: ""
+*StpCDOuterDiameter 239/84.3 mm: ""
+*StpCDOuterDiameter 240/84.7 mm: ""
+*StpCDOuterDiameter 241/85.0 mm: ""
+*StpCDOuterDiameter 242/85.4 mm: ""
+*StpCDOuterDiameter 243/85.7 mm: ""
+*StpCDOuterDiameter 244/86.1 mm: ""
+*StpCDOuterDiameter 245/86.4 mm: ""
+*StpCDOuterDiameter 246/86.8 mm: ""
+*StpCDOuterDiameter 247/87.1 mm: ""
+*StpCDOuterDiameter 248/87.5 mm: ""
+*StpCDOuterDiameter 249/87.8 mm: ""
+*StpCDOuterDiameter 250/88.2 mm: ""
+*StpCDOuterDiameter 251/88.5 mm: ""
+*StpCDOuterDiameter 252/88.9 mm: ""
+*StpCDOuterDiameter 253/89.3 mm: ""
+*StpCDOuterDiameter 254/89.6 mm: ""
+*StpCDOuterDiameter 255/90.0 mm: ""
+*StpCDOuterDiameter 256/90.3 mm: ""
+*StpCDOuterDiameter 257/90.7 mm: ""
+*StpCDOuterDiameter 258/91.0 mm: ""
+*StpCDOuterDiameter 259/91.4 mm: ""
+*StpCDOuterDiameter 260/91.7 mm: ""
+*StpCDOuterDiameter 261/92.1 mm: ""
+*StpCDOuterDiameter 262/92.4 mm: ""
+*StpCDOuterDiameter 263/92.8 mm: ""
+*StpCDOuterDiameter 264/93.1 mm: ""
+*StpCDOuterDiameter 265/93.5 mm: ""
+*StpCDOuterDiameter 266/93.8 mm: ""
+*StpCDOuterDiameter 267/94.2 mm: ""
+*StpCDOuterDiameter 268/94.5 mm: ""
+*StpCDOuterDiameter 269/94.9 mm: ""
+*StpCDOuterDiameter 270/95.2 mm: ""
+*StpCDOuterDiameter 271/95.6 mm: ""
+*StpCDOuterDiameter 272/96.0 mm: ""
+*StpCDOuterDiameter 273/96.3 mm: ""
+*StpCDOuterDiameter 274/96.7 mm: ""
+*StpCDOuterDiameter 275/97.0 mm: ""
+*StpCDOuterDiameter 276/97.4 mm: ""
+*StpCDOuterDiameter 277/97.7 mm: ""
+*StpCDOuterDiameter 278/98.1 mm: ""
+*StpCDOuterDiameter 279/98.4 mm: ""
+*StpCDOuterDiameter 280/98.8 mm: ""
+*StpCDOuterDiameter 281/99.1 mm: ""
+*StpCDOuterDiameter 282/99.5 mm: ""
+*StpCDOuterDiameter 283/99.8 mm: ""
+*StpCDOuterDiameter 284/100.2 mm: ""
+*StpCDOuterDiameter 285/100.5 mm: ""
+*StpCDOuterDiameter 286/100.9 mm: ""
+*StpCDOuterDiameter 287/101.2 mm: ""
+*StpCDOuterDiameter 288/101.6 mm: ""
+*StpCDOuterDiameter 289/102.0 mm: ""
+*StpCDOuterDiameter 290/102.3 mm: ""
+*StpCDOuterDiameter 291/102.7 mm: ""
+*StpCDOuterDiameter 292/103.0 mm: ""
+*StpCDOuterDiameter 293/103.4 mm: ""
+*StpCDOuterDiameter 294/103.7 mm: ""
+*StpCDOuterDiameter 295/104.1 mm: ""
+*StpCDOuterDiameter 296/104.4 mm: ""
+*StpCDOuterDiameter 297/104.8 mm: ""
+*StpCDOuterDiameter 298/105.1 mm: ""
+*StpCDOuterDiameter 299/105.5 mm: ""
+*StpCDOuterDiameter 300/105.8 mm: ""
+*StpCDOuterDiameter 301/106.2 mm: ""
+*StpCDOuterDiameter 302/106.5 mm: ""
+*StpCDOuterDiameter 303/106.9 mm: ""
+*StpCDOuterDiameter 304/107.2 mm: ""
+*StpCDOuterDiameter 305/107.6 mm: ""
+*StpCDOuterDiameter 306/107.9 mm: ""
+*StpCDOuterDiameter 307/108.3 mm: ""
+*StpCDOuterDiameter 308/108.7 mm: ""
+*StpCDOuterDiameter 309/109.0 mm: ""
+*StpCDOuterDiameter 310/109.4 mm: ""
+*StpCDOuterDiameter 311/109.7 mm: ""
+*StpCDOuterDiameter 312/110.1 mm: ""
+*StpCDOuterDiameter 313/110.4 mm: ""
+*StpCDOuterDiameter 314/110.8 mm: ""
+*StpCDOuterDiameter 315/111.1 mm: ""
+*StpCDOuterDiameter 316/111.5 mm: ""
+*StpCDOuterDiameter 317/111.8 mm: ""
+*StpCDOuterDiameter 318/112.2 mm: ""
+*StpCDOuterDiameter 319/112.5 mm: ""
+*StpCDOuterDiameter 320/112.9 mm: ""
+*StpCDOuterDiameter 321/113.2 mm: ""
+*StpCDOuterDiameter 322/113.6 mm: ""
+*StpCDOuterDiameter 323/113.9 mm: ""
+*StpCDOuterDiameter 324/114.3 mm: ""
+*StpCDOuterDiameter 325/114.7 mm: ""
+*StpCDOuterDiameter 326/115.0 mm: ""
+*StpCDOuterDiameter 327/115.4 mm: ""
+*StpCDOuterDiameter 328/115.7 mm: ""
+*StpCDOuterDiameter 329/116.1 mm: ""
+*StpCDOuterDiameter 330/116.4 mm: ""
+*StpCDOuterDiameter 331/116.8 mm: ""
+*StpCDOuterDiameter 332/117.1 mm: ""
+*StpCDOuterDiameter 333/117.5 mm: ""
+*StpCDOuterDiameter 334/117.8 mm: ""
+*StpCDOuterDiameter 335/118.2 mm: ""
+*StpCDOuterDiameter 336/118.5 mm: ""
+*StpCDOuterDiameter 337/118.9 mm: ""
+*StpCDOuterDiameter 338/119.2 mm: ""
+*StpCDOuterDiameter 339/119.6 mm: ""
+*StpCDOuterDiameter 340/119.9 mm: ""
+*CloseUI: *StpCDOuterDiameter
+
+*CustomStpCDOuterDiameter True: "pop"
+*ParamCustomStpCDOuterDiameter Value/Value: 1 points 184 340
+
+*OpenUI *StpCDInnerDiameter/CD Hub Size (Custom): PickOne
+*OrderDependency: 10 AnySetup *StpCDInnerDiameter
+*OPOptionHints StpCDInnerDiameter: "length slider input spinbox"
+*StpStpCDInnerDiameter: 8 1 0 1 255 45.000 121.000 121.000
+*DefaultStpCDInnerDiameter: 121
+*StpDefaultStpCDInnerDiameter: 121
+*StpCDInnerDiameter 45/15.9 mm: ""
+*StpCDInnerDiameter 46/16.2 mm: ""
+*StpCDInnerDiameter 47/16.6 mm: ""
+*StpCDInnerDiameter 48/16.9 mm: ""
+*StpCDInnerDiameter 49/17.3 mm: ""
+*StpCDInnerDiameter 50/17.6 mm: ""
+*StpCDInnerDiameter 51/18.0 mm: ""
+*StpCDInnerDiameter 52/18.3 mm: ""
+*StpCDInnerDiameter 53/18.7 mm: ""
+*StpCDInnerDiameter 54/19.0 mm: ""
+*StpCDInnerDiameter 55/19.4 mm: ""
+*StpCDInnerDiameter 56/19.8 mm: ""
+*StpCDInnerDiameter 57/20.1 mm: ""
+*StpCDInnerDiameter 58/20.5 mm: ""
+*StpCDInnerDiameter 59/20.8 mm: ""
+*StpCDInnerDiameter 60/21.2 mm: ""
+*StpCDInnerDiameter 61/21.5 mm: ""
+*StpCDInnerDiameter 62/21.9 mm: ""
+*StpCDInnerDiameter 63/22.2 mm: ""
+*StpCDInnerDiameter 64/22.6 mm: ""
+*StpCDInnerDiameter 65/22.9 mm: ""
+*StpCDInnerDiameter 66/23.3 mm: ""
+*StpCDInnerDiameter 67/23.6 mm: ""
+*StpCDInnerDiameter 68/24.0 mm: ""
+*StpCDInnerDiameter 69/24.3 mm: ""
+*StpCDInnerDiameter 70/24.7 mm: ""
+*StpCDInnerDiameter 71/25.0 mm: ""
+*StpCDInnerDiameter 72/25.4 mm: ""
+*StpCDInnerDiameter 73/25.8 mm: ""
+*StpCDInnerDiameter 74/26.1 mm: ""
+*StpCDInnerDiameter 75/26.5 mm: ""
+*StpCDInnerDiameter 76/26.8 mm: ""
+*StpCDInnerDiameter 77/27.2 mm: ""
+*StpCDInnerDiameter 78/27.5 mm: ""
+*StpCDInnerDiameter 79/27.9 mm: ""
+*StpCDInnerDiameter 80/28.2 mm: ""
+*StpCDInnerDiameter 81/28.6 mm: ""
+*StpCDInnerDiameter 82/28.9 mm: ""
+*StpCDInnerDiameter 83/29.3 mm: ""
+*StpCDInnerDiameter 84/29.6 mm: ""
+*StpCDInnerDiameter 85/30.0 mm: ""
+*StpCDInnerDiameter 86/30.3 mm: ""
+*StpCDInnerDiameter 87/30.7 mm: ""
+*StpCDInnerDiameter 88/31.0 mm: ""
+*StpCDInnerDiameter 89/31.4 mm: ""
+*StpCDInnerDiameter 90/31.8 mm: ""
+*StpCDInnerDiameter 91/32.1 mm: ""
+*StpCDInnerDiameter 92/32.5 mm: ""
+*StpCDInnerDiameter 93/32.8 mm: ""
+*StpCDInnerDiameter 94/33.2 mm: ""
+*StpCDInnerDiameter 95/33.5 mm: ""
+*StpCDInnerDiameter 96/33.9 mm: ""
+*StpCDInnerDiameter 97/34.2 mm: ""
+*StpCDInnerDiameter 98/34.6 mm: ""
+*StpCDInnerDiameter 99/34.9 mm: ""
+*StpCDInnerDiameter 100/35.3 mm: ""
+*StpCDInnerDiameter 101/35.6 mm: ""
+*StpCDInnerDiameter 102/36.0 mm: ""
+*StpCDInnerDiameter 103/36.3 mm: ""
+*StpCDInnerDiameter 104/36.7 mm: ""
+*StpCDInnerDiameter 105/37.0 mm: ""
+*StpCDInnerDiameter 106/37.4 mm: ""
+*StpCDInnerDiameter 107/37.7 mm: ""
+*StpCDInnerDiameter 108/38.1 mm: ""
+*StpCDInnerDiameter 109/38.5 mm: ""
+*StpCDInnerDiameter 110/38.8 mm: ""
+*StpCDInnerDiameter 111/39.2 mm: ""
+*StpCDInnerDiameter 112/39.5 mm: ""
+*StpCDInnerDiameter 113/39.9 mm: ""
+*StpCDInnerDiameter 114/40.2 mm: ""
+*StpCDInnerDiameter 115/40.6 mm: ""
+*StpCDInnerDiameter 116/40.9 mm: ""
+*StpCDInnerDiameter 117/41.3 mm: ""
+*StpCDInnerDiameter 118/41.6 mm: ""
+*StpCDInnerDiameter 119/42.0 mm: ""
+*StpCDInnerDiameter 120/42.3 mm: ""
+*StpCDInnerDiameter 121/42.7 mm: ""
+*CloseUI: *StpCDInnerDiameter
+
+*CustomStpCDInnerDiameter True: "pop"
+*ParamCustomStpCDInnerDiameter Value/Value: 1 points 45 121
+
+*OpenUI *StpCDXAdjustment/CD Horizontal Fine Adjustment: PickOne
+*OrderDependency: 10 AnySetup *StpCDXAdjustment
+*OPOptionHints StpCDXAdjustment: "length slider input spinbox"
+*StpStpCDXAdjustment: 8 1 0 1 255 -30.000 30.000 0.000
+*DefaultStpCDXAdjustment: 0
+*StpDefaultStpCDXAdjustment: 0
+*StpCDXAdjustment -30/-10.6 mm: ""
+*StpCDXAdjustment -29/-10.2 mm: ""
+*StpCDXAdjustment -28/-9.9 mm: ""
+*StpCDXAdjustment -27/-9.5 mm: ""
+*StpCDXAdjustment -26/-9.2 mm: ""
+*StpCDXAdjustment -25/-8.8 mm: ""
+*StpCDXAdjustment -24/-8.5 mm: ""
+*StpCDXAdjustment -23/-8.1 mm: ""
+*StpCDXAdjustment -22/-7.8 mm: ""
+*StpCDXAdjustment -21/-7.4 mm: ""
+*StpCDXAdjustment -20/-7.1 mm: ""
+*StpCDXAdjustment -19/-6.7 mm: ""
+*StpCDXAdjustment -18/-6.3 mm: ""
+*StpCDXAdjustment -17/-6.0 mm: ""
+*StpCDXAdjustment -16/-5.6 mm: ""
+*StpCDXAdjustment -15/-5.3 mm: ""
+*StpCDXAdjustment -14/-4.9 mm: ""
+*StpCDXAdjustment -13/-4.6 mm: ""
+*StpCDXAdjustment -12/-4.2 mm: ""
+*StpCDXAdjustment -11/-3.9 mm: ""
+*StpCDXAdjustment -10/-3.5 mm: ""
+*StpCDXAdjustment -9/-3.2 mm: ""
+*StpCDXAdjustment -8/-2.8 mm: ""
+*StpCDXAdjustment -7/-2.5 mm: ""
+*StpCDXAdjustment -6/-2.1 mm: ""
+*StpCDXAdjustment -5/-1.8 mm: ""
+*StpCDXAdjustment -4/-1.4 mm: ""
+*StpCDXAdjustment -3/-1.1 mm: ""
+*StpCDXAdjustment -2/-0.7 mm: ""
+*StpCDXAdjustment -1/-0.4 mm: ""
+*StpCDXAdjustment 0/0.0 mm: ""
+*StpCDXAdjustment 1/0.4 mm: ""
+*StpCDXAdjustment 2/0.7 mm: ""
+*StpCDXAdjustment 3/1.1 mm: ""
+*StpCDXAdjustment 4/1.4 mm: ""
+*StpCDXAdjustment 5/1.8 mm: ""
+*StpCDXAdjustment 6/2.1 mm: ""
+*StpCDXAdjustment 7/2.5 mm: ""
+*StpCDXAdjustment 8/2.8 mm: ""
+*StpCDXAdjustment 9/3.2 mm: ""
+*StpCDXAdjustment 10/3.5 mm: ""
+*StpCDXAdjustment 11/3.9 mm: ""
+*StpCDXAdjustment 12/4.2 mm: ""
+*StpCDXAdjustment 13/4.6 mm: ""
+*StpCDXAdjustment 14/4.9 mm: ""
+*StpCDXAdjustment 15/5.3 mm: ""
+*StpCDXAdjustment 16/5.6 mm: ""
+*StpCDXAdjustment 17/6.0 mm: ""
+*StpCDXAdjustment 18/6.3 mm: ""
+*StpCDXAdjustment 19/6.7 mm: ""
+*StpCDXAdjustment 20/7.1 mm: ""
+*StpCDXAdjustment 21/7.4 mm: ""
+*StpCDXAdjustment 22/7.8 mm: ""
+*StpCDXAdjustment 23/8.1 mm: ""
+*StpCDXAdjustment 24/8.5 mm: ""
+*StpCDXAdjustment 25/8.8 mm: ""
+*StpCDXAdjustment 26/9.2 mm: ""
+*StpCDXAdjustment 27/9.5 mm: ""
+*StpCDXAdjustment 28/9.9 mm: ""
+*StpCDXAdjustment 29/10.2 mm: ""
+*StpCDXAdjustment 30/10.6 mm: ""
+*CloseUI: *StpCDXAdjustment
+
+*CustomStpCDXAdjustment True: "pop"
+*ParamCustomStpCDXAdjustment Value/Value: 1 points -30 30
+
+*OpenUI *StpCDYAdjustment/CD Vertical Fine Adjustment: PickOne
+*OrderDependency: 10 AnySetup *StpCDYAdjustment
+*OPOptionHints StpCDYAdjustment: "length slider input spinbox"
+*StpStpCDYAdjustment: 8 1 0 1 255 -30.000 30.000 0.000
+*DefaultStpCDYAdjustment: 0
+*StpDefaultStpCDYAdjustment: 0
+*StpCDYAdjustment -30/-10.6 mm: ""
+*StpCDYAdjustment -29/-10.2 mm: ""
+*StpCDYAdjustment -28/-9.9 mm: ""
+*StpCDYAdjustment -27/-9.5 mm: ""
+*StpCDYAdjustment -26/-9.2 mm: ""
+*StpCDYAdjustment -25/-8.8 mm: ""
+*StpCDYAdjustment -24/-8.5 mm: ""
+*StpCDYAdjustment -23/-8.1 mm: ""
+*StpCDYAdjustment -22/-7.8 mm: ""
+*StpCDYAdjustment -21/-7.4 mm: ""
+*StpCDYAdjustment -20/-7.1 mm: ""
+*StpCDYAdjustment -19/-6.7 mm: ""
+*StpCDYAdjustment -18/-6.3 mm: ""
+*StpCDYAdjustment -17/-6.0 mm: ""
+*StpCDYAdjustment -16/-5.6 mm: ""
+*StpCDYAdjustment -15/-5.3 mm: ""
+*StpCDYAdjustment -14/-4.9 mm: ""
+*StpCDYAdjustment -13/-4.6 mm: ""
+*StpCDYAdjustment -12/-4.2 mm: ""
+*StpCDYAdjustment -11/-3.9 mm: ""
+*StpCDYAdjustment -10/-3.5 mm: ""
+*StpCDYAdjustment -9/-3.2 mm: ""
+*StpCDYAdjustment -8/-2.8 mm: ""
+*StpCDYAdjustment -7/-2.5 mm: ""
+*StpCDYAdjustment -6/-2.1 mm: ""
+*StpCDYAdjustment -5/-1.8 mm: ""
+*StpCDYAdjustment -4/-1.4 mm: ""
+*StpCDYAdjustment -3/-1.1 mm: ""
+*StpCDYAdjustment -2/-0.7 mm: ""
+*StpCDYAdjustment -1/-0.4 mm: ""
+*StpCDYAdjustment 0/0.0 mm: ""
+*StpCDYAdjustment 1/0.4 mm: ""
+*StpCDYAdjustment 2/0.7 mm: ""
+*StpCDYAdjustment 3/1.1 mm: ""
+*StpCDYAdjustment 4/1.4 mm: ""
+*StpCDYAdjustment 5/1.8 mm: ""
+*StpCDYAdjustment 6/2.1 mm: ""
+*StpCDYAdjustment 7/2.5 mm: ""
+*StpCDYAdjustment 8/2.8 mm: ""
+*StpCDYAdjustment 9/3.2 mm: ""
+*StpCDYAdjustment 10/3.5 mm: ""
+*StpCDYAdjustment 11/3.9 mm: ""
+*StpCDYAdjustment 12/4.2 mm: ""
+*StpCDYAdjustment 13/4.6 mm: ""
+*StpCDYAdjustment 14/4.9 mm: ""
+*StpCDYAdjustment 15/5.3 mm: ""
+*StpCDYAdjustment 16/5.6 mm: ""
+*StpCDYAdjustment 17/6.0 mm: ""
+*StpCDYAdjustment 18/6.3 mm: ""
+*StpCDYAdjustment 19/6.7 mm: ""
+*StpCDYAdjustment 20/7.1 mm: ""
+*StpCDYAdjustment 21/7.4 mm: ""
+*StpCDYAdjustment 22/7.8 mm: ""
+*StpCDYAdjustment 23/8.1 mm: ""
+*StpCDYAdjustment 24/8.5 mm: ""
+*StpCDYAdjustment 25/8.8 mm: ""
+*StpCDYAdjustment 26/9.2 mm: ""
+*StpCDYAdjustment 27/9.5 mm: ""
+*StpCDYAdjustment 28/9.9 mm: ""
+*StpCDYAdjustment 29/10.2 mm: ""
+*StpCDYAdjustment 30/10.6 mm: ""
+*CloseUI: *StpCDYAdjustment
+
+*CustomStpCDYAdjustment True: "pop"
+*ParamCustomStpCDYAdjustment Value/Value: 1 points -30 30
+
+*OpenUI *StpCDAllowOtherMedia/CD Allow Other Media Sizes: PickOne
+*OrderDependency: 10 AnySetup *StpCDAllowOtherMedia
+*OPOptionHints StpCDAllowOtherMedia: "checkbox"
+*StpStpCDAllowOtherMedia: 2 1 0 1 255 0.000 0.000 0.000
+*DefaultStpCDAllowOtherMedia: False
+*StpDefaultStpCDAllowOtherMedia: False
+*StpCDAllowOtherMedia False/No: ""
+*StpCDAllowOtherMedia True/Yes: ""
+*CloseUI: *StpCDAllowOtherMedia
+
+*CloseGroup: C0L1/Printer Features Extra 1
+
+*OpenGroup: C0L2/Printer Features Extra 2
+
+*ColorKeyWords: "StpPrintingDirection"
+*OpenUI *StpPrintingDirection/Printing Direction: PickOne
+*OrderDependency: 10 AnySetup *StpPrintingDirection
+*OPOptionHints StpPrintingDirection: "radiobuttons"
+*StpStpPrintingDirection: 0 1 0 2 255 0.000 0.000 0.000
+*DefaultStpPrintingDirection: None
+*StpDefaultStpPrintingDirection: None
+*StpPrintingDirection None/Automatic: ""
+*StpPrintingDirection Bidirectional/Bidirectional: ""
+*StpPrintingDirection Unidirectional/Unidirectional: ""
+*CloseUI: *StpPrintingDirection
+
+*ColorKeyWords: "StpWeave"
+*OpenUI *StpWeave/Interleave Method: PickOne
+*OrderDependency: 10 AnySetup *StpWeave
+*OPOptionHints StpWeave: "dropdown"
+*StpStpWeave: 0 1 0 2 255 0.000 0.000 0.000
+*DefaultStpWeave: None
+*StpDefaultStpWeave: None
+*StpWeave None/Standard: ""
+*StpWeave Alternate/Alternate Fill: ""
+*StpWeave Ascending/Ascending Fill: ""
+*StpWeave Descending/Descending Fill: ""
+*StpWeave Ascending2X/Ascending Double: ""
+*StpWeave Staggered/Nearest Neighbor Avoidance: ""
+*CloseUI: *StpWeave
+
+*CloseGroup: C0L2/Printer Features Extra 2
+
+*OpenGroup: C0L3/Printer Features Extra 3
+
+*ColorKeyWords: "StpInkType"
+*OpenUI *StpInkType/Ink Type: PickOne
+*OrderDependency: 10 AnySetup *StpInkType
+*OPOptionHints StpInkType: "dropdown"
+*StpStpInkType: 0 1 0 3 255 0.000 0.000 0.000
+*DefaultStpInkType: None
+*StpDefaultStpInkType: None
+*StpInkType None/Standard: ""
+*StpInkType PhotoCMYK/Six Color Photo: ""
+*StpInkType PhotoCMY/Five Color Photo Composite: ""
+*StpInkType CMYK/Four Color Standard: ""
+*StpInkType RGB/Three Color Composite: ""
+*CloseUI: *StpInkType
+
+*OpenUI *StpBandEnhancement/Quality Enhancement: PickOne
+*OrderDependency: 10 AnySetup *StpBandEnhancement
+*OPOptionHints StpBandEnhancement: "input spinbox"
+*StpStpBandEnhancement: 1 0 0 3 255 0.000 4.000 0.000
+*DefaultStpBandEnhancement: None
+*StpDefaultStpBandEnhancement: None
+*StpBandEnhancement None/None: ""
+*StpBandEnhancement 0/0: ""
+*StpBandEnhancement 1/1: ""
+*StpBandEnhancement 2/2: ""
+*StpBandEnhancement 3/3: ""
+*StpBandEnhancement 4/4: ""
+*CloseUI: *StpBandEnhancement
+
+*CloseGroup: C0L3/Printer Features Extra 3
+
+*OpenGroup: C0L4/Printer Features Extra 4
+
+*OpenUI *StpFeedSequence/Feed Sequence: PickOne
+*OrderDependency: 10 AnySetup *StpFeedSequence
+*OPOptionHints StpFeedSequence: "input spinbox"
+*StpStpFeedSequence: 1 0 0 4 255 0.000 255.000 0.000
+*DefaultStpFeedSequence: None
+*StpDefaultStpFeedSequence: None
+*StpFeedSequence None/None: ""
+*StpFeedSequence 0/0: ""
+*StpFeedSequence 1/1: ""
+*StpFeedSequence 2/2: ""
+*StpFeedSequence 3/3: ""
+*StpFeedSequence 4/4: ""
+*StpFeedSequence 5/5: ""
+*StpFeedSequence 6/6: ""
+*StpFeedSequence 7/7: ""
+*StpFeedSequence 8/8: ""
+*StpFeedSequence 9/9: ""
+*StpFeedSequence 10/10: ""
+*StpFeedSequence 11/11: ""
+*StpFeedSequence 12/12: ""
+*StpFeedSequence 13/13: ""
+*StpFeedSequence 14/14: ""
+*StpFeedSequence 15/15: ""
+*StpFeedSequence 16/16: ""
+*StpFeedSequence 17/17: ""
+*StpFeedSequence 18/18: ""
+*StpFeedSequence 19/19: ""
+*StpFeedSequence 20/20: ""
+*StpFeedSequence 21/21: ""
+*StpFeedSequence 22/22: ""
+*StpFeedSequence 23/23: ""
+*StpFeedSequence 24/24: ""
+*StpFeedSequence 25/25: ""
+*StpFeedSequence 26/26: ""
+*StpFeedSequence 27/27: ""
+*StpFeedSequence 28/28: ""
+*StpFeedSequence 29/29: ""
+*StpFeedSequence 30/30: ""
+*StpFeedSequence 31/31: ""
+*StpFeedSequence 32/32: ""
+*StpFeedSequence 33/33: ""
+*StpFeedSequence 34/34: ""
+*StpFeedSequence 35/35: ""
+*StpFeedSequence 36/36: ""
+*StpFeedSequence 37/37: ""
+*StpFeedSequence 38/38: ""
+*StpFeedSequence 39/39: ""
+*StpFeedSequence 40/40: ""
+*StpFeedSequence 41/41: ""
+*StpFeedSequence 42/42: ""
+*StpFeedSequence 43/43: ""
+*StpFeedSequence 44/44: ""
+*StpFeedSequence 45/45: ""
+*StpFeedSequence 46/46: ""
+*StpFeedSequence 47/47: ""
+*StpFeedSequence 48/48: ""
+*StpFeedSequence 49/49: ""
+*StpFeedSequence 50/50: ""
+*StpFeedSequence 51/51: ""
+*StpFeedSequence 52/52: ""
+*StpFeedSequence 53/53: ""
+*StpFeedSequence 54/54: ""
+*StpFeedSequence 55/55: ""
+*StpFeedSequence 56/56: ""
+*StpFeedSequence 57/57: ""
+*StpFeedSequence 58/58: ""
+*StpFeedSequence 59/59: ""
+*StpFeedSequence 60/60: ""
+*StpFeedSequence 61/61: ""
+*StpFeedSequence 62/62: ""
+*StpFeedSequence 63/63: ""
+*StpFeedSequence 64/64: ""
+*StpFeedSequence 65/65: ""
+*StpFeedSequence 66/66: ""
+*StpFeedSequence 67/67: ""
+*StpFeedSequence 68/68: ""
+*StpFeedSequence 69/69: ""
+*StpFeedSequence 70/70: ""
+*StpFeedSequence 71/71: ""
+*StpFeedSequence 72/72: ""
+*StpFeedSequence 73/73: ""
+*StpFeedSequence 74/74: ""
+*StpFeedSequence 75/75: ""
+*StpFeedSequence 76/76: ""
+*StpFeedSequence 77/77: ""
+*StpFeedSequence 78/78: ""
+*StpFeedSequence 79/79: ""
+*StpFeedSequence 80/80: ""
+*StpFeedSequence 81/81: ""
+*StpFeedSequence 82/82: ""
+*StpFeedSequence 83/83: ""
+*StpFeedSequence 84/84: ""
+*StpFeedSequence 85/85: ""
+*StpFeedSequence 86/86: ""
+*StpFeedSequence 87/87: ""
+*StpFeedSequence 88/88: ""
+*StpFeedSequence 89/89: ""
+*StpFeedSequence 90/90: ""
+*StpFeedSequence 91/91: ""
+*StpFeedSequence 92/92: ""
+*StpFeedSequence 93/93: ""
+*StpFeedSequence 94/94: ""
+*StpFeedSequence 95/95: ""
+*StpFeedSequence 96/96: ""
+*StpFeedSequence 97/97: ""
+*StpFeedSequence 98/98: ""
+*StpFeedSequence 99/99: ""
+*StpFeedSequence 100/100: ""
+*StpFeedSequence 101/101: ""
+*StpFeedSequence 102/102: ""
+*StpFeedSequence 103/103: ""
+*StpFeedSequence 104/104: ""
+*StpFeedSequence 105/105: ""
+*StpFeedSequence 106/106: ""
+*StpFeedSequence 107/107: ""
+*StpFeedSequence 108/108: ""
+*StpFeedSequence 109/109: ""
+*StpFeedSequence 110/110: ""
+*StpFeedSequence 111/111: ""
+*StpFeedSequence 112/112: ""
+*StpFeedSequence 113/113: ""
+*StpFeedSequence 114/114: ""
+*StpFeedSequence 115/115: ""
+*StpFeedSequence 116/116: ""
+*StpFeedSequence 117/117: ""
+*StpFeedSequence 118/118: ""
+*StpFeedSequence 119/119: ""
+*StpFeedSequence 120/120: ""
+*StpFeedSequence 121/121: ""
+*StpFeedSequence 122/122: ""
+*StpFeedSequence 123/123: ""
+*StpFeedSequence 124/124: ""
+*StpFeedSequence 125/125: ""
+*StpFeedSequence 126/126: ""
+*StpFeedSequence 127/127: ""
+*StpFeedSequence 128/128: ""
+*StpFeedSequence 129/129: ""
+*StpFeedSequence 130/130: ""
+*StpFeedSequence 131/131: ""
+*StpFeedSequence 132/132: ""
+*StpFeedSequence 133/133: ""
+*StpFeedSequence 134/134: ""
+*StpFeedSequence 135/135: ""
+*StpFeedSequence 136/136: ""
+*StpFeedSequence 137/137: ""
+*StpFeedSequence 138/138: ""
+*StpFeedSequence 139/139: ""
+*StpFeedSequence 140/140: ""
+*StpFeedSequence 141/141: ""
+*StpFeedSequence 142/142: ""
+*StpFeedSequence 143/143: ""
+*StpFeedSequence 144/144: ""
+*StpFeedSequence 145/145: ""
+*StpFeedSequence 146/146: ""
+*StpFeedSequence 147/147: ""
+*StpFeedSequence 148/148: ""
+*StpFeedSequence 149/149: ""
+*StpFeedSequence 150/150: ""
+*StpFeedSequence 151/151: ""
+*StpFeedSequence 152/152: ""
+*StpFeedSequence 153/153: ""
+*StpFeedSequence 154/154: ""
+*StpFeedSequence 155/155: ""
+*StpFeedSequence 156/156: ""
+*StpFeedSequence 157/157: ""
+*StpFeedSequence 158/158: ""
+*StpFeedSequence 159/159: ""
+*StpFeedSequence 160/160: ""
+*StpFeedSequence 161/161: ""
+*StpFeedSequence 162/162: ""
+*StpFeedSequence 163/163: ""
+*StpFeedSequence 164/164: ""
+*StpFeedSequence 165/165: ""
+*StpFeedSequence 166/166: ""
+*StpFeedSequence 167/167: ""
+*StpFeedSequence 168/168: ""
+*StpFeedSequence 169/169: ""
+*StpFeedSequence 170/170: ""
+*StpFeedSequence 171/171: ""
+*StpFeedSequence 172/172: ""
+*StpFeedSequence 173/173: ""
+*StpFeedSequence 174/174: ""
+*StpFeedSequence 175/175: ""
+*StpFeedSequence 176/176: ""
+*StpFeedSequence 177/177: ""
+*StpFeedSequence 178/178: ""
+*StpFeedSequence 179/179: ""
+*StpFeedSequence 180/180: ""
+*StpFeedSequence 181/181: ""
+*StpFeedSequence 182/182: ""
+*StpFeedSequence 183/183: ""
+*StpFeedSequence 184/184: ""
+*StpFeedSequence 185/185: ""
+*StpFeedSequence 186/186: ""
+*StpFeedSequence 187/187: ""
+*StpFeedSequence 188/188: ""
+*StpFeedSequence 189/189: ""
+*StpFeedSequence 190/190: ""
+*StpFeedSequence 191/191: ""
+*StpFeedSequence 192/192: ""
+*StpFeedSequence 193/193: ""
+*StpFeedSequence 194/194: ""
+*StpFeedSequence 195/195: ""
+*StpFeedSequence 196/196: ""
+*StpFeedSequence 197/197: ""
+*StpFeedSequence 198/198: ""
+*StpFeedSequence 199/199: ""
+*StpFeedSequence 200/200: ""
+*StpFeedSequence 201/201: ""
+*StpFeedSequence 202/202: ""
+*StpFeedSequence 203/203: ""
+*StpFeedSequence 204/204: ""
+*StpFeedSequence 205/205: ""
+*StpFeedSequence 206/206: ""
+*StpFeedSequence 207/207: ""
+*StpFeedSequence 208/208: ""
+*StpFeedSequence 209/209: ""
+*StpFeedSequence 210/210: ""
+*StpFeedSequence 211/211: ""
+*StpFeedSequence 212/212: ""
+*StpFeedSequence 213/213: ""
+*StpFeedSequence 214/214: ""
+*StpFeedSequence 215/215: ""
+*StpFeedSequence 216/216: ""
+*StpFeedSequence 217/217: ""
+*StpFeedSequence 218/218: ""
+*StpFeedSequence 219/219: ""
+*StpFeedSequence 220/220: ""
+*StpFeedSequence 221/221: ""
+*StpFeedSequence 222/222: ""
+*StpFeedSequence 223/223: ""
+*StpFeedSequence 224/224: ""
+*StpFeedSequence 225/225: ""
+*StpFeedSequence 226/226: ""
+*StpFeedSequence 227/227: ""
+*StpFeedSequence 228/228: ""
+*StpFeedSequence 229/229: ""
+*StpFeedSequence 230/230: ""
+*StpFeedSequence 231/231: ""
+*StpFeedSequence 232/232: ""
+*StpFeedSequence 233/233: ""
+*StpFeedSequence 234/234: ""
+*StpFeedSequence 235/235: ""
+*StpFeedSequence 236/236: ""
+*StpFeedSequence 237/237: ""
+*StpFeedSequence 238/238: ""
+*StpFeedSequence 239/239: ""
+*StpFeedSequence 240/240: ""
+*StpFeedSequence 241/241: ""
+*StpFeedSequence 242/242: ""
+*StpFeedSequence 243/243: ""
+*StpFeedSequence 244/244: ""
+*StpFeedSequence 245/245: ""
+*StpFeedSequence 246/246: ""
+*StpFeedSequence 247/247: ""
+*StpFeedSequence 248/248: ""
+*StpFeedSequence 249/249: ""
+*StpFeedSequence 250/250: ""
+*StpFeedSequence 251/251: ""
+*StpFeedSequence 252/252: ""
+*StpFeedSequence 253/253: ""
+*StpFeedSequence 254/254: ""
+*StpFeedSequence 255/255: ""
+*CloseUI: *StpFeedSequence
+
+*CloseGroup: C0L4/Printer Features Extra 4
+
+*OpenGroup: C1L0/Output Control Common
+
+*ColorKeyWords: "StpColorCorrection"
+*OpenUI *StpColorCorrection/Color Correction: PickOne
+*OrderDependency: 10 AnySetup *StpColorCorrection
+*OPOptionHints StpColorCorrection: "dropdown"
+*StpStpColorCorrection: 0 1 1 0 255 0.000 0.000 0.000
+*DefaultStpColorCorrection: None
+*StpDefaultStpColorCorrection: None
+*StpColorCorrection None/Default: ""
+*StpColorCorrection Accurate/High Accuracy: ""
+*StpColorCorrection Bright/Bright Colors: ""
+*StpColorCorrection Hue/Correct Hue Only: ""
+*StpColorCorrection Uncorrected/Uncorrected: ""
+*StpColorCorrection Desaturated/Desaturated: ""
+*StpColorCorrection Threshold/Threshold: ""
+*StpColorCorrection Density/Density: ""
+*StpColorCorrection Raw/Raw: ""
+*StpColorCorrection Predithered/Pre-Dithered: ""
+*CloseUI: *StpColorCorrection
+
+*ColorKeyWords: "StpBrightness"
+*OpenUI *StpBrightness/Brightness: PickOne
+*OrderDependency: 10 AnySetup *StpBrightness
+*OPOptionHints StpBrightness: "slider input spinbox"
+*StpStpBrightness: 3 1 1 0 255 0.000 2.000 1.000
+*DefaultStpBrightness: None
+*StpDefaultStpBrightness: None
+*StpBrightness 0/0.000: ""
+*StpBrightness 100/0.100: ""
+*StpBrightness 200/0.200: ""
+*StpBrightness 300/0.300: ""
+*StpBrightness 400/0.400: ""
+*StpBrightness 500/0.500: ""
+*StpBrightness 600/0.600: ""
+*StpBrightness 700/0.700: ""
+*StpBrightness 800/0.800: ""
+*StpBrightness 900/0.900: ""
+*StpBrightness None/1.000: ""
+*StpBrightness 1100/1.100: ""
+*StpBrightness 1200/1.200: ""
+*StpBrightness 1300/1.300: ""
+*StpBrightness 1400/1.400: ""
+*StpBrightness 1500/1.500: ""
+*StpBrightness 1600/1.600: ""
+*StpBrightness 1700/1.700: ""
+*StpBrightness 1800/1.800: ""
+*StpBrightness 1900/1.900: ""
+*StpBrightness 2000/2.000: ""
+*CloseUI: *StpBrightness
+
+*CustomStpBrightness True: "pop"
+*ParamCustomStpBrightness Value/Value: 1 real 0.000 2.000
+
+*ColorKeyWords: "StpFineBrightness"
+*OpenUI *StpFineBrightness/Brightness Fine Adjustment: PickOne
+*OPOptionHints StpFineBrightness: "hide"
+*StpStpFineBrightness: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineBrightness: None
+*StpDefaultStpFineBrightness: None
+*StpFineBrightness None/0.000: ""
+*StpFineBrightness 0/0.000: ""
+*StpFineBrightness 5/0.005: ""
+*StpFineBrightness 10/0.010: ""
+*StpFineBrightness 15/0.015: ""
+*StpFineBrightness 20/0.020: ""
+*StpFineBrightness 25/0.025: ""
+*StpFineBrightness 30/0.030: ""
+*StpFineBrightness 35/0.035: ""
+*StpFineBrightness 40/0.040: ""
+*StpFineBrightness 45/0.045: ""
+*StpFineBrightness 50/0.050: ""
+*StpFineBrightness 55/0.055: ""
+*StpFineBrightness 60/0.060: ""
+*StpFineBrightness 65/0.065: ""
+*StpFineBrightness 70/0.070: ""
+*StpFineBrightness 75/0.075: ""
+*StpFineBrightness 80/0.080: ""
+*StpFineBrightness 85/0.085: ""
+*StpFineBrightness 90/0.090: ""
+*StpFineBrightness 95/0.095: ""
+*CloseUI: *StpFineBrightness
+
+*ColorKeyWords: "StpContrast"
+*OpenUI *StpContrast/Contrast: PickOne
+*OrderDependency: 10 AnySetup *StpContrast
+*OPOptionHints StpContrast: "slider input spinbox"
+*StpStpContrast: 3 1 1 0 255 0.000 4.000 1.000
+*DefaultStpContrast: None
+*StpDefaultStpContrast: None
+*StpContrast 0/0.000: ""
+*StpContrast 100/0.100: ""
+*StpContrast 200/0.200: ""
+*StpContrast 300/0.300: ""
+*StpContrast 400/0.400: ""
+*StpContrast 500/0.500: ""
+*StpContrast 600/0.600: ""
+*StpContrast 700/0.700: ""
+*StpContrast 800/0.800: ""
+*StpContrast 900/0.900: ""
+*StpContrast None/1.000: ""
+*StpContrast 1100/1.100: ""
+*StpContrast 1200/1.200: ""
+*StpContrast 1300/1.300: ""
+*StpContrast 1400/1.400: ""
+*StpContrast 1500/1.500: ""
+*StpContrast 1600/1.600: ""
+*StpContrast 1700/1.700: ""
+*StpContrast 1800/1.800: ""
+*StpContrast 1900/1.900: ""
+*StpContrast 2000/2.000: ""
+*StpContrast 2100/2.100: ""
+*StpContrast 2200/2.200: ""
+*StpContrast 2300/2.300: ""
+*StpContrast 2400/2.400: ""
+*StpContrast 2500/2.500: ""
+*StpContrast 2600/2.600: ""
+*StpContrast 2700/2.700: ""
+*StpContrast 2800/2.800: ""
+*StpContrast 2900/2.900: ""
+*StpContrast 3000/3.000: ""
+*StpContrast 3100/3.100: ""
+*StpContrast 3200/3.200: ""
+*StpContrast 3300/3.300: ""
+*StpContrast 3400/3.400: ""
+*StpContrast 3500/3.500: ""
+*StpContrast 3600/3.600: ""
+*StpContrast 3700/3.700: ""
+*StpContrast 3800/3.800: ""
+*StpContrast 3900/3.900: ""
+*StpContrast 4000/4.000: ""
+*CloseUI: *StpContrast
+
+*CustomStpContrast True: "pop"
+*ParamCustomStpContrast Value/Value: 1 real 0.000 4.000
+
+*ColorKeyWords: "StpFineContrast"
+*OpenUI *StpFineContrast/Contrast Fine Adjustment: PickOne
+*OPOptionHints StpFineContrast: "hide"
+*StpStpFineContrast: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineContrast: None
+*StpDefaultStpFineContrast: None
+*StpFineContrast None/0.000: ""
+*StpFineContrast 0/0.000: ""
+*StpFineContrast 5/0.005: ""
+*StpFineContrast 10/0.010: ""
+*StpFineContrast 15/0.015: ""
+*StpFineContrast 20/0.020: ""
+*StpFineContrast 25/0.025: ""
+*StpFineContrast 30/0.030: ""
+*StpFineContrast 35/0.035: ""
+*StpFineContrast 40/0.040: ""
+*StpFineContrast 45/0.045: ""
+*StpFineContrast 50/0.050: ""
+*StpFineContrast 55/0.055: ""
+*StpFineContrast 60/0.060: ""
+*StpFineContrast 65/0.065: ""
+*StpFineContrast 70/0.070: ""
+*StpFineContrast 75/0.075: ""
+*StpFineContrast 80/0.080: ""
+*StpFineContrast 85/0.085: ""
+*StpFineContrast 90/0.090: ""
+*StpFineContrast 95/0.095: ""
+*CloseUI: *StpFineContrast
+
+*ColorKeyWords: "StpSaturation"
+*OpenUI *StpSaturation/Saturation: PickOne
+*OrderDependency: 10 AnySetup *StpSaturation
+*OPOptionHints StpSaturation: "slider input spinbox"
+*StpStpSaturation: 3 1 1 0 255 0.000 9.000 1.000
+*DefaultStpSaturation: None
+*StpDefaultStpSaturation: None
+*StpSaturation 0/0.000: ""
+*StpSaturation 100/0.100: ""
+*StpSaturation 200/0.200: ""
+*StpSaturation 300/0.300: ""
+*StpSaturation 400/0.400: ""
+*StpSaturation 500/0.500: ""
+*StpSaturation 600/0.600: ""
+*StpSaturation 700/0.700: ""
+*StpSaturation 800/0.800: ""
+*StpSaturation 900/0.900: ""
+*StpSaturation None/1.000: ""
+*StpSaturation 1100/1.100: ""
+*StpSaturation 1200/1.200: ""
+*StpSaturation 1300/1.300: ""
+*StpSaturation 1400/1.400: ""
+*StpSaturation 1500/1.500: ""
+*StpSaturation 1600/1.600: ""
+*StpSaturation 1700/1.700: ""
+*StpSaturation 1800/1.800: ""
+*StpSaturation 1900/1.900: ""
+*StpSaturation 2000/2.000: ""
+*StpSaturation 2100/2.100: ""
+*StpSaturation 2200/2.200: ""
+*StpSaturation 2300/2.300: ""
+*StpSaturation 2400/2.400: ""
+*StpSaturation 2500/2.500: ""
+*StpSaturation 2600/2.600: ""
+*StpSaturation 2700/2.700: ""
+*StpSaturation 2800/2.800: ""
+*StpSaturation 2900/2.900: ""
+*StpSaturation 3000/3.000: ""
+*StpSaturation 3100/3.100: ""
+*StpSaturation 3200/3.200: ""
+*StpSaturation 3300/3.300: ""
+*StpSaturation 3400/3.400: ""
+*StpSaturation 3500/3.500: ""
+*StpSaturation 3600/3.600: ""
+*StpSaturation 3700/3.700: ""
+*StpSaturation 3800/3.800: ""
+*StpSaturation 3900/3.900: ""
+*StpSaturation 4000/4.000: ""
+*StpSaturation 4100/4.100: ""
+*StpSaturation 4200/4.200: ""
+*StpSaturation 4300/4.300: ""
+*StpSaturation 4400/4.400: ""
+*StpSaturation 4500/4.500: ""
+*StpSaturation 4600/4.600: ""
+*StpSaturation 4700/4.700: ""
+*StpSaturation 4800/4.800: ""
+*StpSaturation 4900/4.900: ""
+*StpSaturation 5000/5.000: ""
+*StpSaturation 5100/5.100: ""
+*StpSaturation 5200/5.200: ""
+*StpSaturation 5300/5.300: ""
+*StpSaturation 5400/5.400: ""
+*StpSaturation 5500/5.500: ""
+*StpSaturation 5600/5.600: ""
+*StpSaturation 5700/5.700: ""
+*StpSaturation 5800/5.800: ""
+*StpSaturation 5900/5.900: ""
+*StpSaturation 6000/6.000: ""
+*StpSaturation 6100/6.100: ""
+*StpSaturation 6200/6.200: ""
+*StpSaturation 6300/6.300: ""
+*StpSaturation 6400/6.400: ""
+*StpSaturation 6500/6.500: ""
+*StpSaturation 6600/6.600: ""
+*StpSaturation 6700/6.700: ""
+*StpSaturation 6800/6.800: ""
+*StpSaturation 6900/6.900: ""
+*StpSaturation 7000/7.000: ""
+*StpSaturation 7100/7.100: ""
+*StpSaturation 7200/7.200: ""
+*StpSaturation 7300/7.300: ""
+*StpSaturation 7400/7.400: ""
+*StpSaturation 7500/7.500: ""
+*StpSaturation 7600/7.600: ""
+*StpSaturation 7700/7.700: ""
+*StpSaturation 7800/7.800: ""
+*StpSaturation 7900/7.900: ""
+*StpSaturation 8000/8.000: ""
+*StpSaturation 8100/8.100: ""
+*StpSaturation 8200/8.200: ""
+*StpSaturation 8300/8.300: ""
+*StpSaturation 8400/8.400: ""
+*StpSaturation 8500/8.500: ""
+*StpSaturation 8600/8.600: ""
+*StpSaturation 8700/8.700: ""
+*StpSaturation 8800/8.800: ""
+*StpSaturation 8900/8.900: ""
+*StpSaturation 9000/9.000: ""
+*CloseUI: *StpSaturation
+
+*CustomStpSaturation True: "pop"
+*ParamCustomStpSaturation Value/Value: 1 real 0.000 9.000
+
+*ColorKeyWords: "StpFineSaturation"
+*OpenUI *StpFineSaturation/Saturation Fine Adjustment: PickOne
+*OPOptionHints StpFineSaturation: "hide"
+*StpStpFineSaturation: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineSaturation: None
+*StpDefaultStpFineSaturation: None
+*StpFineSaturation None/0.000: ""
+*StpFineSaturation 0/0.000: ""
+*StpFineSaturation 5/0.005: ""
+*StpFineSaturation 10/0.010: ""
+*StpFineSaturation 15/0.015: ""
+*StpFineSaturation 20/0.020: ""
+*StpFineSaturation 25/0.025: ""
+*StpFineSaturation 30/0.030: ""
+*StpFineSaturation 35/0.035: ""
+*StpFineSaturation 40/0.040: ""
+*StpFineSaturation 45/0.045: ""
+*StpFineSaturation 50/0.050: ""
+*StpFineSaturation 55/0.055: ""
+*StpFineSaturation 60/0.060: ""
+*StpFineSaturation 65/0.065: ""
+*StpFineSaturation 70/0.070: ""
+*StpFineSaturation 75/0.075: ""
+*StpFineSaturation 80/0.080: ""
+*StpFineSaturation 85/0.085: ""
+*StpFineSaturation 90/0.090: ""
+*StpFineSaturation 95/0.095: ""
+*CloseUI: *StpFineSaturation
+
+*ColorKeyWords: "StpImageType"
+*OpenUI *StpImageType/Image Type: PickOne
+*OrderDependency: 10 AnySetup *StpImageType
+*OPOptionHints StpImageType: "dropdown"
+*StpStpImageType: 0 1 1 0 255 0.000 0.000 0.000
+*DefaultStpImageType: TextGraphics
+*StpDefaultStpImageType: TextGraphics
+*StpImageType None/Manual Control: ""
+*StpImageType Text/Text: ""
+*StpImageType Graphics/Graphics: ""
+*StpImageType TextGraphics/Mixed Text and Graphics: ""
+*StpImageType Photo/Photograph: ""
+*StpImageType LineArt/Line Art: ""
+*CloseUI: *StpImageType
+
+*CloseGroup: C1L0/Output Control Common
+
+*OpenGroup: C1L1/Output Control Extra 1
+
+*ColorKeyWords: "StpDensity"
+*OpenUI *StpDensity/Density: PickOne
+*OrderDependency: 10 AnySetup *StpDensity
+*OPOptionHints StpDensity: "slider input spinbox"
+*StpStpDensity: 3 0 1 1 255 0.100 8.000 1.000
+*DefaultStpDensity: None
+*StpDefaultStpDensity: None
+*StpDensity 100/0.100: ""
+*StpDensity 200/0.200: ""
+*StpDensity 300/0.300: ""
+*StpDensity 400/0.400: ""
+*StpDensity 500/0.500: ""
+*StpDensity 600/0.600: ""
+*StpDensity 700/0.700: ""
+*StpDensity 800/0.800: ""
+*StpDensity 900/0.900: ""
+*StpDensity 1000/1.000: ""
+*StpDensity 1100/1.100: ""
+*StpDensity 1200/1.200: ""
+*StpDensity 1300/1.300: ""
+*StpDensity 1400/1.400: ""
+*StpDensity 1500/1.500: ""
+*StpDensity 1600/1.600: ""
+*StpDensity 1700/1.700: ""
+*StpDensity 1800/1.800: ""
+*StpDensity 1900/1.900: ""
+*StpDensity 2000/2.000: ""
+*StpDensity 2100/2.100: ""
+*StpDensity 2200/2.200: ""
+*StpDensity 2300/2.300: ""
+*StpDensity 2400/2.400: ""
+*StpDensity 2500/2.500: ""
+*StpDensity 2600/2.600: ""
+*StpDensity 2700/2.700: ""
+*StpDensity 2800/2.800: ""
+*StpDensity 2900/2.900: ""
+*StpDensity 3000/3.000: ""
+*StpDensity 3100/3.100: ""
+*StpDensity 3200/3.200: ""
+*StpDensity 3300/3.300: ""
+*StpDensity 3400/3.400: ""
+*StpDensity 3500/3.500: ""
+*StpDensity 3600/3.600: ""
+*StpDensity 3700/3.700: ""
+*StpDensity 3800/3.800: ""
+*StpDensity 3900/3.900: ""
+*StpDensity 4000/4.000: ""
+*StpDensity 4100/4.100: ""
+*StpDensity 4200/4.200: ""
+*StpDensity 4300/4.300: ""
+*StpDensity 4400/4.400: ""
+*StpDensity 4500/4.500: ""
+*StpDensity 4600/4.600: ""
+*StpDensity 4700/4.700: ""
+*StpDensity 4800/4.800: ""
+*StpDensity 4900/4.900: ""
+*StpDensity 5000/5.000: ""
+*StpDensity 5100/5.100: ""
+*StpDensity 5200/5.200: ""
+*StpDensity 5300/5.300: ""
+*StpDensity 5400/5.400: ""
+*StpDensity 5500/5.500: ""
+*StpDensity 5600/5.600: ""
+*StpDensity 5700/5.700: ""
+*StpDensity 5800/5.800: ""
+*StpDensity 5900/5.900: ""
+*StpDensity 6000/6.000: ""
+*StpDensity 6100/6.100: ""
+*StpDensity 6200/6.200: ""
+*StpDensity 6300/6.300: ""
+*StpDensity 6400/6.400: ""
+*StpDensity 6500/6.500: ""
+*StpDensity 6600/6.600: ""
+*StpDensity 6700/6.700: ""
+*StpDensity 6800/6.800: ""
+*StpDensity 6900/6.900: ""
+*StpDensity 7000/7.000: ""
+*StpDensity 7100/7.100: ""
+*StpDensity 7200/7.200: ""
+*StpDensity 7300/7.300: ""
+*StpDensity 7400/7.400: ""
+*StpDensity 7500/7.500: ""
+*StpDensity 7600/7.600: ""
+*StpDensity 7700/7.700: ""
+*StpDensity 7800/7.800: ""
+*StpDensity 7900/7.900: ""
+*StpDensity 8000/8.000: ""
+*StpDensity None/None: ""
+*CloseUI: *StpDensity
+
+*CustomStpDensity True: "pop"
+*ParamCustomStpDensity Value/Value: 1 real 0.100 8.000
+
+*ColorKeyWords: "StpFineDensity"
+*OpenUI *StpFineDensity/Density Fine Adjustment: PickOne
+*OPOptionHints StpFineDensity: "hide"
+*StpStpFineDensity: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineDensity: None
+*StpDefaultStpFineDensity: None
+*StpFineDensity None/0.000: ""
+*StpFineDensity 0/0.000: ""
+*StpFineDensity 5/0.005: ""
+*StpFineDensity 10/0.010: ""
+*StpFineDensity 15/0.015: ""
+*StpFineDensity 20/0.020: ""
+*StpFineDensity 25/0.025: ""
+*StpFineDensity 30/0.030: ""
+*StpFineDensity 35/0.035: ""
+*StpFineDensity 40/0.040: ""
+*StpFineDensity 45/0.045: ""
+*StpFineDensity 50/0.050: ""
+*StpFineDensity 55/0.055: ""
+*StpFineDensity 60/0.060: ""
+*StpFineDensity 65/0.065: ""
+*StpFineDensity 70/0.070: ""
+*StpFineDensity 75/0.075: ""
+*StpFineDensity 80/0.080: ""
+*StpFineDensity 85/0.085: ""
+*StpFineDensity 90/0.090: ""
+*StpFineDensity 95/0.095: ""
+*CloseUI: *StpFineDensity
+
+*ColorKeyWords: "StpDitherAlgorithm"
+*OpenUI *StpDitherAlgorithm/Dither Algorithm: PickOne
+*OrderDependency: 10 AnySetup *StpDitherAlgorithm
+*OPOptionHints StpDitherAlgorithm: "dropdown"
+*StpStpDitherAlgorithm: 0 1 1 1 255 0.000 0.000 0.000
+*DefaultStpDitherAlgorithm: None
+*StpDefaultStpDitherAlgorithm: None
+*StpDitherAlgorithm None/Default: ""
+*StpDitherAlgorithm EvenTone/EvenTone: ""
+*StpDitherAlgorithm HybridEvenTone/Hybrid EvenTone: ""
+*StpDitherAlgorithm Adaptive/Adaptive Hybrid: ""
+*StpDitherAlgorithm Ordered/Ordered: ""
+*StpDitherAlgorithm OrderedNew/Ordered New: ""
+*StpDitherAlgorithm Fast/Fast: ""
+*StpDitherAlgorithm VeryFast/Very Fast: ""
+*StpDitherAlgorithm Floyd/Hybrid Floyd-Steinberg: ""
+*StpDitherAlgorithm Predithered/Predithered Input: ""
+*StpDitherAlgorithm Segmented/Drop Size Segmented: ""
+*StpDitherAlgorithm SegmentedNew/Drop Size Segmented New: ""
+*CloseUI: *StpDitherAlgorithm
+
+*ColorKeyWords: "StpCyanDensity"
+*OpenUI *StpCyanDensity/Cyan Density: PickOne
+*OrderDependency: 10 AnySetup *StpCyanDensity
+*OPOptionHints StpCyanDensity: "slider input spinbox"
+*StpStpCyanDensity: 3 0 1 1 1 0.000 2.000 1.000
+*DefaultStpCyanDensity: None
+*StpDefaultStpCyanDensity: None
+*StpCyanDensity 0/0.000: ""
+*StpCyanDensity 100/0.100: ""
+*StpCyanDensity 200/0.200: ""
+*StpCyanDensity 300/0.300: ""
+*StpCyanDensity 400/0.400: ""
+*StpCyanDensity 500/0.500: ""
+*StpCyanDensity 600/0.600: ""
+*StpCyanDensity 700/0.700: ""
+*StpCyanDensity 800/0.800: ""
+*StpCyanDensity 900/0.900: ""
+*StpCyanDensity 1000/1.000: ""
+*StpCyanDensity 1100/1.100: ""
+*StpCyanDensity 1200/1.200: ""
+*StpCyanDensity 1300/1.300: ""
+*StpCyanDensity 1400/1.400: ""
+*StpCyanDensity 1500/1.500: ""
+*StpCyanDensity 1600/1.600: ""
+*StpCyanDensity 1700/1.700: ""
+*StpCyanDensity 1800/1.800: ""
+*StpCyanDensity 1900/1.900: ""
+*StpCyanDensity 2000/2.000: ""
+*StpCyanDensity None/None: ""
+*CloseUI: *StpCyanDensity
+
+*CustomStpCyanDensity True: "pop"
+*ParamCustomStpCyanDensity Value/Value: 1 real 0.000 2.000
+
+*ColorKeyWords: "StpFineCyanDensity"
+*OpenUI *StpFineCyanDensity/Cyan Density Fine Adjustment: PickOne
+*OPOptionHints StpFineCyanDensity: "hide"
+*StpStpFineCyanDensity: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineCyanDensity: None
+*StpDefaultStpFineCyanDensity: None
+*StpFineCyanDensity None/0.000: ""
+*StpFineCyanDensity 0/0.000: ""
+*StpFineCyanDensity 5/0.005: ""
+*StpFineCyanDensity 10/0.010: ""
+*StpFineCyanDensity 15/0.015: ""
+*StpFineCyanDensity 20/0.020: ""
+*StpFineCyanDensity 25/0.025: ""
+*StpFineCyanDensity 30/0.030: ""
+*StpFineCyanDensity 35/0.035: ""
+*StpFineCyanDensity 40/0.040: ""
+*StpFineCyanDensity 45/0.045: ""
+*StpFineCyanDensity 50/0.050: ""
+*StpFineCyanDensity 55/0.055: ""
+*StpFineCyanDensity 60/0.060: ""
+*StpFineCyanDensity 65/0.065: ""
+*StpFineCyanDensity 70/0.070: ""
+*StpFineCyanDensity 75/0.075: ""
+*StpFineCyanDensity 80/0.080: ""
+*StpFineCyanDensity 85/0.085: ""
+*StpFineCyanDensity 90/0.090: ""
+*StpFineCyanDensity 95/0.095: ""
+*CloseUI: *StpFineCyanDensity
+
+*ColorKeyWords: "StpMagentaDensity"
+*OpenUI *StpMagentaDensity/Magenta Density: PickOne
+*OrderDependency: 10 AnySetup *StpMagentaDensity
+*OPOptionHints StpMagentaDensity: "slider input spinbox"
+*StpStpMagentaDensity: 3 0 1 1 2 0.000 2.000 1.000
+*DefaultStpMagentaDensity: None
+*StpDefaultStpMagentaDensity: None
+*StpMagentaDensity 0/0.000: ""
+*StpMagentaDensity 100/0.100: ""
+*StpMagentaDensity 200/0.200: ""
+*StpMagentaDensity 300/0.300: ""
+*StpMagentaDensity 400/0.400: ""
+*StpMagentaDensity 500/0.500: ""
+*StpMagentaDensity 600/0.600: ""
+*StpMagentaDensity 700/0.700: ""
+*StpMagentaDensity 800/0.800: ""
+*StpMagentaDensity 900/0.900: ""
+*StpMagentaDensity 1000/1.000: ""
+*StpMagentaDensity 1100/1.100: ""
+*StpMagentaDensity 1200/1.200: ""
+*StpMagentaDensity 1300/1.300: ""
+*StpMagentaDensity 1400/1.400: ""
+*StpMagentaDensity 1500/1.500: ""
+*StpMagentaDensity 1600/1.600: ""
+*StpMagentaDensity 1700/1.700: ""
+*StpMagentaDensity 1800/1.800: ""
+*StpMagentaDensity 1900/1.900: ""
+*StpMagentaDensity 2000/2.000: ""
+*StpMagentaDensity None/None: ""
+*CloseUI: *StpMagentaDensity
+
+*CustomStpMagentaDensity True: "pop"
+*ParamCustomStpMagentaDensity Value/Value: 1 real 0.000 2.000
+
+*ColorKeyWords: "StpFineMagentaDensity"
+*OpenUI *StpFineMagentaDensity/Magenta Density Fine Adjustment: PickOne
+*OPOptionHints StpFineMagentaDensity: "hide"
+*StpStpFineMagentaDensity: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineMagentaDensity: None
+*StpDefaultStpFineMagentaDensity: None
+*StpFineMagentaDensity None/0.000: ""
+*StpFineMagentaDensity 0/0.000: ""
+*StpFineMagentaDensity 5/0.005: ""
+*StpFineMagentaDensity 10/0.010: ""
+*StpFineMagentaDensity 15/0.015: ""
+*StpFineMagentaDensity 20/0.020: ""
+*StpFineMagentaDensity 25/0.025: ""
+*StpFineMagentaDensity 30/0.030: ""
+*StpFineMagentaDensity 35/0.035: ""
+*StpFineMagentaDensity 40/0.040: ""
+*StpFineMagentaDensity 45/0.045: ""
+*StpFineMagentaDensity 50/0.050: ""
+*StpFineMagentaDensity 55/0.055: ""
+*StpFineMagentaDensity 60/0.060: ""
+*StpFineMagentaDensity 65/0.065: ""
+*StpFineMagentaDensity 70/0.070: ""
+*StpFineMagentaDensity 75/0.075: ""
+*StpFineMagentaDensity 80/0.080: ""
+*StpFineMagentaDensity 85/0.085: ""
+*StpFineMagentaDensity 90/0.090: ""
+*StpFineMagentaDensity 95/0.095: ""
+*CloseUI: *StpFineMagentaDensity
+
+*ColorKeyWords: "StpYellowDensity"
+*OpenUI *StpYellowDensity/Yellow Density: PickOne
+*OrderDependency: 10 AnySetup *StpYellowDensity
+*OPOptionHints StpYellowDensity: "slider input spinbox"
+*StpStpYellowDensity: 3 0 1 1 3 0.000 2.000 1.000
+*DefaultStpYellowDensity: None
+*StpDefaultStpYellowDensity: None
+*StpYellowDensity 0/0.000: ""
+*StpYellowDensity 100/0.100: ""
+*StpYellowDensity 200/0.200: ""
+*StpYellowDensity 300/0.300: ""
+*StpYellowDensity 400/0.400: ""
+*StpYellowDensity 500/0.500: ""
+*StpYellowDensity 600/0.600: ""
+*StpYellowDensity 700/0.700: ""
+*StpYellowDensity 800/0.800: ""
+*StpYellowDensity 900/0.900: ""
+*StpYellowDensity 1000/1.000: ""
+*StpYellowDensity 1100/1.100: ""
+*StpYellowDensity 1200/1.200: ""
+*StpYellowDensity 1300/1.300: ""
+*StpYellowDensity 1400/1.400: ""
+*StpYellowDensity 1500/1.500: ""
+*StpYellowDensity 1600/1.600: ""
+*StpYellowDensity 1700/1.700: ""
+*StpYellowDensity 1800/1.800: ""
+*StpYellowDensity 1900/1.900: ""
+*StpYellowDensity 2000/2.000: ""
+*StpYellowDensity None/None: ""
+*CloseUI: *StpYellowDensity
+
+*CustomStpYellowDensity True: "pop"
+*ParamCustomStpYellowDensity Value/Value: 1 real 0.000 2.000
+
+*ColorKeyWords: "StpFineYellowDensity"
+*OpenUI *StpFineYellowDensity/Yellow Density Fine Adjustment: PickOne
+*OPOptionHints StpFineYellowDensity: "hide"
+*StpStpFineYellowDensity: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineYellowDensity: None
+*StpDefaultStpFineYellowDensity: None
+*StpFineYellowDensity None/0.000: ""
+*StpFineYellowDensity 0/0.000: ""
+*StpFineYellowDensity 5/0.005: ""
+*StpFineYellowDensity 10/0.010: ""
+*StpFineYellowDensity 15/0.015: ""
+*StpFineYellowDensity 20/0.020: ""
+*StpFineYellowDensity 25/0.025: ""
+*StpFineYellowDensity 30/0.030: ""
+*StpFineYellowDensity 35/0.035: ""
+*StpFineYellowDensity 40/0.040: ""
+*StpFineYellowDensity 45/0.045: ""
+*StpFineYellowDensity 50/0.050: ""
+*StpFineYellowDensity 55/0.055: ""
+*StpFineYellowDensity 60/0.060: ""
+*StpFineYellowDensity 65/0.065: ""
+*StpFineYellowDensity 70/0.070: ""
+*StpFineYellowDensity 75/0.075: ""
+*StpFineYellowDensity 80/0.080: ""
+*StpFineYellowDensity 85/0.085: ""
+*StpFineYellowDensity 90/0.090: ""
+*StpFineYellowDensity 95/0.095: ""
+*CloseUI: *StpFineYellowDensity
+
+*ColorKeyWords: "StpBlackDensity"
+*OpenUI *StpBlackDensity/Black Density: PickOne
+*OrderDependency: 10 AnySetup *StpBlackDensity
+*OPOptionHints StpBlackDensity: "slider input spinbox"
+*StpStpBlackDensity: 3 0 1 1 0 0.000 2.000 1.000
+*DefaultStpBlackDensity: None
+*StpDefaultStpBlackDensity: None
+*StpBlackDensity 0/0.000: ""
+*StpBlackDensity 100/0.100: ""
+*StpBlackDensity 200/0.200: ""
+*StpBlackDensity 300/0.300: ""
+*StpBlackDensity 400/0.400: ""
+*StpBlackDensity 500/0.500: ""
+*StpBlackDensity 600/0.600: ""
+*StpBlackDensity 700/0.700: ""
+*StpBlackDensity 800/0.800: ""
+*StpBlackDensity 900/0.900: ""
+*StpBlackDensity 1000/1.000: ""
+*StpBlackDensity 1100/1.100: ""
+*StpBlackDensity 1200/1.200: ""
+*StpBlackDensity 1300/1.300: ""
+*StpBlackDensity 1400/1.400: ""
+*StpBlackDensity 1500/1.500: ""
+*StpBlackDensity 1600/1.600: ""
+*StpBlackDensity 1700/1.700: ""
+*StpBlackDensity 1800/1.800: ""
+*StpBlackDensity 1900/1.900: ""
+*StpBlackDensity 2000/2.000: ""
+*StpBlackDensity None/None: ""
+*CloseUI: *StpBlackDensity
+
+*CustomStpBlackDensity True: "pop"
+*ParamCustomStpBlackDensity Value/Value: 1 real 0.000 2.000
+
+*ColorKeyWords: "StpFineBlackDensity"
+*OpenUI *StpFineBlackDensity/Black Density Fine Adjustment: PickOne
+*OPOptionHints StpFineBlackDensity: "hide"
+*StpStpFineBlackDensity: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineBlackDensity: None
+*StpDefaultStpFineBlackDensity: None
+*StpFineBlackDensity None/0.000: ""
+*StpFineBlackDensity 0/0.000: ""
+*StpFineBlackDensity 5/0.005: ""
+*StpFineBlackDensity 10/0.010: ""
+*StpFineBlackDensity 15/0.015: ""
+*StpFineBlackDensity 20/0.020: ""
+*StpFineBlackDensity 25/0.025: ""
+*StpFineBlackDensity 30/0.030: ""
+*StpFineBlackDensity 35/0.035: ""
+*StpFineBlackDensity 40/0.040: ""
+*StpFineBlackDensity 45/0.045: ""
+*StpFineBlackDensity 50/0.050: ""
+*StpFineBlackDensity 55/0.055: ""
+*StpFineBlackDensity 60/0.060: ""
+*StpFineBlackDensity 65/0.065: ""
+*StpFineBlackDensity 70/0.070: ""
+*StpFineBlackDensity 75/0.075: ""
+*StpFineBlackDensity 80/0.080: ""
+*StpFineBlackDensity 85/0.085: ""
+*StpFineBlackDensity 90/0.090: ""
+*StpFineBlackDensity 95/0.095: ""
+*CloseUI: *StpFineBlackDensity
+
+*CloseGroup: C1L1/Output Control Extra 1
+
+*OpenGroup: C1L2/Output Control Extra 2
+
+*ColorKeyWords: "StpGamma"
+*OpenUI *StpGamma/Composite Gamma: PickOne
+*OrderDependency: 10 AnySetup *StpGamma
+*OPOptionHints StpGamma: "slider input spinbox"
+*StpStpGamma: 3 0 1 2 255 0.100 4.000 1.000
+*DefaultStpGamma: None
+*StpDefaultStpGamma: None
+*StpGamma 100/0.100: ""
+*StpGamma 200/0.200: ""
+*StpGamma 300/0.300: ""
+*StpGamma 400/0.400: ""
+*StpGamma 500/0.500: ""
+*StpGamma 600/0.600: ""
+*StpGamma 700/0.700: ""
+*StpGamma 800/0.800: ""
+*StpGamma 900/0.900: ""
+*StpGamma 1000/1.000: ""
+*StpGamma 1100/1.100: ""
+*StpGamma 1200/1.200: ""
+*StpGamma 1300/1.300: ""
+*StpGamma 1400/1.400: ""
+*StpGamma 1500/1.500: ""
+*StpGamma 1600/1.600: ""
+*StpGamma 1700/1.700: ""
+*StpGamma 1800/1.800: ""
+*StpGamma 1900/1.900: ""
+*StpGamma 2000/2.000: ""
+*StpGamma 2100/2.100: ""
+*StpGamma 2200/2.200: ""
+*StpGamma 2300/2.300: ""
+*StpGamma 2400/2.400: ""
+*StpGamma 2500/2.500: ""
+*StpGamma 2600/2.600: ""
+*StpGamma 2700/2.700: ""
+*StpGamma 2800/2.800: ""
+*StpGamma 2900/2.900: ""
+*StpGamma 3000/3.000: ""
+*StpGamma 3100/3.100: ""
+*StpGamma 3200/3.200: ""
+*StpGamma 3300/3.300: ""
+*StpGamma 3400/3.400: ""
+*StpGamma 3500/3.500: ""
+*StpGamma 3600/3.600: ""
+*StpGamma 3700/3.700: ""
+*StpGamma 3800/3.800: ""
+*StpGamma 3900/3.900: ""
+*StpGamma 4000/4.000: ""
+*StpGamma None/None: ""
+*CloseUI: *StpGamma
+
+*CustomStpGamma True: "pop"
+*ParamCustomStpGamma Value/Value: 1 real 0.100 4.000
+
+*ColorKeyWords: "StpFineGamma"
+*OpenUI *StpFineGamma/Composite Gamma Fine Adjustment: PickOne
+*OPOptionHints StpFineGamma: "hide"
+*StpStpFineGamma: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineGamma: None
+*StpDefaultStpFineGamma: None
+*StpFineGamma None/0.000: ""
+*StpFineGamma 0/0.000: ""
+*StpFineGamma 5/0.005: ""
+*StpFineGamma 10/0.010: ""
+*StpFineGamma 15/0.015: ""
+*StpFineGamma 20/0.020: ""
+*StpFineGamma 25/0.025: ""
+*StpFineGamma 30/0.030: ""
+*StpFineGamma 35/0.035: ""
+*StpFineGamma 40/0.040: ""
+*StpFineGamma 45/0.045: ""
+*StpFineGamma 50/0.050: ""
+*StpFineGamma 55/0.055: ""
+*StpFineGamma 60/0.060: ""
+*StpFineGamma 65/0.065: ""
+*StpFineGamma 70/0.070: ""
+*StpFineGamma 75/0.075: ""
+*StpFineGamma 80/0.080: ""
+*StpFineGamma 85/0.085: ""
+*StpFineGamma 90/0.090: ""
+*StpFineGamma 95/0.095: ""
+*CloseUI: *StpFineGamma
+
+*ColorKeyWords: "StpCyanGamma"
+*OpenUI *StpCyanGamma/Cyan: PickOne
+*OrderDependency: 10 AnySetup *StpCyanGamma
+*OPOptionHints StpCyanGamma: "slider input spinbox"
+*StpStpCyanGamma: 3 0 1 2 1 0.000 4.000 1.000
+*DefaultStpCyanGamma: None
+*StpDefaultStpCyanGamma: None
+*StpCyanGamma 0/0.000: ""
+*StpCyanGamma 100/0.100: ""
+*StpCyanGamma 200/0.200: ""
+*StpCyanGamma 300/0.300: ""
+*StpCyanGamma 400/0.400: ""
+*StpCyanGamma 500/0.500: ""
+*StpCyanGamma 600/0.600: ""
+*StpCyanGamma 700/0.700: ""
+*StpCyanGamma 800/0.800: ""
+*StpCyanGamma 900/0.900: ""
+*StpCyanGamma 1000/1.000: ""
+*StpCyanGamma 1100/1.100: ""
+*StpCyanGamma 1200/1.200: ""
+*StpCyanGamma 1300/1.300: ""
+*StpCyanGamma 1400/1.400: ""
+*StpCyanGamma 1500/1.500: ""
+*StpCyanGamma 1600/1.600: ""
+*StpCyanGamma 1700/1.700: ""
+*StpCyanGamma 1800/1.800: ""
+*StpCyanGamma 1900/1.900: ""
+*StpCyanGamma 2000/2.000: ""
+*StpCyanGamma 2100/2.100: ""
+*StpCyanGamma 2200/2.200: ""
+*StpCyanGamma 2300/2.300: ""
+*StpCyanGamma 2400/2.400: ""
+*StpCyanGamma 2500/2.500: ""
+*StpCyanGamma 2600/2.600: ""
+*StpCyanGamma 2700/2.700: ""
+*StpCyanGamma 2800/2.800: ""
+*StpCyanGamma 2900/2.900: ""
+*StpCyanGamma 3000/3.000: ""
+*StpCyanGamma 3100/3.100: ""
+*StpCyanGamma 3200/3.200: ""
+*StpCyanGamma 3300/3.300: ""
+*StpCyanGamma 3400/3.400: ""
+*StpCyanGamma 3500/3.500: ""
+*StpCyanGamma 3600/3.600: ""
+*StpCyanGamma 3700/3.700: ""
+*StpCyanGamma 3800/3.800: ""
+*StpCyanGamma 3900/3.900: ""
+*StpCyanGamma 4000/4.000: ""
+*StpCyanGamma None/None: ""
+*CloseUI: *StpCyanGamma
+
+*CustomStpCyanGamma True: "pop"
+*ParamCustomStpCyanGamma Value/Value: 1 real 0.000 4.000
+
+*ColorKeyWords: "StpFineCyanGamma"
+*OpenUI *StpFineCyanGamma/Cyan Fine Adjustment: PickOne
+*OPOptionHints StpFineCyanGamma: "hide"
+*StpStpFineCyanGamma: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineCyanGamma: None
+*StpDefaultStpFineCyanGamma: None
+*StpFineCyanGamma None/0.000: ""
+*StpFineCyanGamma 0/0.000: ""
+*StpFineCyanGamma 5/0.005: ""
+*StpFineCyanGamma 10/0.010: ""
+*StpFineCyanGamma 15/0.015: ""
+*StpFineCyanGamma 20/0.020: ""
+*StpFineCyanGamma 25/0.025: ""
+*StpFineCyanGamma 30/0.030: ""
+*StpFineCyanGamma 35/0.035: ""
+*StpFineCyanGamma 40/0.040: ""
+*StpFineCyanGamma 45/0.045: ""
+*StpFineCyanGamma 50/0.050: ""
+*StpFineCyanGamma 55/0.055: ""
+*StpFineCyanGamma 60/0.060: ""
+*StpFineCyanGamma 65/0.065: ""
+*StpFineCyanGamma 70/0.070: ""
+*StpFineCyanGamma 75/0.075: ""
+*StpFineCyanGamma 80/0.080: ""
+*StpFineCyanGamma 85/0.085: ""
+*StpFineCyanGamma 90/0.090: ""
+*StpFineCyanGamma 95/0.095: ""
+*CloseUI: *StpFineCyanGamma
+
+*ColorKeyWords: "StpMagentaGamma"
+*OpenUI *StpMagentaGamma/Magenta: PickOne
+*OrderDependency: 10 AnySetup *StpMagentaGamma
+*OPOptionHints StpMagentaGamma: "slider input spinbox"
+*StpStpMagentaGamma: 3 0 1 2 2 0.000 4.000 1.000
+*DefaultStpMagentaGamma: None
+*StpDefaultStpMagentaGamma: None
+*StpMagentaGamma 0/0.000: ""
+*StpMagentaGamma 100/0.100: ""
+*StpMagentaGamma 200/0.200: ""
+*StpMagentaGamma 300/0.300: ""
+*StpMagentaGamma 400/0.400: ""
+*StpMagentaGamma 500/0.500: ""
+*StpMagentaGamma 600/0.600: ""
+*StpMagentaGamma 700/0.700: ""
+*StpMagentaGamma 800/0.800: ""
+*StpMagentaGamma 900/0.900: ""
+*StpMagentaGamma 1000/1.000: ""
+*StpMagentaGamma 1100/1.100: ""
+*StpMagentaGamma 1200/1.200: ""
+*StpMagentaGamma 1300/1.300: ""
+*StpMagentaGamma 1400/1.400: ""
+*StpMagentaGamma 1500/1.500: ""
+*StpMagentaGamma 1600/1.600: ""
+*StpMagentaGamma 1700/1.700: ""
+*StpMagentaGamma 1800/1.800: ""
+*StpMagentaGamma 1900/1.900: ""
+*StpMagentaGamma 2000/2.000: ""
+*StpMagentaGamma 2100/2.100: ""
+*StpMagentaGamma 2200/2.200: ""
+*StpMagentaGamma 2300/2.300: ""
+*StpMagentaGamma 2400/2.400: ""
+*StpMagentaGamma 2500/2.500: ""
+*StpMagentaGamma 2600/2.600: ""
+*StpMagentaGamma 2700/2.700: ""
+*StpMagentaGamma 2800/2.800: ""
+*StpMagentaGamma 2900/2.900: ""
+*StpMagentaGamma 3000/3.000: ""
+*StpMagentaGamma 3100/3.100: ""
+*StpMagentaGamma 3200/3.200: ""
+*StpMagentaGamma 3300/3.300: ""
+*StpMagentaGamma 3400/3.400: ""
+*StpMagentaGamma 3500/3.500: ""
+*StpMagentaGamma 3600/3.600: ""
+*StpMagentaGamma 3700/3.700: ""
+*StpMagentaGamma 3800/3.800: ""
+*StpMagentaGamma 3900/3.900: ""
+*StpMagentaGamma 4000/4.000: ""
+*StpMagentaGamma None/None: ""
+*CloseUI: *StpMagentaGamma
+
+*CustomStpMagentaGamma True: "pop"
+*ParamCustomStpMagentaGamma Value/Value: 1 real 0.000 4.000
+
+*ColorKeyWords: "StpFineMagentaGamma"
+*OpenUI *StpFineMagentaGamma/Magenta Fine Adjustment: PickOne
+*OPOptionHints StpFineMagentaGamma: "hide"
+*StpStpFineMagentaGamma: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineMagentaGamma: None
+*StpDefaultStpFineMagentaGamma: None
+*StpFineMagentaGamma None/0.000: ""
+*StpFineMagentaGamma 0/0.000: ""
+*StpFineMagentaGamma 5/0.005: ""
+*StpFineMagentaGamma 10/0.010: ""
+*StpFineMagentaGamma 15/0.015: ""
+*StpFineMagentaGamma 20/0.020: ""
+*StpFineMagentaGamma 25/0.025: ""
+*StpFineMagentaGamma 30/0.030: ""
+*StpFineMagentaGamma 35/0.035: ""
+*StpFineMagentaGamma 40/0.040: ""
+*StpFineMagentaGamma 45/0.045: ""
+*StpFineMagentaGamma 50/0.050: ""
+*StpFineMagentaGamma 55/0.055: ""
+*StpFineMagentaGamma 60/0.060: ""
+*StpFineMagentaGamma 65/0.065: ""
+*StpFineMagentaGamma 70/0.070: ""
+*StpFineMagentaGamma 75/0.075: ""
+*StpFineMagentaGamma 80/0.080: ""
+*StpFineMagentaGamma 85/0.085: ""
+*StpFineMagentaGamma 90/0.090: ""
+*StpFineMagentaGamma 95/0.095: ""
+*CloseUI: *StpFineMagentaGamma
+
+*ColorKeyWords: "StpYellowGamma"
+*OpenUI *StpYellowGamma/Yellow: PickOne
+*OrderDependency: 10 AnySetup *StpYellowGamma
+*OPOptionHints StpYellowGamma: "slider input spinbox"
+*StpStpYellowGamma: 3 0 1 2 3 0.000 4.000 1.000
+*DefaultStpYellowGamma: None
+*StpDefaultStpYellowGamma: None
+*StpYellowGamma 0/0.000: ""
+*StpYellowGamma 100/0.100: ""
+*StpYellowGamma 200/0.200: ""
+*StpYellowGamma 300/0.300: ""
+*StpYellowGamma 400/0.400: ""
+*StpYellowGamma 500/0.500: ""
+*StpYellowGamma 600/0.600: ""
+*StpYellowGamma 700/0.700: ""
+*StpYellowGamma 800/0.800: ""
+*StpYellowGamma 900/0.900: ""
+*StpYellowGamma 1000/1.000: ""
+*StpYellowGamma 1100/1.100: ""
+*StpYellowGamma 1200/1.200: ""
+*StpYellowGamma 1300/1.300: ""
+*StpYellowGamma 1400/1.400: ""
+*StpYellowGamma 1500/1.500: ""
+*StpYellowGamma 1600/1.600: ""
+*StpYellowGamma 1700/1.700: ""
+*StpYellowGamma 1800/1.800: ""
+*StpYellowGamma 1900/1.900: ""
+*StpYellowGamma 2000/2.000: ""
+*StpYellowGamma 2100/2.100: ""
+*StpYellowGamma 2200/2.200: ""
+*StpYellowGamma 2300/2.300: ""
+*StpYellowGamma 2400/2.400: ""
+*StpYellowGamma 2500/2.500: ""
+*StpYellowGamma 2600/2.600: ""
+*StpYellowGamma 2700/2.700: ""
+*StpYellowGamma 2800/2.800: ""
+*StpYellowGamma 2900/2.900: ""
+*StpYellowGamma 3000/3.000: ""
+*StpYellowGamma 3100/3.100: ""
+*StpYellowGamma 3200/3.200: ""
+*StpYellowGamma 3300/3.300: ""
+*StpYellowGamma 3400/3.400: ""
+*StpYellowGamma 3500/3.500: ""
+*StpYellowGamma 3600/3.600: ""
+*StpYellowGamma 3700/3.700: ""
+*StpYellowGamma 3800/3.800: ""
+*StpYellowGamma 3900/3.900: ""
+*StpYellowGamma 4000/4.000: ""
+*StpYellowGamma None/None: ""
+*CloseUI: *StpYellowGamma
+
+*CustomStpYellowGamma True: "pop"
+*ParamCustomStpYellowGamma Value/Value: 1 real 0.000 4.000
+
+*ColorKeyWords: "StpFineYellowGamma"
+*OpenUI *StpFineYellowGamma/Yellow Fine Adjustment: PickOne
+*OPOptionHints StpFineYellowGamma: "hide"
+*StpStpFineYellowGamma: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineYellowGamma: None
+*StpDefaultStpFineYellowGamma: None
+*StpFineYellowGamma None/0.000: ""
+*StpFineYellowGamma 0/0.000: ""
+*StpFineYellowGamma 5/0.005: ""
+*StpFineYellowGamma 10/0.010: ""
+*StpFineYellowGamma 15/0.015: ""
+*StpFineYellowGamma 20/0.020: ""
+*StpFineYellowGamma 25/0.025: ""
+*StpFineYellowGamma 30/0.030: ""
+*StpFineYellowGamma 35/0.035: ""
+*StpFineYellowGamma 40/0.040: ""
+*StpFineYellowGamma 45/0.045: ""
+*StpFineYellowGamma 50/0.050: ""
+*StpFineYellowGamma 55/0.055: ""
+*StpFineYellowGamma 60/0.060: ""
+*StpFineYellowGamma 65/0.065: ""
+*StpFineYellowGamma 70/0.070: ""
+*StpFineYellowGamma 75/0.075: ""
+*StpFineYellowGamma 80/0.080: ""
+*StpFineYellowGamma 85/0.085: ""
+*StpFineYellowGamma 90/0.090: ""
+*StpFineYellowGamma 95/0.095: ""
+*CloseUI: *StpFineYellowGamma
+
+*ColorKeyWords: "StpBlackGamma"
+*OpenUI *StpBlackGamma/Black: PickOne
+*OrderDependency: 10 AnySetup *StpBlackGamma
+*OPOptionHints StpBlackGamma: "slider input spinbox"
+*StpStpBlackGamma: 3 0 1 2 3 0.000 4.000 1.000
+*DefaultStpBlackGamma: None
+*StpDefaultStpBlackGamma: None
+*StpBlackGamma 0/0.000: ""
+*StpBlackGamma 100/0.100: ""
+*StpBlackGamma 200/0.200: ""
+*StpBlackGamma 300/0.300: ""
+*StpBlackGamma 400/0.400: ""
+*StpBlackGamma 500/0.500: ""
+*StpBlackGamma 600/0.600: ""
+*StpBlackGamma 700/0.700: ""
+*StpBlackGamma 800/0.800: ""
+*StpBlackGamma 900/0.900: ""
+*StpBlackGamma 1000/1.000: ""
+*StpBlackGamma 1100/1.100: ""
+*StpBlackGamma 1200/1.200: ""
+*StpBlackGamma 1300/1.300: ""
+*StpBlackGamma 1400/1.400: ""
+*StpBlackGamma 1500/1.500: ""
+*StpBlackGamma 1600/1.600: ""
+*StpBlackGamma 1700/1.700: ""
+*StpBlackGamma 1800/1.800: ""
+*StpBlackGamma 1900/1.900: ""
+*StpBlackGamma 2000/2.000: ""
+*StpBlackGamma 2100/2.100: ""
+*StpBlackGamma 2200/2.200: ""
+*StpBlackGamma 2300/2.300: ""
+*StpBlackGamma 2400/2.400: ""
+*StpBlackGamma 2500/2.500: ""
+*StpBlackGamma 2600/2.600: ""
+*StpBlackGamma 2700/2.700: ""
+*StpBlackGamma 2800/2.800: ""
+*StpBlackGamma 2900/2.900: ""
+*StpBlackGamma 3000/3.000: ""
+*StpBlackGamma 3100/3.100: ""
+*StpBlackGamma 3200/3.200: ""
+*StpBlackGamma 3300/3.300: ""
+*StpBlackGamma 3400/3.400: ""
+*StpBlackGamma 3500/3.500: ""
+*StpBlackGamma 3600/3.600: ""
+*StpBlackGamma 3700/3.700: ""
+*StpBlackGamma 3800/3.800: ""
+*StpBlackGamma 3900/3.900: ""
+*StpBlackGamma 4000/4.000: ""
+*StpBlackGamma None/None: ""
+*CloseUI: *StpBlackGamma
+
+*CustomStpBlackGamma True: "pop"
+*ParamCustomStpBlackGamma Value/Value: 1 real 0.000 4.000
+
+*ColorKeyWords: "StpFineBlackGamma"
+*OpenUI *StpFineBlackGamma/Black Fine Adjustment: PickOne
+*OPOptionHints StpFineBlackGamma: "hide"
+*StpStpFineBlackGamma: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineBlackGamma: None
+*StpDefaultStpFineBlackGamma: None
+*StpFineBlackGamma None/0.000: ""
+*StpFineBlackGamma 0/0.000: ""
+*StpFineBlackGamma 5/0.005: ""
+*StpFineBlackGamma 10/0.010: ""
+*StpFineBlackGamma 15/0.015: ""
+*StpFineBlackGamma 20/0.020: ""
+*StpFineBlackGamma 25/0.025: ""
+*StpFineBlackGamma 30/0.030: ""
+*StpFineBlackGamma 35/0.035: ""
+*StpFineBlackGamma 40/0.040: ""
+*StpFineBlackGamma 45/0.045: ""
+*StpFineBlackGamma 50/0.050: ""
+*StpFineBlackGamma 55/0.055: ""
+*StpFineBlackGamma 60/0.060: ""
+*StpFineBlackGamma 65/0.065: ""
+*StpFineBlackGamma 70/0.070: ""
+*StpFineBlackGamma 75/0.075: ""
+*StpFineBlackGamma 80/0.080: ""
+*StpFineBlackGamma 85/0.085: ""
+*StpFineBlackGamma 90/0.090: ""
+*StpFineBlackGamma 95/0.095: ""
+*CloseUI: *StpFineBlackGamma
+
+*ColorKeyWords: "StpCyanBalance"
+*OpenUI *StpCyanBalance/Cyan Balance: PickOne
+*OrderDependency: 10 AnySetup *StpCyanBalance
+*OPOptionHints StpCyanBalance: "slider input spinbox"
+*StpStpCyanBalance: 3 0 1 2 1 0.000 1.000 1.000
+*DefaultStpCyanBalance: None
+*StpDefaultStpCyanBalance: None
+*StpCyanBalance 0/0.000: ""
+*StpCyanBalance 100/0.100: ""
+*StpCyanBalance 200/0.200: ""
+*StpCyanBalance 300/0.300: ""
+*StpCyanBalance 400/0.400: ""
+*StpCyanBalance 500/0.500: ""
+*StpCyanBalance 600/0.600: ""
+*StpCyanBalance 700/0.700: ""
+*StpCyanBalance 800/0.800: ""
+*StpCyanBalance 900/0.900: ""
+*StpCyanBalance 1000/1.000: ""
+*StpCyanBalance None/None: ""
+*CloseUI: *StpCyanBalance
+
+*CustomStpCyanBalance True: "pop"
+*ParamCustomStpCyanBalance Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineCyanBalance"
+*OpenUI *StpFineCyanBalance/Cyan Balance Fine Adjustment: PickOne
+*OPOptionHints StpFineCyanBalance: "hide"
+*StpStpFineCyanBalance: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineCyanBalance: None
+*StpDefaultStpFineCyanBalance: None
+*StpFineCyanBalance None/0.000: ""
+*StpFineCyanBalance 0/0.000: ""
+*StpFineCyanBalance 5/0.005: ""
+*StpFineCyanBalance 10/0.010: ""
+*StpFineCyanBalance 15/0.015: ""
+*StpFineCyanBalance 20/0.020: ""
+*StpFineCyanBalance 25/0.025: ""
+*StpFineCyanBalance 30/0.030: ""
+*StpFineCyanBalance 35/0.035: ""
+*StpFineCyanBalance 40/0.040: ""
+*StpFineCyanBalance 45/0.045: ""
+*StpFineCyanBalance 50/0.050: ""
+*StpFineCyanBalance 55/0.055: ""
+*StpFineCyanBalance 60/0.060: ""
+*StpFineCyanBalance 65/0.065: ""
+*StpFineCyanBalance 70/0.070: ""
+*StpFineCyanBalance 75/0.075: ""
+*StpFineCyanBalance 80/0.080: ""
+*StpFineCyanBalance 85/0.085: ""
+*StpFineCyanBalance 90/0.090: ""
+*StpFineCyanBalance 95/0.095: ""
+*CloseUI: *StpFineCyanBalance
+
+*ColorKeyWords: "StpMagentaBalance"
+*OpenUI *StpMagentaBalance/Magenta Balance: PickOne
+*OrderDependency: 10 AnySetup *StpMagentaBalance
+*OPOptionHints StpMagentaBalance: "slider input spinbox"
+*StpStpMagentaBalance: 3 0 1 2 2 0.000 1.000 1.000
+*DefaultStpMagentaBalance: None
+*StpDefaultStpMagentaBalance: None
+*StpMagentaBalance 0/0.000: ""
+*StpMagentaBalance 100/0.100: ""
+*StpMagentaBalance 200/0.200: ""
+*StpMagentaBalance 300/0.300: ""
+*StpMagentaBalance 400/0.400: ""
+*StpMagentaBalance 500/0.500: ""
+*StpMagentaBalance 600/0.600: ""
+*StpMagentaBalance 700/0.700: ""
+*StpMagentaBalance 800/0.800: ""
+*StpMagentaBalance 900/0.900: ""
+*StpMagentaBalance 1000/1.000: ""
+*StpMagentaBalance None/None: ""
+*CloseUI: *StpMagentaBalance
+
+*CustomStpMagentaBalance True: "pop"
+*ParamCustomStpMagentaBalance Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineMagentaBalance"
+*OpenUI *StpFineMagentaBalance/Magenta Balance Fine Adjustment: PickOne
+*OPOptionHints StpFineMagentaBalance: "hide"
+*StpStpFineMagentaBalance: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineMagentaBalance: None
+*StpDefaultStpFineMagentaBalance: None
+*StpFineMagentaBalance None/0.000: ""
+*StpFineMagentaBalance 0/0.000: ""
+*StpFineMagentaBalance 5/0.005: ""
+*StpFineMagentaBalance 10/0.010: ""
+*StpFineMagentaBalance 15/0.015: ""
+*StpFineMagentaBalance 20/0.020: ""
+*StpFineMagentaBalance 25/0.025: ""
+*StpFineMagentaBalance 30/0.030: ""
+*StpFineMagentaBalance 35/0.035: ""
+*StpFineMagentaBalance 40/0.040: ""
+*StpFineMagentaBalance 45/0.045: ""
+*StpFineMagentaBalance 50/0.050: ""
+*StpFineMagentaBalance 55/0.055: ""
+*StpFineMagentaBalance 60/0.060: ""
+*StpFineMagentaBalance 65/0.065: ""
+*StpFineMagentaBalance 70/0.070: ""
+*StpFineMagentaBalance 75/0.075: ""
+*StpFineMagentaBalance 80/0.080: ""
+*StpFineMagentaBalance 85/0.085: ""
+*StpFineMagentaBalance 90/0.090: ""
+*StpFineMagentaBalance 95/0.095: ""
+*CloseUI: *StpFineMagentaBalance
+
+*ColorKeyWords: "StpYellowBalance"
+*OpenUI *StpYellowBalance/Yellow Balance: PickOne
+*OrderDependency: 10 AnySetup *StpYellowBalance
+*OPOptionHints StpYellowBalance: "slider input spinbox"
+*StpStpYellowBalance: 3 0 1 2 3 0.000 1.000 1.000
+*DefaultStpYellowBalance: None
+*StpDefaultStpYellowBalance: None
+*StpYellowBalance 0/0.000: ""
+*StpYellowBalance 100/0.100: ""
+*StpYellowBalance 200/0.200: ""
+*StpYellowBalance 300/0.300: ""
+*StpYellowBalance 400/0.400: ""
+*StpYellowBalance 500/0.500: ""
+*StpYellowBalance 600/0.600: ""
+*StpYellowBalance 700/0.700: ""
+*StpYellowBalance 800/0.800: ""
+*StpYellowBalance 900/0.900: ""
+*StpYellowBalance 1000/1.000: ""
+*StpYellowBalance None/None: ""
+*CloseUI: *StpYellowBalance
+
+*CustomStpYellowBalance True: "pop"
+*ParamCustomStpYellowBalance Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineYellowBalance"
+*OpenUI *StpFineYellowBalance/Yellow Balance Fine Adjustment: PickOne
+*OPOptionHints StpFineYellowBalance: "hide"
+*StpStpFineYellowBalance: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineYellowBalance: None
+*StpDefaultStpFineYellowBalance: None
+*StpFineYellowBalance None/0.000: ""
+*StpFineYellowBalance 0/0.000: ""
+*StpFineYellowBalance 5/0.005: ""
+*StpFineYellowBalance 10/0.010: ""
+*StpFineYellowBalance 15/0.015: ""
+*StpFineYellowBalance 20/0.020: ""
+*StpFineYellowBalance 25/0.025: ""
+*StpFineYellowBalance 30/0.030: ""
+*StpFineYellowBalance 35/0.035: ""
+*StpFineYellowBalance 40/0.040: ""
+*StpFineYellowBalance 45/0.045: ""
+*StpFineYellowBalance 50/0.050: ""
+*StpFineYellowBalance 55/0.055: ""
+*StpFineYellowBalance 60/0.060: ""
+*StpFineYellowBalance 65/0.065: ""
+*StpFineYellowBalance 70/0.070: ""
+*StpFineYellowBalance 75/0.075: ""
+*StpFineYellowBalance 80/0.080: ""
+*StpFineYellowBalance 85/0.085: ""
+*StpFineYellowBalance 90/0.090: ""
+*StpFineYellowBalance 95/0.095: ""
+*CloseUI: *StpFineYellowBalance
+
+*CloseGroup: C1L2/Output Control Extra 2
+
+*OpenGroup: C1L4/Output Control Extra 4
+
+*ColorKeyWords: "StpLinearContrast"
+*OpenUI *StpLinearContrast/Linear Contrast Adjustment: PickOne
+*OrderDependency: 10 AnySetup *StpLinearContrast
+*OPOptionHints StpLinearContrast: "checkbox"
+*StpStpLinearContrast: 2 1 1 4 255 0.000 0.000 0.000
+*DefaultStpLinearContrast: False
+*StpDefaultStpLinearContrast: False
+*StpLinearContrast False/No: ""
+*StpLinearContrast True/Yes: ""
+*CloseUI: *StpLinearContrast
+
+*CloseGroup: C1L4/Output Control Extra 4
+
+*OpenGroup: C1L5/Output Control Extra 5
+
+*ColorKeyWords: "StpDropSize1"
+*OpenUI *StpDropSize1/Drop Size Small: PickOne
+*OrderDependency: 10 AnySetup *StpDropSize1
+*OPOptionHints StpDropSize1: "slider input spinbox"
+*StpStpDropSize1: 3 0 1 5 255 0.000 1.000 1.000
+*DefaultStpDropSize1: None
+*StpDefaultStpDropSize1: None
+*StpDropSize1 0/0.000: ""
+*StpDropSize1 100/0.100: ""
+*StpDropSize1 200/0.200: ""
+*StpDropSize1 300/0.300: ""
+*StpDropSize1 400/0.400: ""
+*StpDropSize1 500/0.500: ""
+*StpDropSize1 600/0.600: ""
+*StpDropSize1 700/0.700: ""
+*StpDropSize1 800/0.800: ""
+*StpDropSize1 900/0.900: ""
+*StpDropSize1 1000/1.000: ""
+*StpDropSize1 None/None: ""
+*CloseUI: *StpDropSize1
+
+*CustomStpDropSize1 True: "pop"
+*ParamCustomStpDropSize1 Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineDropSize1"
+*OpenUI *StpFineDropSize1/Drop Size Small Fine Adjustment: PickOne
+*OPOptionHints StpFineDropSize1: "hide"
+*StpStpFineDropSize1: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineDropSize1: None
+*StpDefaultStpFineDropSize1: None
+*StpFineDropSize1 None/0.000: ""
+*StpFineDropSize1 0/0.000: ""
+*StpFineDropSize1 5/0.005: ""
+*StpFineDropSize1 10/0.010: ""
+*StpFineDropSize1 15/0.015: ""
+*StpFineDropSize1 20/0.020: ""
+*StpFineDropSize1 25/0.025: ""
+*StpFineDropSize1 30/0.030: ""
+*StpFineDropSize1 35/0.035: ""
+*StpFineDropSize1 40/0.040: ""
+*StpFineDropSize1 45/0.045: ""
+*StpFineDropSize1 50/0.050: ""
+*StpFineDropSize1 55/0.055: ""
+*StpFineDropSize1 60/0.060: ""
+*StpFineDropSize1 65/0.065: ""
+*StpFineDropSize1 70/0.070: ""
+*StpFineDropSize1 75/0.075: ""
+*StpFineDropSize1 80/0.080: ""
+*StpFineDropSize1 85/0.085: ""
+*StpFineDropSize1 90/0.090: ""
+*StpFineDropSize1 95/0.095: ""
+*CloseUI: *StpFineDropSize1
+
+*ColorKeyWords: "StpDropSize2"
+*OpenUI *StpDropSize2/Drop Size Medium: PickOne
+*OrderDependency: 10 AnySetup *StpDropSize2
+*OPOptionHints StpDropSize2: "slider input spinbox"
+*StpStpDropSize2: 3 0 1 5 255 0.000 1.000 0.000
+*DefaultStpDropSize2: None
+*StpDefaultStpDropSize2: None
+*StpDropSize2 0/0.000: ""
+*StpDropSize2 100/0.100: ""
+*StpDropSize2 200/0.200: ""
+*StpDropSize2 300/0.300: ""
+*StpDropSize2 400/0.400: ""
+*StpDropSize2 500/0.500: ""
+*StpDropSize2 600/0.600: ""
+*StpDropSize2 700/0.700: ""
+*StpDropSize2 800/0.800: ""
+*StpDropSize2 900/0.900: ""
+*StpDropSize2 1000/1.000: ""
+*StpDropSize2 None/None: ""
+*CloseUI: *StpDropSize2
+
+*CustomStpDropSize2 True: "pop"
+*ParamCustomStpDropSize2 Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineDropSize2"
+*OpenUI *StpFineDropSize2/Drop Size Medium Fine Adjustment: PickOne
+*OPOptionHints StpFineDropSize2: "hide"
+*StpStpFineDropSize2: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineDropSize2: None
+*StpDefaultStpFineDropSize2: None
+*StpFineDropSize2 None/0.000: ""
+*StpFineDropSize2 0/0.000: ""
+*StpFineDropSize2 5/0.005: ""
+*StpFineDropSize2 10/0.010: ""
+*StpFineDropSize2 15/0.015: ""
+*StpFineDropSize2 20/0.020: ""
+*StpFineDropSize2 25/0.025: ""
+*StpFineDropSize2 30/0.030: ""
+*StpFineDropSize2 35/0.035: ""
+*StpFineDropSize2 40/0.040: ""
+*StpFineDropSize2 45/0.045: ""
+*StpFineDropSize2 50/0.050: ""
+*StpFineDropSize2 55/0.055: ""
+*StpFineDropSize2 60/0.060: ""
+*StpFineDropSize2 65/0.065: ""
+*StpFineDropSize2 70/0.070: ""
+*StpFineDropSize2 75/0.075: ""
+*StpFineDropSize2 80/0.080: ""
+*StpFineDropSize2 85/0.085: ""
+*StpFineDropSize2 90/0.090: ""
+*StpFineDropSize2 95/0.095: ""
+*CloseUI: *StpFineDropSize2
+
+*ColorKeyWords: "StpDropSize3"
+*OpenUI *StpDropSize3/Drop Size Large: PickOne
+*OrderDependency: 10 AnySetup *StpDropSize3
+*OPOptionHints StpDropSize3: "slider input spinbox"
+*StpStpDropSize3: 3 0 1 5 255 0.000 1.000 0.000
+*DefaultStpDropSize3: None
+*StpDefaultStpDropSize3: None
+*StpDropSize3 0/0.000: ""
+*StpDropSize3 100/0.100: ""
+*StpDropSize3 200/0.200: ""
+*StpDropSize3 300/0.300: ""
+*StpDropSize3 400/0.400: ""
+*StpDropSize3 500/0.500: ""
+*StpDropSize3 600/0.600: ""
+*StpDropSize3 700/0.700: ""
+*StpDropSize3 800/0.800: ""
+*StpDropSize3 900/0.900: ""
+*StpDropSize3 1000/1.000: ""
+*StpDropSize3 None/None: ""
+*CloseUI: *StpDropSize3
+
+*CustomStpDropSize3 True: "pop"
+*ParamCustomStpDropSize3 Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineDropSize3"
+*OpenUI *StpFineDropSize3/Drop Size Large Fine Adjustment: PickOne
+*OPOptionHints StpFineDropSize3: "hide"
+*StpStpFineDropSize3: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineDropSize3: None
+*StpDefaultStpFineDropSize3: None
+*StpFineDropSize3 None/0.000: ""
+*StpFineDropSize3 0/0.000: ""
+*StpFineDropSize3 5/0.005: ""
+*StpFineDropSize3 10/0.010: ""
+*StpFineDropSize3 15/0.015: ""
+*StpFineDropSize3 20/0.020: ""
+*StpFineDropSize3 25/0.025: ""
+*StpFineDropSize3 30/0.030: ""
+*StpFineDropSize3 35/0.035: ""
+*StpFineDropSize3 40/0.040: ""
+*StpFineDropSize3 45/0.045: ""
+*StpFineDropSize3 50/0.050: ""
+*StpFineDropSize3 55/0.055: ""
+*StpFineDropSize3 60/0.060: ""
+*StpFineDropSize3 65/0.065: ""
+*StpFineDropSize3 70/0.070: ""
+*StpFineDropSize3 75/0.075: ""
+*StpFineDropSize3 80/0.080: ""
+*StpFineDropSize3 85/0.085: ""
+*StpFineDropSize3 90/0.090: ""
+*StpFineDropSize3 95/0.095: ""
+*CloseUI: *StpFineDropSize3
+
+*ColorKeyWords: "StpLightCyanValue"
+*OpenUI *StpLightCyanValue/Light Cyan Value: PickOne
+*OrderDependency: 10 AnySetup *StpLightCyanValue
+*OPOptionHints StpLightCyanValue: "slider input spinbox"
+*StpStpLightCyanValue: 3 0 1 5 255 0.000 1.000 0.350
+*DefaultStpLightCyanValue: None
+*StpDefaultStpLightCyanValue: None
+*StpLightCyanValue 0/0.000: ""
+*StpLightCyanValue 100/0.100: ""
+*StpLightCyanValue 200/0.200: ""
+*StpLightCyanValue 300/0.300: ""
+*StpLightCyanValue 400/0.400: ""
+*StpLightCyanValue 500/0.500: ""
+*StpLightCyanValue 600/0.600: ""
+*StpLightCyanValue 700/0.700: ""
+*StpLightCyanValue 800/0.800: ""
+*StpLightCyanValue 900/0.900: ""
+*StpLightCyanValue 1000/1.000: ""
+*StpLightCyanValue None/None: ""
+*CloseUI: *StpLightCyanValue
+
+*CustomStpLightCyanValue True: "pop"
+*ParamCustomStpLightCyanValue Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineLightCyanValue"
+*OpenUI *StpFineLightCyanValue/Light Cyan Value Fine Adjustment: PickOne
+*OPOptionHints StpFineLightCyanValue: "hide"
+*StpStpFineLightCyanValue: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineLightCyanValue: None
+*StpDefaultStpFineLightCyanValue: None
+*StpFineLightCyanValue None/0.000: ""
+*StpFineLightCyanValue 0/0.000: ""
+*StpFineLightCyanValue 5/0.005: ""
+*StpFineLightCyanValue 10/0.010: ""
+*StpFineLightCyanValue 15/0.015: ""
+*StpFineLightCyanValue 20/0.020: ""
+*StpFineLightCyanValue 25/0.025: ""
+*StpFineLightCyanValue 30/0.030: ""
+*StpFineLightCyanValue 35/0.035: ""
+*StpFineLightCyanValue 40/0.040: ""
+*StpFineLightCyanValue 45/0.045: ""
+*StpFineLightCyanValue 50/0.050: ""
+*StpFineLightCyanValue 55/0.055: ""
+*StpFineLightCyanValue 60/0.060: ""
+*StpFineLightCyanValue 65/0.065: ""
+*StpFineLightCyanValue 70/0.070: ""
+*StpFineLightCyanValue 75/0.075: ""
+*StpFineLightCyanValue 80/0.080: ""
+*StpFineLightCyanValue 85/0.085: ""
+*StpFineLightCyanValue 90/0.090: ""
+*StpFineLightCyanValue 95/0.095: ""
+*CloseUI: *StpFineLightCyanValue
+
+*ColorKeyWords: "StpLightCyanTrans"
+*OpenUI *StpLightCyanTrans/Light Cyan Transition: PickOne
+*OrderDependency: 10 AnySetup *StpLightCyanTrans
+*OPOptionHints StpLightCyanTrans: "slider input spinbox"
+*StpStpLightCyanTrans: 3 0 1 5 255 0.000 1.000 1.000
+*DefaultStpLightCyanTrans: None
+*StpDefaultStpLightCyanTrans: None
+*StpLightCyanTrans 0/0.000: ""
+*StpLightCyanTrans 100/0.100: ""
+*StpLightCyanTrans 200/0.200: ""
+*StpLightCyanTrans 300/0.300: ""
+*StpLightCyanTrans 400/0.400: ""
+*StpLightCyanTrans 500/0.500: ""
+*StpLightCyanTrans 600/0.600: ""
+*StpLightCyanTrans 700/0.700: ""
+*StpLightCyanTrans 800/0.800: ""
+*StpLightCyanTrans 900/0.900: ""
+*StpLightCyanTrans 1000/1.000: ""
+*StpLightCyanTrans None/None: ""
+*CloseUI: *StpLightCyanTrans
+
+*CustomStpLightCyanTrans True: "pop"
+*ParamCustomStpLightCyanTrans Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineLightCyanTrans"
+*OpenUI *StpFineLightCyanTrans/Light Cyan Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineLightCyanTrans: "hide"
+*StpStpFineLightCyanTrans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineLightCyanTrans: None
+*StpDefaultStpFineLightCyanTrans: None
+*StpFineLightCyanTrans None/0.000: ""
+*StpFineLightCyanTrans 0/0.000: ""
+*StpFineLightCyanTrans 5/0.005: ""
+*StpFineLightCyanTrans 10/0.010: ""
+*StpFineLightCyanTrans 15/0.015: ""
+*StpFineLightCyanTrans 20/0.020: ""
+*StpFineLightCyanTrans 25/0.025: ""
+*StpFineLightCyanTrans 30/0.030: ""
+*StpFineLightCyanTrans 35/0.035: ""
+*StpFineLightCyanTrans 40/0.040: ""
+*StpFineLightCyanTrans 45/0.045: ""
+*StpFineLightCyanTrans 50/0.050: ""
+*StpFineLightCyanTrans 55/0.055: ""
+*StpFineLightCyanTrans 60/0.060: ""
+*StpFineLightCyanTrans 65/0.065: ""
+*StpFineLightCyanTrans 70/0.070: ""
+*StpFineLightCyanTrans 75/0.075: ""
+*StpFineLightCyanTrans 80/0.080: ""
+*StpFineLightCyanTrans 85/0.085: ""
+*StpFineLightCyanTrans 90/0.090: ""
+*StpFineLightCyanTrans 95/0.095: ""
+*CloseUI: *StpFineLightCyanTrans
+
+*ColorKeyWords: "StpLightCyanScale"
+*OpenUI *StpLightCyanScale/Light Cyan Density Scale: PickOne
+*OrderDependency: 10 AnySetup *StpLightCyanScale
+*OPOptionHints StpLightCyanScale: "slider input spinbox"
+*StpStpLightCyanScale: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpLightCyanScale: None
+*StpDefaultStpLightCyanScale: None
+*StpLightCyanScale 0/0.000: ""
+*StpLightCyanScale 100/0.100: ""
+*StpLightCyanScale 200/0.200: ""
+*StpLightCyanScale 300/0.300: ""
+*StpLightCyanScale 400/0.400: ""
+*StpLightCyanScale 500/0.500: ""
+*StpLightCyanScale 600/0.600: ""
+*StpLightCyanScale 700/0.700: ""
+*StpLightCyanScale 800/0.800: ""
+*StpLightCyanScale 900/0.900: ""
+*StpLightCyanScale 1000/1.000: ""
+*StpLightCyanScale 1100/1.100: ""
+*StpLightCyanScale 1200/1.200: ""
+*StpLightCyanScale 1300/1.300: ""
+*StpLightCyanScale 1400/1.400: ""
+*StpLightCyanScale 1500/1.500: ""
+*StpLightCyanScale 1600/1.600: ""
+*StpLightCyanScale 1700/1.700: ""
+*StpLightCyanScale 1800/1.800: ""
+*StpLightCyanScale 1900/1.900: ""
+*StpLightCyanScale 2000/2.000: ""
+*StpLightCyanScale 2100/2.100: ""
+*StpLightCyanScale 2200/2.200: ""
+*StpLightCyanScale 2300/2.300: ""
+*StpLightCyanScale 2400/2.400: ""
+*StpLightCyanScale 2500/2.500: ""
+*StpLightCyanScale 2600/2.600: ""
+*StpLightCyanScale 2700/2.700: ""
+*StpLightCyanScale 2800/2.800: ""
+*StpLightCyanScale 2900/2.900: ""
+*StpLightCyanScale 3000/3.000: ""
+*StpLightCyanScale 3100/3.100: ""
+*StpLightCyanScale 3200/3.200: ""
+*StpLightCyanScale 3300/3.300: ""
+*StpLightCyanScale 3400/3.400: ""
+*StpLightCyanScale 3500/3.500: ""
+*StpLightCyanScale 3600/3.600: ""
+*StpLightCyanScale 3700/3.700: ""
+*StpLightCyanScale 3800/3.800: ""
+*StpLightCyanScale 3900/3.900: ""
+*StpLightCyanScale 4000/4.000: ""
+*StpLightCyanScale 4100/4.100: ""
+*StpLightCyanScale 4200/4.200: ""
+*StpLightCyanScale 4300/4.300: ""
+*StpLightCyanScale 4400/4.400: ""
+*StpLightCyanScale 4500/4.500: ""
+*StpLightCyanScale 4600/4.600: ""
+*StpLightCyanScale 4700/4.700: ""
+*StpLightCyanScale 4800/4.800: ""
+*StpLightCyanScale 4900/4.900: ""
+*StpLightCyanScale 5000/5.000: ""
+*StpLightCyanScale None/None: ""
+*CloseUI: *StpLightCyanScale
+
+*CustomStpLightCyanScale True: "pop"
+*ParamCustomStpLightCyanScale Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineLightCyanScale"
+*OpenUI *StpFineLightCyanScale/Light Cyan Density Scale Fine Adjustment: PickOne
+*OPOptionHints StpFineLightCyanScale: "hide"
+*StpStpFineLightCyanScale: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineLightCyanScale: None
+*StpDefaultStpFineLightCyanScale: None
+*StpFineLightCyanScale None/0.000: ""
+*StpFineLightCyanScale 0/0.000: ""
+*StpFineLightCyanScale 5/0.005: ""
+*StpFineLightCyanScale 10/0.010: ""
+*StpFineLightCyanScale 15/0.015: ""
+*StpFineLightCyanScale 20/0.020: ""
+*StpFineLightCyanScale 25/0.025: ""
+*StpFineLightCyanScale 30/0.030: ""
+*StpFineLightCyanScale 35/0.035: ""
+*StpFineLightCyanScale 40/0.040: ""
+*StpFineLightCyanScale 45/0.045: ""
+*StpFineLightCyanScale 50/0.050: ""
+*StpFineLightCyanScale 55/0.055: ""
+*StpFineLightCyanScale 60/0.060: ""
+*StpFineLightCyanScale 65/0.065: ""
+*StpFineLightCyanScale 70/0.070: ""
+*StpFineLightCyanScale 75/0.075: ""
+*StpFineLightCyanScale 80/0.080: ""
+*StpFineLightCyanScale 85/0.085: ""
+*StpFineLightCyanScale 90/0.090: ""
+*StpFineLightCyanScale 95/0.095: ""
+*CloseUI: *StpFineLightCyanScale
+
+*ColorKeyWords: "StpLightMagentaValue"
+*OpenUI *StpLightMagentaValue/Light Magenta Value: PickOne
+*OrderDependency: 10 AnySetup *StpLightMagentaValue
+*OPOptionHints StpLightMagentaValue: "slider input spinbox"
+*StpStpLightMagentaValue: 3 0 1 5 255 0.000 1.000 0.350
+*DefaultStpLightMagentaValue: None
+*StpDefaultStpLightMagentaValue: None
+*StpLightMagentaValue 0/0.000: ""
+*StpLightMagentaValue 100/0.100: ""
+*StpLightMagentaValue 200/0.200: ""
+*StpLightMagentaValue 300/0.300: ""
+*StpLightMagentaValue 400/0.400: ""
+*StpLightMagentaValue 500/0.500: ""
+*StpLightMagentaValue 600/0.600: ""
+*StpLightMagentaValue 700/0.700: ""
+*StpLightMagentaValue 800/0.800: ""
+*StpLightMagentaValue 900/0.900: ""
+*StpLightMagentaValue 1000/1.000: ""
+*StpLightMagentaValue None/None: ""
+*CloseUI: *StpLightMagentaValue
+
+*CustomStpLightMagentaValue True: "pop"
+*ParamCustomStpLightMagentaValue Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineLightMagentaValue"
+*OpenUI *StpFineLightMagentaValue/Light Magenta Value Fine Adjustment: PickOne
+*OPOptionHints StpFineLightMagentaValue: "hide"
+*StpStpFineLightMagentaValue: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineLightMagentaValue: None
+*StpDefaultStpFineLightMagentaValue: None
+*StpFineLightMagentaValue None/0.000: ""
+*StpFineLightMagentaValue 0/0.000: ""
+*StpFineLightMagentaValue 5/0.005: ""
+*StpFineLightMagentaValue 10/0.010: ""
+*StpFineLightMagentaValue 15/0.015: ""
+*StpFineLightMagentaValue 20/0.020: ""
+*StpFineLightMagentaValue 25/0.025: ""
+*StpFineLightMagentaValue 30/0.030: ""
+*StpFineLightMagentaValue 35/0.035: ""
+*StpFineLightMagentaValue 40/0.040: ""
+*StpFineLightMagentaValue 45/0.045: ""
+*StpFineLightMagentaValue 50/0.050: ""
+*StpFineLightMagentaValue 55/0.055: ""
+*StpFineLightMagentaValue 60/0.060: ""
+*StpFineLightMagentaValue 65/0.065: ""
+*StpFineLightMagentaValue 70/0.070: ""
+*StpFineLightMagentaValue 75/0.075: ""
+*StpFineLightMagentaValue 80/0.080: ""
+*StpFineLightMagentaValue 85/0.085: ""
+*StpFineLightMagentaValue 90/0.090: ""
+*StpFineLightMagentaValue 95/0.095: ""
+*CloseUI: *StpFineLightMagentaValue
+
+*ColorKeyWords: "StpLightMagentaScale"
+*OpenUI *StpLightMagentaScale/Light Magenta Density Scale: PickOne
+*OrderDependency: 10 AnySetup *StpLightMagentaScale
+*OPOptionHints StpLightMagentaScale: "slider input spinbox"
+*StpStpLightMagentaScale: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpLightMagentaScale: None
+*StpDefaultStpLightMagentaScale: None
+*StpLightMagentaScale 0/0.000: ""
+*StpLightMagentaScale 100/0.100: ""
+*StpLightMagentaScale 200/0.200: ""
+*StpLightMagentaScale 300/0.300: ""
+*StpLightMagentaScale 400/0.400: ""
+*StpLightMagentaScale 500/0.500: ""
+*StpLightMagentaScale 600/0.600: ""
+*StpLightMagentaScale 700/0.700: ""
+*StpLightMagentaScale 800/0.800: ""
+*StpLightMagentaScale 900/0.900: ""
+*StpLightMagentaScale 1000/1.000: ""
+*StpLightMagentaScale 1100/1.100: ""
+*StpLightMagentaScale 1200/1.200: ""
+*StpLightMagentaScale 1300/1.300: ""
+*StpLightMagentaScale 1400/1.400: ""
+*StpLightMagentaScale 1500/1.500: ""
+*StpLightMagentaScale 1600/1.600: ""
+*StpLightMagentaScale 1700/1.700: ""
+*StpLightMagentaScale 1800/1.800: ""
+*StpLightMagentaScale 1900/1.900: ""
+*StpLightMagentaScale 2000/2.000: ""
+*StpLightMagentaScale 2100/2.100: ""
+*StpLightMagentaScale 2200/2.200: ""
+*StpLightMagentaScale 2300/2.300: ""
+*StpLightMagentaScale 2400/2.400: ""
+*StpLightMagentaScale 2500/2.500: ""
+*StpLightMagentaScale 2600/2.600: ""
+*StpLightMagentaScale 2700/2.700: ""
+*StpLightMagentaScale 2800/2.800: ""
+*StpLightMagentaScale 2900/2.900: ""
+*StpLightMagentaScale 3000/3.000: ""
+*StpLightMagentaScale 3100/3.100: ""
+*StpLightMagentaScale 3200/3.200: ""
+*StpLightMagentaScale 3300/3.300: ""
+*StpLightMagentaScale 3400/3.400: ""
+*StpLightMagentaScale 3500/3.500: ""
+*StpLightMagentaScale 3600/3.600: ""
+*StpLightMagentaScale 3700/3.700: ""
+*StpLightMagentaScale 3800/3.800: ""
+*StpLightMagentaScale 3900/3.900: ""
+*StpLightMagentaScale 4000/4.000: ""
+*StpLightMagentaScale 4100/4.100: ""
+*StpLightMagentaScale 4200/4.200: ""
+*StpLightMagentaScale 4300/4.300: ""
+*StpLightMagentaScale 4400/4.400: ""
+*StpLightMagentaScale 4500/4.500: ""
+*StpLightMagentaScale 4600/4.600: ""
+*StpLightMagentaScale 4700/4.700: ""
+*StpLightMagentaScale 4800/4.800: ""
+*StpLightMagentaScale 4900/4.900: ""
+*StpLightMagentaScale 5000/5.000: ""
+*StpLightMagentaScale None/None: ""
+*CloseUI: *StpLightMagentaScale
+
+*CustomStpLightMagentaScale True: "pop"
+*ParamCustomStpLightMagentaScale Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineLightMagentaScale"
+*OpenUI *StpFineLightMagentaScale/Light Magenta Density Scale Fine Adjustment: PickOne
+*OPOptionHints StpFineLightMagentaScale: "hide"
+*StpStpFineLightMagentaScale: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineLightMagentaScale: None
+*StpDefaultStpFineLightMagentaScale: None
+*StpFineLightMagentaScale None/0.000: ""
+*StpFineLightMagentaScale 0/0.000: ""
+*StpFineLightMagentaScale 5/0.005: ""
+*StpFineLightMagentaScale 10/0.010: ""
+*StpFineLightMagentaScale 15/0.015: ""
+*StpFineLightMagentaScale 20/0.020: ""
+*StpFineLightMagentaScale 25/0.025: ""
+*StpFineLightMagentaScale 30/0.030: ""
+*StpFineLightMagentaScale 35/0.035: ""
+*StpFineLightMagentaScale 40/0.040: ""
+*StpFineLightMagentaScale 45/0.045: ""
+*StpFineLightMagentaScale 50/0.050: ""
+*StpFineLightMagentaScale 55/0.055: ""
+*StpFineLightMagentaScale 60/0.060: ""
+*StpFineLightMagentaScale 65/0.065: ""
+*StpFineLightMagentaScale 70/0.070: ""
+*StpFineLightMagentaScale 75/0.075: ""
+*StpFineLightMagentaScale 80/0.080: ""
+*StpFineLightMagentaScale 85/0.085: ""
+*StpFineLightMagentaScale 90/0.090: ""
+*StpFineLightMagentaScale 95/0.095: ""
+*CloseUI: *StpFineLightMagentaScale
+
+*ColorKeyWords: "StpLightMagentaTrans"
+*OpenUI *StpLightMagentaTrans/Light Magenta Transition: PickOne
+*OrderDependency: 10 AnySetup *StpLightMagentaTrans
+*OPOptionHints StpLightMagentaTrans: "slider input spinbox"
+*StpStpLightMagentaTrans: 3 0 1 5 255 0.000 1.000 1.000
+*DefaultStpLightMagentaTrans: None
+*StpDefaultStpLightMagentaTrans: None
+*StpLightMagentaTrans 0/0.000: ""
+*StpLightMagentaTrans 100/0.100: ""
+*StpLightMagentaTrans 200/0.200: ""
+*StpLightMagentaTrans 300/0.300: ""
+*StpLightMagentaTrans 400/0.400: ""
+*StpLightMagentaTrans 500/0.500: ""
+*StpLightMagentaTrans 600/0.600: ""
+*StpLightMagentaTrans 700/0.700: ""
+*StpLightMagentaTrans 800/0.800: ""
+*StpLightMagentaTrans 900/0.900: ""
+*StpLightMagentaTrans 1000/1.000: ""
+*StpLightMagentaTrans None/None: ""
+*CloseUI: *StpLightMagentaTrans
+
+*CustomStpLightMagentaTrans True: "pop"
+*ParamCustomStpLightMagentaTrans Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineLightMagentaTrans"
+*OpenUI *StpFineLightMagentaTrans/Light Magenta Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineLightMagentaTrans: "hide"
+*StpStpFineLightMagentaTrans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineLightMagentaTrans: None
+*StpDefaultStpFineLightMagentaTrans: None
+*StpFineLightMagentaTrans None/0.000: ""
+*StpFineLightMagentaTrans 0/0.000: ""
+*StpFineLightMagentaTrans 5/0.005: ""
+*StpFineLightMagentaTrans 10/0.010: ""
+*StpFineLightMagentaTrans 15/0.015: ""
+*StpFineLightMagentaTrans 20/0.020: ""
+*StpFineLightMagentaTrans 25/0.025: ""
+*StpFineLightMagentaTrans 30/0.030: ""
+*StpFineLightMagentaTrans 35/0.035: ""
+*StpFineLightMagentaTrans 40/0.040: ""
+*StpFineLightMagentaTrans 45/0.045: ""
+*StpFineLightMagentaTrans 50/0.050: ""
+*StpFineLightMagentaTrans 55/0.055: ""
+*StpFineLightMagentaTrans 60/0.060: ""
+*StpFineLightMagentaTrans 65/0.065: ""
+*StpFineLightMagentaTrans 70/0.070: ""
+*StpFineLightMagentaTrans 75/0.075: ""
+*StpFineLightMagentaTrans 80/0.080: ""
+*StpFineLightMagentaTrans 85/0.085: ""
+*StpFineLightMagentaTrans 90/0.090: ""
+*StpFineLightMagentaTrans 95/0.095: ""
+*CloseUI: *StpFineLightMagentaTrans
+
+*ColorKeyWords: "StpGray3Value"
+*OpenUI *StpGray3Value/Dark Gray Value: PickOne
+*OrderDependency: 10 AnySetup *StpGray3Value
+*OPOptionHints StpGray3Value: "slider input spinbox"
+*StpStpGray3Value: 3 0 1 5 255 0.000 1.000 1.000
+*DefaultStpGray3Value: None
+*StpDefaultStpGray3Value: None
+*StpGray3Value 0/0.000: ""
+*StpGray3Value 100/0.100: ""
+*StpGray3Value 200/0.200: ""
+*StpGray3Value 300/0.300: ""
+*StpGray3Value 400/0.400: ""
+*StpGray3Value 500/0.500: ""
+*StpGray3Value 600/0.600: ""
+*StpGray3Value 700/0.700: ""
+*StpGray3Value 800/0.800: ""
+*StpGray3Value 900/0.900: ""
+*StpGray3Value 1000/1.000: ""
+*StpGray3Value None/None: ""
+*CloseUI: *StpGray3Value
+
+*CustomStpGray3Value True: "pop"
+*ParamCustomStpGray3Value Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineGray3Value"
+*OpenUI *StpFineGray3Value/Dark Gray Value Fine Adjustment: PickOne
+*OPOptionHints StpFineGray3Value: "hide"
+*StpStpFineGray3Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineGray3Value: None
+*StpDefaultStpFineGray3Value: None
+*StpFineGray3Value None/0.000: ""
+*StpFineGray3Value 0/0.000: ""
+*StpFineGray3Value 5/0.005: ""
+*StpFineGray3Value 10/0.010: ""
+*StpFineGray3Value 15/0.015: ""
+*StpFineGray3Value 20/0.020: ""
+*StpFineGray3Value 25/0.025: ""
+*StpFineGray3Value 30/0.030: ""
+*StpFineGray3Value 35/0.035: ""
+*StpFineGray3Value 40/0.040: ""
+*StpFineGray3Value 45/0.045: ""
+*StpFineGray3Value 50/0.050: ""
+*StpFineGray3Value 55/0.055: ""
+*StpFineGray3Value 60/0.060: ""
+*StpFineGray3Value 65/0.065: ""
+*StpFineGray3Value 70/0.070: ""
+*StpFineGray3Value 75/0.075: ""
+*StpFineGray3Value 80/0.080: ""
+*StpFineGray3Value 85/0.085: ""
+*StpFineGray3Value 90/0.090: ""
+*StpFineGray3Value 95/0.095: ""
+*CloseUI: *StpFineGray3Value
+
+*ColorKeyWords: "StpGray2Value"
+*OpenUI *StpGray2Value/Mid Gray Value: PickOne
+*OrderDependency: 10 AnySetup *StpGray2Value
+*OPOptionHints StpGray2Value: "slider input spinbox"
+*StpStpGray2Value: 3 0 1 5 255 0.000 1.000 1.000
+*DefaultStpGray2Value: None
+*StpDefaultStpGray2Value: None
+*StpGray2Value 0/0.000: ""
+*StpGray2Value 100/0.100: ""
+*StpGray2Value 200/0.200: ""
+*StpGray2Value 300/0.300: ""
+*StpGray2Value 400/0.400: ""
+*StpGray2Value 500/0.500: ""
+*StpGray2Value 600/0.600: ""
+*StpGray2Value 700/0.700: ""
+*StpGray2Value 800/0.800: ""
+*StpGray2Value 900/0.900: ""
+*StpGray2Value 1000/1.000: ""
+*StpGray2Value None/None: ""
+*CloseUI: *StpGray2Value
+
+*CustomStpGray2Value True: "pop"
+*ParamCustomStpGray2Value Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineGray2Value"
+*OpenUI *StpFineGray2Value/Mid Gray Value Fine Adjustment: PickOne
+*OPOptionHints StpFineGray2Value: "hide"
+*StpStpFineGray2Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineGray2Value: None
+*StpDefaultStpFineGray2Value: None
+*StpFineGray2Value None/0.000: ""
+*StpFineGray2Value 0/0.000: ""
+*StpFineGray2Value 5/0.005: ""
+*StpFineGray2Value 10/0.010: ""
+*StpFineGray2Value 15/0.015: ""
+*StpFineGray2Value 20/0.020: ""
+*StpFineGray2Value 25/0.025: ""
+*StpFineGray2Value 30/0.030: ""
+*StpFineGray2Value 35/0.035: ""
+*StpFineGray2Value 40/0.040: ""
+*StpFineGray2Value 45/0.045: ""
+*StpFineGray2Value 50/0.050: ""
+*StpFineGray2Value 55/0.055: ""
+*StpFineGray2Value 60/0.060: ""
+*StpFineGray2Value 65/0.065: ""
+*StpFineGray2Value 70/0.070: ""
+*StpFineGray2Value 75/0.075: ""
+*StpFineGray2Value 80/0.080: ""
+*StpFineGray2Value 85/0.085: ""
+*StpFineGray2Value 90/0.090: ""
+*StpFineGray2Value 95/0.095: ""
+*CloseUI: *StpFineGray2Value
+
+*ColorKeyWords: "StpGray1Value"
+*OpenUI *StpGray1Value/Light Gray Value: PickOne
+*OrderDependency: 10 AnySetup *StpGray1Value
+*OPOptionHints StpGray1Value: "slider input spinbox"
+*StpStpGray1Value: 3 0 1 5 255 0.000 1.000 1.000
+*DefaultStpGray1Value: None
+*StpDefaultStpGray1Value: None
+*StpGray1Value 0/0.000: ""
+*StpGray1Value 100/0.100: ""
+*StpGray1Value 200/0.200: ""
+*StpGray1Value 300/0.300: ""
+*StpGray1Value 400/0.400: ""
+*StpGray1Value 500/0.500: ""
+*StpGray1Value 600/0.600: ""
+*StpGray1Value 700/0.700: ""
+*StpGray1Value 800/0.800: ""
+*StpGray1Value 900/0.900: ""
+*StpGray1Value 1000/1.000: ""
+*StpGray1Value None/None: ""
+*CloseUI: *StpGray1Value
+
+*CustomStpGray1Value True: "pop"
+*ParamCustomStpGray1Value Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineGray1Value"
+*OpenUI *StpFineGray1Value/Light Gray Value Fine Adjustment: PickOne
+*OPOptionHints StpFineGray1Value: "hide"
+*StpStpFineGray1Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineGray1Value: None
+*StpDefaultStpFineGray1Value: None
+*StpFineGray1Value None/0.000: ""
+*StpFineGray1Value 0/0.000: ""
+*StpFineGray1Value 5/0.005: ""
+*StpFineGray1Value 10/0.010: ""
+*StpFineGray1Value 15/0.015: ""
+*StpFineGray1Value 20/0.020: ""
+*StpFineGray1Value 25/0.025: ""
+*StpFineGray1Value 30/0.030: ""
+*StpFineGray1Value 35/0.035: ""
+*StpFineGray1Value 40/0.040: ""
+*StpFineGray1Value 45/0.045: ""
+*StpFineGray1Value 50/0.050: ""
+*StpFineGray1Value 55/0.055: ""
+*StpFineGray1Value 60/0.060: ""
+*StpFineGray1Value 65/0.065: ""
+*StpFineGray1Value 70/0.070: ""
+*StpFineGray1Value 75/0.075: ""
+*StpFineGray1Value 80/0.080: ""
+*StpFineGray1Value 85/0.085: ""
+*StpFineGray1Value 90/0.090: ""
+*StpFineGray1Value 95/0.095: ""
+*CloseUI: *StpFineGray1Value
+
+*ColorKeyWords: "StpHGray5Value"
+*OpenUI *StpHGray5Value/Hextone Gray 5 Value: PickOne
+*OrderDependency: 10 AnySetup *StpHGray5Value
+*OPOptionHints StpHGray5Value: "slider input spinbox"
+*StpStpHGray5Value: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray5Value: None
+*StpDefaultStpHGray5Value: None
+*StpHGray5Value 0/0.000: ""
+*StpHGray5Value 100/0.100: ""
+*StpHGray5Value 200/0.200: ""
+*StpHGray5Value 300/0.300: ""
+*StpHGray5Value 400/0.400: ""
+*StpHGray5Value 500/0.500: ""
+*StpHGray5Value 600/0.600: ""
+*StpHGray5Value 700/0.700: ""
+*StpHGray5Value 800/0.800: ""
+*StpHGray5Value 900/0.900: ""
+*StpHGray5Value 1000/1.000: ""
+*StpHGray5Value 1100/1.100: ""
+*StpHGray5Value 1200/1.200: ""
+*StpHGray5Value 1300/1.300: ""
+*StpHGray5Value 1400/1.400: ""
+*StpHGray5Value 1500/1.500: ""
+*StpHGray5Value 1600/1.600: ""
+*StpHGray5Value 1700/1.700: ""
+*StpHGray5Value 1800/1.800: ""
+*StpHGray5Value 1900/1.900: ""
+*StpHGray5Value 2000/2.000: ""
+*StpHGray5Value 2100/2.100: ""
+*StpHGray5Value 2200/2.200: ""
+*StpHGray5Value 2300/2.300: ""
+*StpHGray5Value 2400/2.400: ""
+*StpHGray5Value 2500/2.500: ""
+*StpHGray5Value 2600/2.600: ""
+*StpHGray5Value 2700/2.700: ""
+*StpHGray5Value 2800/2.800: ""
+*StpHGray5Value 2900/2.900: ""
+*StpHGray5Value 3000/3.000: ""
+*StpHGray5Value 3100/3.100: ""
+*StpHGray5Value 3200/3.200: ""
+*StpHGray5Value 3300/3.300: ""
+*StpHGray5Value 3400/3.400: ""
+*StpHGray5Value 3500/3.500: ""
+*StpHGray5Value 3600/3.600: ""
+*StpHGray5Value 3700/3.700: ""
+*StpHGray5Value 3800/3.800: ""
+*StpHGray5Value 3900/3.900: ""
+*StpHGray5Value 4000/4.000: ""
+*StpHGray5Value 4100/4.100: ""
+*StpHGray5Value 4200/4.200: ""
+*StpHGray5Value 4300/4.300: ""
+*StpHGray5Value 4400/4.400: ""
+*StpHGray5Value 4500/4.500: ""
+*StpHGray5Value 4600/4.600: ""
+*StpHGray5Value 4700/4.700: ""
+*StpHGray5Value 4800/4.800: ""
+*StpHGray5Value 4900/4.900: ""
+*StpHGray5Value 5000/5.000: ""
+*StpHGray5Value None/None: ""
+*CloseUI: *StpHGray5Value
+
+*CustomStpHGray5Value True: "pop"
+*ParamCustomStpHGray5Value Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray5Value"
+*OpenUI *StpFineHGray5Value/Hextone Gray 5 Value Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray5Value: "hide"
+*StpStpFineHGray5Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray5Value: None
+*StpDefaultStpFineHGray5Value: None
+*StpFineHGray5Value None/0.000: ""
+*StpFineHGray5Value 0/0.000: ""
+*StpFineHGray5Value 5/0.005: ""
+*StpFineHGray5Value 10/0.010: ""
+*StpFineHGray5Value 15/0.015: ""
+*StpFineHGray5Value 20/0.020: ""
+*StpFineHGray5Value 25/0.025: ""
+*StpFineHGray5Value 30/0.030: ""
+*StpFineHGray5Value 35/0.035: ""
+*StpFineHGray5Value 40/0.040: ""
+*StpFineHGray5Value 45/0.045: ""
+*StpFineHGray5Value 50/0.050: ""
+*StpFineHGray5Value 55/0.055: ""
+*StpFineHGray5Value 60/0.060: ""
+*StpFineHGray5Value 65/0.065: ""
+*StpFineHGray5Value 70/0.070: ""
+*StpFineHGray5Value 75/0.075: ""
+*StpFineHGray5Value 80/0.080: ""
+*StpFineHGray5Value 85/0.085: ""
+*StpFineHGray5Value 90/0.090: ""
+*StpFineHGray5Value 95/0.095: ""
+*CloseUI: *StpFineHGray5Value
+
+*ColorKeyWords: "StpHGray5Trans"
+*OpenUI *StpHGray5Trans/Hextone Gray 5 Transition: PickOne
+*OrderDependency: 10 AnySetup *StpHGray5Trans
+*OPOptionHints StpHGray5Trans: "slider input spinbox"
+*StpStpHGray5Trans: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray5Trans: None
+*StpDefaultStpHGray5Trans: None
+*StpHGray5Trans 0/0.000: ""
+*StpHGray5Trans 100/0.100: ""
+*StpHGray5Trans 200/0.200: ""
+*StpHGray5Trans 300/0.300: ""
+*StpHGray5Trans 400/0.400: ""
+*StpHGray5Trans 500/0.500: ""
+*StpHGray5Trans 600/0.600: ""
+*StpHGray5Trans 700/0.700: ""
+*StpHGray5Trans 800/0.800: ""
+*StpHGray5Trans 900/0.900: ""
+*StpHGray5Trans 1000/1.000: ""
+*StpHGray5Trans 1100/1.100: ""
+*StpHGray5Trans 1200/1.200: ""
+*StpHGray5Trans 1300/1.300: ""
+*StpHGray5Trans 1400/1.400: ""
+*StpHGray5Trans 1500/1.500: ""
+*StpHGray5Trans 1600/1.600: ""
+*StpHGray5Trans 1700/1.700: ""
+*StpHGray5Trans 1800/1.800: ""
+*StpHGray5Trans 1900/1.900: ""
+*StpHGray5Trans 2000/2.000: ""
+*StpHGray5Trans 2100/2.100: ""
+*StpHGray5Trans 2200/2.200: ""
+*StpHGray5Trans 2300/2.300: ""
+*StpHGray5Trans 2400/2.400: ""
+*StpHGray5Trans 2500/2.500: ""
+*StpHGray5Trans 2600/2.600: ""
+*StpHGray5Trans 2700/2.700: ""
+*StpHGray5Trans 2800/2.800: ""
+*StpHGray5Trans 2900/2.900: ""
+*StpHGray5Trans 3000/3.000: ""
+*StpHGray5Trans 3100/3.100: ""
+*StpHGray5Trans 3200/3.200: ""
+*StpHGray5Trans 3300/3.300: ""
+*StpHGray5Trans 3400/3.400: ""
+*StpHGray5Trans 3500/3.500: ""
+*StpHGray5Trans 3600/3.600: ""
+*StpHGray5Trans 3700/3.700: ""
+*StpHGray5Trans 3800/3.800: ""
+*StpHGray5Trans 3900/3.900: ""
+*StpHGray5Trans 4000/4.000: ""
+*StpHGray5Trans 4100/4.100: ""
+*StpHGray5Trans 4200/4.200: ""
+*StpHGray5Trans 4300/4.300: ""
+*StpHGray5Trans 4400/4.400: ""
+*StpHGray5Trans 4500/4.500: ""
+*StpHGray5Trans 4600/4.600: ""
+*StpHGray5Trans 4700/4.700: ""
+*StpHGray5Trans 4800/4.800: ""
+*StpHGray5Trans 4900/4.900: ""
+*StpHGray5Trans 5000/5.000: ""
+*StpHGray5Trans None/None: ""
+*CloseUI: *StpHGray5Trans
+
+*CustomStpHGray5Trans True: "pop"
+*ParamCustomStpHGray5Trans Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray5Trans"
+*OpenUI *StpFineHGray5Trans/Hextone Gray 5 Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray5Trans: "hide"
+*StpStpFineHGray5Trans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray5Trans: None
+*StpDefaultStpFineHGray5Trans: None
+*StpFineHGray5Trans None/0.000: ""
+*StpFineHGray5Trans 0/0.000: ""
+*StpFineHGray5Trans 5/0.005: ""
+*StpFineHGray5Trans 10/0.010: ""
+*StpFineHGray5Trans 15/0.015: ""
+*StpFineHGray5Trans 20/0.020: ""
+*StpFineHGray5Trans 25/0.025: ""
+*StpFineHGray5Trans 30/0.030: ""
+*StpFineHGray5Trans 35/0.035: ""
+*StpFineHGray5Trans 40/0.040: ""
+*StpFineHGray5Trans 45/0.045: ""
+*StpFineHGray5Trans 50/0.050: ""
+*StpFineHGray5Trans 55/0.055: ""
+*StpFineHGray5Trans 60/0.060: ""
+*StpFineHGray5Trans 65/0.065: ""
+*StpFineHGray5Trans 70/0.070: ""
+*StpFineHGray5Trans 75/0.075: ""
+*StpFineHGray5Trans 80/0.080: ""
+*StpFineHGray5Trans 85/0.085: ""
+*StpFineHGray5Trans 90/0.090: ""
+*StpFineHGray5Trans 95/0.095: ""
+*CloseUI: *StpFineHGray5Trans
+
+*ColorKeyWords: "StpHGray5Scale"
+*OpenUI *StpHGray5Scale/Hextone Gray 5 Density Scale: PickOne
+*OrderDependency: 10 AnySetup *StpHGray5Scale
+*OPOptionHints StpHGray5Scale: "slider input spinbox"
+*StpStpHGray5Scale: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray5Scale: None
+*StpDefaultStpHGray5Scale: None
+*StpHGray5Scale 0/0.000: ""
+*StpHGray5Scale 100/0.100: ""
+*StpHGray5Scale 200/0.200: ""
+*StpHGray5Scale 300/0.300: ""
+*StpHGray5Scale 400/0.400: ""
+*StpHGray5Scale 500/0.500: ""
+*StpHGray5Scale 600/0.600: ""
+*StpHGray5Scale 700/0.700: ""
+*StpHGray5Scale 800/0.800: ""
+*StpHGray5Scale 900/0.900: ""
+*StpHGray5Scale 1000/1.000: ""
+*StpHGray5Scale 1100/1.100: ""
+*StpHGray5Scale 1200/1.200: ""
+*StpHGray5Scale 1300/1.300: ""
+*StpHGray5Scale 1400/1.400: ""
+*StpHGray5Scale 1500/1.500: ""
+*StpHGray5Scale 1600/1.600: ""
+*StpHGray5Scale 1700/1.700: ""
+*StpHGray5Scale 1800/1.800: ""
+*StpHGray5Scale 1900/1.900: ""
+*StpHGray5Scale 2000/2.000: ""
+*StpHGray5Scale 2100/2.100: ""
+*StpHGray5Scale 2200/2.200: ""
+*StpHGray5Scale 2300/2.300: ""
+*StpHGray5Scale 2400/2.400: ""
+*StpHGray5Scale 2500/2.500: ""
+*StpHGray5Scale 2600/2.600: ""
+*StpHGray5Scale 2700/2.700: ""
+*StpHGray5Scale 2800/2.800: ""
+*StpHGray5Scale 2900/2.900: ""
+*StpHGray5Scale 3000/3.000: ""
+*StpHGray5Scale 3100/3.100: ""
+*StpHGray5Scale 3200/3.200: ""
+*StpHGray5Scale 3300/3.300: ""
+*StpHGray5Scale 3400/3.400: ""
+*StpHGray5Scale 3500/3.500: ""
+*StpHGray5Scale 3600/3.600: ""
+*StpHGray5Scale 3700/3.700: ""
+*StpHGray5Scale 3800/3.800: ""
+*StpHGray5Scale 3900/3.900: ""
+*StpHGray5Scale 4000/4.000: ""
+*StpHGray5Scale 4100/4.100: ""
+*StpHGray5Scale 4200/4.200: ""
+*StpHGray5Scale 4300/4.300: ""
+*StpHGray5Scale 4400/4.400: ""
+*StpHGray5Scale 4500/4.500: ""
+*StpHGray5Scale 4600/4.600: ""
+*StpHGray5Scale 4700/4.700: ""
+*StpHGray5Scale 4800/4.800: ""
+*StpHGray5Scale 4900/4.900: ""
+*StpHGray5Scale 5000/5.000: ""
+*StpHGray5Scale None/None: ""
+*CloseUI: *StpHGray5Scale
+
+*CustomStpHGray5Scale True: "pop"
+*ParamCustomStpHGray5Scale Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray5Scale"
+*OpenUI *StpFineHGray5Scale/Hextone Gray 5 Density Scale Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray5Scale: "hide"
+*StpStpFineHGray5Scale: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray5Scale: None
+*StpDefaultStpFineHGray5Scale: None
+*StpFineHGray5Scale None/0.000: ""
+*StpFineHGray5Scale 0/0.000: ""
+*StpFineHGray5Scale 5/0.005: ""
+*StpFineHGray5Scale 10/0.010: ""
+*StpFineHGray5Scale 15/0.015: ""
+*StpFineHGray5Scale 20/0.020: ""
+*StpFineHGray5Scale 25/0.025: ""
+*StpFineHGray5Scale 30/0.030: ""
+*StpFineHGray5Scale 35/0.035: ""
+*StpFineHGray5Scale 40/0.040: ""
+*StpFineHGray5Scale 45/0.045: ""
+*StpFineHGray5Scale 50/0.050: ""
+*StpFineHGray5Scale 55/0.055: ""
+*StpFineHGray5Scale 60/0.060: ""
+*StpFineHGray5Scale 65/0.065: ""
+*StpFineHGray5Scale 70/0.070: ""
+*StpFineHGray5Scale 75/0.075: ""
+*StpFineHGray5Scale 80/0.080: ""
+*StpFineHGray5Scale 85/0.085: ""
+*StpFineHGray5Scale 90/0.090: ""
+*StpFineHGray5Scale 95/0.095: ""
+*CloseUI: *StpFineHGray5Scale
+
+*ColorKeyWords: "StpHGray4Value"
+*OpenUI *StpHGray4Value/Hextone Gray 4 Value: PickOne
+*OrderDependency: 10 AnySetup *StpHGray4Value
+*OPOptionHints StpHGray4Value: "slider input spinbox"
+*StpStpHGray4Value: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray4Value: None
+*StpDefaultStpHGray4Value: None
+*StpHGray4Value 0/0.000: ""
+*StpHGray4Value 100/0.100: ""
+*StpHGray4Value 200/0.200: ""
+*StpHGray4Value 300/0.300: ""
+*StpHGray4Value 400/0.400: ""
+*StpHGray4Value 500/0.500: ""
+*StpHGray4Value 600/0.600: ""
+*StpHGray4Value 700/0.700: ""
+*StpHGray4Value 800/0.800: ""
+*StpHGray4Value 900/0.900: ""
+*StpHGray4Value 1000/1.000: ""
+*StpHGray4Value 1100/1.100: ""
+*StpHGray4Value 1200/1.200: ""
+*StpHGray4Value 1300/1.300: ""
+*StpHGray4Value 1400/1.400: ""
+*StpHGray4Value 1500/1.500: ""
+*StpHGray4Value 1600/1.600: ""
+*StpHGray4Value 1700/1.700: ""
+*StpHGray4Value 1800/1.800: ""
+*StpHGray4Value 1900/1.900: ""
+*StpHGray4Value 2000/2.000: ""
+*StpHGray4Value 2100/2.100: ""
+*StpHGray4Value 2200/2.200: ""
+*StpHGray4Value 2300/2.300: ""
+*StpHGray4Value 2400/2.400: ""
+*StpHGray4Value 2500/2.500: ""
+*StpHGray4Value 2600/2.600: ""
+*StpHGray4Value 2700/2.700: ""
+*StpHGray4Value 2800/2.800: ""
+*StpHGray4Value 2900/2.900: ""
+*StpHGray4Value 3000/3.000: ""
+*StpHGray4Value 3100/3.100: ""
+*StpHGray4Value 3200/3.200: ""
+*StpHGray4Value 3300/3.300: ""
+*StpHGray4Value 3400/3.400: ""
+*StpHGray4Value 3500/3.500: ""
+*StpHGray4Value 3600/3.600: ""
+*StpHGray4Value 3700/3.700: ""
+*StpHGray4Value 3800/3.800: ""
+*StpHGray4Value 3900/3.900: ""
+*StpHGray4Value 4000/4.000: ""
+*StpHGray4Value 4100/4.100: ""
+*StpHGray4Value 4200/4.200: ""
+*StpHGray4Value 4300/4.300: ""
+*StpHGray4Value 4400/4.400: ""
+*StpHGray4Value 4500/4.500: ""
+*StpHGray4Value 4600/4.600: ""
+*StpHGray4Value 4700/4.700: ""
+*StpHGray4Value 4800/4.800: ""
+*StpHGray4Value 4900/4.900: ""
+*StpHGray4Value 5000/5.000: ""
+*StpHGray4Value None/None: ""
+*CloseUI: *StpHGray4Value
+
+*CustomStpHGray4Value True: "pop"
+*ParamCustomStpHGray4Value Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray4Value"
+*OpenUI *StpFineHGray4Value/Hextone Gray 4 Value Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray4Value: "hide"
+*StpStpFineHGray4Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray4Value: None
+*StpDefaultStpFineHGray4Value: None
+*StpFineHGray4Value None/0.000: ""
+*StpFineHGray4Value 0/0.000: ""
+*StpFineHGray4Value 5/0.005: ""
+*StpFineHGray4Value 10/0.010: ""
+*StpFineHGray4Value 15/0.015: ""
+*StpFineHGray4Value 20/0.020: ""
+*StpFineHGray4Value 25/0.025: ""
+*StpFineHGray4Value 30/0.030: ""
+*StpFineHGray4Value 35/0.035: ""
+*StpFineHGray4Value 40/0.040: ""
+*StpFineHGray4Value 45/0.045: ""
+*StpFineHGray4Value 50/0.050: ""
+*StpFineHGray4Value 55/0.055: ""
+*StpFineHGray4Value 60/0.060: ""
+*StpFineHGray4Value 65/0.065: ""
+*StpFineHGray4Value 70/0.070: ""
+*StpFineHGray4Value 75/0.075: ""
+*StpFineHGray4Value 80/0.080: ""
+*StpFineHGray4Value 85/0.085: ""
+*StpFineHGray4Value 90/0.090: ""
+*StpFineHGray4Value 95/0.095: ""
+*CloseUI: *StpFineHGray4Value
+
+*ColorKeyWords: "StpHGray4Trans"
+*OpenUI *StpHGray4Trans/Hextone Gray 4 Transition: PickOne
+*OrderDependency: 10 AnySetup *StpHGray4Trans
+*OPOptionHints StpHGray4Trans: "slider input spinbox"
+*StpStpHGray4Trans: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray4Trans: None
+*StpDefaultStpHGray4Trans: None
+*StpHGray4Trans 0/0.000: ""
+*StpHGray4Trans 100/0.100: ""
+*StpHGray4Trans 200/0.200: ""
+*StpHGray4Trans 300/0.300: ""
+*StpHGray4Trans 400/0.400: ""
+*StpHGray4Trans 500/0.500: ""
+*StpHGray4Trans 600/0.600: ""
+*StpHGray4Trans 700/0.700: ""
+*StpHGray4Trans 800/0.800: ""
+*StpHGray4Trans 900/0.900: ""
+*StpHGray4Trans 1000/1.000: ""
+*StpHGray4Trans 1100/1.100: ""
+*StpHGray4Trans 1200/1.200: ""
+*StpHGray4Trans 1300/1.300: ""
+*StpHGray4Trans 1400/1.400: ""
+*StpHGray4Trans 1500/1.500: ""
+*StpHGray4Trans 1600/1.600: ""
+*StpHGray4Trans 1700/1.700: ""
+*StpHGray4Trans 1800/1.800: ""
+*StpHGray4Trans 1900/1.900: ""
+*StpHGray4Trans 2000/2.000: ""
+*StpHGray4Trans 2100/2.100: ""
+*StpHGray4Trans 2200/2.200: ""
+*StpHGray4Trans 2300/2.300: ""
+*StpHGray4Trans 2400/2.400: ""
+*StpHGray4Trans 2500/2.500: ""
+*StpHGray4Trans 2600/2.600: ""
+*StpHGray4Trans 2700/2.700: ""
+*StpHGray4Trans 2800/2.800: ""
+*StpHGray4Trans 2900/2.900: ""
+*StpHGray4Trans 3000/3.000: ""
+*StpHGray4Trans 3100/3.100: ""
+*StpHGray4Trans 3200/3.200: ""
+*StpHGray4Trans 3300/3.300: ""
+*StpHGray4Trans 3400/3.400: ""
+*StpHGray4Trans 3500/3.500: ""
+*StpHGray4Trans 3600/3.600: ""
+*StpHGray4Trans 3700/3.700: ""
+*StpHGray4Trans 3800/3.800: ""
+*StpHGray4Trans 3900/3.900: ""
+*StpHGray4Trans 4000/4.000: ""
+*StpHGray4Trans 4100/4.100: ""
+*StpHGray4Trans 4200/4.200: ""
+*StpHGray4Trans 4300/4.300: ""
+*StpHGray4Trans 4400/4.400: ""
+*StpHGray4Trans 4500/4.500: ""
+*StpHGray4Trans 4600/4.600: ""
+*StpHGray4Trans 4700/4.700: ""
+*StpHGray4Trans 4800/4.800: ""
+*StpHGray4Trans 4900/4.900: ""
+*StpHGray4Trans 5000/5.000: ""
+*StpHGray4Trans None/None: ""
+*CloseUI: *StpHGray4Trans
+
+*CustomStpHGray4Trans True: "pop"
+*ParamCustomStpHGray4Trans Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray4Trans"
+*OpenUI *StpFineHGray4Trans/Hextone Gray 4 Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray4Trans: "hide"
+*StpStpFineHGray4Trans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray4Trans: None
+*StpDefaultStpFineHGray4Trans: None
+*StpFineHGray4Trans None/0.000: ""
+*StpFineHGray4Trans 0/0.000: ""
+*StpFineHGray4Trans 5/0.005: ""
+*StpFineHGray4Trans 10/0.010: ""
+*StpFineHGray4Trans 15/0.015: ""
+*StpFineHGray4Trans 20/0.020: ""
+*StpFineHGray4Trans 25/0.025: ""
+*StpFineHGray4Trans 30/0.030: ""
+*StpFineHGray4Trans 35/0.035: ""
+*StpFineHGray4Trans 40/0.040: ""
+*StpFineHGray4Trans 45/0.045: ""
+*StpFineHGray4Trans 50/0.050: ""
+*StpFineHGray4Trans 55/0.055: ""
+*StpFineHGray4Trans 60/0.060: ""
+*StpFineHGray4Trans 65/0.065: ""
+*StpFineHGray4Trans 70/0.070: ""
+*StpFineHGray4Trans 75/0.075: ""
+*StpFineHGray4Trans 80/0.080: ""
+*StpFineHGray4Trans 85/0.085: ""
+*StpFineHGray4Trans 90/0.090: ""
+*StpFineHGray4Trans 95/0.095: ""
+*CloseUI: *StpFineHGray4Trans
+
+*ColorKeyWords: "StpHGray4Scale"
+*OpenUI *StpHGray4Scale/Hextone Gray 4 Density Scale: PickOne
+*OrderDependency: 10 AnySetup *StpHGray4Scale
+*OPOptionHints StpHGray4Scale: "slider input spinbox"
+*StpStpHGray4Scale: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray4Scale: None
+*StpDefaultStpHGray4Scale: None
+*StpHGray4Scale 0/0.000: ""
+*StpHGray4Scale 100/0.100: ""
+*StpHGray4Scale 200/0.200: ""
+*StpHGray4Scale 300/0.300: ""
+*StpHGray4Scale 400/0.400: ""
+*StpHGray4Scale 500/0.500: ""
+*StpHGray4Scale 600/0.600: ""
+*StpHGray4Scale 700/0.700: ""
+*StpHGray4Scale 800/0.800: ""
+*StpHGray4Scale 900/0.900: ""
+*StpHGray4Scale 1000/1.000: ""
+*StpHGray4Scale 1100/1.100: ""
+*StpHGray4Scale 1200/1.200: ""
+*StpHGray4Scale 1300/1.300: ""
+*StpHGray4Scale 1400/1.400: ""
+*StpHGray4Scale 1500/1.500: ""
+*StpHGray4Scale 1600/1.600: ""
+*StpHGray4Scale 1700/1.700: ""
+*StpHGray4Scale 1800/1.800: ""
+*StpHGray4Scale 1900/1.900: ""
+*StpHGray4Scale 2000/2.000: ""
+*StpHGray4Scale 2100/2.100: ""
+*StpHGray4Scale 2200/2.200: ""
+*StpHGray4Scale 2300/2.300: ""
+*StpHGray4Scale 2400/2.400: ""
+*StpHGray4Scale 2500/2.500: ""
+*StpHGray4Scale 2600/2.600: ""
+*StpHGray4Scale 2700/2.700: ""
+*StpHGray4Scale 2800/2.800: ""
+*StpHGray4Scale 2900/2.900: ""
+*StpHGray4Scale 3000/3.000: ""
+*StpHGray4Scale 3100/3.100: ""
+*StpHGray4Scale 3200/3.200: ""
+*StpHGray4Scale 3300/3.300: ""
+*StpHGray4Scale 3400/3.400: ""
+*StpHGray4Scale 3500/3.500: ""
+*StpHGray4Scale 3600/3.600: ""
+*StpHGray4Scale 3700/3.700: ""
+*StpHGray4Scale 3800/3.800: ""
+*StpHGray4Scale 3900/3.900: ""
+*StpHGray4Scale 4000/4.000: ""
+*StpHGray4Scale 4100/4.100: ""
+*StpHGray4Scale 4200/4.200: ""
+*StpHGray4Scale 4300/4.300: ""
+*StpHGray4Scale 4400/4.400: ""
+*StpHGray4Scale 4500/4.500: ""
+*StpHGray4Scale 4600/4.600: ""
+*StpHGray4Scale 4700/4.700: ""
+*StpHGray4Scale 4800/4.800: ""
+*StpHGray4Scale 4900/4.900: ""
+*StpHGray4Scale 5000/5.000: ""
+*StpHGray4Scale None/None: ""
+*CloseUI: *StpHGray4Scale
+
+*CustomStpHGray4Scale True: "pop"
+*ParamCustomStpHGray4Scale Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray4Scale"
+*OpenUI *StpFineHGray4Scale/Hextone Gray 4 Density Scale Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray4Scale: "hide"
+*StpStpFineHGray4Scale: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray4Scale: None
+*StpDefaultStpFineHGray4Scale: None
+*StpFineHGray4Scale None/0.000: ""
+*StpFineHGray4Scale 0/0.000: ""
+*StpFineHGray4Scale 5/0.005: ""
+*StpFineHGray4Scale 10/0.010: ""
+*StpFineHGray4Scale 15/0.015: ""
+*StpFineHGray4Scale 20/0.020: ""
+*StpFineHGray4Scale 25/0.025: ""
+*StpFineHGray4Scale 30/0.030: ""
+*StpFineHGray4Scale 35/0.035: ""
+*StpFineHGray4Scale 40/0.040: ""
+*StpFineHGray4Scale 45/0.045: ""
+*StpFineHGray4Scale 50/0.050: ""
+*StpFineHGray4Scale 55/0.055: ""
+*StpFineHGray4Scale 60/0.060: ""
+*StpFineHGray4Scale 65/0.065: ""
+*StpFineHGray4Scale 70/0.070: ""
+*StpFineHGray4Scale 75/0.075: ""
+*StpFineHGray4Scale 80/0.080: ""
+*StpFineHGray4Scale 85/0.085: ""
+*StpFineHGray4Scale 90/0.090: ""
+*StpFineHGray4Scale 95/0.095: ""
+*CloseUI: *StpFineHGray4Scale
+
+*ColorKeyWords: "StpHGray3Value"
+*OpenUI *StpHGray3Value/Hextone Gray 3 Value: PickOne
+*OrderDependency: 10 AnySetup *StpHGray3Value
+*OPOptionHints StpHGray3Value: "slider input spinbox"
+*StpStpHGray3Value: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray3Value: None
+*StpDefaultStpHGray3Value: None
+*StpHGray3Value 0/0.000: ""
+*StpHGray3Value 100/0.100: ""
+*StpHGray3Value 200/0.200: ""
+*StpHGray3Value 300/0.300: ""
+*StpHGray3Value 400/0.400: ""
+*StpHGray3Value 500/0.500: ""
+*StpHGray3Value 600/0.600: ""
+*StpHGray3Value 700/0.700: ""
+*StpHGray3Value 800/0.800: ""
+*StpHGray3Value 900/0.900: ""
+*StpHGray3Value 1000/1.000: ""
+*StpHGray3Value 1100/1.100: ""
+*StpHGray3Value 1200/1.200: ""
+*StpHGray3Value 1300/1.300: ""
+*StpHGray3Value 1400/1.400: ""
+*StpHGray3Value 1500/1.500: ""
+*StpHGray3Value 1600/1.600: ""
+*StpHGray3Value 1700/1.700: ""
+*StpHGray3Value 1800/1.800: ""
+*StpHGray3Value 1900/1.900: ""
+*StpHGray3Value 2000/2.000: ""
+*StpHGray3Value 2100/2.100: ""
+*StpHGray3Value 2200/2.200: ""
+*StpHGray3Value 2300/2.300: ""
+*StpHGray3Value 2400/2.400: ""
+*StpHGray3Value 2500/2.500: ""
+*StpHGray3Value 2600/2.600: ""
+*StpHGray3Value 2700/2.700: ""
+*StpHGray3Value 2800/2.800: ""
+*StpHGray3Value 2900/2.900: ""
+*StpHGray3Value 3000/3.000: ""
+*StpHGray3Value 3100/3.100: ""
+*StpHGray3Value 3200/3.200: ""
+*StpHGray3Value 3300/3.300: ""
+*StpHGray3Value 3400/3.400: ""
+*StpHGray3Value 3500/3.500: ""
+*StpHGray3Value 3600/3.600: ""
+*StpHGray3Value 3700/3.700: ""
+*StpHGray3Value 3800/3.800: ""
+*StpHGray3Value 3900/3.900: ""
+*StpHGray3Value 4000/4.000: ""
+*StpHGray3Value 4100/4.100: ""
+*StpHGray3Value 4200/4.200: ""
+*StpHGray3Value 4300/4.300: ""
+*StpHGray3Value 4400/4.400: ""
+*StpHGray3Value 4500/4.500: ""
+*StpHGray3Value 4600/4.600: ""
+*StpHGray3Value 4700/4.700: ""
+*StpHGray3Value 4800/4.800: ""
+*StpHGray3Value 4900/4.900: ""
+*StpHGray3Value 5000/5.000: ""
+*StpHGray3Value None/None: ""
+*CloseUI: *StpHGray3Value
+
+*CustomStpHGray3Value True: "pop"
+*ParamCustomStpHGray3Value Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray3Value"
+*OpenUI *StpFineHGray3Value/Hextone Gray 3 Value Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray3Value: "hide"
+*StpStpFineHGray3Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray3Value: None
+*StpDefaultStpFineHGray3Value: None
+*StpFineHGray3Value None/0.000: ""
+*StpFineHGray3Value 0/0.000: ""
+*StpFineHGray3Value 5/0.005: ""
+*StpFineHGray3Value 10/0.010: ""
+*StpFineHGray3Value 15/0.015: ""
+*StpFineHGray3Value 20/0.020: ""
+*StpFineHGray3Value 25/0.025: ""
+*StpFineHGray3Value 30/0.030: ""
+*StpFineHGray3Value 35/0.035: ""
+*StpFineHGray3Value 40/0.040: ""
+*StpFineHGray3Value 45/0.045: ""
+*StpFineHGray3Value 50/0.050: ""
+*StpFineHGray3Value 55/0.055: ""
+*StpFineHGray3Value 60/0.060: ""
+*StpFineHGray3Value 65/0.065: ""
+*StpFineHGray3Value 70/0.070: ""
+*StpFineHGray3Value 75/0.075: ""
+*StpFineHGray3Value 80/0.080: ""
+*StpFineHGray3Value 85/0.085: ""
+*StpFineHGray3Value 90/0.090: ""
+*StpFineHGray3Value 95/0.095: ""
+*CloseUI: *StpFineHGray3Value
+
+*ColorKeyWords: "StpHGray3Trans"
+*OpenUI *StpHGray3Trans/Hextone Gray 3 Transition: PickOne
+*OrderDependency: 10 AnySetup *StpHGray3Trans
+*OPOptionHints StpHGray3Trans: "slider input spinbox"
+*StpStpHGray3Trans: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray3Trans: None
+*StpDefaultStpHGray3Trans: None
+*StpHGray3Trans 0/0.000: ""
+*StpHGray3Trans 100/0.100: ""
+*StpHGray3Trans 200/0.200: ""
+*StpHGray3Trans 300/0.300: ""
+*StpHGray3Trans 400/0.400: ""
+*StpHGray3Trans 500/0.500: ""
+*StpHGray3Trans 600/0.600: ""
+*StpHGray3Trans 700/0.700: ""
+*StpHGray3Trans 800/0.800: ""
+*StpHGray3Trans 900/0.900: ""
+*StpHGray3Trans 1000/1.000: ""
+*StpHGray3Trans 1100/1.100: ""
+*StpHGray3Trans 1200/1.200: ""
+*StpHGray3Trans 1300/1.300: ""
+*StpHGray3Trans 1400/1.400: ""
+*StpHGray3Trans 1500/1.500: ""
+*StpHGray3Trans 1600/1.600: ""
+*StpHGray3Trans 1700/1.700: ""
+*StpHGray3Trans 1800/1.800: ""
+*StpHGray3Trans 1900/1.900: ""
+*StpHGray3Trans 2000/2.000: ""
+*StpHGray3Trans 2100/2.100: ""
+*StpHGray3Trans 2200/2.200: ""
+*StpHGray3Trans 2300/2.300: ""
+*StpHGray3Trans 2400/2.400: ""
+*StpHGray3Trans 2500/2.500: ""
+*StpHGray3Trans 2600/2.600: ""
+*StpHGray3Trans 2700/2.700: ""
+*StpHGray3Trans 2800/2.800: ""
+*StpHGray3Trans 2900/2.900: ""
+*StpHGray3Trans 3000/3.000: ""
+*StpHGray3Trans 3100/3.100: ""
+*StpHGray3Trans 3200/3.200: ""
+*StpHGray3Trans 3300/3.300: ""
+*StpHGray3Trans 3400/3.400: ""
+*StpHGray3Trans 3500/3.500: ""
+*StpHGray3Trans 3600/3.600: ""
+*StpHGray3Trans 3700/3.700: ""
+*StpHGray3Trans 3800/3.800: ""
+*StpHGray3Trans 3900/3.900: ""
+*StpHGray3Trans 4000/4.000: ""
+*StpHGray3Trans 4100/4.100: ""
+*StpHGray3Trans 4200/4.200: ""
+*StpHGray3Trans 4300/4.300: ""
+*StpHGray3Trans 4400/4.400: ""
+*StpHGray3Trans 4500/4.500: ""
+*StpHGray3Trans 4600/4.600: ""
+*StpHGray3Trans 4700/4.700: ""
+*StpHGray3Trans 4800/4.800: ""
+*StpHGray3Trans 4900/4.900: ""
+*StpHGray3Trans 5000/5.000: ""
+*StpHGray3Trans None/None: ""
+*CloseUI: *StpHGray3Trans
+
+*CustomStpHGray3Trans True: "pop"
+*ParamCustomStpHGray3Trans Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray3Trans"
+*OpenUI *StpFineHGray3Trans/Hextone Gray 3 Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray3Trans: "hide"
+*StpStpFineHGray3Trans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray3Trans: None
+*StpDefaultStpFineHGray3Trans: None
+*StpFineHGray3Trans None/0.000: ""
+*StpFineHGray3Trans 0/0.000: ""
+*StpFineHGray3Trans 5/0.005: ""
+*StpFineHGray3Trans 10/0.010: ""
+*StpFineHGray3Trans 15/0.015: ""
+*StpFineHGray3Trans 20/0.020: ""
+*StpFineHGray3Trans 25/0.025: ""
+*StpFineHGray3Trans 30/0.030: ""
+*StpFineHGray3Trans 35/0.035: ""
+*StpFineHGray3Trans 40/0.040: ""
+*StpFineHGray3Trans 45/0.045: ""
+*StpFineHGray3Trans 50/0.050: ""
+*StpFineHGray3Trans 55/0.055: ""
+*StpFineHGray3Trans 60/0.060: ""
+*StpFineHGray3Trans 65/0.065: ""
+*StpFineHGray3Trans 70/0.070: ""
+*StpFineHGray3Trans 75/0.075: ""
+*StpFineHGray3Trans 80/0.080: ""
+*StpFineHGray3Trans 85/0.085: ""
+*StpFineHGray3Trans 90/0.090: ""
+*StpFineHGray3Trans 95/0.095: ""
+*CloseUI: *StpFineHGray3Trans
+
+*ColorKeyWords: "StpHGray3Scale"
+*OpenUI *StpHGray3Scale/Hextone Gray 3 Density Scale: PickOne
+*OrderDependency: 10 AnySetup *StpHGray3Scale
+*OPOptionHints StpHGray3Scale: "slider input spinbox"
+*StpStpHGray3Scale: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray3Scale: None
+*StpDefaultStpHGray3Scale: None
+*StpHGray3Scale 0/0.000: ""
+*StpHGray3Scale 100/0.100: ""
+*StpHGray3Scale 200/0.200: ""
+*StpHGray3Scale 300/0.300: ""
+*StpHGray3Scale 400/0.400: ""
+*StpHGray3Scale 500/0.500: ""
+*StpHGray3Scale 600/0.600: ""
+*StpHGray3Scale 700/0.700: ""
+*StpHGray3Scale 800/0.800: ""
+*StpHGray3Scale 900/0.900: ""
+*StpHGray3Scale 1000/1.000: ""
+*StpHGray3Scale 1100/1.100: ""
+*StpHGray3Scale 1200/1.200: ""
+*StpHGray3Scale 1300/1.300: ""
+*StpHGray3Scale 1400/1.400: ""
+*StpHGray3Scale 1500/1.500: ""
+*StpHGray3Scale 1600/1.600: ""
+*StpHGray3Scale 1700/1.700: ""
+*StpHGray3Scale 1800/1.800: ""
+*StpHGray3Scale 1900/1.900: ""
+*StpHGray3Scale 2000/2.000: ""
+*StpHGray3Scale 2100/2.100: ""
+*StpHGray3Scale 2200/2.200: ""
+*StpHGray3Scale 2300/2.300: ""
+*StpHGray3Scale 2400/2.400: ""
+*StpHGray3Scale 2500/2.500: ""
+*StpHGray3Scale 2600/2.600: ""
+*StpHGray3Scale 2700/2.700: ""
+*StpHGray3Scale 2800/2.800: ""
+*StpHGray3Scale 2900/2.900: ""
+*StpHGray3Scale 3000/3.000: ""
+*StpHGray3Scale 3100/3.100: ""
+*StpHGray3Scale 3200/3.200: ""
+*StpHGray3Scale 3300/3.300: ""
+*StpHGray3Scale 3400/3.400: ""
+*StpHGray3Scale 3500/3.500: ""
+*StpHGray3Scale 3600/3.600: ""
+*StpHGray3Scale 3700/3.700: ""
+*StpHGray3Scale 3800/3.800: ""
+*StpHGray3Scale 3900/3.900: ""
+*StpHGray3Scale 4000/4.000: ""
+*StpHGray3Scale 4100/4.100: ""
+*StpHGray3Scale 4200/4.200: ""
+*StpHGray3Scale 4300/4.300: ""
+*StpHGray3Scale 4400/4.400: ""
+*StpHGray3Scale 4500/4.500: ""
+*StpHGray3Scale 4600/4.600: ""
+*StpHGray3Scale 4700/4.700: ""
+*StpHGray3Scale 4800/4.800: ""
+*StpHGray3Scale 4900/4.900: ""
+*StpHGray3Scale 5000/5.000: ""
+*StpHGray3Scale None/None: ""
+*CloseUI: *StpHGray3Scale
+
+*CustomStpHGray3Scale True: "pop"
+*ParamCustomStpHGray3Scale Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray3Scale"
+*OpenUI *StpFineHGray3Scale/Hextone Gray 3 Density Scale Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray3Scale: "hide"
+*StpStpFineHGray3Scale: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray3Scale: None
+*StpDefaultStpFineHGray3Scale: None
+*StpFineHGray3Scale None/0.000: ""
+*StpFineHGray3Scale 0/0.000: ""
+*StpFineHGray3Scale 5/0.005: ""
+*StpFineHGray3Scale 10/0.010: ""
+*StpFineHGray3Scale 15/0.015: ""
+*StpFineHGray3Scale 20/0.020: ""
+*StpFineHGray3Scale 25/0.025: ""
+*StpFineHGray3Scale 30/0.030: ""
+*StpFineHGray3Scale 35/0.035: ""
+*StpFineHGray3Scale 40/0.040: ""
+*StpFineHGray3Scale 45/0.045: ""
+*StpFineHGray3Scale 50/0.050: ""
+*StpFineHGray3Scale 55/0.055: ""
+*StpFineHGray3Scale 60/0.060: ""
+*StpFineHGray3Scale 65/0.065: ""
+*StpFineHGray3Scale 70/0.070: ""
+*StpFineHGray3Scale 75/0.075: ""
+*StpFineHGray3Scale 80/0.080: ""
+*StpFineHGray3Scale 85/0.085: ""
+*StpFineHGray3Scale 90/0.090: ""
+*StpFineHGray3Scale 95/0.095: ""
+*CloseUI: *StpFineHGray3Scale
+
+*ColorKeyWords: "StpHGray2Value"
+*OpenUI *StpHGray2Value/Hextone Gray 2 Value: PickOne
+*OrderDependency: 10 AnySetup *StpHGray2Value
+*OPOptionHints StpHGray2Value: "slider input spinbox"
+*StpStpHGray2Value: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray2Value: None
+*StpDefaultStpHGray2Value: None
+*StpHGray2Value 0/0.000: ""
+*StpHGray2Value 100/0.100: ""
+*StpHGray2Value 200/0.200: ""
+*StpHGray2Value 300/0.300: ""
+*StpHGray2Value 400/0.400: ""
+*StpHGray2Value 500/0.500: ""
+*StpHGray2Value 600/0.600: ""
+*StpHGray2Value 700/0.700: ""
+*StpHGray2Value 800/0.800: ""
+*StpHGray2Value 900/0.900: ""
+*StpHGray2Value 1000/1.000: ""
+*StpHGray2Value 1100/1.100: ""
+*StpHGray2Value 1200/1.200: ""
+*StpHGray2Value 1300/1.300: ""
+*StpHGray2Value 1400/1.400: ""
+*StpHGray2Value 1500/1.500: ""
+*StpHGray2Value 1600/1.600: ""
+*StpHGray2Value 1700/1.700: ""
+*StpHGray2Value 1800/1.800: ""
+*StpHGray2Value 1900/1.900: ""
+*StpHGray2Value 2000/2.000: ""
+*StpHGray2Value 2100/2.100: ""
+*StpHGray2Value 2200/2.200: ""
+*StpHGray2Value 2300/2.300: ""
+*StpHGray2Value 2400/2.400: ""
+*StpHGray2Value 2500/2.500: ""
+*StpHGray2Value 2600/2.600: ""
+*StpHGray2Value 2700/2.700: ""
+*StpHGray2Value 2800/2.800: ""
+*StpHGray2Value 2900/2.900: ""
+*StpHGray2Value 3000/3.000: ""
+*StpHGray2Value 3100/3.100: ""
+*StpHGray2Value 3200/3.200: ""
+*StpHGray2Value 3300/3.300: ""
+*StpHGray2Value 3400/3.400: ""
+*StpHGray2Value 3500/3.500: ""
+*StpHGray2Value 3600/3.600: ""
+*StpHGray2Value 3700/3.700: ""
+*StpHGray2Value 3800/3.800: ""
+*StpHGray2Value 3900/3.900: ""
+*StpHGray2Value 4000/4.000: ""
+*StpHGray2Value 4100/4.100: ""
+*StpHGray2Value 4200/4.200: ""
+*StpHGray2Value 4300/4.300: ""
+*StpHGray2Value 4400/4.400: ""
+*StpHGray2Value 4500/4.500: ""
+*StpHGray2Value 4600/4.600: ""
+*StpHGray2Value 4700/4.700: ""
+*StpHGray2Value 4800/4.800: ""
+*StpHGray2Value 4900/4.900: ""
+*StpHGray2Value 5000/5.000: ""
+*StpHGray2Value None/None: ""
+*CloseUI: *StpHGray2Value
+
+*CustomStpHGray2Value True: "pop"
+*ParamCustomStpHGray2Value Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray2Value"
+*OpenUI *StpFineHGray2Value/Hextone Gray 2 Value Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray2Value: "hide"
+*StpStpFineHGray2Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray2Value: None
+*StpDefaultStpFineHGray2Value: None
+*StpFineHGray2Value None/0.000: ""
+*StpFineHGray2Value 0/0.000: ""
+*StpFineHGray2Value 5/0.005: ""
+*StpFineHGray2Value 10/0.010: ""
+*StpFineHGray2Value 15/0.015: ""
+*StpFineHGray2Value 20/0.020: ""
+*StpFineHGray2Value 25/0.025: ""
+*StpFineHGray2Value 30/0.030: ""
+*StpFineHGray2Value 35/0.035: ""
+*StpFineHGray2Value 40/0.040: ""
+*StpFineHGray2Value 45/0.045: ""
+*StpFineHGray2Value 50/0.050: ""
+*StpFineHGray2Value 55/0.055: ""
+*StpFineHGray2Value 60/0.060: ""
+*StpFineHGray2Value 65/0.065: ""
+*StpFineHGray2Value 70/0.070: ""
+*StpFineHGray2Value 75/0.075: ""
+*StpFineHGray2Value 80/0.080: ""
+*StpFineHGray2Value 85/0.085: ""
+*StpFineHGray2Value 90/0.090: ""
+*StpFineHGray2Value 95/0.095: ""
+*CloseUI: *StpFineHGray2Value
+
+*ColorKeyWords: "StpHGray2Trans"
+*OpenUI *StpHGray2Trans/Hextone Gray 2 Transition: PickOne
+*OrderDependency: 10 AnySetup *StpHGray2Trans
+*OPOptionHints StpHGray2Trans: "slider input spinbox"
+*StpStpHGray2Trans: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray2Trans: None
+*StpDefaultStpHGray2Trans: None
+*StpHGray2Trans 0/0.000: ""
+*StpHGray2Trans 100/0.100: ""
+*StpHGray2Trans 200/0.200: ""
+*StpHGray2Trans 300/0.300: ""
+*StpHGray2Trans 400/0.400: ""
+*StpHGray2Trans 500/0.500: ""
+*StpHGray2Trans 600/0.600: ""
+*StpHGray2Trans 700/0.700: ""
+*StpHGray2Trans 800/0.800: ""
+*StpHGray2Trans 900/0.900: ""
+*StpHGray2Trans 1000/1.000: ""
+*StpHGray2Trans 1100/1.100: ""
+*StpHGray2Trans 1200/1.200: ""
+*StpHGray2Trans 1300/1.300: ""
+*StpHGray2Trans 1400/1.400: ""
+*StpHGray2Trans 1500/1.500: ""
+*StpHGray2Trans 1600/1.600: ""
+*StpHGray2Trans 1700/1.700: ""
+*StpHGray2Trans 1800/1.800: ""
+*StpHGray2Trans 1900/1.900: ""
+*StpHGray2Trans 2000/2.000: ""
+*StpHGray2Trans 2100/2.100: ""
+*StpHGray2Trans 2200/2.200: ""
+*StpHGray2Trans 2300/2.300: ""
+*StpHGray2Trans 2400/2.400: ""
+*StpHGray2Trans 2500/2.500: ""
+*StpHGray2Trans 2600/2.600: ""
+*StpHGray2Trans 2700/2.700: ""
+*StpHGray2Trans 2800/2.800: ""
+*StpHGray2Trans 2900/2.900: ""
+*StpHGray2Trans 3000/3.000: ""
+*StpHGray2Trans 3100/3.100: ""
+*StpHGray2Trans 3200/3.200: ""
+*StpHGray2Trans 3300/3.300: ""
+*StpHGray2Trans 3400/3.400: ""
+*StpHGray2Trans 3500/3.500: ""
+*StpHGray2Trans 3600/3.600: ""
+*StpHGray2Trans 3700/3.700: ""
+*StpHGray2Trans 3800/3.800: ""
+*StpHGray2Trans 3900/3.900: ""
+*StpHGray2Trans 4000/4.000: ""
+*StpHGray2Trans 4100/4.100: ""
+*StpHGray2Trans 4200/4.200: ""
+*StpHGray2Trans 4300/4.300: ""
+*StpHGray2Trans 4400/4.400: ""
+*StpHGray2Trans 4500/4.500: ""
+*StpHGray2Trans 4600/4.600: ""
+*StpHGray2Trans 4700/4.700: ""
+*StpHGray2Trans 4800/4.800: ""
+*StpHGray2Trans 4900/4.900: ""
+*StpHGray2Trans 5000/5.000: ""
+*StpHGray2Trans None/None: ""
+*CloseUI: *StpHGray2Trans
+
+*CustomStpHGray2Trans True: "pop"
+*ParamCustomStpHGray2Trans Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray2Trans"
+*OpenUI *StpFineHGray2Trans/Hextone Gray 2 Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray2Trans: "hide"
+*StpStpFineHGray2Trans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray2Trans: None
+*StpDefaultStpFineHGray2Trans: None
+*StpFineHGray2Trans None/0.000: ""
+*StpFineHGray2Trans 0/0.000: ""
+*StpFineHGray2Trans 5/0.005: ""
+*StpFineHGray2Trans 10/0.010: ""
+*StpFineHGray2Trans 15/0.015: ""
+*StpFineHGray2Trans 20/0.020: ""
+*StpFineHGray2Trans 25/0.025: ""
+*StpFineHGray2Trans 30/0.030: ""
+*StpFineHGray2Trans 35/0.035: ""
+*StpFineHGray2Trans 40/0.040: ""
+*StpFineHGray2Trans 45/0.045: ""
+*StpFineHGray2Trans 50/0.050: ""
+*StpFineHGray2Trans 55/0.055: ""
+*StpFineHGray2Trans 60/0.060: ""
+*StpFineHGray2Trans 65/0.065: ""
+*StpFineHGray2Trans 70/0.070: ""
+*StpFineHGray2Trans 75/0.075: ""
+*StpFineHGray2Trans 80/0.080: ""
+*StpFineHGray2Trans 85/0.085: ""
+*StpFineHGray2Trans 90/0.090: ""
+*StpFineHGray2Trans 95/0.095: ""
+*CloseUI: *StpFineHGray2Trans
+
+*ColorKeyWords: "StpHGray2Scale"
+*OpenUI *StpHGray2Scale/Hextone Gray 2 Density Scale: PickOne
+*OrderDependency: 10 AnySetup *StpHGray2Scale
+*OPOptionHints StpHGray2Scale: "slider input spinbox"
+*StpStpHGray2Scale: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray2Scale: None
+*StpDefaultStpHGray2Scale: None
+*StpHGray2Scale 0/0.000: ""
+*StpHGray2Scale 100/0.100: ""
+*StpHGray2Scale 200/0.200: ""
+*StpHGray2Scale 300/0.300: ""
+*StpHGray2Scale 400/0.400: ""
+*StpHGray2Scale 500/0.500: ""
+*StpHGray2Scale 600/0.600: ""
+*StpHGray2Scale 700/0.700: ""
+*StpHGray2Scale 800/0.800: ""
+*StpHGray2Scale 900/0.900: ""
+*StpHGray2Scale 1000/1.000: ""
+*StpHGray2Scale 1100/1.100: ""
+*StpHGray2Scale 1200/1.200: ""
+*StpHGray2Scale 1300/1.300: ""
+*StpHGray2Scale 1400/1.400: ""
+*StpHGray2Scale 1500/1.500: ""
+*StpHGray2Scale 1600/1.600: ""
+*StpHGray2Scale 1700/1.700: ""
+*StpHGray2Scale 1800/1.800: ""
+*StpHGray2Scale 1900/1.900: ""
+*StpHGray2Scale 2000/2.000: ""
+*StpHGray2Scale 2100/2.100: ""
+*StpHGray2Scale 2200/2.200: ""
+*StpHGray2Scale 2300/2.300: ""
+*StpHGray2Scale 2400/2.400: ""
+*StpHGray2Scale 2500/2.500: ""
+*StpHGray2Scale 2600/2.600: ""
+*StpHGray2Scale 2700/2.700: ""
+*StpHGray2Scale 2800/2.800: ""
+*StpHGray2Scale 2900/2.900: ""
+*StpHGray2Scale 3000/3.000: ""
+*StpHGray2Scale 3100/3.100: ""
+*StpHGray2Scale 3200/3.200: ""
+*StpHGray2Scale 3300/3.300: ""
+*StpHGray2Scale 3400/3.400: ""
+*StpHGray2Scale 3500/3.500: ""
+*StpHGray2Scale 3600/3.600: ""
+*StpHGray2Scale 3700/3.700: ""
+*StpHGray2Scale 3800/3.800: ""
+*StpHGray2Scale 3900/3.900: ""
+*StpHGray2Scale 4000/4.000: ""
+*StpHGray2Scale 4100/4.100: ""
+*StpHGray2Scale 4200/4.200: ""
+*StpHGray2Scale 4300/4.300: ""
+*StpHGray2Scale 4400/4.400: ""
+*StpHGray2Scale 4500/4.500: ""
+*StpHGray2Scale 4600/4.600: ""
+*StpHGray2Scale 4700/4.700: ""
+*StpHGray2Scale 4800/4.800: ""
+*StpHGray2Scale 4900/4.900: ""
+*StpHGray2Scale 5000/5.000: ""
+*StpHGray2Scale None/None: ""
+*CloseUI: *StpHGray2Scale
+
+*CustomStpHGray2Scale True: "pop"
+*ParamCustomStpHGray2Scale Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray2Scale"
+*OpenUI *StpFineHGray2Scale/Hextone Gray 2 Density Scale Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray2Scale: "hide"
+*StpStpFineHGray2Scale: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray2Scale: None
+*StpDefaultStpFineHGray2Scale: None
+*StpFineHGray2Scale None/0.000: ""
+*StpFineHGray2Scale 0/0.000: ""
+*StpFineHGray2Scale 5/0.005: ""
+*StpFineHGray2Scale 10/0.010: ""
+*StpFineHGray2Scale 15/0.015: ""
+*StpFineHGray2Scale 20/0.020: ""
+*StpFineHGray2Scale 25/0.025: ""
+*StpFineHGray2Scale 30/0.030: ""
+*StpFineHGray2Scale 35/0.035: ""
+*StpFineHGray2Scale 40/0.040: ""
+*StpFineHGray2Scale 45/0.045: ""
+*StpFineHGray2Scale 50/0.050: ""
+*StpFineHGray2Scale 55/0.055: ""
+*StpFineHGray2Scale 60/0.060: ""
+*StpFineHGray2Scale 65/0.065: ""
+*StpFineHGray2Scale 70/0.070: ""
+*StpFineHGray2Scale 75/0.075: ""
+*StpFineHGray2Scale 80/0.080: ""
+*StpFineHGray2Scale 85/0.085: ""
+*StpFineHGray2Scale 90/0.090: ""
+*StpFineHGray2Scale 95/0.095: ""
+*CloseUI: *StpFineHGray2Scale
+
+*ColorKeyWords: "StpHGray1Value"
+*OpenUI *StpHGray1Value/Hextone Gray 1 Value: PickOne
+*OrderDependency: 10 AnySetup *StpHGray1Value
+*OPOptionHints StpHGray1Value: "slider input spinbox"
+*StpStpHGray1Value: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray1Value: None
+*StpDefaultStpHGray1Value: None
+*StpHGray1Value 0/0.000: ""
+*StpHGray1Value 100/0.100: ""
+*StpHGray1Value 200/0.200: ""
+*StpHGray1Value 300/0.300: ""
+*StpHGray1Value 400/0.400: ""
+*StpHGray1Value 500/0.500: ""
+*StpHGray1Value 600/0.600: ""
+*StpHGray1Value 700/0.700: ""
+*StpHGray1Value 800/0.800: ""
+*StpHGray1Value 900/0.900: ""
+*StpHGray1Value 1000/1.000: ""
+*StpHGray1Value 1100/1.100: ""
+*StpHGray1Value 1200/1.200: ""
+*StpHGray1Value 1300/1.300: ""
+*StpHGray1Value 1400/1.400: ""
+*StpHGray1Value 1500/1.500: ""
+*StpHGray1Value 1600/1.600: ""
+*StpHGray1Value 1700/1.700: ""
+*StpHGray1Value 1800/1.800: ""
+*StpHGray1Value 1900/1.900: ""
+*StpHGray1Value 2000/2.000: ""
+*StpHGray1Value 2100/2.100: ""
+*StpHGray1Value 2200/2.200: ""
+*StpHGray1Value 2300/2.300: ""
+*StpHGray1Value 2400/2.400: ""
+*StpHGray1Value 2500/2.500: ""
+*StpHGray1Value 2600/2.600: ""
+*StpHGray1Value 2700/2.700: ""
+*StpHGray1Value 2800/2.800: ""
+*StpHGray1Value 2900/2.900: ""
+*StpHGray1Value 3000/3.000: ""
+*StpHGray1Value 3100/3.100: ""
+*StpHGray1Value 3200/3.200: ""
+*StpHGray1Value 3300/3.300: ""
+*StpHGray1Value 3400/3.400: ""
+*StpHGray1Value 3500/3.500: ""
+*StpHGray1Value 3600/3.600: ""
+*StpHGray1Value 3700/3.700: ""
+*StpHGray1Value 3800/3.800: ""
+*StpHGray1Value 3900/3.900: ""
+*StpHGray1Value 4000/4.000: ""
+*StpHGray1Value 4100/4.100: ""
+*StpHGray1Value 4200/4.200: ""
+*StpHGray1Value 4300/4.300: ""
+*StpHGray1Value 4400/4.400: ""
+*StpHGray1Value 4500/4.500: ""
+*StpHGray1Value 4600/4.600: ""
+*StpHGray1Value 4700/4.700: ""
+*StpHGray1Value 4800/4.800: ""
+*StpHGray1Value 4900/4.900: ""
+*StpHGray1Value 5000/5.000: ""
+*StpHGray1Value None/None: ""
+*CloseUI: *StpHGray1Value
+
+*CustomStpHGray1Value True: "pop"
+*ParamCustomStpHGray1Value Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray1Value"
+*OpenUI *StpFineHGray1Value/Hextone Gray 1 Value Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray1Value: "hide"
+*StpStpFineHGray1Value: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray1Value: None
+*StpDefaultStpFineHGray1Value: None
+*StpFineHGray1Value None/0.000: ""
+*StpFineHGray1Value 0/0.000: ""
+*StpFineHGray1Value 5/0.005: ""
+*StpFineHGray1Value 10/0.010: ""
+*StpFineHGray1Value 15/0.015: ""
+*StpFineHGray1Value 20/0.020: ""
+*StpFineHGray1Value 25/0.025: ""
+*StpFineHGray1Value 30/0.030: ""
+*StpFineHGray1Value 35/0.035: ""
+*StpFineHGray1Value 40/0.040: ""
+*StpFineHGray1Value 45/0.045: ""
+*StpFineHGray1Value 50/0.050: ""
+*StpFineHGray1Value 55/0.055: ""
+*StpFineHGray1Value 60/0.060: ""
+*StpFineHGray1Value 65/0.065: ""
+*StpFineHGray1Value 70/0.070: ""
+*StpFineHGray1Value 75/0.075: ""
+*StpFineHGray1Value 80/0.080: ""
+*StpFineHGray1Value 85/0.085: ""
+*StpFineHGray1Value 90/0.090: ""
+*StpFineHGray1Value 95/0.095: ""
+*CloseUI: *StpFineHGray1Value
+
+*ColorKeyWords: "StpHGray1Trans"
+*OpenUI *StpHGray1Trans/Hextone Gray 1 Transition: PickOne
+*OrderDependency: 10 AnySetup *StpHGray1Trans
+*OPOptionHints StpHGray1Trans: "slider input spinbox"
+*StpStpHGray1Trans: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray1Trans: None
+*StpDefaultStpHGray1Trans: None
+*StpHGray1Trans 0/0.000: ""
+*StpHGray1Trans 100/0.100: ""
+*StpHGray1Trans 200/0.200: ""
+*StpHGray1Trans 300/0.300: ""
+*StpHGray1Trans 400/0.400: ""
+*StpHGray1Trans 500/0.500: ""
+*StpHGray1Trans 600/0.600: ""
+*StpHGray1Trans 700/0.700: ""
+*StpHGray1Trans 800/0.800: ""
+*StpHGray1Trans 900/0.900: ""
+*StpHGray1Trans 1000/1.000: ""
+*StpHGray1Trans 1100/1.100: ""
+*StpHGray1Trans 1200/1.200: ""
+*StpHGray1Trans 1300/1.300: ""
+*StpHGray1Trans 1400/1.400: ""
+*StpHGray1Trans 1500/1.500: ""
+*StpHGray1Trans 1600/1.600: ""
+*StpHGray1Trans 1700/1.700: ""
+*StpHGray1Trans 1800/1.800: ""
+*StpHGray1Trans 1900/1.900: ""
+*StpHGray1Trans 2000/2.000: ""
+*StpHGray1Trans 2100/2.100: ""
+*StpHGray1Trans 2200/2.200: ""
+*StpHGray1Trans 2300/2.300: ""
+*StpHGray1Trans 2400/2.400: ""
+*StpHGray1Trans 2500/2.500: ""
+*StpHGray1Trans 2600/2.600: ""
+*StpHGray1Trans 2700/2.700: ""
+*StpHGray1Trans 2800/2.800: ""
+*StpHGray1Trans 2900/2.900: ""
+*StpHGray1Trans 3000/3.000: ""
+*StpHGray1Trans 3100/3.100: ""
+*StpHGray1Trans 3200/3.200: ""
+*StpHGray1Trans 3300/3.300: ""
+*StpHGray1Trans 3400/3.400: ""
+*StpHGray1Trans 3500/3.500: ""
+*StpHGray1Trans 3600/3.600: ""
+*StpHGray1Trans 3700/3.700: ""
+*StpHGray1Trans 3800/3.800: ""
+*StpHGray1Trans 3900/3.900: ""
+*StpHGray1Trans 4000/4.000: ""
+*StpHGray1Trans 4100/4.100: ""
+*StpHGray1Trans 4200/4.200: ""
+*StpHGray1Trans 4300/4.300: ""
+*StpHGray1Trans 4400/4.400: ""
+*StpHGray1Trans 4500/4.500: ""
+*StpHGray1Trans 4600/4.600: ""
+*StpHGray1Trans 4700/4.700: ""
+*StpHGray1Trans 4800/4.800: ""
+*StpHGray1Trans 4900/4.900: ""
+*StpHGray1Trans 5000/5.000: ""
+*StpHGray1Trans None/None: ""
+*CloseUI: *StpHGray1Trans
+
+*CustomStpHGray1Trans True: "pop"
+*ParamCustomStpHGray1Trans Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray1Trans"
+*OpenUI *StpFineHGray1Trans/Hextone Gray 1 Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray1Trans: "hide"
+*StpStpFineHGray1Trans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray1Trans: None
+*StpDefaultStpFineHGray1Trans: None
+*StpFineHGray1Trans None/0.000: ""
+*StpFineHGray1Trans 0/0.000: ""
+*StpFineHGray1Trans 5/0.005: ""
+*StpFineHGray1Trans 10/0.010: ""
+*StpFineHGray1Trans 15/0.015: ""
+*StpFineHGray1Trans 20/0.020: ""
+*StpFineHGray1Trans 25/0.025: ""
+*StpFineHGray1Trans 30/0.030: ""
+*StpFineHGray1Trans 35/0.035: ""
+*StpFineHGray1Trans 40/0.040: ""
+*StpFineHGray1Trans 45/0.045: ""
+*StpFineHGray1Trans 50/0.050: ""
+*StpFineHGray1Trans 55/0.055: ""
+*StpFineHGray1Trans 60/0.060: ""
+*StpFineHGray1Trans 65/0.065: ""
+*StpFineHGray1Trans 70/0.070: ""
+*StpFineHGray1Trans 75/0.075: ""
+*StpFineHGray1Trans 80/0.080: ""
+*StpFineHGray1Trans 85/0.085: ""
+*StpFineHGray1Trans 90/0.090: ""
+*StpFineHGray1Trans 95/0.095: ""
+*CloseUI: *StpFineHGray1Trans
+
+*ColorKeyWords: "StpHGray1Scale"
+*OpenUI *StpHGray1Scale/Hextone Gray 1 Density Scale: PickOne
+*OrderDependency: 10 AnySetup *StpHGray1Scale
+*OPOptionHints StpHGray1Scale: "slider input spinbox"
+*StpStpHGray1Scale: 3 0 1 5 255 0.000 5.000 1.000
+*DefaultStpHGray1Scale: None
+*StpDefaultStpHGray1Scale: None
+*StpHGray1Scale 0/0.000: ""
+*StpHGray1Scale 100/0.100: ""
+*StpHGray1Scale 200/0.200: ""
+*StpHGray1Scale 300/0.300: ""
+*StpHGray1Scale 400/0.400: ""
+*StpHGray1Scale 500/0.500: ""
+*StpHGray1Scale 600/0.600: ""
+*StpHGray1Scale 700/0.700: ""
+*StpHGray1Scale 800/0.800: ""
+*StpHGray1Scale 900/0.900: ""
+*StpHGray1Scale 1000/1.000: ""
+*StpHGray1Scale 1100/1.100: ""
+*StpHGray1Scale 1200/1.200: ""
+*StpHGray1Scale 1300/1.300: ""
+*StpHGray1Scale 1400/1.400: ""
+*StpHGray1Scale 1500/1.500: ""
+*StpHGray1Scale 1600/1.600: ""
+*StpHGray1Scale 1700/1.700: ""
+*StpHGray1Scale 1800/1.800: ""
+*StpHGray1Scale 1900/1.900: ""
+*StpHGray1Scale 2000/2.000: ""
+*StpHGray1Scale 2100/2.100: ""
+*StpHGray1Scale 2200/2.200: ""
+*StpHGray1Scale 2300/2.300: ""
+*StpHGray1Scale 2400/2.400: ""
+*StpHGray1Scale 2500/2.500: ""
+*StpHGray1Scale 2600/2.600: ""
+*StpHGray1Scale 2700/2.700: ""
+*StpHGray1Scale 2800/2.800: ""
+*StpHGray1Scale 2900/2.900: ""
+*StpHGray1Scale 3000/3.000: ""
+*StpHGray1Scale 3100/3.100: ""
+*StpHGray1Scale 3200/3.200: ""
+*StpHGray1Scale 3300/3.300: ""
+*StpHGray1Scale 3400/3.400: ""
+*StpHGray1Scale 3500/3.500: ""
+*StpHGray1Scale 3600/3.600: ""
+*StpHGray1Scale 3700/3.700: ""
+*StpHGray1Scale 3800/3.800: ""
+*StpHGray1Scale 3900/3.900: ""
+*StpHGray1Scale 4000/4.000: ""
+*StpHGray1Scale 4100/4.100: ""
+*StpHGray1Scale 4200/4.200: ""
+*StpHGray1Scale 4300/4.300: ""
+*StpHGray1Scale 4400/4.400: ""
+*StpHGray1Scale 4500/4.500: ""
+*StpHGray1Scale 4600/4.600: ""
+*StpHGray1Scale 4700/4.700: ""
+*StpHGray1Scale 4800/4.800: ""
+*StpHGray1Scale 4900/4.900: ""
+*StpHGray1Scale 5000/5.000: ""
+*StpHGray1Scale None/None: ""
+*CloseUI: *StpHGray1Scale
+
+*CustomStpHGray1Scale True: "pop"
+*ParamCustomStpHGray1Scale Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineHGray1Scale"
+*OpenUI *StpFineHGray1Scale/Hextone Gray 1 Density Scale Fine Adjustment: PickOne
+*OPOptionHints StpFineHGray1Scale: "hide"
+*StpStpFineHGray1Scale: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineHGray1Scale: None
+*StpDefaultStpFineHGray1Scale: None
+*StpFineHGray1Scale None/0.000: ""
+*StpFineHGray1Scale 0/0.000: ""
+*StpFineHGray1Scale 5/0.005: ""
+*StpFineHGray1Scale 10/0.010: ""
+*StpFineHGray1Scale 15/0.015: ""
+*StpFineHGray1Scale 20/0.020: ""
+*StpFineHGray1Scale 25/0.025: ""
+*StpFineHGray1Scale 30/0.030: ""
+*StpFineHGray1Scale 35/0.035: ""
+*StpFineHGray1Scale 40/0.040: ""
+*StpFineHGray1Scale 45/0.045: ""
+*StpFineHGray1Scale 50/0.050: ""
+*StpFineHGray1Scale 55/0.055: ""
+*StpFineHGray1Scale 60/0.060: ""
+*StpFineHGray1Scale 65/0.065: ""
+*StpFineHGray1Scale 70/0.070: ""
+*StpFineHGray1Scale 75/0.075: ""
+*StpFineHGray1Scale 80/0.080: ""
+*StpFineHGray1Scale 85/0.085: ""
+*StpFineHGray1Scale 90/0.090: ""
+*StpFineHGray1Scale 95/0.095: ""
+*CloseUI: *StpFineHGray1Scale
+
+*ColorKeyWords: "StpBlackTrans"
+*OpenUI *StpBlackTrans/GCR Transition: PickOne
+*OrderDependency: 10 AnySetup *StpBlackTrans
+*OPOptionHints StpBlackTrans: "slider input spinbox"
+*StpStpBlackTrans: 3 0 1 5 0 0.000 1.000 1.000
+*DefaultStpBlackTrans: None
+*StpDefaultStpBlackTrans: None
+*StpBlackTrans 0/0.000: ""
+*StpBlackTrans 100/0.100: ""
+*StpBlackTrans 200/0.200: ""
+*StpBlackTrans 300/0.300: ""
+*StpBlackTrans 400/0.400: ""
+*StpBlackTrans 500/0.500: ""
+*StpBlackTrans 600/0.600: ""
+*StpBlackTrans 700/0.700: ""
+*StpBlackTrans 800/0.800: ""
+*StpBlackTrans 900/0.900: ""
+*StpBlackTrans 1000/1.000: ""
+*StpBlackTrans None/None: ""
+*CloseUI: *StpBlackTrans
+
+*CustomStpBlackTrans True: "pop"
+*ParamCustomStpBlackTrans Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineBlackTrans"
+*OpenUI *StpFineBlackTrans/GCR Transition Fine Adjustment: PickOne
+*OPOptionHints StpFineBlackTrans: "hide"
+*StpStpFineBlackTrans: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineBlackTrans: None
+*StpDefaultStpFineBlackTrans: None
+*StpFineBlackTrans None/0.000: ""
+*StpFineBlackTrans 0/0.000: ""
+*StpFineBlackTrans 5/0.005: ""
+*StpFineBlackTrans 10/0.010: ""
+*StpFineBlackTrans 15/0.015: ""
+*StpFineBlackTrans 20/0.020: ""
+*StpFineBlackTrans 25/0.025: ""
+*StpFineBlackTrans 30/0.030: ""
+*StpFineBlackTrans 35/0.035: ""
+*StpFineBlackTrans 40/0.040: ""
+*StpFineBlackTrans 45/0.045: ""
+*StpFineBlackTrans 50/0.050: ""
+*StpFineBlackTrans 55/0.055: ""
+*StpFineBlackTrans 60/0.060: ""
+*StpFineBlackTrans 65/0.065: ""
+*StpFineBlackTrans 70/0.070: ""
+*StpFineBlackTrans 75/0.075: ""
+*StpFineBlackTrans 80/0.080: ""
+*StpFineBlackTrans 85/0.085: ""
+*StpFineBlackTrans 90/0.090: ""
+*StpFineBlackTrans 95/0.095: ""
+*CloseUI: *StpFineBlackTrans
+
+*ColorKeyWords: "StpGCRLower"
+*OpenUI *StpGCRLower/GCR Lower Bound: PickOne
+*OrderDependency: 10 AnySetup *StpGCRLower
+*OPOptionHints StpGCRLower: "slider input spinbox"
+*StpStpGCRLower: 3 0 1 5 0 0.000 1.000 0.200
+*DefaultStpGCRLower: None
+*StpDefaultStpGCRLower: None
+*StpGCRLower 0/0.000: ""
+*StpGCRLower 100/0.100: ""
+*StpGCRLower 200/0.200: ""
+*StpGCRLower 300/0.300: ""
+*StpGCRLower 400/0.400: ""
+*StpGCRLower 500/0.500: ""
+*StpGCRLower 600/0.600: ""
+*StpGCRLower 700/0.700: ""
+*StpGCRLower 800/0.800: ""
+*StpGCRLower 900/0.900: ""
+*StpGCRLower 1000/1.000: ""
+*StpGCRLower None/None: ""
+*CloseUI: *StpGCRLower
+
+*CustomStpGCRLower True: "pop"
+*ParamCustomStpGCRLower Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineGCRLower"
+*OpenUI *StpFineGCRLower/GCR Lower Bound Fine Adjustment: PickOne
+*OPOptionHints StpFineGCRLower: "hide"
+*StpStpFineGCRLower: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineGCRLower: None
+*StpDefaultStpFineGCRLower: None
+*StpFineGCRLower None/0.000: ""
+*StpFineGCRLower 0/0.000: ""
+*StpFineGCRLower 5/0.005: ""
+*StpFineGCRLower 10/0.010: ""
+*StpFineGCRLower 15/0.015: ""
+*StpFineGCRLower 20/0.020: ""
+*StpFineGCRLower 25/0.025: ""
+*StpFineGCRLower 30/0.030: ""
+*StpFineGCRLower 35/0.035: ""
+*StpFineGCRLower 40/0.040: ""
+*StpFineGCRLower 45/0.045: ""
+*StpFineGCRLower 50/0.050: ""
+*StpFineGCRLower 55/0.055: ""
+*StpFineGCRLower 60/0.060: ""
+*StpFineGCRLower 65/0.065: ""
+*StpFineGCRLower 70/0.070: ""
+*StpFineGCRLower 75/0.075: ""
+*StpFineGCRLower 80/0.080: ""
+*StpFineGCRLower 85/0.085: ""
+*StpFineGCRLower 90/0.090: ""
+*StpFineGCRLower 95/0.095: ""
+*CloseUI: *StpFineGCRLower
+
+*ColorKeyWords: "StpGCRUpper"
+*OpenUI *StpGCRUpper/GCR Upper Bound: PickOne
+*OrderDependency: 10 AnySetup *StpGCRUpper
+*OPOptionHints StpGCRUpper: "slider input spinbox"
+*StpStpGCRUpper: 3 0 1 5 0 0.000 5.000 0.500
+*DefaultStpGCRUpper: None
+*StpDefaultStpGCRUpper: None
+*StpGCRUpper 0/0.000: ""
+*StpGCRUpper 100/0.100: ""
+*StpGCRUpper 200/0.200: ""
+*StpGCRUpper 300/0.300: ""
+*StpGCRUpper 400/0.400: ""
+*StpGCRUpper 500/0.500: ""
+*StpGCRUpper 600/0.600: ""
+*StpGCRUpper 700/0.700: ""
+*StpGCRUpper 800/0.800: ""
+*StpGCRUpper 900/0.900: ""
+*StpGCRUpper 1000/1.000: ""
+*StpGCRUpper 1100/1.100: ""
+*StpGCRUpper 1200/1.200: ""
+*StpGCRUpper 1300/1.300: ""
+*StpGCRUpper 1400/1.400: ""
+*StpGCRUpper 1500/1.500: ""
+*StpGCRUpper 1600/1.600: ""
+*StpGCRUpper 1700/1.700: ""
+*StpGCRUpper 1800/1.800: ""
+*StpGCRUpper 1900/1.900: ""
+*StpGCRUpper 2000/2.000: ""
+*StpGCRUpper 2100/2.100: ""
+*StpGCRUpper 2200/2.200: ""
+*StpGCRUpper 2300/2.300: ""
+*StpGCRUpper 2400/2.400: ""
+*StpGCRUpper 2500/2.500: ""
+*StpGCRUpper 2600/2.600: ""
+*StpGCRUpper 2700/2.700: ""
+*StpGCRUpper 2800/2.800: ""
+*StpGCRUpper 2900/2.900: ""
+*StpGCRUpper 3000/3.000: ""
+*StpGCRUpper 3100/3.100: ""
+*StpGCRUpper 3200/3.200: ""
+*StpGCRUpper 3300/3.300: ""
+*StpGCRUpper 3400/3.400: ""
+*StpGCRUpper 3500/3.500: ""
+*StpGCRUpper 3600/3.600: ""
+*StpGCRUpper 3700/3.700: ""
+*StpGCRUpper 3800/3.800: ""
+*StpGCRUpper 3900/3.900: ""
+*StpGCRUpper 4000/4.000: ""
+*StpGCRUpper 4100/4.100: ""
+*StpGCRUpper 4200/4.200: ""
+*StpGCRUpper 4300/4.300: ""
+*StpGCRUpper 4400/4.400: ""
+*StpGCRUpper 4500/4.500: ""
+*StpGCRUpper 4600/4.600: ""
+*StpGCRUpper 4700/4.700: ""
+*StpGCRUpper 4800/4.800: ""
+*StpGCRUpper 4900/4.900: ""
+*StpGCRUpper 5000/5.000: ""
+*StpGCRUpper None/None: ""
+*CloseUI: *StpGCRUpper
+
+*CustomStpGCRUpper True: "pop"
+*ParamCustomStpGCRUpper Value/Value: 1 real 0.000 5.000
+
+*ColorKeyWords: "StpFineGCRUpper"
+*OpenUI *StpFineGCRUpper/GCR Upper Bound Fine Adjustment: PickOne
+*OPOptionHints StpFineGCRUpper: "hide"
+*StpStpFineGCRUpper: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineGCRUpper: None
+*StpDefaultStpFineGCRUpper: None
+*StpFineGCRUpper None/0.000: ""
+*StpFineGCRUpper 0/0.000: ""
+*StpFineGCRUpper 5/0.005: ""
+*StpFineGCRUpper 10/0.010: ""
+*StpFineGCRUpper 15/0.015: ""
+*StpFineGCRUpper 20/0.020: ""
+*StpFineGCRUpper 25/0.025: ""
+*StpFineGCRUpper 30/0.030: ""
+*StpFineGCRUpper 35/0.035: ""
+*StpFineGCRUpper 40/0.040: ""
+*StpFineGCRUpper 45/0.045: ""
+*StpFineGCRUpper 50/0.050: ""
+*StpFineGCRUpper 55/0.055: ""
+*StpFineGCRUpper 60/0.060: ""
+*StpFineGCRUpper 65/0.065: ""
+*StpFineGCRUpper 70/0.070: ""
+*StpFineGCRUpper 75/0.075: ""
+*StpFineGCRUpper 80/0.080: ""
+*StpFineGCRUpper 85/0.085: ""
+*StpFineGCRUpper 90/0.090: ""
+*StpFineGCRUpper 95/0.095: ""
+*CloseUI: *StpFineGCRUpper
+
+*ColorKeyWords: "StpSubchannelCutoff"
+*OpenUI *StpSubchannelCutoff/Subchannel Cutoff: PickOne
+*OrderDependency: 10 AnySetup *StpSubchannelCutoff
+*OPOptionHints StpSubchannelCutoff: "slider input spinbox"
+*StpStpSubchannelCutoff: 3 0 1 5 0 0.000 1.000 1.000
+*DefaultStpSubchannelCutoff: None
+*StpDefaultStpSubchannelCutoff: None
+*StpSubchannelCutoff 0/0.000: ""
+*StpSubchannelCutoff 100/0.100: ""
+*StpSubchannelCutoff 200/0.200: ""
+*StpSubchannelCutoff 300/0.300: ""
+*StpSubchannelCutoff 400/0.400: ""
+*StpSubchannelCutoff 500/0.500: ""
+*StpSubchannelCutoff 600/0.600: ""
+*StpSubchannelCutoff 700/0.700: ""
+*StpSubchannelCutoff 800/0.800: ""
+*StpSubchannelCutoff 900/0.900: ""
+*StpSubchannelCutoff 1000/1.000: ""
+*StpSubchannelCutoff None/None: ""
+*CloseUI: *StpSubchannelCutoff
+
+*CustomStpSubchannelCutoff True: "pop"
+*ParamCustomStpSubchannelCutoff Value/Value: 1 real 0.000 1.000
+
+*ColorKeyWords: "StpFineSubchannelCutoff"
+*OpenUI *StpFineSubchannelCutoff/Subchannel Cutoff Fine Adjustment: PickOne
+*OPOptionHints StpFineSubchannelCutoff: "hide"
+*StpStpFineSubchannelCutoff: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineSubchannelCutoff: None
+*StpDefaultStpFineSubchannelCutoff: None
+*StpFineSubchannelCutoff None/0.000: ""
+*StpFineSubchannelCutoff 0/0.000: ""
+*StpFineSubchannelCutoff 5/0.005: ""
+*StpFineSubchannelCutoff 10/0.010: ""
+*StpFineSubchannelCutoff 15/0.015: ""
+*StpFineSubchannelCutoff 20/0.020: ""
+*StpFineSubchannelCutoff 25/0.025: ""
+*StpFineSubchannelCutoff 30/0.030: ""
+*StpFineSubchannelCutoff 35/0.035: ""
+*StpFineSubchannelCutoff 40/0.040: ""
+*StpFineSubchannelCutoff 45/0.045: ""
+*StpFineSubchannelCutoff 50/0.050: ""
+*StpFineSubchannelCutoff 55/0.055: ""
+*StpFineSubchannelCutoff 60/0.060: ""
+*StpFineSubchannelCutoff 65/0.065: ""
+*StpFineSubchannelCutoff 70/0.070: ""
+*StpFineSubchannelCutoff 75/0.075: ""
+*StpFineSubchannelCutoff 80/0.080: ""
+*StpFineSubchannelCutoff 85/0.085: ""
+*StpFineSubchannelCutoff 90/0.090: ""
+*StpFineSubchannelCutoff 95/0.095: ""
+*CloseUI: *StpFineSubchannelCutoff
+
+*ColorKeyWords: "StpInkLimit"
+*OpenUI *StpInkLimit/Ink Limit: PickOne
+*OrderDependency: 10 AnySetup *StpInkLimit
+*OPOptionHints StpInkLimit: "slider input spinbox"
+*StpStpInkLimit: 3 0 1 5 255 0.000 6.000 6.000
+*DefaultStpInkLimit: None
+*StpDefaultStpInkLimit: None
+*StpInkLimit 0/0.000: ""
+*StpInkLimit 100/0.100: ""
+*StpInkLimit 200/0.200: ""
+*StpInkLimit 300/0.300: ""
+*StpInkLimit 400/0.400: ""
+*StpInkLimit 500/0.500: ""
+*StpInkLimit 600/0.600: ""
+*StpInkLimit 700/0.700: ""
+*StpInkLimit 800/0.800: ""
+*StpInkLimit 900/0.900: ""
+*StpInkLimit 1000/1.000: ""
+*StpInkLimit 1100/1.100: ""
+*StpInkLimit 1200/1.200: ""
+*StpInkLimit 1300/1.300: ""
+*StpInkLimit 1400/1.400: ""
+*StpInkLimit 1500/1.500: ""
+*StpInkLimit 1600/1.600: ""
+*StpInkLimit 1700/1.700: ""
+*StpInkLimit 1800/1.800: ""
+*StpInkLimit 1900/1.900: ""
+*StpInkLimit 2000/2.000: ""
+*StpInkLimit 2100/2.100: ""
+*StpInkLimit 2200/2.200: ""
+*StpInkLimit 2300/2.300: ""
+*StpInkLimit 2400/2.400: ""
+*StpInkLimit 2500/2.500: ""
+*StpInkLimit 2600/2.600: ""
+*StpInkLimit 2700/2.700: ""
+*StpInkLimit 2800/2.800: ""
+*StpInkLimit 2900/2.900: ""
+*StpInkLimit 3000/3.000: ""
+*StpInkLimit 3100/3.100: ""
+*StpInkLimit 3200/3.200: ""
+*StpInkLimit 3300/3.300: ""
+*StpInkLimit 3400/3.400: ""
+*StpInkLimit 3500/3.500: ""
+*StpInkLimit 3600/3.600: ""
+*StpInkLimit 3700/3.700: ""
+*StpInkLimit 3800/3.800: ""
+*StpInkLimit 3900/3.900: ""
+*StpInkLimit 4000/4.000: ""
+*StpInkLimit 4100/4.100: ""
+*StpInkLimit 4200/4.200: ""
+*StpInkLimit 4300/4.300: ""
+*StpInkLimit 4400/4.400: ""
+*StpInkLimit 4500/4.500: ""
+*StpInkLimit 4600/4.600: ""
+*StpInkLimit 4700/4.700: ""
+*StpInkLimit 4800/4.800: ""
+*StpInkLimit 4900/4.900: ""
+*StpInkLimit 5000/5.000: ""
+*StpInkLimit 5100/5.100: ""
+*StpInkLimit 5200/5.200: ""
+*StpInkLimit 5300/5.300: ""
+*StpInkLimit 5400/5.400: ""
+*StpInkLimit 5500/5.500: ""
+*StpInkLimit 5600/5.600: ""
+*StpInkLimit 5700/5.700: ""
+*StpInkLimit 5800/5.800: ""
+*StpInkLimit 5900/5.900: ""
+*StpInkLimit 6000/6.000: ""
+*StpInkLimit None/None: ""
+*CloseUI: *StpInkLimit
+
+*CustomStpInkLimit True: "pop"
+*ParamCustomStpInkLimit Value/Value: 1 real 0.000 6.000
+
+*ColorKeyWords: "StpFineInkLimit"
+*OpenUI *StpFineInkLimit/Ink Limit Fine Adjustment: PickOne
+*OPOptionHints StpFineInkLimit: "hide"
+*StpStpFineInkLimit: 9 0 0 0 -1 0.000 0.000 0.000
+*DefaultStpFineInkLimit: None
+*StpDefaultStpFineInkLimit: None
+*StpFineInkLimit None/0.000: ""
+*StpFineInkLimit 0/0.000: ""
+*StpFineInkLimit 5/0.005: ""
+*StpFineInkLimit 10/0.010: ""
+*StpFineInkLimit 15/0.015: ""
+*StpFineInkLimit 20/0.020: ""
+*StpFineInkLimit 25/0.025: ""
+*StpFineInkLimit 30/0.030: ""
+*StpFineInkLimit 35/0.035: ""
+*StpFineInkLimit 40/0.040: ""
+*StpFineInkLimit 45/0.045: ""
+*StpFineInkLimit 50/0.050: ""
+*StpFineInkLimit 55/0.055: ""
+*StpFineInkLimit 60/0.060: ""
+*StpFineInkLimit 65/0.065: ""
+*StpFineInkLimit 70/0.070: ""
+*StpFineInkLimit 75/0.075: ""
+*StpFineInkLimit 80/0.080: ""
+*StpFineInkLimit 85/0.085: ""
+*StpFineInkLimit 90/0.090: ""
+*StpFineInkLimit 95/0.095: ""
+*CloseUI: *StpFineInkLimit
+
+*CloseGroup: C1L5/Output Control Extra 5
+
+*APPrinterPreset Text/Text: "*StpImageType Text"
+*APPrinterPreset Graphics/Graphics: "*StpImageType Graphics"
+*APPrinterPreset TextGraphics/Mixed Text and Graphics: "*StpImageType TextGraphics"
+*APPrinterPreset Photo/Photograph: "*StpImageType Photo"
+*APPrinterPreset LineArt/Line Art: "*StpImageType LineArt"
+
+
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-Demi: Standard "(001.007S)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(001.007S)" Standard ROM
+*Font Bookman-Demi: Standard "(001.004S)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(001.004S)" Standard ROM
+*Font Bookman-Light: Standard "(001.004S)" Standard ROM
+*Font Bookman-LightItalic: Standard "(001.004S)" Standard ROM
+*Font Courier: Standard "(002.004S)" Standard ROM
+*Font Courier-Bold: Standard "(002.004S)" Standard ROM
+*Font Courier-BoldOblique: Standard "(002.004S)" Standard ROM
+*Font Courier-Oblique: Standard "(002.004S)" Standard ROM
+*Font Helvetica: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Oblique: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(001.009S)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(001.007S)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(001.007S)" Standard ROM
+*Font Palatino-Bold: Standard "(001.005S)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Italic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Roman: Standard "(001.005S)" Standard ROM
+*Font Symbol: Special "(001.007S)" Special ROM
+*Font Times-Bold: Standard "(001.007S)" Standard ROM
+*Font Times-BoldItalic: Standard "(001.009S)" Standard ROM
+*Font Times-Italic: Standard "(001.007S)" Standard ROM
+*Font Times-Roman: Standard "(001.007S)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(001.007S)" Standard ROM
+*Font ZapfDingbats: Special "(001.004S)" Standard ROM
+
+*% End of stp-escp2-rx620.5.3.ppd
