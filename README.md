@@ -114,20 +114,3 @@ https://github.com/DrPsychick/docker-cups-airprint/issues
 ### Hints for QNAP
 * using `macvlan` is not possible, instead you should use `qnet` driver to create the docker network
 (`docker network create --driver=qnet --ipam-driver=qnet --ipam-opt=iface=bond0 --subnet ...`)
-
-### TODO
-* [ ] setup travis pipeline (automatic builds)
-* [ ] support ENV configuration
-  * webinterface yes/no
-  * ssl config
-  * per printer: name, location, description, device URI, URL for PPD or model
-    * `lpadmin` command (without `.ppd`)
-* [ ] make it configurable through ENV incl. `.ppd` support (binary file) - how?
-  * background: it would be great if I did not have to create my own image just to configure my printer...
-  * Options:
-    * mount directory -> requires users to setup persistent storage...
-    * install printer on every startup with `lpadmin` -> nice idea!
-    * through ENV (one line, BASE64 encoded?) -> veeery ugly
-* [ ] fix SSL: #1
-* [ ] cleanup and create proper documentation
-* [ ] How to get `.ppd` directly for your printer?
