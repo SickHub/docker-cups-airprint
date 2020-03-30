@@ -1,3 +1,4 @@
+ARG BASE_VERSION=latest
 FROM jstrader/airprint-cloudprint:$BASE_VERSION
 
 RUN apt-get update \
