@@ -1,4 +1,4 @@
-FROM jstrader/airprint-cloudprint:latest
+FROM jstrader/airprint-cloudprint:$BASE_VERSION
 
 RUN apt-get update \
     && apt-get install -y samba-client \

@@ -1,15 +1,19 @@
 ## Simple AirPrint bridge for your local printers
 ### Purpose
-Run a container with CUPS and Avahi (mDNS/Bonjour) so that local printers 
+Run a container with CUPS and Avahi (mDNS/Bonjour) so that local printers
 on the network can be exposed via AirPrint to iOS/macOS devices.
 
 ### Requirements
-* the container must have its own, dedicated IP so it does not interfere 
-with other services listen on the ports required 
-(macOS: already runs CUPS and mdns, Linux: mostly also already runs CUPS)
+* the container must (really, really should) have its own, dedicated IP so it does not interfere
+with other services listen on the ports required
+(macOS: already runs CUPS and mdns, Linux: mostly also already runs CUPS and/or Avahi)
+
+#### Hints
+* a shared Windows printer must be accessible by anonymous users (without login)
+or you must provide a username and password whithin its device URI (`smb://user:pass@host/printer`)
 
 ### Create a container
-Create a virtual network bridge to your local network so that a 
+Create a virtual network bridge to your local network so that a
 docker container can have its own IP on your subnet.
 ```shell script
 eth=<network interface> # eth0
@@ -106,6 +110,10 @@ docker start cups-real
 
 ### Issues:
 https://github.com/DrPsychick/docker-cups-airprint/issues
+
+### Hints for QNAP
+* using `macvlan` is not possible, instead you should use `qnet` driver to create the docker network
+(`docker network create --driver=qnet --ipam-driver=qnet --ipam-opt=iface=bond0 --subnet ...`)
 
 ### TODO
 * [ ] setup travis pipeline (automatic builds)

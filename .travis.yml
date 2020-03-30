@@ -14,9 +14,9 @@ script:
   # test always passes, if cups comes to life within 20 seconds
   - echo "Base image version $BASE_VERSION CUPS $VERSION"
   - >
-    echo "Running tests...";
-    docker run cups-test 
-    sleep 20
-    docker exec cups-test /healthcheck.sh
-    docker ps
+    echo "Starting cups...";
+    docker run cups-test;
+    sleep 20;
+    docker exec cups-test /healthcheck.sh && echo "container HEALTHY";
+    docker ps;
 
