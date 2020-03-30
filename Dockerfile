@@ -12,3 +12,5 @@ COPY healthcheck.sh /
 RUN chmod +x /healthcheck.sh
 
 HEALTHCHECK --interval=10s --timeout=3s CMD /healthcheck.sh
+
+#ENV CUPS_IP="127.0.0.1"

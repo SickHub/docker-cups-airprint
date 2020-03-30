@@ -7,16 +7,17 @@ env:
     - BASE_VERSION=latest
 
 before_script:
-  - docker build -t cups-test --build-arg BASE_VERSION=$BASE_VERSION .
-  - VERSION=$(docker run --rm -it cups-test dpkg -l cups |grep ii |awk '{print $3}')
+  - docker build -t airprint-travis --build-arg BASE_VERSION=$BASE_VERSION .
+  - VERSION=$(docker run --rm -it airprint-travis dpkg -l cups |grep ii |awk '{print $3}')
 
 script:
-  # test always passes, if cups comes to life within 20 seconds
+  # travis always passes, if cups comes to life within 2 minutes
   - echo "Base image version $BASE_VERSION CUPS $VERSION"
   - >
     echo "Starting cups...";
-    docker run cups-test;
-    sleep 20;
-    docker exec cups-test /healthcheck.sh && echo "container HEALTHY";
+    docker create --name airprint-test airprint-travis;
+    docker start airprint-test;
+    sleep 120;
+    docker exec airprint-test /healthcheck.sh && echo "container HEALTHY";
     docker ps;
 

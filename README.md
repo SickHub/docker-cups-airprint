@@ -36,7 +36,7 @@ docker create --name cups-test --net=localnet --ip=$cups_ip --hostname=$cups_nam
   --privileged --memory=100M \
   -p 137:137/udp -p 139:139/tcp -p 445:445/tcp -p 631:631/tcp -p 5353:5353/udp \
   -e CUPS_USER_ADMIN=admin -e CUPS_USER_PASSWORD=secr3t \
-  drpsychick/cups-airprint:latest
+  drpsychick/airprint-bridge:latest
 
 # start it
 docker start cups-test
@@ -90,7 +90,7 @@ Use your own docker image:
 
 `~/mycups/Dockerfile`:
 ```Dockerfile
-FROM drpsychick/cups-airprint:latest
+FROM drpsychick/airprint-bridge:latest
 
 COPY printers.conf /etc/cups/
 COPY PrinterName.ppd /etc/cups/ppd
