@@ -1,4 +1,13 @@
 # Simple AirPrint bridge for your local printers
+
+[![DockerHub build status](https://img.shields.io/docker/cloud/build/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/builds/)
+[![DockerHub build](https://img.shields.io/docker/cloud/automated/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/builds/)
+[![license](https://img.shields.io/github/license/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/blob/master/LICENSE)
+[![DockerHub pulls](https://img.shields.io/docker/pulls/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
+[![DockerHub stars](https://img.shields.io/docker/stars/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
+[![GitHub stars](https://img.shields.io/github/stars/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint)
+[![Contributors](https://img.shields.io/github/contributors/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/graphs/contributors)
+
 ## Purpose
 Run a container with CUPS and Avahi (mDNS/Bonjour) so that local printers
 on the network can be exposed via AirPrint to iOS/macOS devices.
@@ -14,6 +23,22 @@ with other services listen on the ports required
 ### Hints
 * a shared Windows printer must be accessible by anonymous users (without login)
 or you must provide a username and password whithin its device URI (`smb://user:pass@host/printer`)
+
+## Play with it
+-> NOT YET WORKING on macOS!
+```shell script
+docker run -d -e CUPS_WEBINTERFACE="yes" -e CUPS_REMOTE_ADMIN="yes" --hostname mycups -p 6310/631/tcp --name cups-setup drpsychick/airprint-bridge
+# setup alias (cups won't accept if hostnames don't match)
+IP=$(docker inspect --format '{{ .NetworkSettings.Networks.bridge.IPAddress }}' cups-setup)
+echo "$IP mycups" >> /etc/hosts
+# -> go to http://mycups:6310/ and configure your printer(s)
+
+# save printers.conf (to get the right device ID etc)
+docker cp mycups:/etc/cups/printers.conf ./
+
+# remove alias from hosts 
+sed -e '/$IP mycups/d' /etc/hosts
+```
 
 ## Create a container
 Create a virtual network bridge to your local network so that a
@@ -31,8 +56,6 @@ arp -d -i $eth -a
 dhclient mac0; service resolvconf restart;
 docker network create --driver macvlan --subnet 192.168.2.0/24 --gateway 192.168.2.1 -o parent=mac0 localnet
 ```
-
-
 
 Now create your cups container with a specific IP on your local subnet
 ```shell script
@@ -63,6 +86,9 @@ Options:
 * `-m <standard PPD model>` - `everywhere`: this seems to work only for `ipp` protocol?!?
 
 ### Manually through web interface (**you should enabling this only temporarily!**)
+Enable the interface through ENV: `CUPS_WEBINTERFACE="yes"` and `CUPS_REMOTE_ADMIN="yes"`
+
+Enable it manually through config:
 `cupds.conf`:
 ```shell script
 Listen $cups_ip:631
