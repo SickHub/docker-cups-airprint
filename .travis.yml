@@ -17,6 +17,6 @@ script:
     echo "Starting cups...";
     docker create --name airprint-test airprint-travis;
     docker start airprint-test;
-    docker exec cups-zion bash -c 'while ! cupsctl > /dev/null 2>&1; do echo -n "."; sleep 1; done';
+    docker exec airprint-test bash -c 'while ! cupsctl > /dev/null 2>&1; do echo -n "."; sleep 1; done';
     docker ps;
 
