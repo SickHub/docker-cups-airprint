@@ -27,4 +27,5 @@ ENV CUPS_ADMIN_USER=admin
 ENV CUPS_ADMIN_PASSWORD=secr3t
 ENV CUPS_WEBINTERFACE=yes
 ENV CUPS_REMOTE_ADMIN=no
-ENV CUPS_IP="" # defaults to $(hostname -i)
+# defaults to $(hostname -i)
+ENV CUPS_IP=""
