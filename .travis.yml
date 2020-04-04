@@ -18,6 +18,5 @@ script:
     docker create --name airprint-test airprint-travis;
     docker start airprint-test;
     docker exec airprint-test bash -c 'while ! cupsctl -h localhost --share-printers 2>/dev/null; do echo -n "."; sleep 1; done';
-    while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' |grep '(healthy)')" ]; do
-      docker ps -f name='airprint-test'; sleep 1;
-    done
+    while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' |grep '(healthy)')" ]; do echo -n "."; sleep 1; done;
+    docker ps -f name='airprint-test';
