@@ -8,7 +8,7 @@ env:
 
 before_script:
   - docker build -t airprint-travis --build-arg BASE_VERSION=$BASE_VERSION .
-  - VERSION=$(docker run --rm -it airprint-travis dpkg -l cups |grep ii |awk '{print $3}')
+  - VERSION=$(docker run --rm -it --entrypoint dpkg airprint-travis -l cups |grep ii |awk '{print $3}')
 
 script:
   # travis always passes, if cups comes to life

@@ -25,7 +25,7 @@ with other services listen on the ports required
 or you must provide a username and password whithin its device URI (`smb://user:pass@host/printer`)
 
 ## Play with it
--> NOT YET WORKING on macOS!
+-> NOT WORKING on macOS! (https://docs.docker.com/docker-for-mac/networking/#per-container-ip-addressing-is-not-possible)
 ```shell script
 docker run -d -e CUPS_WEBINTERFACE="yes" -e CUPS_REMOTE_ADMIN="yes" --hostname mycups -p 6310/631/tcp --name cups-setup drpsychick/airprint-bridge
 # setup alias (cups won't accept if hostnames don't match)
