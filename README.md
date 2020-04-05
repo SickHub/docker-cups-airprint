@@ -74,6 +74,13 @@ docker start cups-test
 docker exec -it cups-test /bin/bash
 ```
 
+## Configure AirPrint
+Nothing to do, it will work out of the box (once you've added printers)
+
+## Configure Google Cloud Print
+You need to set a few variables
+* `GCP_...`
+
 ## Adding printers:
 ### Command line
 ```shell script
@@ -91,7 +98,7 @@ Enable the interface through ENV: `CUPS_WEBINTERFACE="yes"` and `CUPS_REMOTE_ADM
 Enable it manually through config:
 `cupds.conf`:
 ```shell script
-Listen $cups_ip:631
+Listen *:631
 WebInterface Yes
 <Location />
   Order allow,deny
@@ -142,6 +149,9 @@ docker start cups-real
 ![Printer list](docs/3-printer-list.png)
 ![Print](docs/4-print.png)
 ![Printer info](docs/5-printer-info.png)
+
+## Variables overview
+>> Table with variable, default and description
 
 ## Issues:
 https://github.com/DrPsychick/docker-cups-airprint/issues
