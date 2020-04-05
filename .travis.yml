@@ -17,7 +17,7 @@ env:
 before_script:
   # setup git with tag bot key
   - eval $(ssh-agent -s)
-  - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - && ssh-add -l
+  - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - && ssh-add -l -E md5
   - git config --global user.email "github@drsick.net"
   - git config --global user.name "TAG bot"
   - git remote set-url origin "git@github.com:DrPsychick/docker-cups-airprint.git"
