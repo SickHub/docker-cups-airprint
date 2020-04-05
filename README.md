@@ -1,4 +1,13 @@
 # Simple AirPrint bridge for your local printers
+
+[![DockerHub build status](https://img.shields.io/docker/cloud/build/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/builds/)
+[![DockerHub build](https://img.shields.io/docker/cloud/automated/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/builds/)
+[![license](https://img.shields.io/github/license/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/blob/master/LICENSE)
+[![DockerHub pulls](https://img.shields.io/docker/pulls/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
+[![DockerHub stars](https://img.shields.io/docker/stars/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
+[![GitHub stars](https://img.shields.io/github/stars/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint)
+[![Contributors](https://img.shields.io/github/contributors/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/graphs/contributors)
+
 ## Purpose
 Run a container with CUPS and Avahi (mDNS/Bonjour) so that local printers
 on the network can be exposed via AirPrint to iOS/macOS devices.
@@ -14,6 +23,20 @@ with other services listen on the ports required
 ### Hints
 * a shared Windows printer must be accessible by anonymous users (without login)
 or you must provide a username and password whithin its device URI (`smb://user:pass@host/printer`)
+
+## Play with it
+-> NOT WORKING on macOS! (https://docs.docker.com/docker-for-mac/networking/#per-container-ip-addressing-is-not-possible)
+```shell script
+docker run -d --rm -e CUPS_WEBINTERFACE="yes" -e CUPS_REMOTE_ADMIN="yes" --hostname mycups --name cups-setup drpsychick/airprint-bridge
+# Important: administration will only be possible if hostname/ip match! (no portforwarding etc.)
+# CUPS error if hostname mismatches: `Request from "172.17.42.1" using invalid Host: field "localhost:6310"`
+echo "http://$(docker inspect --format '{{ .NetworkSettings.Networks.bridge.IPAddress }}' cups-setup):631"
+# -> go to http://$IP:631/ and configure your printer(s)
+
+# save printers.conf (to get the right device ID etc)
+docker cp cups-setup:/etc/cups/printers.conf ./
+```
+Configure Google Cloud Print, goto https://github.com/DrPsychick/docker-cups-airprint#configure-google-cloud-print
 
 ## Create a container
 Create a virtual network bridge to your local network so that a
@@ -32,8 +55,6 @@ dhclient mac0; service resolvconf restart;
 docker network create --driver macvlan --subnet 192.168.2.0/24 --gateway 192.168.2.1 -o parent=mac0 localnet
 ```
 
-
-
 Now create your cups container with a specific IP on your local subnet
 ```shell script
 cups_ip=192.168.2.100
@@ -51,6 +72,26 @@ docker start cups-test
 docker exec -it cups-test /bin/bash
 ```
 
+## Configure AirPrint
+Nothing to do, it will work out of the box (once you've added printers)
+
+## Configure Google Cloud Print
+You need to set a few variables, by default it's disabled. (Using the container created in https://github.com/DrPsychick/docker-cups-airprint#play-with-it)
+```shell script
+docker exec -it cups-setup /bin/bash
+# this will ask you a few questions and create `gcp-cups-connector.config.json`
+> (cd /etc/gcp-connector; gcp-connector-util init)
+# -> take the values from the .json file to set the variables below
+```
+
+```shell script
+GCP_ENABLE_LOCAL=${GCP_ENABLE_LOCAL:-"false"}
+GCP_ENABLE_CLOUD=${GCP_ENABLE_CLOUD:-"false"}
+GCP_XMPP_JID=${GCP_XMPP_JID:-""}
+GCP_REFRESH_TOKEN=${GCP_REFRESH_TOKEN:-""}
+GCP_PROXY_NAME=${GCP_PROXY_NAME:-""}
+```
+
 ## Adding printers:
 ### Command line
 ```shell script
@@ -63,9 +104,12 @@ Options:
 * `-m <standard PPD model>` - `everywhere`: this seems to work only for `ipp` protocol?!?
 
 ### Manually through web interface (**you should enabling this only temporarily!**)
+Enable the interface through ENV: `CUPS_WEBINTERFACE="yes"` and `CUPS_REMOTE_ADMIN="yes"`
+
+Enable it manually through config:
 `cupds.conf`:
 ```shell script
-Listen $cups_ip:631
+Listen *:631
 WebInterface Yes
 <Location />
   Order allow,deny
@@ -116,6 +160,25 @@ docker start cups-real
 ![Printer list](docs/3-printer-list.png)
 ![Print](docs/4-print.png)
 ![Printer info](docs/5-printer-info.png)
+
+## Variables overview
+>> Table with variable, default and description
+```shell script
+CUPS_ADMIN_USER=${CUPS_ADMIN_USER:-"admin"}
+CUPS_ADMIN_PASSWORD=${CUPS_ADMIN_PASSWORD:-"secr3t"}
+CUPS_WEBINTERFACE=${CUPS_WEBINTERFACE:-"yes"}
+CUPS_SHARE_PRINTERS=${CUPS_SHARE_PRINTERS:-"yes"}
+CUPS_REMOTE_ADMIN=${CUPS_REMOTE_ADMIN:-"yes"} # allow admin from non local source
+CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"} # all, access, config, see `man cupsd.conf`
+CUPS_ENV_DEBUG=${CUPS_ENV_DEBUG:-"no"} # debug startup script and activate CUPS debug logging
+CUPS_IP=${CUPS_IP:-$(hostname -i)} # no need to set this usually
+```
+
+Set any number of variables which start with `CUPS_LPADMIN_PRINTER`. These will be executed at startup to setup printers through `lpadmin`.
+```shell script
+CUPS_LPADMIN_PRINTER1="lpadmin -p test -D 'Test printer' -m raw -v ipp://myhost/printer"
+CUPS_LPADMIN_PRINTER2="lpadmin -p second -D 'another' -m everywhere -v ipp://myhost/second"
+```
 
 ## Issues:
 https://github.com/DrPsychick/docker-cups-airprint/issues
