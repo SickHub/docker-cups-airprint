@@ -1,5 +1,5 @@
-ARG BASE_VERSION=eoan
-FROM ubuntu:$BASE_VERSION
+ARG UBUNTU_VERSION=eoan
+FROM ubuntu:$UBUNTU_VERSION
 MAINTAINER drpsychick
 
 #apt-get install cups-daemon cups-client curl avahi-daemon python3-cups samba-client whois google-cloud-print-connector inotify-tools

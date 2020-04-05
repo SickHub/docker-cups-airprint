@@ -4,15 +4,20 @@ services: docker
 
 env:
   matrix:
-    - BASE_VERSION=latest
+    - UBUNTU_VERSION=latest
+    - UBUNTU_VERSION=focal
+    - UBUNTU_VERSION=eoan
+    - UBUNTU_VERSION=disco
+    - UBUNTU_VERSION=bionic
+    - UBUNTU_VERSION=xenial
 
 before_script:
-  - docker build -t airprint-travis --build-arg BASE_VERSION=$BASE_VERSION .
+  - docker build -t airprint-travis --build-arg UBUNTU_VERSION=$UBUNTU_VERSION .
   - VERSION=$(docker run --rm -it --entrypoint dpkg airprint-travis -l cups |grep ii |awk '{print $3}')
 
 script:
   # travis always passes, if cups comes to life
-  - echo "Base image version $BASE_VERSION CUPS $VERSION"
+  - echo "Ubuntu version = $UBUNTU_VERSION CUPS = $VERSION"
   - >
     echo "Starting cups...";
     docker create --name airprint-test airprint-travis;
