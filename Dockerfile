@@ -2,9 +2,6 @@ ARG UBUNTU_VERSION=eoan
 FROM ubuntu:$UBUNTU_VERSION
 MAINTAINER drpsychick
 
-#apt-get install cups-daemon cups-client curl avahi-daemon python3-cups samba-client whois google-cloud-print-connector inotify-tools
-# enable-dbus=no
-
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
     && apt-get -y install \
@@ -63,7 +60,7 @@ ENV TZ="GMT" \
     CUPS_ADMIN_PASSWORD="secr3t" \
     CUPS_WEBINTERFACE="yes" \
     CUPS_SHARE_PRINTERS="yes" \
-    CUPS_REMOTE_ADMIN="no" \
+    CUPS_REMOTE_ADMIN="yes" \
     CUPS_ENV_DEBUG="no" \
     # defaults to $(hostname -i)
     CUPS_IP="" \
