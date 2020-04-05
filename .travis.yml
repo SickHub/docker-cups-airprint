@@ -18,7 +18,7 @@ before_script:
   - docker build -t airprint-travis --build-arg UBUNTU_VERSION=$UBUNTU_VERSION .
   - VERSION=$(docker run --rm -it --entrypoint dpkg airprint-travis -s cups-daemon |grep ^Version | sed -e 's/Version. \([0-9.]*\)-.*/\1/')
   - eval $(ssh-agent -s)
-  - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - && ssh-add -l
+  - echo -n "$DEPLOY_PRIVATE_KEY" | ssh-add - && ssh-add -l
   - git config --global user.email "github@drsick.net"
   - git config --global user.name "TAG bot"
   - git remote set-url origin "git@github.com:DrPsychick/docker-cups-airprint.git"
