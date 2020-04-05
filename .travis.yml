@@ -31,7 +31,7 @@ script:
   - echo "Ubuntu version = $UBUNTU_VERSION CUPS = $VERSION"
   - >
     echo "Starting cups...";
-    docker create --name airprint-test -e CUPS_LPADMIN_PRINTER1="lpadmin -h localhost -p test -D test -m everywhere -v ipp://host/printer" airprint-travis;
+    docker create --name airprint-test -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" airprint-travis;
     docker start airprint-test;
     docker exec airprint-test bash -c 'while ! cupsctl -h localhost --share-printers 2>/dev/null; do echo -n "."; sleep 1; done';
     while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' |grep '(healthy)')" ]; do echo -n "."; sleep 1; done;
