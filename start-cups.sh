@@ -85,7 +85,7 @@ fi
 until cupsctl > /dev/null 2>&1; do sleep 1; done; 
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && cupsctl --debug-logging || cupsctl --no-debug-logging
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
-[ "yes" = "${CUPS_SHARE_PRINTERS}"] && cupsctl --share-printers || cupsctl --no-share-printers
+[ "yes" = "${CUPS_SHARE_PRINTERS}" ] && cupsctl --share-printers || cupsctl --no-share-printers
 [ "yes" = "${CUPS_WEBINTERFACE}" ] && cupsctl WebInterface=yes || cupsctl WebInterface=No
 cupsctl AccessLogLevel=${CUPS_ACCESS_LOGLEVEL}
 # setup printers (run each CUPS_LPADMIN_PRINTER* command)
