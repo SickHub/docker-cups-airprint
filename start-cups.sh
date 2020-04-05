@@ -80,9 +80,9 @@ if [ "true" = "${GCP_ENABLE_LOCAL}" -o "true" = "${GCP_ENABLE_CLOUD}" ]; then
 fi
 
 
-### configure CUPS (background subshell, wait till cups is running...)
+### configure CUPS (background subshell, wait till cups http is running...)
 (
-until cupsctl > /dev/null 2>&1; do sleep 1; done; 
+until cupsctl -h localhost --share-printers > /dev/null 2>&1; do sleep 1; done;
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && cupsctl --debug-logging || cupsctl --no-debug-logging
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
 [ "yes" = "${CUPS_SHARE_PRINTERS}" ] && cupsctl --share-printers || cupsctl --no-share-printers
