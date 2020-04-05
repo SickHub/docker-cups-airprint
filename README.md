@@ -18,8 +18,7 @@ on the network can be exposed via AirPrint to iOS/macOS devices.
 with other services listen on the ports required
 (macOS: already runs CUPS and mdns, Linux: mostly also already runs CUPS and/or Avahi)
 * you must have CUPS drivers available for your printer.
--> Please poke me when you know how to use the Windows drivers of a shared printer with CUPS as "proxy" (no CUPS drivers)
-* the container must run on a linux host (if you get it running on macOS - poke me!)
+  * Please poke me when you know how to use the Windows drivers of a shared printer with CUPS as "proxy" (no CUPS drivers)
 
 ### Hints
 * a shared Windows printer must be accessible by anonymous users (without login)
@@ -117,7 +116,6 @@ docker start cups-test
 docker exec -it cups-test /bin/bash
 ```
 
-
 ## Adding printers:
 ### Automated through command line
 The preferred way to configure your container, but it has limitations.
@@ -191,7 +189,6 @@ docker start cups-real
 ![Printer list](docs/3-printer-list.png)
 ![Print](docs/4-print.png)
 ![Printer info](docs/5-printer-info.png)
-
 
 
 ## Issues:
