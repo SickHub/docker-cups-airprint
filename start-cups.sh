@@ -82,7 +82,7 @@ fi
 
 ### configure CUPS (background subshell, wait till cups http is running...)
 (
-until cupsctl -h localhost --share-printers > /dev/null 2>&1; do sleep 1; done;
+until cupsctl -h localhost --share-printers > /dev/null 2>&1; do echo -n "."; sleep 1; done; echo "CUPS ready";
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && cupsctl --debug-logging || cupsctl --no-debug-logging
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
 [ "yes" = "${CUPS_SHARE_PRINTERS}" ] && cupsctl --share-printers || cupsctl --no-share-printers
