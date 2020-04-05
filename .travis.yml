@@ -36,7 +36,8 @@ script:
     docker exec airprint-test bash -c 'while ! cupsctl -h localhost --share-printers 2>/dev/null; do echo -n "."; sleep 1; done';
     while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' |grep '(healthy)')" ]; do echo -n "."; sleep 1; done;
     docker ps -f name='airprint-test';
-    docker exec airprint-test cat /etc/cups/printers.conf
+    docker logs airprint-test;
+    docker exec airprint-test ls -la /etc/cups/;
 
 # docker hub integration (automated builds)
 after_success:
