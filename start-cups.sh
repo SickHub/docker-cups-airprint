@@ -34,6 +34,9 @@ fi
 sed -i 's/^.*AccessLog .*/AccessLog stderr/' /etc/cups/cups-files.conf
 sed -i 's/^.*ErrorLog .*/ErrorLog stderr/' /etc/cups/cups-files.conf
 sed -i 's/^.*PageLog .*/PageLog stderr/' /etc/cups/cups-files.conf
+if [ "yes" = "${CUPS_REMOTE_ADMIN}" ]; then
+  sed -i 's/Listen localhost:631/Listen \*:631/' /etc/cups/cupsd.conf
+fi
 
 ### prepare avahi-daemon configuration (dbus disabled by default)
 sed -i 's/^.*enable\-reflector=.*/enable\-reflector\=yes/' /etc/avahi/avahi-daemon.conf
@@ -82,6 +85,7 @@ fi
 
 ### configure CUPS (background subshell, wait till cups http is running...)
 (
+
 until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do echo -n "."; sleep 1; done; echo "CUPS ready";
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && cupsctl --debug-logging || cupsctl --no-debug-logging
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
