@@ -27,18 +27,16 @@ or you must provide a username and password whithin its device URI (`smb://user:
 ## Play with it
 -> NOT WORKING on macOS! (https://docs.docker.com/docker-for-mac/networking/#per-container-ip-addressing-is-not-possible)
 ```shell script
-docker run -d -e CUPS_WEBINTERFACE="yes" -e CUPS_REMOTE_ADMIN="yes" --hostname mycups -p 6310/631/tcp --name cups-setup drpsychick/airprint-bridge
-# setup alias (cups won't accept if hostnames don't match)
-IP=$(docker inspect --format '{{ .NetworkSettings.Networks.bridge.IPAddress }}' cups-setup)
-echo "$IP mycups" >> /etc/hosts
-# -> go to http://mycups:6310/ and configure your printer(s)
+docker run -d --rm -e CUPS_WEBINTERFACE="yes" -e CUPS_REMOTE_ADMIN="yes" --hostname mycups --name cups-setup drpsychick/airprint-bridge
+# Important: administration will only be possible if hostname/ip match! (no portforwarding etc.)
+# CUPS error if hostname mismatches: `Request from "172.17.42.1" using invalid Host: field "localhost:6310"`
+echo "http://$(docker inspect --format '{{ .NetworkSettings.Networks.bridge.IPAddress }}' cups-setup):631"
+# -> go to http://$IP:631/ and configure your printer(s)
 
 # save printers.conf (to get the right device ID etc)
-docker cp mycups:/etc/cups/printers.conf ./
-
-# remove alias from hosts 
-sed -e '/$IP mycups/d' /etc/hosts
+docker cp cups-setup:/etc/cups/printers.conf ./
 ```
+Configure Google Cloud Print, goto https://github.com/DrPsychick/docker-cups-airprint#configure-google-cloud-print
 
 ## Create a container
 Create a virtual network bridge to your local network so that a
@@ -78,8 +76,21 @@ docker exec -it cups-test /bin/bash
 Nothing to do, it will work out of the box (once you've added printers)
 
 ## Configure Google Cloud Print
-You need to set a few variables
-* `GCP_...`
+You need to set a few variables, by default it's disabled. (Using the container created in https://github.com/DrPsychick/docker-cups-airprint#play-with-it)
+```shell script
+docker exec -it cups-setup /bin/bash
+# this will ask you a few questions and create `gcp-cups-connector.config.json`
+> (cd /etc/gcp-connector; gcp-connector-util init)
+# -> take the values from the .json file to set the variables below
+```
+
+```shell script
+GCP_ENABLE_LOCAL=${GCP_ENABLE_LOCAL:-"false"}
+GCP_ENABLE_CLOUD=${GCP_ENABLE_CLOUD:-"false"}
+GCP_XMPP_JID=${GCP_XMPP_JID:-""}
+GCP_REFRESH_TOKEN=${GCP_REFRESH_TOKEN:-""}
+GCP_PROXY_NAME=${GCP_PROXY_NAME:-""}
+```
 
 ## Adding printers:
 ### Command line
@@ -152,6 +163,22 @@ docker start cups-real
 
 ## Variables overview
 >> Table with variable, default and description
+```shell script
+CUPS_ADMIN_USER=${CUPS_ADMIN_USER:-"admin"}
+CUPS_ADMIN_PASSWORD=${CUPS_ADMIN_PASSWORD:-"secr3t"}
+CUPS_WEBINTERFACE=${CUPS_WEBINTERFACE:-"yes"}
+CUPS_SHARE_PRINTERS=${CUPS_SHARE_PRINTERS:-"yes"}
+CUPS_REMOTE_ADMIN=${CUPS_REMOTE_ADMIN:-"yes"} # allow admin from non local source
+CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"} # all, access, config, see `man cupsd.conf`
+CUPS_ENV_DEBUG=${CUPS_ENV_DEBUG:-"no"} # debug startup script and activate CUPS debug logging
+CUPS_IP=${CUPS_IP:-$(hostname -i)} # no need to set this usually
+```
+
+Set any number of variables which start with `CUPS_LPADMIN_PRINTER`. These will be executed at startup to setup printers through `lpadmin`.
+```shell script
+CUPS_LPADMIN_PRINTER1="lpadmin -p test -D 'Test printer' -m raw -v ipp://myhost/printer"
+CUPS_LPADMIN_PRINTER2="lpadmin -p second -D 'another' -m everywhere -v ipp://myhost/second"
+```
 
 ## Issues:
 https://github.com/DrPsychick/docker-cups-airprint/issues

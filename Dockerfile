@@ -59,11 +59,12 @@ RUN chmod +x /healthcheck.sh /root/start-cups.sh
 HEALTHCHECK --interval=10s --timeout=3s CMD /healthcheck.sh
 
 ENV TZ="GMT" \
-    CUPS_ENV_DEBUG="no" \
     CUPS_ADMIN_USER="admin" \
     CUPS_ADMIN_PASSWORD="secr3t" \
     CUPS_WEBINTERFACE="yes" \
+    CUPS_SHARE_PRINTERS="yes" \
     CUPS_REMOTE_ADMIN="no" \
+    CUPS_ENV_DEBUG="no" \
     # defaults to $(hostname -i)
     CUPS_IP="" \
     CUPS_ACCESS_LOGLEVEL="config" \
