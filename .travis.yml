@@ -48,7 +48,7 @@ after_success:
     -X POST "$DOCKERHUB_TRIGGER";
     fi
   # master: trigger build and potentially update version branches (=docker tags)
-  # tag = $cups_version-ubuntu-$ubuntu_version (e.g. 2.2.12-eoan)
+  # tag = $cups_version-$ubuntu_version (e.g. 2.2.12-eoan)
   - >
     if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
     if [ "$UBUNTU_VERSION" = "latest" ]; then
@@ -57,7 +57,6 @@ after_success:
     -X POST "$DOCKERHUB_TRIGGER";
     else
     branch="${VERSION}-${UBUNTU_VERSION}";
-    fi;
     echo "Branch: $branch";
     git checkout -b $branch;
     git pull origin $branch;
@@ -66,5 +65,11 @@ after_success:
     git diff Dockerfile;
     docker build -t $IMAGE:$branch --build-arg UBUNTU_VERSION=$UBUNTU_VERSION . || exit 1;
     git commit -a -m "automated build on $branch";
+    ret=$?;
     git push -u origin $branch;
+    if [ $ret -ne 0 ]; then
+    curl -H "Content-Type: application/json" --data '{"source_type": "Branch", "source_name": "'$branch'"}'
+    -X POST "$DOCKERHUB_TRIGGER";
+    fi;
+    fi;
     fi
