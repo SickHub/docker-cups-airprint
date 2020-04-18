@@ -48,6 +48,7 @@ CUPS_REMOTE_ADMIN=${CUPS_REMOTE_ADMIN:-"yes"} # allow admin from non local sourc
 CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"} # all, access, config, see `man cupsd.conf`
 CUPS_ENV_DEBUG=${CUPS_ENV_DEBUG:-"no"} # debug startup script and activate CUPS debug logging
 CUPS_IP=${CUPS_IP:-$(hostname -i)} # no need to set this usually
+CUPS_HOSTNAME=${CUPS_HOSTNAME:-$(hostname -f)} # no need to set this usually -> allows accessing cups via name: https://cups.domain:631/
 ```
 
 ### Add printer through ENV
@@ -55,6 +56,7 @@ Set any number of variables which start with `CUPS_LPADMIN_PRINTER`. These will 
 ```shell script
 CUPS_LPADMIN_PRINTER1="lpadmin -p test -D 'Test printer' -m raw -v ipp://myhost/printer"
 CUPS_LPADMIN_PRINTER2="lpadmin -p second -D 'another' -m everywhere -v ipp://myhost/second"
+CUPS_LPADMIN_PRINTER3="lpadmin -p third -D 'samba printer' -m '..the right driver string...' -v smb://user:pass@host/printer"
 ```
 
 ### Configure AirPrint
@@ -149,7 +151,7 @@ WebInterface Yes
   Allow from all
 </Location>
 ```
-Then go to `https://$cups_ip:631/admin`, login and setup your printer(s).
+Then go to `https://$cups_ip:631/admin` or `https://$cups_name:631`, login and setup your printer(s).
 
 ### Automated through files
 This is easiest combined with the webinterface:

@@ -9,7 +9,6 @@ env:
     - UBUNTU_VERSION=latest
     - UBUNTU_VERSION=focal
     - UBUNTU_VERSION=eoan
-    - UBUNTU_VERSION=disco
     - UBUNTU_VERSION=bionic
     - UBUNTU_VERSION=xenial
 
