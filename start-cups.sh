@@ -13,6 +13,8 @@ CUPS_WEBINTERFACE=${CUPS_WEBINTERFACE:-"yes"}
 CUPS_SHARE_PRINTERS=${CUPS_SHARE_PRINTERS:-"yes"}
 CUPS_REMOTE_ADMIN=${CUPS_REMOTE_ADMIN:-"yes"}
 CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"}
+CUPS_SSL_CERT=${CUPS_SSL_CERT:-""}
+CUPS_SSL_KEY=${CUPS_SSL_KEY:-""}
 GCP_ENABLE_LOCAL=${GCP_ENABLE_LOCAL:-"false"}
 GCP_ENABLE_CLOUD=${GCP_ENABLE_CLOUD:-"false"}
 GCP_XMPP_JID=${GCP_XMPP_JID:-""}
@@ -37,6 +39,16 @@ sed -i 's/^.*ErrorLog .*/ErrorLog stderr/' /etc/cups/cups-files.conf
 sed -i 's/^.*PageLog .*/PageLog stderr/' /etc/cups/cups-files.conf
 if [ "yes" = "${CUPS_REMOTE_ADMIN}" ]; then
   sed -i 's/Listen localhost:631/Listen \*:631/' /etc/cups/cupsd.conf
+fi
+# own SSL cert:
+# CreateSelfSignedCerts no
+# host.name.crt & host.name.key -> /etc/cups/ssl/
+if [ -n "${CUPS_SSL_CERT}" -a -n "${CUPS_SSL_KEY}" ]; then
+  [ -z "$(grep CreateSelfSignedCerts /etc/cups/cups-files.conf)" ] && 
+    echo "CreateSelfSignedCerts no" >> /etc/cups/cups-files.conf || 
+    sed -i 's/^.*CreateSelfSignedCerts.*/CreateSelfSignedCerts no/' /etc/cups/cups-files.conf
+  echo -e "${CUPS_SSL_CERT}" > /etc/cups/ssl/${CUPS_HOSTNAME}.crt
+  echo -e "${CUPS_SSL_KEY}" > /etc/cups/ssl/${CUPS_HOSTNAME}.key
 fi
 
 ### prepare avahi-daemon configuration (dbus disabled by default)
@@ -106,7 +118,7 @@ cat <<EOF
 ===========================================================
 The dockerized CUPS instance is now ready for use! The web
 interface is available here:
-URL:       http://${CUPS_IP}:631/
+URL:       http://${CUPS_IP}:631/ or http://${CUPS_HOSTNAME}:631/
 Username:  ${CUPS_ADMIN_USER}
 Password:  ${CUPS_ADMIN_PASSWORD}
 
