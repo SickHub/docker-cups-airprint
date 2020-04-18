@@ -49,6 +49,9 @@ CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"} # all, access, config, se
 CUPS_ENV_DEBUG=${CUPS_ENV_DEBUG:-"no"} # debug startup script and activate CUPS debug logging
 CUPS_IP=${CUPS_IP:-$(hostname -i)} # no need to set this usually
 CUPS_HOSTNAME=${CUPS_HOSTNAME:-$(hostname -f)} # no need to set this usually -> allows accessing cups via name: https://cups.domain:631/
+# pass the server cert/key via env in one line each, i.e. CUPS_SSL_CERT=---- BEGIN CERT ...\none\nline\nseparated\nby\nbackslash\nnewline
+CUPS_SSL_CERT=${CUPS_SSL_CERT:-""}
+CUPS_SSL_KEY=${CUPS_SSL_KEY:-""}
 ```
 
 ### Add printer through ENV
