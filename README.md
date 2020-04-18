@@ -39,6 +39,7 @@ docker cp cups-setup:/etc/cups/printers.conf ./
 ```
 
 ### Variables overview
+Important! Docker environment variables only support single line without double quotes!
 ```shell script
 CUPS_ADMIN_USER=${CUPS_ADMIN_USER:-"admin"}
 CUPS_ADMIN_PASSWORD=${CUPS_ADMIN_PASSWORD:-"secr3t"}
@@ -58,9 +59,10 @@ CUPS_SSL_KEY=${CUPS_SSL_KEY:-""}
 ### Add printer through ENV
 Set any number of variables which start with `CUPS_LPADMIN_PRINTER`. These will be executed at startup to setup printers through `lpadmin`.
 ```shell script
-CUPS_LPADMIN_PRINTER1="lpadmin -p test -D 'Test printer' -m raw -v ipp://myhost/printer"
-CUPS_LPADMIN_PRINTER2="lpadmin -p second -D 'another' -m everywhere -v ipp://myhost/second"
-CUPS_LPADMIN_PRINTER3="lpadmin -p third -D 'samba printer' -m '..the right driver string...' -v smb://user:pass@host/printer"
+CUPS_LPADMIN_PRINTER1=lpadmin -p test -D 'Test printer' -m raw -v ipp://myhost/printer
+CUPS_LPADMIN_PRINTER2=lpadmin -p second -D 'another' -m everywhere -v ipp://myhost/second
+CUPS_LPADMIN_PRINTER3=lpadmin -p third -D 'samba printer' -m '..the right driver string...' -o PageSize=A4 -v smb://user:pass@host/printer
+CUPS_LPADMIN_PRINTER3_ENABLE=cupsenable third
 ```
 
 ### Configure AirPrint
@@ -132,9 +134,21 @@ lpinfo --make-and-model "Epson Stylus Photo RX" -m
 lpadmin -p Epson-RX520 -D 'Epson Stylus Photo RX520' -m 'gutenprint.5.3://escp2-rx620/expert' -v smb://user:pass@host/Epson-RX520
 ```
 
+Pass `lpadmin` command via environment
 ```shell script
-# -> pass this through ENV to the container
-docker ... -e CUPS_LPADMIN_PRINTER1="lpadmin -p Epson-RX520 -D 'Epson Stylus Photo RX520' -m 'gutenprint.5.3://escp2-rx620/expert' -v smb://user:pass@host/Epson-RX520" ...
+docker ... -e CUPS_LPADMIN_PRINTER1="lpadmin -p Epson-RX520 -D 'Epson Stylus Photo RX520' -m 'gutenprint.5.3://escp2-rx620/expert' -o PageSize=A4 -v smb://user:pass@host/Epson-RX520" ...
+```
+
+Find and set printer specific options
+```shell script
+lpoptions -p Epson-RX520 -l
+# -> lists all printer options you can pass to `lpadmin` like `-o PageSize=A4`
+```
+
+Enable the printer and accept jobs
+```shell script
+CUPS_LPADMIN_PRINTER1_ENABLE=cupsenable Epson-RX520
+CUPS_LPADMIN_PRINTER1_ACCEPT=cupsaccept Epson-RX520
 ```
 
 ### Manually through web interface
