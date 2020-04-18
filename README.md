@@ -46,6 +46,7 @@ CUPS_WEBINTERFACE=${CUPS_WEBINTERFACE:-"yes"}
 CUPS_SHARE_PRINTERS=${CUPS_SHARE_PRINTERS:-"yes"}
 CUPS_REMOTE_ADMIN=${CUPS_REMOTE_ADMIN:-"yes"} # allow admin from non local source
 CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"} # all, access, config, see `man cupsd.conf`
+CUPS_LOGLEVEL=${CUPS_LOGLEVEL:-"warn"} # error, warn, info, debug, debug2 see `man cupsd.conf`
 CUPS_ENV_DEBUG=${CUPS_ENV_DEBUG:-"no"} # debug startup script and activate CUPS debug logging
 CUPS_IP=${CUPS_IP:-$(hostname -i)} # no need to set this usually
 CUPS_HOSTNAME=${CUPS_HOSTNAME:-$(hostname -f)} # no need to set this usually -> allows accessing cups via name: https://cups.domain:631/

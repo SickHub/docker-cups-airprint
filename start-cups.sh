@@ -13,6 +13,7 @@ CUPS_WEBINTERFACE=${CUPS_WEBINTERFACE:-"yes"}
 CUPS_SHARE_PRINTERS=${CUPS_SHARE_PRINTERS:-"yes"}
 CUPS_REMOTE_ADMIN=${CUPS_REMOTE_ADMIN:-"yes"}
 CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"}
+CUPS_LOGLEVEL=${CUPS_LOGLEVEL:-"warn"}
 CUPS_SSL_CERT=${CUPS_SSL_CERT:-""}
 CUPS_SSL_KEY=${CUPS_SSL_KEY:-""}
 GCP_ENABLE_LOCAL=${GCP_ENABLE_LOCAL:-"false"}
@@ -106,19 +107,22 @@ fi
 
 ### configure CUPS (background subshell, wait till cups http is running...)
 (
-
-until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do echo -n "."; sleep 1; done; echo "CUPS ready";
+until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do echo -n "."; sleep 1; done; 
+echo "--> CUPS ready"
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && cupsctl --debug-logging || cupsctl --no-debug-logging
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
 [ "yes" = "${CUPS_SHARE_PRINTERS}" ] && cupsctl --share-printers || cupsctl --no-share-printers
 [ "yes" = "${CUPS_WEBINTERFACE}" ] && cupsctl WebInterface=yes || cupsctl WebInterface=No
 cupsctl ServerName=${CUPS_HOSTNAME}
+cupsctl LogLevel=${CUPS_LOGLEVEL}
 cupsctl AccessLogLevel=${CUPS_ACCESS_LOGLEVEL}
 # setup printers (run each CUPS_LPADMIN_PRINTER* command)
+echo "--> adding printers"
 for v in $(set |grep ^CUPS_LPADMIN_PRINTER |sed -e 's/^\(CUPS_LPADMIN_PRINTER[^=]*\).*/\1/' |sort |tr '\n' ' '); do
   echo "$v = $(eval echo "\$$v")"
   eval $(eval echo "\$$v")
 done
+echo "--> CUPS configured"
 ) &
 
 (sleep 2;
