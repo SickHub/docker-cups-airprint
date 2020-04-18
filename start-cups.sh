@@ -6,6 +6,7 @@ set -e
 
 ### variable defaults
 CUPS_IP=${CUPS_IP:-$(hostname -i)}
+CUPS_HOSTNAME=${CUPS_HOSTNAME:-$(hostname -f)}
 CUPS_ADMIN_USER=${CUPS_ADMIN_USER:-"admin"}
 CUPS_ADMIN_PASSWORD=${CUPS_ADMIN_PASSWORD:-"secr3t"}
 CUPS_WEBINTERFACE=${CUPS_WEBINTERFACE:-"yes"}
@@ -91,6 +92,7 @@ until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do echo -n "."
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
 [ "yes" = "${CUPS_SHARE_PRINTERS}" ] && cupsctl --share-printers || cupsctl --no-share-printers
 [ "yes" = "${CUPS_WEBINTERFACE}" ] && cupsctl WebInterface=yes || cupsctl WebInterface=No
+cupsctl ServerName=${CUPS_HOSTNAME}
 cupsctl AccessLogLevel=${CUPS_ACCESS_LOGLEVEL}
 # setup printers (run each CUPS_LPADMIN_PRINTER* command)
 for v in $(set |grep ^CUPS_LPADMIN_PRINTER |sed -e 's/^\(CUPS_LPADMIN_PRINTER[^=]*\).*/\1/' |sort |tr '\n' ' '); do
