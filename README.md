@@ -90,20 +90,33 @@ Now you have all you need to setup your airprint-bridge configured through ENV.
 How to setup a dedicated server in your local subnet is covered in the next section.
 
 ## Prepare your dedicated airpint container
-Create a virtual network bridge to your local network so that a docker container can have its own IP on your subnet.
-As you want clients anywhere on the local network to discover printers, the container must have an IP on the local subnet.
+Create a virtual network bridge to your local network so that a docker container can have its own IP on your subnet AND 
+be reachable from the host. As you want clients anywhere on the local network to discover printers, the container must 
+have an IP on the local subnet.
+
+**You don't need the macvlan bridge if your host does not need to talk to the container!**
+
 ### on a Linux host
 All of this only works on a linux docker host.
 ```shell script
 eth=<network interface> # eth0
 mac=<network MAC> # AA:AA:AA:AA:AA
-ip link add mac0 link $eth address $mac type macvlan mode bridge
+mac2=<fake MAC> # AA:AA:AA:AA:AB
+# enable promicious mode (multiple MACs)
+sudo ifconfig $eth promisc
+sudo ip link set $eth address $mac2
+sudo ip link add mac0 link $eth address $mac type macvlan mode bridge
 # drop & flush DHCP lease on the interface
-dhclient -r $eth && ip addr flush dev $eth;
-# delete all existing ARP entries
-arp -d -i $eth -a
-# get DHCP lease on new bridge (same MAC => same lease)
-dhclient mac0; service resolvconf restart;
+# start DHCP on new interface and restart resolver
+sudo -- bash -c '(
+dhclient -r $eth && ip addr flush dev $eth && ip neigh flush all
+dhclient mac0 && service resolvconf restart || dhclient $eth
+)'
+```
+
+Create a docker network for your local subnet. Parent interface is either `mac0` if you followed the above or `ethX`
+if you decided you don't need to talk from the host to the container.
+```
 docker network create --driver macvlan --subnet 192.168.2.0/24 --gateway 192.168.2.1 -o parent=mac0 localnet
 ```
 
@@ -152,6 +165,7 @@ CUPS_LPADMIN_PRINTER1_ACCEPT=cupsaccept Epson-RX520
 
 ### Manually through web interface
 Enable the interface through ENV: `CUPS_WEBINTERFACE="yes"` and `CUPS_REMOTE_ADMIN="yes"`.
+
 **You may want to enable this only temporarily!**
 
 Enable it manually through config:
