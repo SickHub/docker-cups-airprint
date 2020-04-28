@@ -5,26 +5,17 @@ MAINTAINER drpsychick
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
     && apt-get -y install \
-#      locales \
-#      cups \
       cups-daemon \
       cups-client \
-#      cups-browsed \
-#      cups-bsd \
-#      cups-filters \
-      cups-pdf \
+      printer-driver-all \
       avahi-daemon \
-#      avahi-discover \
-#      avahi-utils \
       google-cloud-print-connector \
-#      libnss-mdns \
-#      mdns-scan \
-      # for mkpasswd
+      libnss-mdns \
+# for mkpasswd
       whois \
       curl \
       inotify-tools \
-#      libglade2-0 \
-#      libpng16-16 \
+      libpng16-16 \
       python3-cups \
       samba-client \
     && apt-get autoremove -y \
