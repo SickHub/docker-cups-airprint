@@ -16,6 +16,10 @@ CUPS_ACCESS_LOGLEVEL=${CUPS_ACCESS_LOGLEVEL:-"config"}
 CUPS_LOGLEVEL=${CUPS_LOGLEVEL:-"warn"}
 CUPS_SSL_CERT=${CUPS_SSL_CERT:-""}
 CUPS_SSL_KEY=${CUPS_SSL_KEY:-""}
+AVAHI_INTERFACES=${AVAHI_INTERFACES:=""}
+AVAHI_IPV6=${AVAHI_IPV6:="no"}
+AVAHI_REFLECTOR=${AVAHI_REFLECTOR:="no"}
+AVAHI_REFLECT_IPV=${AVAHI_REFLECT_IPV:="no"}
 GCP_ENABLE_LOCAL=${GCP_ENABLE_LOCAL:-"false"}
 GCP_ENABLE_CLOUD=${GCP_ENABLE_CLOUD:-"false"}
 GCP_XMPP_JID=${GCP_XMPP_JID:-""}
@@ -61,8 +65,13 @@ exit 0
 chmod +x /usr/bin/smbspool
 
 ### prepare avahi-daemon configuration (dbus disabled by default)
-sed -i 's/^.*enable\-reflector=.*/enable\-reflector\=yes/' /etc/avahi/avahi-daemon.conf
-sed -i 's/^.*reflect\-ipv=.*/reflect\-ipv\=yes/' /etc/avahi/avahi-daemon.conf
+if [ -n "${AVAHI_INTERFACES}" ]; then
+  sed -i "s/^.*allow-interfaces=.*/allow-interfaces=${AVAHI_INTERFACES}/" /etc/avahi/avahi-daemon.conf
+fi
+sed -i "s/^.*use-ipv6=.*/use-ipv6=${AVAHI_IPV6}/" /etc/avahi/avahi-daemon.conf
+sed -i "s/^.*publish-aaaa-on-ipv4=.*/publish-aaaa-on-ipv4=${AVAHI_IPV6}/" /etc/avahi/avahi-daemon.conf
+sed -i "s/^.*enable\-reflector=.*/enable\-reflector\=${AVAHI_REFLECTOR}/" /etc/avahi/avahi-daemon.conf
+sed -i "s/^.*reflect\-ipv=.*/reflect\-ipv\=${AVAHI_REFLECT_IPV}/" /etc/avahi/avahi-daemon.conf
 sed -i 's/^.*enable-dbus=.*/enable-dbus=no/' /etc/avahi/avahi-daemon.conf
 
 # start automatic printer refresh for avahi
