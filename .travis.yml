@@ -1,9 +1,4 @@
 dist: bionic
-#addons:
-#  apt:
-#    sources:
-#      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
-#        key_url: 'https://download.docker.com/linux/ubuntu/gpg'
 language: bash
 services: docker
 
@@ -23,15 +18,17 @@ env:
 
 # build the image, get CUPS version
 before_script:
-  # update and restart docker
-  #- sudo apt-get -y upgrade
-  #- sudo systemctl restart docker
+  # enable experimental in docker daemon
+  - echo '{"experimental":"enabled"}' | sudo tee /etc/docker/daemon.json
+  - sudo systemctl restart docker
   # download buildx docker cli addon
   - mkdir -p ~/.docker/cli-plugins
-  - wget https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
+  - wget -q https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
   - chmod +x ~/.docker/cli-plugins/docker-buildx
+  - docker buildx version
   # build the image for all platforms
-  - docker buildx create --use
+  - docker buildx create --name xbuilder --use
+  - dokcer buildx inspect --bootstrap
   - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
   # load a single image for local tests, see https://github.com/docker/buildx/issues/59
   - docker buildx build --progress plain --platform linux/amd64 -t $IMAGE --load .
