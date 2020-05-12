@@ -19,6 +19,8 @@ env:
 
 # build the image, get CUPS version
 before_script:
+  # install docker the ugly way
+  - curl -fsSL https://get.docker.com | sudo sh
   # enable experimental in docker daemon
   - docker_conf=$(sudo cat /etc/docker/daemon.json |jq '. + {"experimental":"enabled"}')
   - echo "$docker_conf" | sudo tee /etc/docker/daemon.json
