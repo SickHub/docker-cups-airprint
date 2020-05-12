@@ -2,9 +2,13 @@
 language: bash
 services: docker
 
+# DOCKER_USER and DOCKER_PASS is set in travis
 env:
   global:
-    - IMAGE=drpsychick/airprint-bridge
+    - DOCKER_IMG=airprint-bridge
+    - IMAGE=$DOCKER_USER/$DOCKER_IMG
+    - PLATFORMS=linux/amd64,linux/arm,linux/arm64
+    - DOCKER_CLI_EXPERIMENTAL=enabled
   matrix:
     - UBUNTU_VERSION=latest
     - UBUNTU_VERSION=focal
@@ -14,23 +18,20 @@ env:
 
 # build the image, get CUPS version
 before_script:
-  # setup git with tag bot key
-  - eval $(ssh-agent -s)
-  - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - && ssh-add -l -E md5
-  - git config --global user.email "github@drsick.net"
-  - git config --global user.name "TAG bot"
-  - git remote set-url origin "git@github.com:DrPsychick/docker-cups-airprint.git"
-  # build the image
-  - docker build -t airprint-travis --build-arg UBUNTU_VERSION=$UBUNTU_VERSION .
-  - VERSION=$(docker run --rm -it --entrypoint dpkg airprint-travis -s cups-daemon |grep ^Version | sed -e 's/Version. \([0-9.]*\)-.*/\1/')
+  # build the image for all platforms
+  - docker buildx create --name xbuilder --use
+  - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
+  # load a single image for local tests, see https://github.com/docker/buildx/issues/59
+  - docker buildx build --progress plain --platform linux/amd64 -t $IMAGE --load .
+  - VERSION=$(docker run --rm -it --entrypoint dpkg $IMAGE -s cups-daemon |grep ^Version | sed -e 's/Version. \([0-9.]*\)-.*/\1/')
 
 # start a container and see that it becomes healthy
 script:
-  # travis always passes, if docker becomes healthy
+  # travis always passes, if container becomes healthy
   - echo "Ubuntu version = $UBUNTU_VERSION CUPS = $VERSION"
   - >
     echo "Starting cups...";
-    docker create --name airprint-test -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" airprint-travis;
+    docker create --name airprint-test -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" $IMAGE;
     docker start airprint-test;
     docker exec airprint-test bash -c 'while ! cupsctl -h localhost --share-printers 2>/dev/null; do echo -n "."; sleep 1; done';
     while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' |grep '(healthy)')" ]; do echo -n "."; sleep 1; done;
@@ -38,37 +39,6 @@ script:
     docker logs airprint-test;
     docker exec airprint-test ls -la /etc/cups/;
 
-# docker hub integration (automated builds)
+# push images to docker hub
 after_success:
-  # dev: trigger docker hub build
-  - >
-    if [ "$TRAVIS_BRANCH" = "dev" -a "$UBUNTU_VERSION" = "latest" ]; then
-    curl -H "Content-Type: application/json" --data '{"source_type": "Branch", "source_name": "develop"}'
-    -X POST "$DOCKERHUB_TRIGGER";
-    fi
-  # master: trigger build and potentially update version branches (=docker tags)
-  # tag = $cups_version-$ubuntu_version (e.g. 2.2.12-eoan)
-  - >
-    if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
-    if [ "$UBUNTU_VERSION" = "latest" ]; then
-    branch="$VERSION";
-    curl -H "Content-Type: application/json" --data '{"source_type": "Branch", "source_name": "master"}'
-    -X POST "$DOCKERHUB_TRIGGER";
-    else
-    branch="${VERSION}-${UBUNTU_VERSION}";
-    echo "Branch: $branch";
-    git checkout -b $branch;
-    git pull origin $branch;
-    git merge -X theirs --no-edit --no-commit master;
-    sed -i -e "s/UBUNTU_VERSION=.*/UBUNTU_VERSION=$UBUNTU_VERSION/" Dockerfile;
-    git diff Dockerfile;
-    docker build -t $IMAGE:$branch --build-arg UBUNTU_VERSION=$UBUNTU_VERSION . || exit 1;
-    git commit -a -m "automated build on $branch";
-    ret=$?;
-    git push -u origin $branch;
-    if [ $ret -ne 0 ]; then
-    curl -H "Content-Type: application/json" --data '{"source_type": "Branch", "source_name": "'$branch'"}'
-    -X POST "$DOCKERHUB_TRIGGER";
-    fi;
-    fi;
-    fi
+  - deploy.sh
