@@ -19,7 +19,7 @@ env:
 # build the image, get CUPS version
 before_script:
   # enable experimental in docker daemon
-  - cat /etc/docker/daemon.json
+  - sudo cat /etc/docker/daemon.json
   - sudo echo '{"experimental":"enabled"}' > /etc/docker/daemon.json
   - sudo systemctl restart docker
   - docker version
