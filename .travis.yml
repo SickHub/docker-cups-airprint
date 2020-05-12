@@ -1,4 +1,8 @@
 dist: bionic
+addons:
+  apt:
+    packages:
+      - docker
 language: bash
 services: docker
 
