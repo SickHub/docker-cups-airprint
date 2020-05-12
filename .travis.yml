@@ -24,8 +24,8 @@ env:
 # build the image, get CUPS version
 before_script:
   # update and restart docker
-  - apt-get -y upgrade
-  - sudo docker restart
+  - sudo apt-get -y upgrade
+  - sudo systemctl restart docker
   # build the image for all platforms
   - docker buildx create --name xbuilder --use
   - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
