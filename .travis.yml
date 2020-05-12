@@ -1,4 +1,4 @@
-#dist: xenial # use default
+dist: bionic
 language: bash
 services: docker
 
