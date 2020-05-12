@@ -31,7 +31,7 @@ before_script:
   - wget https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
   - chmod +x ~/.docker/cli-plugins/docker-buildx
   # build the image for all platforms
-  - docker buildx create --name xbuilder --use
+  - docker buildx create --use
   - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
   # load a single image for local tests, see https://github.com/docker/buildx/issues/59
   - docker buildx build --progress plain --platform linux/amd64 -t $IMAGE --load .
