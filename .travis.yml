@@ -19,8 +19,10 @@ env:
 # build the image, get CUPS version
 before_script:
   # enable experimental in docker daemon
-  - echo '{"experimental":"enabled"}' | sudo tee /etc/docker/daemon.json
+  - cat /etc/docker/daemon.json
+  - sudo echo '{"experimental":"enabled"}' > /etc/docker/daemon.json
   - sudo systemctl restart docker
+  - docker version
   # download buildx docker cli addon
   - mkdir -p ~/.docker/cli-plugins
   - wget -q https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
