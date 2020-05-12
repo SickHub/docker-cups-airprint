@@ -1,8 +1,9 @@
 dist: bionic
 addons:
   apt:
-    packages:
-      - docker
+    sources:
+      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
+        key_url: 'https://download.docker.com/linux/ubuntu/gpg'
 language: bash
 services: docker
 
