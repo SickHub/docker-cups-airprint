@@ -1,9 +1,9 @@
 dist: bionic
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
-        key_url: 'https://download.docker.com/linux/ubuntu/gpg'
+#addons:
+#  apt:
+#    sources:
+#      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
+#        key_url: 'https://download.docker.com/linux/ubuntu/gpg'
 language: bash
 services: docker
 
@@ -24,8 +24,12 @@ env:
 # build the image, get CUPS version
 before_script:
   # update and restart docker
-  - sudo apt-get -y upgrade
-  - sudo systemctl restart docker
+  #- sudo apt-get -y upgrade
+  #- sudo systemctl restart docker
+  # download buildx docker cli addon
+  - mkdir -p ~/.docker/cli-plugins
+  - wget https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
+  - chmod +x ~/.docker/cli-plugins/docker-buildx
   # build the image for all platforms
   - docker buildx create --name xbuilder --use
   - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
