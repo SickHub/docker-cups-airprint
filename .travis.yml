@@ -1,6 +1,7 @@
 dist: bionic
+sudo: required
 language: bash
-services: docker
+#services: docker
 
 # DOCKER_USER and DOCKER_PASS is set in travis
 env:
@@ -21,8 +22,10 @@ before_script:
   # enable experimental in docker daemon
   - docker_conf=$(sudo cat /etc/docker/daemon.json |jq '. + {"experimental":"enabled"}')
   - echo "$docker_conf" | sudo tee /etc/docker/daemon.json
-  - sudo systemctl restart docker
+  - sudo service docker restart
+  - sudo systemctl restart docker; sudo systemctl status docker.service; journalctl -xe
   - docker version
+  - docker buildx version
   # download buildx docker cli addon
   - mkdir -p ~/.docker/cli-plugins
   - wget -q https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
