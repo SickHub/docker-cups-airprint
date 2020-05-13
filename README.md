@@ -54,6 +54,11 @@ CUPS_HOSTNAME=${CUPS_HOSTNAME:-$(hostname -f)} # no need to set this usually -> 
 # pass the server cert/key via env in one line each, i.e. CUPS_SSL_CERT=---- BEGIN CERT ...\none\nline\nseparated\nby\nbackslash\nnewline
 CUPS_SSL_CERT=${CUPS_SSL_CERT:-""}
 CUPS_SSL_KEY=${CUPS_SSL_KEY:-""}
+# avahi configuration options
+AVAHI_INTERFACES=${AVAHI_INTERFACES:=""}
+AVAHI_IPV6=${AVAHI_IPV6:="no"}
+AVAHI_REFLECTOR=${AVAHI_REFLECTOR:="no"}
+AVAHI_REFLECT_IPV=${AVAHI_REFLECT_IPV:="no"}
 ```
 
 ### Add printer through ENV

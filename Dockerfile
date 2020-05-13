@@ -7,6 +7,7 @@ RUN apt-get update \
     && apt-get -y install \
       cups-daemon \
       cups-client \
+      cups-pdf \
       printer-driver-all \
       avahi-daemon \
       google-cloud-print-connector \

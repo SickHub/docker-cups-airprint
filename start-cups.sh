@@ -43,7 +43,9 @@ sed -i 's/^.*AccessLog .*/AccessLog stderr/' /etc/cups/cups-files.conf
 sed -i 's/^.*ErrorLog .*/ErrorLog stderr/' /etc/cups/cups-files.conf
 sed -i 's/^.*PageLog .*/PageLog stderr/' /etc/cups/cups-files.conf
 if [ "yes" = "${CUPS_REMOTE_ADMIN}" ]; then
-  sed -i 's/Listen localhost:631/Listen \*:631/' /etc/cups/cupsd.conf
+  [ -z "$(grep "^Listen localhost:631" /etc/cups/cupsd.conf)" ] &&
+    echo "Listen \*:631" >> /etc/cups/cupsd.conf ||
+    sed -i 's/Listen localhost:631/Listen \*:631/' /etc/cups/cupsd.conf
 fi
 # own SSL cert:
 # CreateSelfSignedCerts no
@@ -97,6 +99,7 @@ fi
 
 # start avahi instance in background (but not as daemon as this implies syslog)
 /usr/sbin/avahi-daemon &
+sleep 1
 
 # setup and start the Google Cloud Print Connector
 if [ "true" = "${GCP_ENABLE_LOCAL}" -o "true" = "${GCP_ENABLE_CLOUD}" ]; then
