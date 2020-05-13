@@ -1,7 +1,11 @@
-dist: xenial
+dist: bionic
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
+        key_url: 'https://download.docker.com/linux/ubuntu/gpg'
+    update: true
 sudo: required
-language: bash
-#services: docker
 
 # DOCKER_USER and DOCKER_PASS is set in travis
 env:
@@ -19,24 +23,18 @@ env:
 
 # build the image, get CUPS version
 before_script:
-  # install latest docker the ugly way
-  - sudo apt-get remove --purge -y docker-ce
-  - curl -fsSL https://get.docker.com | sudo sh
+  # upgrade to latest docker-ce from repo
+  - sudo apt-get -y upgrade docker-ce
   # enable experimental in docker daemon
   - docker_conf=$(sudo cat /etc/docker/daemon.json |jq '. + {"experimental":"enabled"}')
   - echo "$docker_conf" | sudo tee /etc/docker/daemon.json
-  - sudo service docker start
+  - sudo service docker restart
   - while ! curl --unix-socket /var/run/docker.sock http:/v1.40/version; do sleep 1; done
   - docker version
   - docker buildx version
-  # download buildx docker cli addon
-  #- mkdir -p ~/.docker/cli-plugins
-  #- wget -q https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
-  #- chmod +x ~/.docker/cli-plugins/docker-buildx
-  #- docker buildx version
   # build the image for all platforms
   - docker buildx create --name xbuilder --use
-  - dokcer buildx inspect --bootstrap
+  - docker buildx inspect --bootstrap
   - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
   # load a single image for local tests, see https://github.com/docker/buildx/issues/59
   - docker buildx build --progress plain --platform linux/amd64 -t $IMAGE --load .
