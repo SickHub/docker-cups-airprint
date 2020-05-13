@@ -1,4 +1,4 @@
-dist: bionic
+dist: xenial
 sudo: required
 language: bash
 #services: docker
@@ -24,7 +24,9 @@ before_script:
   # enable experimental in docker daemon
   - docker_conf=$(sudo cat /etc/docker/daemon.json |jq '. + {"experimental":"enabled"}')
   - echo "$docker_conf" | sudo tee /etc/docker/daemon.json
-  - sudo systemctl restart docker; sudo systemctl status docker.service; journalctl -xe
+  #- sudo systemctl restart docker; sudo systemctl status docker.service; journalctl -xe
+  - sudo service docker start
+  - while ! curl http://%2Fvar%2Frun%2Fdocker.sock/v1.40/version; do sleep 1; done
   - docker version
   - docker buildx version
   # download buildx docker cli addon
