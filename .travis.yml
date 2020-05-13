@@ -38,7 +38,7 @@ before_script:
   - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
   # load a single image for local tests, see https://github.com/docker/buildx/issues/59
   - docker buildx build --progress plain --platform linux/amd64 -t $IMAGE --load .
-  - VERSION=$(docker run --rm -it --entrypoint dpkg $IMAGE -s cups-daemon |grep ^Version | sed -e 's/Version. \([0-9.]*\)-.*/\1/')
+  - export VERSION=$(docker run --rm -it --entrypoint dpkg $IMAGE -s cups-daemon |grep ^Version | sed -e 's/Version. \([0-9.]*\)-.*/\1/')
 
 # start a container and see that it becomes healthy
 script:
