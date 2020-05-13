@@ -19,21 +19,21 @@ env:
 
 # build the image, get CUPS version
 before_script:
-  # install docker the ugly way
+  # install latest docker the ugly way
+  - sudo apt-get remove --purge -y docker-ce
   - curl -fsSL https://get.docker.com | sudo sh
   # enable experimental in docker daemon
   - docker_conf=$(sudo cat /etc/docker/daemon.json |jq '. + {"experimental":"enabled"}')
   - echo "$docker_conf" | sudo tee /etc/docker/daemon.json
-  #- sudo systemctl restart docker; sudo systemctl status docker.service; journalctl -xe
   - sudo service docker start
-  - while ! curl http://%2Fvar%2Frun%2Fdocker.sock/v1.40/version; do sleep 1; done
+  - while ! curl --unix-socket /var/run/docker.sock http:/v1.40/version; do sleep 1; done
   - docker version
   - docker buildx version
   # download buildx docker cli addon
-  - mkdir -p ~/.docker/cli-plugins
-  - wget -q https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
-  - chmod +x ~/.docker/cli-plugins/docker-buildx
-  - docker buildx version
+  #- mkdir -p ~/.docker/cli-plugins
+  #- wget -q https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
+  #- chmod +x ~/.docker/cli-plugins/docker-buildx
+  #- docker buildx version
   # build the image for all platforms
   - docker buildx create --name xbuilder --use
   - dokcer buildx inspect --bootstrap
