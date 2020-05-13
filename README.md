@@ -1,7 +1,6 @@
 # Simple AirPrint bridge for your local printers
 
-[![DockerHub build status](https://img.shields.io/docker/cloud/build/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/builds/)
-[![DockerHub build](https://img.shields.io/docker/cloud/automated/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/builds/)
+[![Docker image](https://img.shields.io/docker/image-size/drpsychick/airprint-bridge?sort=date)](https://hub.docker.com/r/drpsychick/airprint-bridge/tags)
 [![license](https://img.shields.io/github/license/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/blob/master/LICENSE)
 [![DockerHub pulls](https://img.shields.io/docker/pulls/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
 [![DockerHub stars](https://img.shields.io/docker/stars/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
