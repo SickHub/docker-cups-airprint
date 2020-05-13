@@ -24,7 +24,7 @@ env:
 # build the image, get CUPS version
 before_script:
   # upgrade to latest docker-ce from repo
-  - sudo apt-get -y upgrade docker-ce
+  - sudo apt-get -y install docker-ce
   # enable experimental in docker daemon
   - docker_conf=$(sudo cat /etc/docker/daemon.json |jq '. + {"experimental":"enabled"}')
   - echo "$docker_conf" | sudo tee /etc/docker/daemon.json
