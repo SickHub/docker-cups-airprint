@@ -28,7 +28,7 @@ before_script:
   # enable experimental in docker daemon
   - docker_conf=$(sudo cat /etc/docker/daemon.json |jq '. + {"experimental":"enabled"}')
   - echo "$docker_conf" | sudo tee /etc/docker/daemon.json
-  - sudo service docker restart
+  - sudo service docker start
   - while ! curl --unix-socket /var/run/docker.sock http:/v1.40/version; do sleep 1; done
   - docker version
   - docker buildx version
