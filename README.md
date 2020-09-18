@@ -6,7 +6,8 @@
 [![DockerHub stars](https://img.shields.io/docker/stars/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
 [![GitHub stars](https://img.shields.io/github/stars/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint)
 [![Contributors](https://img.shields.io/github/contributors/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/graphs/contributors)
-[![Paypal](https://img.shields.io/badge/donate-paypal-00457c.svg?logo=paypal&style=flat-square)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FTXDN7LCDWUEA&source=url)
+[![Paypal](https://img.shields.io/badge/donate-paypal-00457c.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FTXDN7LCDWUEA&source=url)
+[![GitHub Sponsor](https://img.shields.io/badge/github-sponsor-blue?logo=github)](https://github.com/sponsors/DrPsychick)
 
 ## Purpose
 Run a container with CUPS and Avahi (mDNS/Bonjour) so that local printers
