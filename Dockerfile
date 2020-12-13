@@ -13,7 +13,7 @@ RUN apt-get update \
       google-cloud-print-connector \
       libnss-mdns \
       libusb-0.1-4 \
-      libusb-1.0.0 \
+      libusb-1.0-0 \
 # for mkpasswd
       whois \
       curl \
