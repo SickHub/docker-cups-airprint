@@ -14,6 +14,7 @@ RUN apt-get update \
       libnss-mdns \
       libusb-0.1-4 \
       libusb-1.0-0 \
+      sane-utils \
 # for mkpasswd
       whois \
       curl \
@@ -45,6 +46,7 @@ RUN useradd -s /usr/sbin/nologin -r -M gcp-connector \
     && mkdir /var/run/dbus
 
 COPY healthcheck.sh /
+COPY ppd/ /opt/ppd
 COPY start-cups.sh /root/
 RUN chmod +x /healthcheck.sh /root/start-cups.sh
 HEALTHCHECK --interval=10s --timeout=3s CMD /healthcheck.sh
