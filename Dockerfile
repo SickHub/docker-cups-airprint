@@ -12,6 +12,8 @@ RUN apt-get update \
       avahi-daemon \
       google-cloud-print-connector \
       libnss-mdns \
+      libusb-0.1-4 \
+      libusb-1.0.0 \
 # for mkpasswd
       whois \
       curl \
@@ -27,8 +29,8 @@ RUN apt-get update \
 
 # remove unneeded cups backends
 RUN rm /usr/lib/cups/backend/parallel \
-    && rm /usr/lib/cups/backend/serial \
-    && rm /usr/lib/cups/backend/usb
+    && rm /usr/lib/cups/backend/serial
+#    && rm /usr/lib/cups/backend/usb
 
 # TODO: really needed?
 #COPY mime/ /etc/cups/mime/
