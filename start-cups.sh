@@ -153,5 +153,8 @@ cloud: ${GCP_ENABLE_CLOUD}
 EOF
 ) &
 
+### Start Sane instance ###
+/usr/sbin/saned -a
+
 ### Start CUPS instance ###
 /usr/sbin/cupsd -f
