@@ -17,7 +17,6 @@ env:
   matrix:
     - UBUNTU_VERSION=latest
     - UBUNTU_VERSION=focal
-    - UBUNTU_VERSION=eoan
     - UBUNTU_VERSION=bionic
     - UBUNTU_VERSION=xenial
 
