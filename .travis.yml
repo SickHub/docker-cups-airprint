@@ -16,7 +16,7 @@ env:
     - DOCKER_CLI_EXPERIMENTAL=enabled
   matrix:
     - UBUNTU_VERSION=latest
-    - UBUNTU_VERSION=groovy
+#    - UBUNTU_VERSION=groovy # need to solve: https://travis-ci.com/github/DrPsychick/docker-cups-airprint/jobs/459186393#L2505
     - UBUNTU_VERSION=focal
     - UBUNTU_VERSION=bionic
     - UBUNTU_VERSION=xenial
