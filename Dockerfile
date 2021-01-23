@@ -25,11 +25,6 @@ RUN apt-get update \
     && rm -rf /tmp/* \
     && rm -rf /var/tmp/*
 
-# remove unneeded cups backends
-RUN rm /usr/lib/cups/backend/parallel \
-    && rm /usr/lib/cups/backend/serial \
-    && rm /usr/lib/cups/backend/usb
-
 # TODO: really needed?
 #COPY mime/ /etc/cups/mime/
 
