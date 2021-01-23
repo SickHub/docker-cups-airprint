@@ -96,7 +96,7 @@ GCP_PROXY_NAME=${GCP_PROXY_NAME:-""}
 Now you have all you need to setup your airprint-bridge configured through ENV.
 How to setup a dedicated server in your local subnet is covered in the next section.
 
-## Prepare your dedicated airpint container
+## Prepare your dedicated AirPrint container
 Create a virtual network bridge to your local network so that a docker container can have its own IP on your subnet AND 
 be reachable from the host. As you want clients anywhere on the local network to discover printers, the container must 
 have an IP on the local subnet.
