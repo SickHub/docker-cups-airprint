@@ -1,5 +1,5 @@
-ARG UBUNTU_VERSION=focal
-FROM ubuntu:$UBUNTU_VERSION
+ARG VERSION=focal
+FROM ubuntu:$VERSION
 MAINTAINER drpsychick
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -9,6 +9,10 @@ RUN apt-get update \
       cups-client \
       cups-pdf \
       printer-driver-all \
+      openprinting-ppds \
+      hpijs-ppds \
+      hp-ppd \
+      hplip \
       avahi-daemon \
       google-cloud-print-connector \
       libnss-mdns \

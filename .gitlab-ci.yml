@@ -10,31 +10,39 @@ variables:
   IMAGE: $DOCKER_USER/$DOCKER_IMG
   PLATFORMS: linux/amd64,linux/arm,linux/arm64
   DOCKER_CLI_EXPERIMENTAL: enabled
-  UBUNTU_VERSION: latest
+  VERSION: latest
+  TAG_CMD: "docker run --rm -it --entrypoint dpkg $IMAGE -s cups-daemon |grep ^Version | sed -e 's/Version. \\([0-9.]*\\)-.*/\\1/'"
 
-stages:
-  - build
+before_script:
+  - apk add --no-cache curl
+  - mkdir -p ~/.docker/cli-plugins
+  - curl -L https://github.com/docker/buildx/releases/download/v0.5.1/buildx-v0.5.1.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx
+  - chmod +x ~/.docker/cli-plugins/docker-buildx
+  - echo $DOCKER_CLI_EXPERIMENTAL
+  - docker buildx version
+  - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+  - docker buildx create --name xbuilder --use
+  - docker buildx ls
+  - docker buildx inspect --bootstrap
+  - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
 
 build_dev:
-  stage:
-    build
   tags:
-    - dind
-  before_script:
-    - apk add --no-cache curl
-    - mkdir -p ~/.docker/cli-plugins
-    - curl -L https://github.com/docker/buildx/releases/download/v0.5.1/buildx-v0.5.1.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx
-    - chmod +x ~/.docker/cli-plugins/docker-buildx
-    - echo $DOCKER_CLI_EXPERIMENTAL
-    - docker buildx version
-    - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-    - docker buildx create --name xbuilder --use
-    - docker buildx ls
-    - docker buildx inspect --bootstrap
-    - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
+    - multiarch
   script:
-    - docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION
-      -t $IMAGE:dev --push .
+    - ./deploy.sh
   only:
    refs:
      - dev
+
+build_master:
+  tags:
+    - multiarch
+  parallel:
+    matrix:
+      - VERSION: [latest, focal, bionic, xenial]
+  script:
+    - ./deploy.sh
+  only:
+    refs:
+      - master
