@@ -11,7 +11,6 @@ variables:
   PLATFORMS: linux/amd64,linux/arm,linux/arm64
   DOCKER_CLI_EXPERIMENTAL: enabled
   VERSION: latest
-  TAG_CMD: "docker run --rm -it --entrypoint dpkg $IMAGE -s cups-daemon |grep ^Version | sed -e 's/Version. \\([0-9.]*\\)-.*/\\1/'"
 
 before_script:
   - apk add --no-cache curl
@@ -42,6 +41,7 @@ build_master:
     matrix:
       - VERSION: [latest, focal, bionic, xenial]
   script:
+    - echo "$TAG_PACKAGE"
     - ./deploy.sh
   only:
     refs:

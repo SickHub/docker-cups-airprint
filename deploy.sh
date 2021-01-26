@@ -6,7 +6,6 @@
 # PLATFORMS : platform to build the image for
 # IMAGE : name of the image (incl. path/repository, excluding tag)
 # VERSION : build arg for the docker image
-# TAG_CMD : command to get the version from within the image
 
 ## defaults
 DOCKER_REGISTRY=${DOCKER_REGISTRY:="docker.io"}
@@ -37,21 +36,7 @@ fi
 
 # build+push master images (not when it's a pull request)
 if [ "$BRANCH" = "master" -a "$PULL_REQUEST" = "false" ]; then
-  # tag including ubuntu version
-  if [ "$VERSION" = "latest" ]; then
-    docker buildx build --progress plain --platform $PLATFORMS --build-arg VERSION=$VERSION \
-      -t $IMAGE:latest --push .
-  else
-    tag=$VERSION
-    if [ -n "$TAG_CMD" ]; then
-      # build single platform and load it into local docker repository, so we can launch it to version
-      docker buildx build --progress plain --platform linux/amd64 --build-arg VERSION=$VERSION \
-        -t $IMAGE --load .
-      v=$($TAG_CMD)
-      tag=$v-$VERSION
-    fi
-    # build for all platforms and push with correct version tag
-    docker buildx build --progress plain --platform $PLATFORMS --build-arg VERSION=$VERSION \
-      -t $IMAGE:$tag --push .
-  fi
+  # build for all platforms and push with correct version tag
+  docker buildx build --progress plain --platform $PLATFORMS --build-arg VERSION=$VERSION \
+    -t $IMAGE:$VERSION --push .
 fi

@@ -14,7 +14,6 @@ env:
     - IMAGE=$DOCKER_USER/$DOCKER_IMG
     - PLATFORMS=linux/amd64,linux/arm,linux/arm64
     - DOCKER_CLI_EXPERIMENTAL=enabled
-    - TAG_CMD="docker run --rm -it --entrypoint dpkg $IMAGE -s cups-daemon |grep ^Version | sed -e 's/Version. \([0-9.]*\)-.*/\1/'"
   matrix:
     - VERSION=latest
 #    - VERSION=groovy # need to solve: https://travis-ci.com/github/DrPsychick/docker-cups-airprint/jobs/459186393#L2505
@@ -37,15 +36,13 @@ before_script:
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker buildx create --name xbuilder --use
   - docker buildx inspect --bootstrap
-  - docker buildx build --progress plain --platform $PLATFORMS --build-arg VERSION=$VERSION -t $IMAGE .
   # load a single image for local tests, see https://github.com/docker/buildx/issues/59
   - docker buildx build --progress plain --platform linux/amd64 -t $IMAGE --load .
-  - export TAG=$($TAG_CMD)
 
 # start a container and see that it becomes healthy
 script:
   # travis always passes, if container becomes healthy
-  - echo "Ubuntu version = $VERSION CUPS = $TAG"
+  - echo "Ubuntu version = $VERSION"
   - >
     echo "Starting cups...";
     docker create --name airprint-test -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" $IMAGE;
