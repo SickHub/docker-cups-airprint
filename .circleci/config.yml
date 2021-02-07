@@ -1,0 +1,36 @@
+# https://circleci.com/docs/2.0/configuration-reference/#available-machine-images
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202101-01
+    environment:
+      DOCKER_BUILDKIT: 1
+      BUILDX_PLATFORMS: linux/amd64,linux/arm64,linux/arm
+    steps:
+      - checkout
+      - run:
+          name: Log in to docker hub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Build from dockerfile
+          command: |
+            docker build --build-arg UBUNTU_VERSION=latest -t test .
+      - run:
+          name: Install buildx
+          command: |
+            BUILDX_BINARY_URL="https://github.com/docker/buildx/releases/download/v0.4.2/buildx-v0.4.2.linux-amd64"
+            curl --output docker-buildx \
+              --silent --show-error --location --fail --retry 3 \
+              "$BUILDX_BINARY_URL"
+            mkdir -p ~/.docker/cli-plugins
+            mv docker-buildx ~/.docker/cli-plugins/
+            chmod a+x ~/.docker/cli-plugins/docker-buildx
+            docker buildx install
+            docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+            docker buildx create --name xbuilder --use
+      - run:
+          name: build and push
+          command: |
+            ./build.sh
