@@ -97,12 +97,12 @@ workflows:
                 - master
     jobs:
       - build_xenial
-      - build_bionix
+      - build_bionic
       - build_focal
       - build_latest
   build:
     jobs:
       - build_xenial
-      - build_bionix
+      - build_bionic
       - build_focal
       - build_latest
