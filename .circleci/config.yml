@@ -34,13 +34,13 @@ aliases:
       - run:
           name: Build all platforms
           command: |
-            docker buildx build --progress plain --platform $PLATFORMS --build-arg INLFUXDB_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG .
+            docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG .
       - run:
           name: Build and push all platforms
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
-              docker buildx build --progress plain --platform $PLATFORMS --build-arg INLFUXDB_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --push .
+              docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --push .
             fi
 jobs:
   build_latest:
