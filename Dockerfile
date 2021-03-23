@@ -1,14 +1,18 @@
 ARG UBUNTU_VERSION=eoan
 FROM ubuntu:$UBUNTU_VERSION
-MAINTAINER drpsychick
+MAINTAINER drpsychick@drsick.net
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update \
-    && apt-get -y install \
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get -y install \
       cups-daemon \
       cups-client \
       cups-pdf \
       printer-driver-all \
+      openprinting-ppds \
+      hpijs-ppds \
+      hp-ppd \
+      hplip \
       avahi-daemon \
       google-cloud-print-connector \
       libnss-mdns \
@@ -24,11 +28,6 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* \
     && rm -rf /var/tmp/*
-
-# remove unneeded cups backends
-RUN rm /usr/lib/cups/backend/parallel \
-    && rm /usr/lib/cups/backend/serial \
-    && rm /usr/lib/cups/backend/usb
 
 # TODO: really needed?
 #COPY mime/ /etc/cups/mime/
