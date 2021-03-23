@@ -1,36 +1,108 @@
-# https://circleci.com/docs/2.0/configuration-reference/#available-machine-images
+# Required variables
+# REPO, IMAGE_NAME
+# PLATFORMS = linux/amd64,linux/arm64/v8,linux/arm/v7,...
+# DOCKER_USER, DOCKER_PASS
 version: 2.1
-jobs:
-  build:
-    machine:
-      image: ubuntu-2004:202101-01
-    environment:
-      DOCKER_BUILDKIT: 1
-      BUILDX_PLATFORMS: linux/amd64,linux/arm64,linux/arm
-    steps:
+aliases:
+  - &docker
+      - image: docker:dind
+  - &steps
       - checkout
+      - setup_remote_docker:
+          version: 20.10.2
       - run:
-          name: Log in to docker hub
+          name: Install docker buildx
           command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run:
-          name: Build from dockerfile
-          command: |
-            docker build --build-arg UBUNTU_VERSION=latest -t test .
-      - run:
-          name: Install buildx
-          command: |
-            BUILDX_BINARY_URL="https://github.com/docker/buildx/releases/download/v0.4.2/buildx-v0.4.2.linux-amd64"
-            curl --output docker-buildx \
-              --silent --show-error --location --fail --retry 3 \
-              "$BUILDX_BINARY_URL"
+            #apt update && apt install -y curl
             mkdir -p ~/.docker/cli-plugins
-            mv docker-buildx ~/.docker/cli-plugins/
+            baseUrl="https://github.com/docker/buildx/releases/download"
+            fileName="buildx-v<< parameters.version >>.linux-amd64"
+            url="${baseUrl}/v<< parameters.version >>/${fileName}"
+            curl -sSL -o ~/.docker/cli-plugins/docker-buildx $url
             chmod a+x ~/.docker/cli-plugins/docker-buildx
-            docker buildx install
-            docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-            docker buildx create --name xbuilder --use
+            echo 'export DOCKER_CLI_EXPERIMENTAL="enabled"' >> $BASH_ENV
       - run:
-          name: build and push
+          name: Prepare docker buildx
           command: |
-            ./build.sh
+            docker buildx install
+            docker version
+            docker buildx version
+            docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+            docker context create xbuilder
+            docker buildx create xbuilder --name xbuilder --use
+            docker buildx inspect --bootstrap
+      - run:
+          name: Build all platforms
+          command: |
+            docker buildx build --progress plain --platform $PLATFORMS --build-arg INLFUXDB_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG .
+      - run:
+          name: Build and push all platforms
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
+              docker buildx build --progress plain --platform $PLATFORMS --build-arg INLFUXDB_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --push .
+            fi
+jobs:
+  build_latest:
+    parameters:
+      version:
+        default: 0.5.1
+        type: string
+    environment:
+      UBUNTU_VERSION: latest
+      TAG: latest
+    docker: *docker
+    steps: *steps
+  build_focal:
+    parameters:
+      version:
+        default: 0.5.1
+        type: string
+    environment:
+      UBUNTU_VERSION: focal
+      TAG: focal
+    docker: *docker
+    steps: *steps
+  build_bionic:
+    parameters:
+      version:
+        default: 0.5.1
+        type: string
+    environment:
+      UBUNTU_VERSION: bionic
+      TAG: bionic
+    docker: *docker
+    steps: *steps
+  build_xenial:
+    parameters:
+      version:
+        default: 0.5.1
+        type: string
+    environment:
+      UBUNTU_VERSION: xenial
+      TAG: xenial
+    docker: *docker
+    steps: *steps
+
+workflows:
+  version: 2
+  weekly:
+    triggers:
+      - schedule:
+          # mondays, 6:03 am, UTC
+          cron: "3 6 * * 1"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build_xenial
+      - build_bionix
+      - build_focal
+      - build_latest
+  build:
+    jobs:
+      - build_xenial
+      - build_bionix
+      - build_focal
+      - build_latest
