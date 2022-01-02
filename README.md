@@ -144,6 +144,8 @@ docker exec -it cups-test /bin/bash
 ```
 
 ## Adding printers:
+**Hint**: When you want to use a local USB printer, use `--volume /dev/bus/usb:/dev/bus/usb` to mount the USB device directly into the container. (see also https://github.com/DrPsychick/docker-cups-airprint/issues/35)
+
 ### Automated through command line
 The preferred way to configure your container, but it has limitations.
 ```shell script
