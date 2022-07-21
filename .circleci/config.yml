@@ -40,7 +40,7 @@ aliases:
           name: Testing cups
           command: |
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
-            docker buildx build --progress plain --platform linux/amd64 -t $REPO/$IMAGE_NAME:$TAG --load .
+            docker buildx build --progress plain --platform linux/amd64 --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --load .
             docker create --name airprint-test \
               -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
               $REPO/$IMAGE_NAME:$TAG
