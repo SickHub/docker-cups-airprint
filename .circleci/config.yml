@@ -60,6 +60,9 @@ aliases:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
               docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --push .
+            else
+              echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
+              docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:${TAG}-dev --push .
             fi
 jobs:
   build_latest:
