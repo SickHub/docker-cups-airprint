@@ -34,11 +34,13 @@ aliases:
       - run:
           name: Build all platforms
           command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
             docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG .
       - run:
           name: Testing cups
           command: |
-            docker buildx build --progress plain --platform linux/amd64 -t $REPO/$IMAGE:$TAG --load .
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
+            docker buildx build --progress plain --platform linux/amd64 -t $REPO/$IMAGE_NAME:$TAG --load .
             docker create --name airprint-test \
               -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
               $REPO/$IMAGE_NAME:$TAG
@@ -58,13 +60,9 @@ aliases:
       - run:
           name: Build and push all platforms
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
-              docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --push .
-            else
-              echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
-              docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:${TAG}-dev --push .
-            fi
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
+            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
+            docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --push .
 jobs:
   build_latest:
     parameters:
