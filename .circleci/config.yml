@@ -38,6 +38,7 @@ aliases:
       - run:
           name: Testing cups
           command: |
+            docker buildx build --progress plain --platform linux/amd64 -t $REPO/$IMAGE:$TAG --load .
             docker create --name airprint-test \
               -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
               $REPO/$IMAGE_NAME:$TAG
