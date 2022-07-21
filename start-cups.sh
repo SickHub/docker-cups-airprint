@@ -97,9 +97,15 @@ if [ "true" = "${GCP_ENABLE_LOCAL}" -o "true" = "${GCP_ENABLE_CLOUD}" ]; then
   sleep 2
 fi
 
-# start avahi instance in background (but not as daemon as this implies syslog)
-/usr/sbin/avahi-daemon &
+# ensure avahi is running in background (but not as daemon as this implies syslog)
+(
+while (true); do
+  /usr/sbin/avahi-daemon -c || { /usr/sbin/avahi-daemon & }
+  sleep 5
+done
+) &
 sleep 1
+
 
 # setup and start the Google Cloud Print Connector
 if [ "true" = "${GCP_ENABLE_LOCAL}" -o "true" = "${GCP_ENABLE_CLOUD}" ]; then
