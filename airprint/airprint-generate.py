@@ -136,7 +136,7 @@ class AirPrintGenerate(object):
                 if self.descName:
                    name.text = '%s' % (v['printer-info'])
                 else:
-                   name.text = 'Airprint %s @ %%h' % (p)
+                   name.text = 'AirPrint %s @ %%h' % (p)
 
                 service = tree.find('service')
 
