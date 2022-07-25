@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-inotifywait -m -e close_write,moved_to,create /etc/cups |
+[ "yes" = "${AVAHI_FRIENDLY_DESC}" ] && FLAGS="-x" || FLAGS=""
 
-[ "yes" = "${CUPS_FRIENDLY_DESC}" ] && FLAGS="-x"
+inotifywait -m -e close_write,moved_to,create /etc/cups |
 
 while read -r directory events filename; do
 	if [ "$filename" = "printers.conf" ]; then
