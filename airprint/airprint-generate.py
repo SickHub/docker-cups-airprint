@@ -100,7 +100,7 @@ DOCUMENT_TYPES = {
 
 class AirPrintGenerate(object):
     def __init__(self, host=None, user=None, port=None, verbose=False,
-        directory=None, prefix='AirPrint-', adminurl=False):
+        directory=None, prefix='AirPrint-', adminurl=False, descName=False):
         self.host = host
         self.user = user
         self.port = port
@@ -108,6 +108,7 @@ class AirPrintGenerate(object):
         self.directory = directory
         self.prefix = prefix
         self.adminurl = adminurl
+        self.descName = descName
         
         if self.user:
             cups.setUser(self.user)
@@ -131,7 +132,11 @@ class AirPrintGenerate(object):
                 tree.parse(StringIO(XML_TEMPLATE.replace('\n', '').replace('\r', '').replace('\t', '')))
 
                 name = tree.find('name')
-                name.text = 'AirPrint %s @ %%h' % (p)
+		
+                if self.descName:
+                   name.text = '%s' % (v['printer-info'])
+                else:
+                   name.text = 'Airprint %s @ %%h' % (p)
 
                 service = tree.find('service')
 
@@ -165,7 +170,10 @@ class AirPrintGenerate(object):
                 service.append(path)
 
                 desc = Element('txt-record')
-                desc.text = 'note=%s' % (v['printer-info'])
+                if self.descName:
+                  desc.text = 'note=%s' % (v['printer-location'])
+                else:
+                  desc.text = 'note=%s' % (v['printer-info'])
                 service.append(desc)
 
                 product = Element('txt-record')
@@ -253,6 +261,8 @@ if __name__ == '__main__':
         default='AirPrint-')
     parser.add_option('-a', '--admin', action="store_true", dest="adminurl",
         help="Include the printer specified uri as the adminurl")
+    parser.add_option('-x', '--desc', action="store_true", dest="descName",
+        help="Use CUPS description as the printer display name")
     
     (options, args) = parser.parse_args()
     
@@ -273,6 +283,7 @@ if __name__ == '__main__':
         directory=options.directory,
         prefix=options.prefix,
         adminurl=options.adminurl,
+        descName=options.descName
     )
     
     apg.generate()
