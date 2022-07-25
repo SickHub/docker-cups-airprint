@@ -76,21 +76,7 @@ CUPS_LPADMIN_PRINTER3_ENABLE=cupsenable third
 Nothing to do, it will work out of the box (once you've added printers)
 
 ### Configure Google Cloud Print
-You need to set a few variables, by default it's disabled. (Using the container created in https://github.com/DrPsychick/docker-cups-airprint#play-with-it)
-```shell script
-docker exec -it cups-setup /bin/bash
-# this will ask you a few questions and create `gcp-cups-connector.config.json`
-> (cd /etc/gcp-connector; gcp-connector-util init)
-# -> take the values from the .json file to set the variables below
-```
-
-```shell script
-GCP_ENABLE_LOCAL=${GCP_ENABLE_LOCAL:-"false"}
-GCP_ENABLE_CLOUD=${GCP_ENABLE_CLOUD:-"false"}
-GCP_XMPP_JID=${GCP_XMPP_JID:-""}
-GCP_REFRESH_TOKEN=${GCP_REFRESH_TOKEN:-""}
-GCP_PROXY_NAME=${GCP_PROXY_NAME:-""}
-```
+*Update*: This is no longer supported since end of 2020! https://github.com/google/cloud-print-connector Support has been removed from this image.
 
 ### You're ready!
 Now you have all you need to setup your airprint-bridge configured through ENV.

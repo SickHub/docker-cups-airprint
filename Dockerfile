@@ -14,7 +14,6 @@ RUN apt-get -y install \
       hp-ppd \
       hplip \
       avahi-daemon \
-      google-cloud-print-connector \
       libnss-mdns \
 # for mkpasswd
       whois \
@@ -32,14 +31,8 @@ RUN apt-get -y install \
 # TODO: really needed?
 #COPY mime/ /etc/cups/mime/
 
-# setup airprint and google cloud print scripts
+# setup airprint scripts
 COPY airprint/ /opt/airprint/
-COPY gcp-connector /etc/init.d/
-RUN useradd -s /usr/sbin/nologin -r -M gcp-connector \
-    && mkdir /etc/gcp-connector \
-    && chown gcp-connector /etc/gcp-connector \
-    && chmod +x /etc/init.d/gcp-connector \
-    && mkdir /var/run/dbus
 
 COPY healthcheck.sh /
 COPY start-cups.sh /root/
@@ -58,13 +51,5 @@ ENV TZ="GMT" \
     CUPS_ACCESS_LOGLEVEL="config" \
     # example: lpadmin -p Epson-RX520 -D 'my RX520' -m 'gutenprint.5.3://escp2-rx620/expert' -v smb://user:pass@host/Epson-RX520"
     CUPS_LPADMIN_PRINTER1=""
-
-# google cloud print config
-# run `gcp-connector-util init` and take the values from the resulting json file
-ENV GCP_XMPP_JID="" \
-    GCP_REFRESH_TOKEN="" \
-    GCP_PROXY_NAME="" \
-    GCP_ENABLE_LOCAL="false" \
-    GCP_ENABLE_CLOUD="false"
 
 ENTRYPOINT ["/root/start-cups.sh"]

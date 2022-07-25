@@ -20,11 +20,6 @@ AVAHI_INTERFACES=${AVAHI_INTERFACES:=""}
 AVAHI_IPV6=${AVAHI_IPV6:="no"}
 AVAHI_REFLECTOR=${AVAHI_REFLECTOR:="no"}
 AVAHI_REFLECT_IPV=${AVAHI_REFLECT_IPV:="no"}
-GCP_ENABLE_LOCAL=${GCP_ENABLE_LOCAL:-"false"}
-GCP_ENABLE_CLOUD=${GCP_ENABLE_CLOUD:-"false"}
-GCP_XMPP_JID=${GCP_XMPP_JID:-""}
-GCP_REFRESH_TOKEN=${GCP_REFRESH_TOKEN:-""}
-GCP_PROXY_NAME=${GCP_PROXY_NAME:-""}
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && export -n
 
 ### check for valid input
@@ -79,24 +74,6 @@ sed -i 's/^.*enable-dbus=.*/enable-dbus=no/' /etc/avahi/avahi-daemon.conf
 # start automatic printer refresh for avahi
 /opt/airprint/printer-update.sh &
 
-# start dbus, if required by gcp-connector
-if [ "true" = "${GCP_ENABLE_LOCAL}" -o "true" = "${GCP_ENABLE_CLOUD}" ]; then
-  sed -i 's/^.*enable-dbus=.*/enable-dbus=yes/' /etc/avahi/avahi-daemon.conf
-
-  # delete services that might depend on systemd
-  rm /usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf
-  rm /usr/share/dbus-1/system.d/org.freedesktop.login1.conf
-  rm /usr/share/dbus-1/system-services/org.freedesktop.login1.service
-  rm /usr/share/dbus-1/system.d/org.freedesktop.timesync1.conf
-  rm /usr/share/dbus-1/system-services/org.freedesktop.timesync1.service
-
-  # run in background, but not as daemon as this implies syslog
-  # dbus needs ~90sec to run into a timeout - no clue how to fix this.
-  # AUTH EXTERNAL - dbus-daemon[9239]: [system] Connection has not authenticated soon enough, closing it (auth_timeout=5000ms, elapsed: 90026ms))
-  /usr/bin/dbus-daemon --system --nosyslog --nofork &
-  sleep 2
-fi
-
 # ensure avahi is running in background (but not as daemon as this implies syslog)
 (
 while (true); do
@@ -105,23 +82,6 @@ while (true); do
 done
 ) &
 sleep 1
-
-
-# setup and start the Google Cloud Print Connector
-if [ "true" = "${GCP_ENABLE_LOCAL}" -o "true" = "${GCP_ENABLE_CLOUD}" ]; then
-  echo '{
-    "local_printing_enable": '${GCP_ENABLE_LOCAL}',
-    "cloud_printing_enable": '${GCP_ENABLE_CLOUD}',
-    "xmpp_jid": "'${GCP_XMPP_JID}'",
-    "robot_refresh_token": "'${GCP_REFRESH_TOKEN}'",
-    "proxy_name": "'${GCP_PROXY_NAME}'",
-    "log_level": "INFO",
-    "log_file_name": "/tmp/cloud-print-connector"
-  }' > /etc/gcp-connector/gcp-cups-connector.config.json
-  chown gcp-connector /etc/gcp-connector/gcp-cups-connector.config.json
-  /etc/init.d/gcp-connector start
-fi
-
 
 ### configure CUPS (background subshell, wait till cups http is running...)
 (
@@ -152,9 +112,6 @@ URL:       http://${CUPS_IP}:631/ or http://${CUPS_HOSTNAME}:631/
 Username:  ${CUPS_ADMIN_USER}
 Password:  ${CUPS_ADMIN_PASSWORD}
 
-Google Cloud Print
-local: ${GCP_ENABLE_LOCAL}
-cloud: ${GCP_ENABLE_CLOUD}
 ===========================================================
 EOF
 ) &
