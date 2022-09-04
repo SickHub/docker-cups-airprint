@@ -52,7 +52,7 @@ aliases:
               UBUNTU_VERSION=<< parameters.ubuntu_version >> -t $REPO/$IMAGE_NAME:<< parameters.ubuntu_version >> --load .
             docker create --name airprint-test \
               -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
-              $REPO/$IMAGE_NAME:$TAG
+              $REPO/$IMAGE_NAME:<< parameters.ubuntu_version >>
             docker start airprint-test
             echo -n "Waiting for container to be up: "
             docker exec airprint-test bash -c \
