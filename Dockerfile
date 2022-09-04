@@ -1,4 +1,4 @@
-ARG UBUNTU_VERSION=eoan
+ARG UBUNTU_VERSION=jammy
 FROM ubuntu:$UBUNTU_VERSION
 MAINTAINER drpsychick@drsick.net
 
