@@ -4,6 +4,13 @@
 # DOCKER_USER, DOCKER_PASS
 version: 2.1
 aliases:
+  - &parameters
+    buildx_version:
+      default: v0.9.1 # github-releases:docker/buildx
+      type: string
+    ubuntu_version:
+      default: latest
+      type: string
   - &docker
       - image: docker:dind
   - &steps
@@ -16,8 +23,8 @@ aliases:
             apk add --no-cache curl
             mkdir -p ~/.docker/cli-plugins
             baseUrl="https://github.com/docker/buildx/releases/download"
-            fileName="buildx-v<< parameters.version >>.linux-amd64"
-            url="${baseUrl}/v<< parameters.version >>/${fileName}"
+            fileName="buildx-<< parameters.buildx_version >>.linux-amd64"
+            url="${baseUrl}/<< parameters.buildx_version >>/${fileName}"
             curl -sSL -o ~/.docker/cli-plugins/docker-buildx $url
             chmod a+x ~/.docker/cli-plugins/docker-buildx
             echo 'export DOCKER_CLI_EXPERIMENTAL="enabled"' >> $BASH_ENV
@@ -35,12 +42,14 @@ aliases:
           name: Build all platforms
           command: |
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
-            docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG .
+            docker buildx build --progress plain --platform $PLATFORMS --build-arg \
+              UBUNTU_VERSION=<< parameters.ubuntu_version >> -t $REPO/$IMAGE_NAME:<< parameters.ubuntu_version >> .
       - run:
           name: Testing cups
           command: |
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
-            docker buildx build --progress plain --platform linux/amd64 --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --load .
+            docker buildx build --progress plain --platform linux/amd64 --build-arg \
+              UBUNTU_VERSION=<< parameters.ubuntu_version >> -t $REPO/$IMAGE_NAME:<< parameters.ubuntu_version >> --load .
             docker create --name airprint-test \
               -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
               $REPO/$IMAGE_NAME:$TAG
@@ -62,51 +71,22 @@ aliases:
           command: |
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
-            docker buildx build --progress plain --platform $PLATFORMS --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $REPO/$IMAGE_NAME:$TAG --push .
+            docker buildx build --progress plain --platform $PLATFORMS --build-arg \
+              UBUNTU_VERSION=<< parameters.ubuntu_version >> -t $REPO/$IMAGE_NAME:<< parameters.ubuntu_version >> --push .
 jobs:
-  build_latest:
-    parameters:
-      version:
-        default: 0.5.1
-        type: string
-    environment:
-      UBUNTU_VERSION: latest
-      TAG: latest
-    docker: *docker
-    steps: *steps
-  build_focal:
-    parameters:
-      version:
-        default: 0.5.1
-        type: string
-    environment:
-      UBUNTU_VERSION: focal
-      TAG: focal
-    docker: *docker
-    steps: *steps
-  build_bionic:
-    parameters:
-      version:
-        default: 0.5.1
-        type: string
-    environment:
-      UBUNTU_VERSION: bionic
-      TAG: bionic
-    docker: *docker
-    steps: *steps
-  build_xenial:
-    parameters:
-      version:
-        default: 0.5.1
-        type: string
-    environment:
-      UBUNTU_VERSION: xenial
-      TAG: xenial
+  buildx:
+    parameters: *parameters
     docker: *docker
     steps: *steps
 
 workflows:
   version: 2
+  build:
+    jobs:
+      - buildx:
+          matrix:
+            parameters:
+              ubuntu_version: ["latest", "jammy", "focal", "bionic"]
   weekly:
     triggers:
       - schedule:
@@ -117,13 +97,7 @@ workflows:
               only:
                 - master
     jobs:
-      - build_xenial
-      - build_bionic
-      - build_focal
-      - build_latest
-  build:
-    jobs:
-      - build_xenial
-      - build_bionic
-      - build_focal
-      - build_latest
+      - buildx:
+          matrix:
+            parameters:
+              ubuntu_version: ["latest", "jammy", "focal", "bionic"]
