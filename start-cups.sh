@@ -86,7 +86,8 @@ sleep 1
 
 ### configure CUPS (background subshell, wait till cups http is running...)
 (
-until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do echo -n "."; sleep 1; done; 
+until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do echo -n "."; sleep 1; done;
+until cupsctl --debug-logging > /dev/null 2>&1; do echo -n "."; sleep 1; done;
 echo "--> CUPS ready"
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && cupsctl --debug-logging || cupsctl --no-debug-logging
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
