@@ -38,7 +38,7 @@ fi
 sed -i 's/^.*AccessLog .*/AccessLog stderr/' /etc/cups/cups-files.conf
 sed -i 's/^.*ErrorLog .*/ErrorLog stderr/' /etc/cups/cups-files.conf
 sed -i 's/^.*PageLog .*/PageLog stderr/' /etc/cups/cups-files.conf
-if [ "yes" = "${CUPS_REMOTE_ADMIN}" -a -z "$(grep "^Listen *:631" /etc/cups/cupsd.conf)" ]; then
+if [ "yes" = "${CUPS_REMOTE_ADMIN}" -a -z "$(grep "^Listen \*:631" /etc/cups/cupsd.conf)" ]; then
   [ -z "$(grep "^Listen localhost:631" /etc/cups/cupsd.conf)" ] &&
     echo "Listen *:631" >> /etc/cups/cupsd.conf ||
     sed -i 's/Listen localhost:631/Listen *:631/' /etc/cups/cupsd.conf
