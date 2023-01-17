@@ -176,12 +176,12 @@ class AirPrintGenerate(object):
                   desc.text = 'note=%s' % (v['printer-info'])
                 service.append(desc)
 
-                if attrs['color-supported']:
+                if 'color-supported' in attrs:
                     color = Element('txt-record')
                     color.text = 'Color=T'
                     service.append(color)
 
-                if attrs['media-default'] == 'iso_a4_210x297mm':
+                if 'media-default' in attrs and attrs['media-default'] == 'iso_a4_210x297mm':
                     max_paper = Element('txt-record')
                     max_paper.text = 'PaperMax=legal-A4'
                     service.append(max_paper)
