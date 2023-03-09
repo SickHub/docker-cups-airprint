@@ -176,7 +176,7 @@ class AirPrintGenerate(object):
                   desc.text = 'note=%s' % (v['printer-info'])
                 service.append(desc)
 
-                if 'color-supported' in attrs and attrs['color-supported'] == 'True':
+                if 'color-supported' in attrs and attrs['color-supported'] == True:
                     color = Element('txt-record')
                     color.text = 'Color=T'
                     service.append(color)
