@@ -1,12 +1,12 @@
 # Simple AirPrint bridge for your local printers
 
 [![Docker image](https://img.shields.io/docker/image-size/drpsychick/airprint-bridge?sort=date)](https://hub.docker.com/r/drpsychick/airprint-bridge/tags)
-[![Build status](https://img.shields.io/circleci/build/github/DrPsychick/docker-cups-airprint)](https://app.circleci.com/pipelines/github/DrPsychick/docker-cups-airprint)
-[![license](https://img.shields.io/github/license/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/blob/master/LICENSE)
+[![Build status](https://img.shields.io/circleci/build/github/SickHub/docker-cups-airprint)](https://app.circleci.com/pipelines/github/SickHub/docker-cups-airprint)
+[![license](https://img.shields.io/github/license/sickhub/docker-cups-airprint.svg)](https://github.com/sickhub/docker-cups-airprint/blob/master/LICENSE)
 [![DockerHub pulls](https://img.shields.io/docker/pulls/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
 [![DockerHub stars](https://img.shields.io/docker/stars/drpsychick/airprint-bridge.svg)](https://hub.docker.com/r/drpsychick/airprint-bridge/)
-[![GitHub stars](https://img.shields.io/github/stars/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint)
-[![Contributors](https://img.shields.io/github/contributors/drpsychick/docker-cups-airprint.svg)](https://github.com/drpsychick/docker-cups-airprint/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/sickhub/docker-cups-airprint.svg)](https://github.com/sickhub/docker-cups-airprint)
+[![Contributors](https://img.shields.io/github/contributors/sickhub/docker-cups-airprint.svg)](https://github.com/sickhub/docker-cups-airprint/graphs/contributors)
 [![Paypal](https://img.shields.io/badge/donate-paypal-00457c.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FTXDN7LCDWUEA&source=url)
 [![GitHub Sponsor](https://img.shields.io/badge/github-sponsor-blue?logo=github)](https://github.com/sponsors/DrPsychick)
 
@@ -130,7 +130,7 @@ docker exec -it cups-test /bin/bash
 ```
 
 ## Adding printers:
-**Hint**: When you want to use a local USB printer, use `--volume /dev/bus/usb:/dev/bus/usb` to mount the USB device directly into the container. (see also https://github.com/DrPsychick/docker-cups-airprint/issues/35)
+**Hint**: When you want to use a local USB printer, use `--volume /dev/bus/usb:/dev/bus/usb` to mount the USB device directly into the container. (see also https://github.com/SickHub/docker-cups-airprint/issues/35)
 
 ### Automated through command line
 The preferred way to configure your container, but it has limitations.
@@ -220,7 +220,7 @@ docker start cups-real
 
 
 ## Issues:
-https://github.com/DrPsychick/docker-cups-airprint/issues
+https://github.com/SickHub/docker-cups-airprint/issues
 
 ## Hints for QNAP
 * using `macvlan` is not possible, instead you should use `qnet` driver to create the docker network
