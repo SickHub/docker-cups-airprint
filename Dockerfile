@@ -22,6 +22,7 @@ RUN apt-get -y install \
       libpng16-16 \
       python3-cups \
       samba-client \
+      cups-tea4cups \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
