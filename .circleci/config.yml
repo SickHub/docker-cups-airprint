@@ -86,7 +86,7 @@ workflows:
       - buildx:
           matrix:
             parameters:
-              ubuntu_version: ["latest", "jammy", "focal", "bionic"]
+              ubuntu_version: ["latest", "lunar", "jammy", "focal"]
   weekly:
     triggers:
       - schedule:
@@ -100,4 +100,4 @@ workflows:
       - buildx:
           matrix:
             parameters:
-              ubuntu_version: ["latest", "jammy", "focal", "bionic"]
+              ubuntu_version: ["latest", "lunar", "jammy", "focal"]
