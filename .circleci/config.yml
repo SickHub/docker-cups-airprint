@@ -42,7 +42,7 @@ aliases:
           name: Build all platforms
           command: |
             export PLATFORMS="linux/amd64,linux/arm/v7,linux/arm64"
-            export REPO=DrPsychick
+            export REPO=drpsychick
             export IMAGE_NAME=airprint-bridge
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
             docker buildx build --progress plain --platform $PLATFORMS --build-arg \
@@ -51,7 +51,7 @@ aliases:
           name: Testing cups
           command: |
             export PLATFORMS="linux/amd64,linux/arm/v7,linux/arm64"
-            export REPO=DrPsychick
+            export REPO=drpsychick
             export IMAGE_NAME=airprint-bridge
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
             docker buildx build --progress plain --platform linux/amd64 --build-arg \
@@ -76,7 +76,7 @@ aliases:
           name: Build and push all platforms
           command: |
             export PLATFORMS="linux/amd64,linux/arm/v7,linux/arm64"
-            export REPO=DrPsychick
+            export REPO=drpsychick
             export IMAGE_NAME=airprint-bridge
             if [ -z "${DOCKER_PASS}" ]; then echo"Skipping push because of missing credentials..."; exit; fi
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
