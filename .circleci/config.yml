@@ -41,12 +41,18 @@ aliases:
       - run:
           name: Build all platforms
           command: |
+            export PLATFORMS="linux/amd64,linux/arm/v7,linux/arm64"
+            export REPO=DrPsychick
+            export IMAGE=airprint-bridge
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
             docker buildx build --progress plain --platform $PLATFORMS --build-arg \
               UBUNTU_VERSION=<< parameters.ubuntu_version >> -t $REPO/$IMAGE_NAME:<< parameters.ubuntu_version >> .
       - run:
           name: Testing cups
           command: |
+            export PLATFORMS="linux/amd64,linux/arm/v7,linux/arm64"
+            export REPO=DrPsychick
+            export IMAGE=airprint-bridge
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
             docker buildx build --progress plain --platform linux/amd64 --build-arg \
               UBUNTU_VERSION=<< parameters.ubuntu_version >> -t $REPO/$IMAGE_NAME:<< parameters.ubuntu_version >> --load .
@@ -69,6 +75,10 @@ aliases:
       - run:
           name: Build and push all platforms
           command: |
+            export PLATFORMS="linux/amd64,linux/arm/v7,linux/arm64"
+            export REPO=DrPsychick
+            export IMAGE=airprint-bridge
+            if [ -z "${DOCKER_PASS}" ]; then echo"Skipping push because of missing credentials..."; exit; fi
             if [ "${CIRCLE_BRANCH}" != "master" ]; then export TAG=${TAG}-dev; fi
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin &> /dev/null || exit 1
             docker buildx build --progress plain --platform $PLATFORMS --build-arg \
