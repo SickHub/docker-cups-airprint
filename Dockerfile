@@ -5,6 +5,7 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get -y install \
       libcupsimage2-dev \
       libcups2-dev \
+      libc6-dev \
       gcc \
       cmake \
       git
