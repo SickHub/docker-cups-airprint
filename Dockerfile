@@ -1,6 +1,7 @@
 ARG UBUNTU_VERSION=jammy
 
 FROM ubuntu:$UBUNTU_VERSION as kyocera-builder
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get -y install \
       libcupsimage2-dev \
