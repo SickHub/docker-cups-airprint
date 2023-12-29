@@ -15,7 +15,14 @@ WORKDIR /rastertokpsl-re
 RUN git checkout cbac20651fe1a40ad258397dc055254b92490054
 RUN cmake -B_build -H. && cmake --build _build/
 
-FROM ubuntu:$UBUNTU_VERSION
+FROM ubuntu:$UBUNTU_VERSION as arm64-base
+FROM ubuntu:$UBUNTU_VERSION as arm-base
+FROM ubuntu:$UBUNTU_VERSION as amd64-base
+COPY --from=kyocera-builder --chmod=0555 /rastertokpsl-re/bin/rastertokpsl-re /usr/lib/cups/filter/rastertokpsl
+RUN mkdir -p /usr/share/cups/model/Kyocera
+COPY --from=kyocera-builder /rastertokpsl-re/*.ppd /usr/share/cups/model/Kyocera/
+
+FROM ${TARGETARCH}-base
 MAINTAINER drpsychick@drsick.net
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -44,10 +51,6 @@ RUN apt-get -y install \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* \
     && rm -rf /var/tmp/*
-
-COPY --from=kyocera-builder --chmod=0555 /rastertokpsl-re/bin/rastertokpsl-re /usr/lib/cups/filter/rastertokpsl
-RUN mkdir -p /usr/share/cups/model/Kyocera
-COPY --from=kyocera-builder /rastertokpsl-re/*.ppd /usr/share/cups/model/Kyocera/
 
 # TODO: really needed?
 #COPY mime/ /etc/cups/mime/
