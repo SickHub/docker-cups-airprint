@@ -6,7 +6,7 @@ version: 2.1
 aliases:
   - &parameters
     buildx_version:
-      default: v0.12.1 # github-releases:docker/buildx
+      default: v0.13.0 # github-releases:docker/buildx
       type: string
     ubuntu_version:
       default: latest
@@ -15,8 +15,7 @@ aliases:
       - image: docker:dind
   - &steps
       - checkout
-      - setup_remote_docker:
-          version: 20.10.14
+      - setup_remote_docker
       - run:
           name: Install docker buildx
           command: |
@@ -36,7 +35,7 @@ aliases:
             docker buildx version
             docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
             docker context create xbuilder
-            docker buildx create xbuilder --name xbuilder --use
+            docker buildx create xbuilder --use
             docker buildx inspect --bootstrap
       - run:
           name: Build all platforms
