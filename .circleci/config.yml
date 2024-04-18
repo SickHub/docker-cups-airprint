@@ -6,7 +6,7 @@ version: 2.1
 aliases:
   - &parameters
     buildx_version:
-      default: v0.13.1 # github-releases:docker/buildx
+      default: v0.14.0 # github-releases:docker/buildx
       type: string
     ubuntu_version:
       default: latest
