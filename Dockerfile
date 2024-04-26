@@ -1,4 +1,4 @@
-ARG UBUNTU_VERSION=jammy
+ARG UBUNTU_VERSION=noble
 
 FROM ubuntu:$UBUNTU_VERSION as kyocera-builder
 ENV DEBIAN_FRONTEND noninteractive
