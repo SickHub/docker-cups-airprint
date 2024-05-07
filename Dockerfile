@@ -42,7 +42,8 @@ RUN apt-get -y install \
       whois \
       curl \
       inotify-tools \
-      libpng16-16$(if [ "noble" == "$UBUNTU_VERSION" ]; then echo "t64"; fi) \
+      $(if [ "noble" == "$UBUNTU_VERSION" -o "latest" == "$UBUNTU_VERSION" ]; then \
+      echo "libpng16-16t64"; else echo "libpng16-16"; fi) \
       python3-cups \
       samba-client \
       cups-tea4cups \
