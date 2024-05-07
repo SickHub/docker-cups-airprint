@@ -27,6 +27,7 @@ MAINTAINER drpsychick@drsick.net
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y upgrade
+ARG UBUNTU_VERSION
 RUN apt-get -y install \
       cups-daemon \
       cups-client \
@@ -42,7 +43,7 @@ RUN apt-get -y install \
       whois \
       curl \
       inotify-tools \
-      $(if [ "noble" == "$UBUNTU_VERSION" -o "latest" == "$UBUNTU_VERSION" ]; then \
+      $(if [ "noble" = "$UBUNTU_VERSION" -o "latest" = "$UBUNTU_VERSION" ]; then \
       echo "libpng16-16t64"; else echo "libpng16-16"; fi) \
       python3-cups \
       samba-client \
