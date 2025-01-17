@@ -21,6 +21,7 @@ AVAHI_FRIENDLY_DESC=${AVAHI_FRIENDLY_DESC=:-"no"}
 AVAHI_IPV6=${AVAHI_IPV6:="no"}
 AVAHI_REFLECTOR=${AVAHI_REFLECTOR:="no"}
 AVAHI_REFLECT_IPV=${AVAHI_REFLECT_IPV:="no"}
+PRE_INIT_HOOK=${PRE_INIT_HOOK:="/root/pre-init-script.sh"} 
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && export -n
 
 ### check for valid input
@@ -71,6 +72,16 @@ sed -i "s/^.*publish-aaaa-on-ipv4=.*/publish-aaaa-on-ipv4=${AVAHI_IPV6}/" /etc/a
 sed -i "s/^.*enable\-reflector=.*/enable\-reflector\=${AVAHI_REFLECTOR}/" /etc/avahi/avahi-daemon.conf
 sed -i "s/^.*reflect\-ipv=.*/reflect\-ipv\=${AVAHI_REFLECT_IPV}/" /etc/avahi/avahi-daemon.conf
 sed -i 's/^.*enable-dbus=.*/enable-dbus=no/' /etc/avahi/avahi-daemon.conf
+
+# Run custom user code before starting any service
+# Check if PRE_INIT_HOOK is a file path
+if [ -f "$PRE_INIT_HOOK" ]; then
+    echo "Executing script at $PRE_INIT_HOOK"
+    /bin/bash "$PRE_INIT_HOOK"
+else # or a command
+    echo "Executing command: $PRE_INIT_HOOK"
+    /bin/bash -c "$PRE_INIT_HOOK"
+fi
 
 # start automatic printer refresh for avahi
 /opt/airprint/printer-update.sh &

@@ -61,6 +61,8 @@ AVAHI_INTERFACES=${AVAHI_INTERFACES:=""}
 AVAHI_IPV6=${AVAHI_IPV6:="no"}
 AVAHI_REFLECTOR=${AVAHI_REFLECTOR:="no"}
 AVAHI_REFLECT_IPV=${AVAHI_REFLECT_IPV:="no"}
+PRE_INIT_HOOK=${PRE_INIT_HOOK:="/root/pre-init-script.sh"} # A path to a script OR a command. This offers the possibility to execute a custom script before the printer gets installed and before CUPS starts.
+
 ```
 
 ### Add printer through ENV

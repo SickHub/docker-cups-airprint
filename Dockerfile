@@ -62,7 +62,8 @@ COPY airprint/ /opt/airprint/
 
 COPY healthcheck.sh /
 COPY start-cups.sh /root/
-RUN chmod +x /healthcheck.sh /root/start-cups.sh
+COPY pre-init-script.sh /root/
+RUN chmod +x /healthcheck.sh /root/start-cups.sh /root/pre-init-script.sh
 HEALTHCHECK --interval=10s --timeout=3s CMD /healthcheck.sh
 
 ENV TZ="GMT" \
