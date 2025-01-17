@@ -56,14 +56,14 @@ RUN apt-get -y install \
 
 # TODO: really needed?
 #COPY mime/ /etc/cups/mime/
-ARG PRE_INIT_HOOK_NAME=pre-init-script.sh
+
 # setup airprint scripts
 COPY airprint/ /opt/airprint/
 
 COPY healthcheck.sh /
 COPY start-cups.sh /root/
-COPY ${PRE_INIT_HOOK_NAME} /root/
-RUN chmod +x /healthcheck.sh /root/start-cups.sh /root/${PRE_INIT_HOOK_NAME}
+COPY pre-init-script.sh /root/
+RUN chmod +x /healthcheck.sh /root/start-cups.sh /root/pre-init-script.sh
 HEALTHCHECK --interval=10s --timeout=3s CMD /healthcheck.sh
 
 ENV TZ="GMT" \
@@ -77,7 +77,6 @@ ENV TZ="GMT" \
     CUPS_IP="" \
     CUPS_ACCESS_LOGLEVEL="config" \
     # example: lpadmin -p Epson-RX520 -D 'my RX520' -m 'gutenprint.5.3://escp2-rx620/expert' -v smb://user:pass@host/Epson-RX520"
-    CUPS_LPADMIN_PRINTER1="" \
-    PRE_INIT_HOOK="/root/${PRE_INIT_HOOK_NAME}"
+    CUPS_LPADMIN_PRINTER1=""
 
 ENTRYPOINT ["/root/start-cups.sh"]
