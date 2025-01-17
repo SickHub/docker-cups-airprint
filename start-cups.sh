@@ -74,15 +74,13 @@ sed -i "s/^.*reflect\-ipv=.*/reflect\-ipv\=${AVAHI_REFLECT_IPV}/" /etc/avahi/ava
 sed -i 's/^.*enable-dbus=.*/enable-dbus=no/' /etc/avahi/avahi-daemon.conf
 
 # Run custom user code before starting any service
-if [ -n "$PRE_INIT_HOOK" ]; then
-  # Check if PRE_INIT_HOOK is a file path
-  if [ -f "$PRE_INIT_HOOK" ]; then
-      echo "Executing script at $PRE_INIT_HOOK"
-      /bin/bash "$PRE_INIT_HOOK"
-  else # or a command
-      echo "Executing command: $PRE_INIT_HOOK"
-      /bin/bash -c "$PRE_INIT_HOOK"
-  fi
+# Check if PRE_INIT_HOOK is a file path
+if [ -f "$PRE_INIT_HOOK" ]; then
+    echo "Executing script at $PRE_INIT_HOOK"
+    /bin/bash "$PRE_INIT_HOOK"
+else # or a command
+    echo "Executing command: $PRE_INIT_HOOK"
+    /bin/bash -c "$PRE_INIT_HOOK"
 fi
 
 # start automatic printer refresh for avahi
