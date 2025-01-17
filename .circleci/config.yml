@@ -76,6 +76,10 @@ aliases:
       - run:
           name: Build and push all platforms
           command: |
+            if [ -n "$(echo "$CIRCLE_BRANCH" | grep "pull")" ]; then
+              echo "Skip doing stuff since this is a PR."
+              return
+            fi
             export PLATFORMS="linux/amd64,linux/arm/v7,linux/arm64"
             export REPO=drpsychick
             export IMAGE_NAME=airprint-bridge
