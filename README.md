@@ -234,6 +234,7 @@ docker network create --driver=qnet --ipam-driver=qnet --ipam-opt=iface=bond0 --
 this is based on awesome work of others
 * https://hub.docker.com/r/jstrader/airprint-cloudprint/
 * https://github.com/tjfontaine/airprint-generate
+* Debian Wiki with notes on limitations of AirPrint support in CUPS: https://wiki.debian.org/CUPSAirPrint
 
 # Contribute
 * I'm happy for any feedback! Create issues, dicussions, ... feel free and involve!
