@@ -14,5 +14,12 @@
       ],
       "versioningTemplate": "semver"
     }
-  ]
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "platformAutomerge": true
 }
