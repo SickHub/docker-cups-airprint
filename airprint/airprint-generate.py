@@ -63,7 +63,6 @@ XML_TEMPLATE = """<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 #TODO XXX FIXME
 #<txt-record>ty=AirPrint Ricoh Aficio MP 6000</txt-record>
 #<txt-record>Binary=T</txt-record>
-#<txt-record>Duplex=T</txt-record>
 #<txt-record>Copies=T</txt-record>
 
 
@@ -109,10 +108,10 @@ class AirPrintGenerate(object):
         self.prefix = prefix
         self.adminurl = adminurl
         self.descName = descName
-        
+
         if self.user:
             cups.setUser(self.user)
-    
+
     def generate(self):
         if not self.host:
             conn = cups.Connection()
@@ -120,9 +119,9 @@ class AirPrintGenerate(object):
             if not self.port:
                 self.port = 631
             conn = cups.Connection(self.host, self.port)
-            
+
         printers = conn.getPrinters()
-        
+
         for p, v in printers.items():
             if v['printer-is-shared']:
                 attrs = conn.getPrinterAttributes(p)
@@ -132,7 +131,7 @@ class AirPrintGenerate(object):
                 tree.parse(StringIO(XML_TEMPLATE.replace('\n', '').replace('\r', '').replace('\t', '')))
 
                 name = tree.find('name')
-		
+
                 if self.descName:
                    name.text = '%s' % (v['printer-info'])
                 else:
@@ -154,17 +153,18 @@ class AirPrintGenerate(object):
                   rp = uri.path
                 else:
                   rp = uri[2]
-                
+
+
                 re_match = re.match(r'^//(.*):(\d+)(/.*)', rp)
                 if re_match:
                   rp = re_match.group(3)
-                
+
                 #Remove leading slashes from path
                 #TODO XXX FIXME I'm worried this will match broken urlparse
                 #results as well (for instance if they don't include a port)
                 #the xml would be malform'd either way
                 rp = re.sub(r'^/+', '', rp)
-                
+
                 path = Element('txt-record')
                 path.text = 'rp=%s' % (rp)
                 service.append(path)
@@ -185,6 +185,25 @@ class AirPrintGenerate(object):
                     max_paper = Element('txt-record')
                     max_paper.text = 'PaperMax=legal-A4'
                     service.append(max_paper)
+
+                # URF reports printer capabilities for AirPrint
+                # string should contains "DM[123]" to indicate duplex capability
+                if 'urf-supported' in attrs:
+                    urf = Element('txt-record')
+                    delimiter = ','
+                    urf_attr_join_str = delimiter.join(attrs['urf-supported'])
+                    urf.text = 'URF=%s' % (urf_attr_join_str)
+                    service.append(urf)
+
+                if 'sides-supported' in attrs and any(['two-sided' in element for element in attrs['sides-supported']]):
+                    duplex = Element('txt-record')
+                    duplex.text = 'Duplex=T'
+                    service.append(duplex)
+                    # hardcode URF string in case it is not set, see https://wiki.debian.org/CUPSAirPrint
+                    if not 'urf' in locals():
+                        urf = Element('txt-record')
+                        urf.text = 'URF=DM3'
+                        service.append(urf)
 
                 product = Element('txt-record')
                 product.text = 'product=(GPL Ghostscript)'
@@ -231,12 +250,12 @@ class AirPrintGenerate(object):
                     admin = Element('txt-record')
                     admin.text = 'adminurl=%s' % (v['printer-uri-supported'])
                     service.append(admin)
-                
+
                 fname = '%s%s.service' % (self.prefix, p)
-                
+
                 if self.directory:
                     fname = os.path.join(self.directory, fname)
-                
+
                 f = open(fname, 'w')
 
                 if etree:
@@ -248,7 +267,7 @@ class AirPrintGenerate(object):
                     doc.insertBefore(dt, doc.documentElement)
                     doc.writexml(f)
                 f.close()
-                
+
                 if self.verbose:
                     sys.stderr.write('Created: %s%s' % (fname, os.linesep))
 
@@ -273,18 +292,18 @@ if __name__ == '__main__':
         help="Include the printer specified uri as the adminurl")
     parser.add_option('-x', '--desc', action="store_true", dest="descName",
         help="Use CUPS description as the printer display name")
-    
+
     (options, args) = parser.parse_args()
-    
+
     # TODO XXX FIXME -- if cups login required, need to add
     # air=username,password
     from getpass import getpass
     cups.setPasswordCB(getpass)
-    
+
     if options.directory:
         if not os.path.exists(options.directory):
             os.mkdir(options.directory)
-    
+
     apg = AirPrintGenerate(
         user=options.username,
         host=options.hostname,
@@ -295,5 +314,5 @@ if __name__ == '__main__':
         adminurl=options.adminurl,
         descName=options.descName
     )
-    
+
     apg.generate()
