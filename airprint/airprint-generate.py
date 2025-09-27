@@ -154,7 +154,6 @@ class AirPrintGenerate(object):
                 else:
                   rp = uri[2]
 
-
                 re_match = re.match(r'^//(.*):(\d+)(/.*)', rp)
                 if re_match:
                   rp = re_match.group(3)
