@@ -121,7 +121,7 @@ cups_ip=192.168.2.100
 cups_name=cups.home
 docker create --name cups-test --net=localnet --ip=$cups_ip --hostname=$cups_name \
   --memory=100M -p 137:137/udp -p 139:139/tcp -p 445:445/tcp -p 631:631/tcp -p 5353:5353/udp \
-  -e CUPS_ADMIN_USER=admin -e CUPS_ADMIN_PASSWORD_PASSWORD=secr3t \
+  -e CUPS_ADMIN_USER=admin -e CUPS_ADMIN_PASSWORD=secr3t \
   drpsychick/airprint-bridge:latest
 
 # start it
