@@ -1,0 +1,45 @@
+# example working with TrueNAS 25.04 custom app
+# should also work for other systems using docker-compose
+networks:
+  airprint-macvlan:
+    driver: macvlan
+    driver_opts:
+      parent: br0
+    ipam:
+      config:
+        - gateway: 192.168.1.1
+          ip_range: 192.168.1.10/32
+          subnet: 192.168.1.0/24
+services:
+  airprint:
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1024M
+    environment:
+      AVAHI_IPV6: "yes"
+      CUPS_ADMIN_USER: admin
+      CUPS_ADMIN_PASSWORD: secr3t
+      CUPS_LPADMIN_PRINTER1: >-
+        lpadmin -p TestPrinter -D 'Test Printer Description' -m
+        'gutenprint.5.3://oki-b430/expert' -o PageSize=A4 -v ipp://myhost/printer
+      CUPS_LPADMIN_PRINTER1_ACCEPT: cupsaccept TestPrinter
+      CUPS_LPADMIN_PRINTER1_ENABLE: cupsenable TestPrinter
+      CUPS_REMOTE_ADMIN: "no"
+      CUPS_WEBINTERFACE: "no"
+      NVIDIA_VISIBLE_DEVICES: void
+      TZ: Europe/Berlin
+    group_add:
+      - 568
+    hostname: airprint
+    image: drpsychick/airprint-bridge:latest
+    networks:
+      airprint-macvlan:
+        ipv4_address: 192.168.1.10
+    platform: linux/amd64
+    privileged: False
+    pull_policy: missing
+    restart: on-failure:5
+    stdin_open: False
+    tty: False
