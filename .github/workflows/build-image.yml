@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: [master]
   schedule:
-    # weekly rebuild so base images and dependencies stay current
-    - cron: '0 6 * * 1'
+    # monthly rebuild on the 1st so base images and dependencies stay current
+    - cron: '0 6 1 * *'
   workflow_dispatch:
 
 env:
@@ -38,7 +38,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
+          token: ${{ secrets.DOCKER_TOKEN }}
         if: github.event_name != 'pull_request'
 
       - name: Extract metadata (tags, labels)
@@ -50,6 +50,36 @@ jobs:
             type=raw,value=${{ matrix.ubuntu_version }}
             type=raw,value=${{ matrix.ubuntu_version }}-latest
             type=sha
+            type=raw,value=${{ matrix.ubuntu_version }}-{{date 20060102}}
+
+      - name: Build single-platform image for testing
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          load: true
+          tags: ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ matrix.ubuntu_version }}
+          build-args: |
+            UBUNTU_VERSION=${{ matrix.ubuntu_version }}
+
+      - name: Test CUPS health
+        run: |
+          docker create --name airprint-test \
+            -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
+            ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ matrix.ubuntu_version }}
+          docker start airprint-test
+          echo "Waiting for CUPS to start..."
+          docker exec airprint-test bash -c \
+            'while ! cupsctl -h localhost --share-printers 2>/dev/null; do printf "."; sleep 1; done'
+          echo "ok"
+          echo "Waiting for container health..."
+          while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' | grep '(healthy)')" ]; do 
+            printf "."; sleep 1; 
+          done
+          echo "ok"
+          docker ps -f name='airprint-test'
+          docker logs airprint-test
+          docker exec airprint-test ls -la /etc/cups/
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
