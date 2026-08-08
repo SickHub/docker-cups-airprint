@@ -43,7 +43,7 @@ jobs:
 
       - name: Extract metadata (tags, labels)
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
           tags: |
@@ -56,9 +56,10 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          image: ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
           platforms: linux/amd64
           load: true
-          tags: ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ matrix.ubuntu_version }}
+          tags: ${{ matrix.ubuntu_version }}
           build-args: |
             UBUNTU_VERSION=${{ matrix.ubuntu_version }}
 
