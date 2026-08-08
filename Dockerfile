@@ -13,7 +13,7 @@ RUN apt-get -y install \
 RUN git clone https://github.com/eLtMosen/rastertokpsl-re.git
 WORKDIR /rastertokpsl-re
 RUN git checkout cbac20651fe1a40ad258397dc055254b92490054
-RUN cmake -B_build -H. && cmake --build _build/
+RUN cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -B_build -H. && cmake --build _build/
 
 FROM ubuntu:$UBUNTU_VERSION as arm64-base
 FROM ubuntu:$UBUNTU_VERSION as arm-base
