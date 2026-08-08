@@ -50,7 +50,7 @@ jobs:
             type=raw,value=${{ matrix.ubuntu_version }}
             type=raw,value=${{ matrix.ubuntu_version }}-latest
             type=sha
-            type=raw,value=${{ matrix.ubuntu_version }}-{{date 20060102}}
+            type=raw,value=${{ matrix.ubuntu_version }}-{{date 'YYYYMMDD'}}
 
       - name: Build single-platform image for testing
         uses: docker/build-push-action@v6
