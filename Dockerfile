@@ -13,6 +13,21 @@ RUN apt-get -y install \
 RUN git clone https://github.com/eLtMosen/rastertokpsl-re.git
 WORKDIR /rastertokpsl-re
 RUN git checkout cbac20651fe1a40ad258397dc055254b92490054
+RUN cat > /tmp/sigset_compat.c << 'SIGSET_EOF'
+#if defined(__linux__) && defined(__GLIBC__)
+#include <signal.h>
+#ifndef sigset
+static inline int sigset(int sig, void (*disp)(int)) {
+    struct sigaction sa;
+    sa.sa_handler = disp;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    return sigaction(sig, &sa, (struct sigaction *)0);
+}
+#endif
+#endif
+SIGSET_EOF
+RUN sed -i '1r /tmp/sigset_compat.c' src/rastertokpsl.c
 RUN cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -B_build -H. && cmake --build _build/
 
 FROM ubuntu:$UBUNTU_VERSION as arm64-base
