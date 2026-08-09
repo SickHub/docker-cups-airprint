@@ -97,8 +97,30 @@ sleep 1
 
 ### configure CUPS (background subshell, wait till cups http is running...)
 (
-until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do echo -n "."; sleep 1; done;
-until cupsctl --debug-logging > /dev/null 2>&1; do echo -n "."; sleep 1; done;
+  # Wait for CUPS to be ready (up to 120 seconds)
+  COUNT=0
+  until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do
+    echo -n "."
+    sleep 1
+    COUNT=$((COUNT + 1))
+    if [ "$COUNT" -ge 120 ]; then
+      echo ""
+      echo "ERROR: CUPS did not start within 120 seconds. Exiting."
+      exit 1
+    fi
+  done
+  # Wait for debug-logging to be enabled (up to 60 seconds)
+  COUNT=0
+  until cupsctl --debug-logging > /dev/null 2>&1; do
+    echo -n "."
+    sleep 1
+    COUNT=$((COUNT + 1))
+    if [ "$COUNT" -ge 60 ]; then
+      echo ""
+      echo "ERROR: Failed to enable debug-logging within 60 seconds. Exiting."
+      exit 1
+    fi
+  done
 echo "--> CUPS ready"
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && cupsctl --debug-logging || cupsctl --no-debug-logging
 [ "yes" = "${CUPS_REMOTE_ADMIN}" ] && cupsctl --remote-admin --remote-any || cupsctl --no-remote-admin
