@@ -70,9 +70,8 @@ jobs:
           docker start airprint-test
           echo "Waiting for CUPS to start..."
           # Wait up to 120 seconds for CUPS to become ready
-          # Use the CUPS Unix socket (PeerCred auth) instead of HTTP (requires credentials)
           SECONDS=0
-          while ! CUPS_SERVER=/run/cups/cups.sock cupsctl --share-printers 2>/dev/null; do
+          while ! docker exec airprint-test /healthcheck.sh 2>/dev/null; do
             printf "."
             sleep 1
             if [ "$SECONDS" -ge 120 ]; then
