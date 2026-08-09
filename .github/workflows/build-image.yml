@@ -38,7 +38,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USER }}
-          token: ${{ secrets.DOCKER_TOKEN }}
+          password: ${{ secrets.DOCKER_TOKEN }}
         if: github.event_name != 'pull_request'
 
       - name: Extract metadata (tags, labels)
