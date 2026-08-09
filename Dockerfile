@@ -46,7 +46,6 @@ ARG UBUNTU_VERSION
 RUN apt-get -y install \
       cups-daemon \
       cups-client \
-      cups-pdf \
       printer-driver-all \
       openprinting-ppds \
       hpijs-ppds \
@@ -63,6 +62,9 @@ RUN apt-get -y install \
       python3-cups \
       samba-client \
       cups-tea4cups \
+    # cups-pdf was dropped from the archive in newer Ubuntu releases;
+    # install it when available and skip it otherwise (CUPS >= 2.4 ships its own pdf backend).
+    && (apt-get install -y cups-pdf || printf 'cups-pdf not available, skipping\n') \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
