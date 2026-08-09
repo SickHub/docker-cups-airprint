@@ -53,15 +53,13 @@ jobs:
             type=raw,value=${{ matrix.ubuntu_version }}-{{date 'YYYYMMDD'}}
 
       - name: Build single-platform image for testing
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          image: ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
-          platforms: linux/amd64
-          load: true
-          tags: ${{ matrix.ubuntu_version }}
-          build-args: |
-            UBUNTU_VERSION=${{ matrix.ubuntu_version }}
+        run: |
+          docker buildx build \
+            --platform linux/amd64 \
+            --build-arg UBUNTU_VERSION=${{ matrix.ubuntu_version }} \
+            -t ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ matrix.ubuntu_version }} \
+            --load \
+            .
 
       - name: Test CUPS health
         run: |
