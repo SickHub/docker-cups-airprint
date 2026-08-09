@@ -62,18 +62,39 @@ jobs:
             .
 
       - name: Test CUPS health
+        timeout-minutes: 5
         run: |
           docker create --name airprint-test \
             -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
             ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ matrix.ubuntu_version }}
           docker start airprint-test
           echo "Waiting for CUPS to start..."
-          docker exec airprint-test bash -c \
-            'while ! cupsctl -h localhost --share-printers 2>/dev/null; do printf "."; sleep 1; done'
+          # Wait up to 120 seconds for CUPS to become ready
+          SECONDS=0
+          while ! cupsctl -h localhost --share-printers 2>/dev/null; do
+            printf "."
+            sleep 1
+            if [ "$SECONDS" -ge 120 ]; then
+              echo ""
+              echo "ERROR: CUPS did not start within 120 seconds."
+              docker logs airprint-test
+              exit 1
+            fi
+          done
           echo "ok"
           echo "Waiting for container health..."
-          while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' | grep '(healthy)')" ]; do 
-            printf "."; sleep 1; 
+          # Wait up to 120 seconds for the container to become healthy
+          SECONDS=0
+          while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' | grep '(healthy)')" ]; do
+            printf "."
+            sleep 1
+            if [ "$SECONDS" -ge 120 ]; then
+              echo ""
+              echo "ERROR: Container did not become healthy within 120 seconds."
+              docker logs airprint-test
+              docker ps -f name='airprint-test'
+              exit 1
+            fi
           done
           echo "ok"
           docker ps -f name='airprint-test'
