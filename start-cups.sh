@@ -24,6 +24,9 @@ AVAHI_REFLECT_IPV=${AVAHI_REFLECT_IPV:="no"}
 PRE_INIT_HOOK=${PRE_INIT_HOOK:="/root/pre-init-script.sh"} 
 [ "yes" = "${CUPS_ENV_DEBUG}" ] && export -n
 
+### set base auth for CUPS client tools (cupsctl, lpadmin, etc.)
+export CUPSD_BASE_AUTH="Basic $(printf '%s' "${CUPS_ADMIN_USER}:${CUPS_ADMIN_PASSWORD}" | base64)"
+
 ### check for valid input
 if printf '%s' "${CUPS_ADMIN_PASSWORD}" | LC_ALL=C grep -q '[^ -~]\+'; then
   RETURN=1; REASON="CUPS password contain illegal non-ASCII characters, aborting!"; exit;
