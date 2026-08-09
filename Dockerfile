@@ -38,7 +38,9 @@ RUN mkdir -p /usr/share/cups/model/Kyocera
 COPY --from=kyocera-builder /rastertokpsl-re/*.ppd /usr/share/cups/model/Kyocera/
 
 FROM ${TARGETARCH}-base
-MAINTAINER drpsychick@drsick.net
+LABEL org.opencontainers.image.authors="drpsychick@drsick.net"
+LABEL org.opencontainers.image.description="Simple AirPrint bridge for local printers via CUPS and Avahi"
+LABEL org.opencontainers.image.source="https://github.com/SickHub/docker-cups-airprint"
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y upgrade
