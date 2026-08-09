@@ -27,6 +27,7 @@ static inline int sigset(int sig, void (*disp)(int)) {
 #endif
 #endif
 SIGSET_PATCH_EOF
+RUN sed -i 's/target_link_libraries(rastertokpsl-re ${CUPS_LIB} ${CUPSIMAGE_LIB})/target_link_libraries(rastertokpsl-re ${CUPS_LIB} ${CUPSIMAGE_LIB} m dl)/' src/CMakeLists.txt
 RUN cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -B_build -H. && cmake --build _build/
 
 FROM ubuntu:$UBUNTU_VERSION as arm64-base
