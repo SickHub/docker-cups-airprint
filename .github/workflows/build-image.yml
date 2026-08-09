@@ -53,7 +53,7 @@ jobs:
             type=raw,value=${{ matrix.ubuntu_version }}-{{date 'YYYYMMDD'}}
 
       - name: Build single-platform image for testing
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           image: ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
@@ -83,7 +83,7 @@ jobs:
           docker exec airprint-test ls -la /etc/cups/
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           platforms: linux/amd64,linux/arm/v7,linux/arm64
