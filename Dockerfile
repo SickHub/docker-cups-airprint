@@ -14,7 +14,7 @@ RUN git clone https://github.com/eLtMosen/rastertokpsl-re.git
 WORKDIR /rastertokpsl-re
 RUN git checkout cbac20651fe1a40ad258397dc055254b92490054
 RUN cat >> src/rastertokpsl.h << 'SIGSET_PATCH_EOF'
-#if defined(__linux__) && defined(__GLIBC__) && __GLIBC__ > 2
+#if defined(__linux__) && defined(__GLIBC__) && (__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 32))
 #include <signal.h>
 #ifndef sigset
 static inline int sigset(int sig, void (*disp)(int)) {
