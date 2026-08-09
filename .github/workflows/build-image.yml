@@ -1,0 +1,94 @@
+name: Build image
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    # monthly rebuild on the 1st so base images and dependencies stay current
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: airprint-bridge
+
+jobs:
+  build:
+    name: Build (${{ matrix.ubuntu_version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ubuntu_version:
+          - latest
+          - noble
+          - jammy
+          - focal
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          token: ${{ secrets.DOCKER_TOKEN }}
+        if: github.event_name != 'pull_request'
+
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=${{ matrix.ubuntu_version }}
+            type=raw,value=${{ matrix.ubuntu_version }}-latest
+            type=sha
+            type=raw,value=${{ matrix.ubuntu_version }}-{{date 'YYYYMMDD'}}
+
+      - name: Build single-platform image for testing
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          image: ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
+          platforms: linux/amd64
+          load: true
+          tags: ${{ matrix.ubuntu_version }}
+          build-args: |
+            UBUNTU_VERSION=${{ matrix.ubuntu_version }}
+
+      - name: Test CUPS health
+        run: |
+          docker create --name airprint-test \
+            -e CUPS_LPADMIN_PRINTER1="lpadmin -p test -D test -m 'lsb/usr/cups-pdf/CUPS-PDF_opt.ppd' -v cups-pdf:/" \
+            ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ matrix.ubuntu_version }}
+          docker start airprint-test
+          echo "Waiting for CUPS to start..."
+          docker exec airprint-test bash -c \
+            'while ! cupsctl -h localhost --share-printers 2>/dev/null; do printf "."; sleep 1; done'
+          echo "ok"
+          echo "Waiting for container health..."
+          while [ -z "$(docker ps -f name='airprint-test' --format '{{ .Status }}' | grep '(healthy)')" ]; do 
+            printf "."; sleep 1; 
+          done
+          echo "ok"
+          docker ps -f name='airprint-test'
+          docker logs airprint-test
+          docker exec airprint-test ls -la /etc/cups/
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            UBUNTU_VERSION=${{ matrix.ubuntu_version }}
