@@ -99,7 +99,7 @@ sleep 1
 (
   # Wait for CUPS to be ready (up to 120 seconds)
   COUNT=0
-  until cupsctl -h localhost:631 --share-printers > /dev/null 2>&1; do
+  until cupsctl -h localhost:631 > /dev/null 2>&1; do
     echo -n "."
     sleep 1
     COUNT=$((COUNT + 1))
